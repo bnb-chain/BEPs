@@ -31,17 +31,21 @@ BEP-2 Proposal describes a common set of rules for token management within the B
 - What information makes a token on Binance Chain
 - What actions can be performed on a token on Binance Chain
 
-## 3.  Motivation
+## 3.  Status
+
+This BEP is under implementation. 
+
+## 4.  Motivation
 
 Design and issue asset on the Binance Chain, as the basic economic foundations of the blockchain.
 
-## 4.  Specification
+## 5.  Specification
 
-### 4.1  Native Token on Binance Chain: BNB
+### 5.1  Native Token on Binance Chain: BNB
 
 The Binance Token, BNB, is the native asset on Binance Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on Binance Chain. BNB was an ERC20 token, but after Binance Chain is live, all BNB ERC20 tokens are swapped for BNB token on Binance Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new Binance Chain native tokens will be sent to their new addresses.
 
-### 4.2 Token Properties
+### 5.2  Token Properties
 
 - Source Address: Source Address is the owner of the issued token.
 
@@ -53,9 +57,9 @@ The Binance Token, BNB, is the native asset on Binance Chain and created within 
 
 - Mintable: Mintable means whether this token can be minted in the future, which would increase the total supply of the token
 
-###  4.3 Token Management Operation
+###  5.3 Token Management Operation
 
-#### 4.3.1  Issue token
+#### 5.3.1  Issue token
 
 Issuing token is to create a new token on Binance Chain. The new token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
 
@@ -87,7 +91,7 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 - Validators will verify the constraints on total supply and symbol and deduct the fee from issuer’s account
 - New token’s symbol is generated based on the transaction hash. It is added to the issuer’s address and token info is saved on the Binance Chain
 
-#### 4.3.2  Transfer Tokens
+#### 5.3.2  Transfer Tokens
 
 Transfer transaction is to send tokens from input addresses to output addresses.
 
@@ -127,7 +131,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 - Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators. 
 - Add the tokens to the destination addresses
 
-#### 4.3.3  Freeze Tokens
+#### 5.3.3  Freeze Tokens
 
 A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.  
 
@@ -146,7 +150,7 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 - Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.  
 - This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
 
-#### 4.3.4  Unfreeze Tokens
+#### 5.3.4  Unfreeze Tokens
 
 Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again. 
 
@@ -165,7 +169,7 @@ Unfreezing is to unlock some of the frozen tokens in the user's account and make
 - Validators will verify the transaction initiator’s frozen balance is no less than the required amount. The fee will be deducted from the address of the transaction source. 
 - This amount of token will be moved from frozen to balance in the transaction initiator’s address.
 
-#### 4.3.5 Mint Tokens
+#### 5.3.5 Mint Tokens
 
 Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner. 
 
@@ -184,7 +188,7 @@ Mint transaction is to increase the total supply of a mintable token. The transa
 - Validators will verify the constraints on whether the token is mintable and whether the bumped total supply will pass the limit. Then increase its total supply and deduct the fee from the address of the token owner
 - Newly minted tokens are added to the address of the token owner and token info is updated on the Binance Chain
 
-#### 4.3.6 Burn Tokens
+#### 5.3.6 Burn Tokens
 
 Burn transaction is to reduce the total supply of a token. The transaction initiator must be the token owner. 
 
@@ -203,6 +207,6 @@ Burn transaction is to reduce the total supply of a token. The transaction initi
 - Validators will verify the constraints if the token’s supply is no less than the required amount, and then it decreases the total supply and deducts the fee from the address of the token owner
 - Burned tokens are deducted from the address of the token owner and token info is updated on the Binance Chain
 
-## 5. License
+## 6. License
 
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
