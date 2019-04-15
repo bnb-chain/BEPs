@@ -4,19 +4,19 @@
 - [BEP-2: Tokens on Binance Chain](#bep-2--tokens-on-binance-chain)
   * [1.  Summary](#1--summary)
   * [2.  Abstract](#2--abstract)
-  * [3.  Motivation](#3--motivation)
-  * [4.  Specification](#4--specification)
-    + [4.1  Native Token on Binance Chain: BNB](#41--native-token-on-binance-chain--bnb)
-    + [4.2 Token Properties](#42-token-properties)
-    + [4.3 Token Management Operation](#43-token-management-operation)
-      - [4.3.1  Issue token](#431--issue-token)
-      - [4.3.2  Transfer Tokens](#432--transfer-tokens)
-      - [4.3.3  Freeze Tokens](#433--freeze-tokens)
-      - [4.3.4  Unfreeze Tokens](#434--unfreeze-tokens)
-      - [4.3.5 Mint Tokens](#435-mint-tokens)
-      - [4.3.6 Burn Tokens](#436-burn-tokens)
-  * [5. License](#5-license)
-
+  * [3.  Status](#3--status)
+  * [4.  Motivation](#4--motivation)
+  * [5.  Specification](#5--specification)
+    + [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain--bnb)
+    + [5.2 Token Properties](#52-token-properties)
+    + [5.3 Token Management Operation](#53-token-management-operation)
+      - [5.3.1 Issue token](#531-issue-token)
+      - [5.3.2 Transfer Tokens](#532-transfer-tokens)
+      - [5.3.3  Freeze Tokens](#533--freeze-tokens)
+      - [5.3.4  Unfreeze Tokens](#534--unfreeze-tokens)
+      - [5.3.5 Mint Tokens](#535-mint-tokens)
+      - [5.3.6 Burn Tokens](#536-burn-tokens)
+  * [6. License](#6-license)
 
 
 
@@ -41,11 +41,11 @@ Design and issue asset on the Binance Chain, as the basic economic foundations o
 
 ## 5.  Specification
 
-### 5.1  Native Token on Binance Chain: BNB
+### 5.1 Native Token on Binance Chain: BNB
 
 The Binance Token, BNB, is the native asset on Binance Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on Binance Chain. BNB was an ERC20 token, but after Binance Chain is live, all BNB ERC20 tokens are swapped for BNB token on Binance Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new Binance Chain native tokens will be sent to their new addresses.
 
-### 5.2  Token Properties
+### 5.2 Token Properties
 
 - Source Address: Source Address is the owner of the issued token.
 
@@ -59,7 +59,7 @@ The Binance Token, BNB, is the native asset on Binance Chain and created within 
 
 ###  5.3 Token Management Operation
 
-#### 5.3.1  Issue token
+#### 5.3.1 Issue token
 
 Issuing token is to create a new token on Binance Chain. The new token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
 
@@ -91,7 +91,7 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 - Validators will verify the constraints on total supply and symbol and deduct the fee from issuer’s account
 - New token’s symbol is generated based on the transaction hash. It is added to the issuer’s address and token info is saved on the Binance Chain
 
-#### 5.3.2  Transfer Tokens
+#### 5.3.2 Transfer Tokens
 
 Transfer transaction is to send tokens from input addresses to output addresses.
 
