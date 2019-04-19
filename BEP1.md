@@ -2,7 +2,7 @@
 
 
 - [BEP 1: Purpose and Guidelines](#bep-1--purpose-and-guidelines)
-  * [1.  What is BEP?](#1--what-is-bep-)
+  * [1.  What is BEP?](#1--what-is-bep)
   * [2.  BEP Rationale](#2--bep-rationale)
   * [3.  BEP Types](#3--bep-types)
   * [4.  BEP Workflow](#4--bep-workflow)
