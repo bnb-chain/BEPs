@@ -1,13 +1,13 @@
 # BEP-2: Tokens on Binance Chain
 
 
-- [BEP-2: Tokens on Binance Chain](#bep-2--tokens-on-binance-chain)
+- [BEP-2: Tokens on Binance Chain](#bep-2-tokens-on-binance-chain)
   * [1.  Summary](#1--summary)
   * [2.  Abstract](#2--abstract)
   * [3.  Status](#3--status)
   * [4.  Motivation](#4--motivation)
   * [5.  Specification](#5--specification)
-    + [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain--bnb)
+    + [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain-bnb)
     + [5.2 Token Properties](#52-token-properties)
     + [5.3 Token Management Operation](#53-token-management-operation)
       - [5.3.1 Issue token](#531-issue-token)
