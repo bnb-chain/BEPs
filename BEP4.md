@@ -1,13 +1,13 @@
 # BEP-4: 256-bit Tokens
 
-- [BEP-4: Improved Tokens on Binance Chain](#bep-2-tokens-on-binance-chain)
+- [BEP-4: Improved Tokens on Binance Chain](#bep-4-256-bit-tokens)
   * [1.  Summary](#1--summary)
   * [2.  Abstract](#2--abstract)
   * [3.  Status](#3--status)
   * [4.  Motivation](#4--motivation)
   * [5.  Specification](#5--specification)
     + [5.1  Drop signed integers in favor of unsigned integers](#51--drop-signed-integers-in-favor-of-unsigned-integers)
-    + [5.2  Extend existing balances, amounts, and supplies to 256 bits](#52--extend-existing-balances-amounts-and-supplies-to-256-bites)
+    + [5.2  Extend existing balances, amounts, and supplies to 256 bits](#52--extend-existing-balances-amounts-and-supplies-to-256-bits)
     + [5.3  Modified Token Properties](#53--modified-token-properties)
     + [5.4  Modified Token Operations](#54--modified-token-operations)
     + [5.5  Modified Exchange Operations](#55--modified-exchange-operations)
