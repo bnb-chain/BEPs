@@ -29,11 +29,17 @@ This BEP is a WIP.
 ## 4.  Motivation
 
 The int64 type used in BEP2 is insufficient to handle existing use cases.
-For example, Tether currently has a supply of 2,834,358,182.
-To support redemption precise to one cent, Tether would need to issue 100 tokens per dollar.
-However, the base unit for issuance and redemption is 1e8, or 100,000,000.
-With just 63 bits, the maximium number of tokens Tether could issue is 90,000,000,000, or 900,000,000 dollars.
-Because Binance Chain cannot handle even a third of Tether's existing supply, it should improve its token capacity.
+The built-in base unit decimalization is 1e8, or 100,000,000.
+This allows slightly more then 92 billion tokens, though the protocol currently limits total supply to just 90 billion.
+However, several top cryptocurrencies already have supplies exceeding that limit.
+
+* 119 billion Dogecoin 
+* 212 billion BitTorrent 
+* 184 billion Bytecoin 
+* 756 Billion KIN
+
+It is also likely that many future tokens will need this entropy.
+Because Binance Chain cannot handle many existing tokens, and many future tokens, it should increase the supply cap.
 Ethereum uses 256 bits for its word size, and several tokens Binance Chain would like to support would be from Ethereum.
 While 128 bits would satisfy the immediate concern, supporting 256 bits would reduce the likelihood Binance Chain would need to increase the entropy again.
 
