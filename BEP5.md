@@ -1,5 +1,6 @@
 # BEP-5 Token Resources [IMPROVEMENT]
 
+Adding standardised Token Resources to BEP2-based Binance Chain tokens. 
 
 - BEP-5 Token Resources
   * [1.  Summary](#1--summary)
