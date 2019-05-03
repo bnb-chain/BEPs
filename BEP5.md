@@ -30,8 +30,6 @@ The BEP-5 Proposal describes a common set of rules for adding token resources to
 - What information can be added to a BEP-2 Token (BEP-5 Token Resource)
 - What actions can be performed to manage BEP-5 Token Resources on Binance Chain
 
-
-
 ## 3.  Status
 
 This BEP is a work in progress (WIP).
@@ -105,10 +103,11 @@ The following are the implementation standards to allow wallets and dapps to sta
 There are four mandatory data resources to be returned to be compatible with BEP-5, specified as `required`. The rest are optional but will enhance the project's view data in dapps.
 
 **Required**
-```
+
+```json
 {
-  "description": "Token is a decentralised project that is building the future of payments"
-  "website": "https://token.io"
+  "description": "Token is a decentralised project that is building the future of payments",
+  "website": "https://token.io",
   "icon": "https://token.io/icon.png"
 }
 ```
@@ -117,7 +116,7 @@ Description:
 - Max 200 character string.
 
 Website:
-- A url that points to the project website
+- A URL that points to the project website
 
 Icon:
 - A URL which returns a square image file
@@ -126,6 +125,7 @@ Icon:
 - Smaller files are not preferred
 
 **Optional**
+
 Optional data is specified under Contact, Media and Other
 - Anything can be added to the data
 - URLs, strings or numbers are preferred
@@ -134,6 +134,8 @@ Optional data is specified under Contact, Media and Other
 ### 5.4 Hosting
 
 The JSON Resource can be hosted and maintained anywhere, such as github or on the token project's website.
+
+The file to be returned is a json file such as `token_data.json`
 
 
 ###  5.5 Token Resource Management
@@ -155,6 +157,7 @@ The data in the URI field can be updated by the token owner at any time and will
 
 
 **Update Process:**
+
 URIs can be updated by the token issuer at any time.
 
 - Issuer signs an on-chain transaction that specifies the new URI using the Binance Chain SDK API, RPC or CLI.
@@ -167,11 +170,13 @@ Example of CLI command:
 #### 5.5.2 Handling Token Resources
 
 **Retrieving Resources:**
+
 Once the URI is updated for the token and the resource is being hosting the required data can then be queried by the wallet or DAPP, such as `token.icon` or `token.media.logo` which will return a URL to retrieve the hosted files.
 
 The DAPP developer can then choose to display the resources as required.
 
 **Invalid Resources:**
+
 If the project team do not add a URI, or the resource can not be successfully retrieved then the DAPP will query for the default Binance Chain resource placeholder.
 
 #### 5.5.3 Placeholder URI
