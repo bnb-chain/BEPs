@@ -21,7 +21,7 @@
 
 ## 1.  Summary
 
-This BEP describes an improvement to the [BEP-2 Token standard](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) to add resources for token management on the Binance Chain.
+This BEP describes an improvement to the [BEP-2 Token standard](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) to add resources for tokens on Binance Chain.
 
 ## 2.  Abstract
 
