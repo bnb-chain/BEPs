@@ -1,4 +1,4 @@
-# BEP-5: Delist Trading Pairs
+# BEP-6: Delist Trading Pairs
 
 ## 1. Summary
 
