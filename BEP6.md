@@ -18,23 +18,51 @@ To accelerate dex TPS and make the community healthier, some tokens with bad rep
 
 ## 5. Specification
 
-To delist a trading pair, users just need to to send a `DelistTradingPair` proposal. In the proposal description field, users should specify which trading pairs will be delisted and why to do this. If the proposal is passed before the time limit, then target trading pairs will be delisted and all related orders will be cancelled.
+### 5.1 `DelistTradingPair` proposal
 
-### 5.1 Send proposal
+**Msg Parameters**:
 
-Proposal should contain:
-1. Trading pair to delist: base asset and quote asset
-2. Justification: why we need to delist this token.
+|                 |  Type           | Description          |
+| --------------- | --------------- | -------------------- |
+|  Title          | string          | Title of the proposal |
+|  Description    | string          | Description of the proposal |
+|  ProposalType   | ProposalKind    | Type of proposal |
+|  Proposer       | Bech32_address  | Address of the proposer |
+|  InitialDeposit | Coins           | Initial deposit paid by sender. Must be strictly positive. |
+|  VotingPeriod   | int             | Length of the voting period |
+
+Parameters to specify which trading pair to delist and why to do this. 
+
+|                     |  Type    | Description          | json field |
+| ------------------- | -------- | -------------------- | ---------- |
+|  BaseAssetSymbol    | string   | base asset symbol    | base_asset_symbol |
+|  QuoteAssetSymbol   | string   | quote asset symbol   | quote_asset_symbol| 
+|  Justification      | string   | the reason to delist trading pair | justification|
+
+The above data structures will be json marshaled to string and assigned to proposal `Description` field.
 
 ### 5.2 Delist trading pairs and expire all orders in breathe block
 We assume that the ideal proposal life cycle is like this:
-- The deposit period is 2 days
-- The voting period is 14 days
-- The delisting operation will happen 3 days after proposal is passed. 
+```
++-----------------+       +----------------+        +---------------+        +--------------+       +--------+
+|                 |       | deposit period |        | voting period |        | delayed days |       |        |
+|                 |       |   +--------+   |        | +-----------+ |        |  +--------+  |       |        |
+| Submit proposal | <---> |   | 2 days |   | <----> | | less than | | <----> |  | 3 days |  | <---> | delist |
+|                 |       |   +--------+   |        | |  14 days  | |        |  +--------+  |       |        |
+|                 |       |                |        | +-----------+ |        |              |       |        |
++-----------------+       +----------------+        +---------------+        +--------------+       +--------+
+```
+If a `DelistTradingPair` proposal is passed, and its passed time is 3 day before the breathe block time, then a delist operation will be triggered.
 
-The total time is 20 days. In each breathe block, all `DelistTradingPair` proposals which are submitted in less than 20 days ago will be judged. If a `DelistTradingPair` proposal is passed, and its passed time is 3 day before the breathe block time, then a delist operation will be triggered. 
+When a trading pair is delisted, all related uncompleted orders will be expired. The locked tokens in the orders will be refunded to users and fee will be charged as normal expire orders.
 
-When a trading pair is delisted, all related uncompleted orders will be expired. The locked tokens in the orders will be refunded to users and no expire fee will be deducted.
+### 5.3 Delist dependency
+
+In binance chain, all listed tokens must be listed against `BNB` first. Suppose there are three tokens on binance chain: `A`, `B` and `BNB`, and there only one trading pair: `A_BNB`. If someone want to create a new trading pair: `A_B`, then he must create another trading pair first: `B_BNB`. This is the dependency example between different trading pairs. 
+
+In conclusion, a non-`BNB` trading pair `A_B` will depend on two other trading pairs: `A_BNB` and `B_BNB`, and any non-`BNB` trading pairs won't be the dependency of other trading pairs. A `BNB` related trading pair might be the dependency of other trading pairs.
+
+So we can delist any non-`BNB` related trading pairs directly. However, if you want to delist a `BNB` related trading pair, you must check if there are other trading pairs which depend on it. If so, you must delist these trading pairs first.
 
 ## 6. License
 
