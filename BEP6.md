@@ -44,13 +44,13 @@ The above data structures will be json marshaled to string and assigned to propo
 ### 5.2 Delist trading pairs and expire all orders in breathe block
 We assume that the ideal proposal life cycle is like this:
 ```
-+-----------------+       +----------------+        +---------------+        +--------------+       +--------+
-|                 |       | deposit period |        | voting period |        | delayed days |       |        |
-|                 |       |   +--------+   |        | +-----------+ |        |  +--------+  |       |        |
-| Submit proposal | <---> |   | 2 days |   | <----> | | less than | | <----> |  | 3 days |  | <---> | delist |
-|                 |       |   +--------+   |        | |  14 days  | |        |  +--------+  |       |        |
-|                 |       |                |        | +-----------+ |        |              |       |        |
-+-----------------+       +----------------+        +---------------+        +--------------+       +--------+
++-----------------+       +----------------+        +---------------+        +--------------------+       +--------+
+|                 |       | deposit period |        | voting period |        | cooling-off period |       |        |
+|                 |       |   +--------+   |        | +-----------+ |        |     +--------+     |       |        |
+| Submit proposal | <---> |   | 2 days |   | <----> | | less than | | <----> |     | 3 days |     | <---> | delist |
+|                 |       |   +--------+   |        | |  14 days  | |        |     +--------+     |       |        |
+|                 |       |                |        | +-----------+ |        |                    |       |        |
++-----------------+       +----------------+        +---------------+        +--------------------+       +--------+
 ```
 If a `DelistTradingPair` proposal is passed, and its passed time is 3 day before the breathe block time, then a delist operation will be triggered.
 
