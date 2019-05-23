@@ -212,7 +212,7 @@ With Non-fungible Tokens, we can expand the token use cases on Binance Chain to 
 - Collectibles Assets
 - more ...
 
-Every token, is transferrable, tradable, mintable, burnable and most important, non-fungible.
+Every token is transferrable, tradable, mintable, burnable and most important, non-fungible.
 
 ## 7. License
 
