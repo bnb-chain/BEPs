@@ -1,28 +1,26 @@
 # BEP-7: Non-fungible Tokens on Binance Chain
 
-
 - [BEP-7: Non-fungible Tokens on Binance Chain](#bep-7-non-fungible-tokens-on-binance-chain)
-  * [1.  Summary](#1--summary)
-  * [2.  Abstract](#2--abstract)
-  * [3.  Status](#3--status)
-  * [4.  Motivation](#4--motivation)
-  * [5.  Specification](#5--specification)
-    + [5.1 Token Properties](#51-token-properties)
-    + [5.2 Token Management Operation](#52-token-management-operation)
+  - [1.  Summary](#1--summary)
+  - [2.  Abstract](#2--abstract)
+  - [3.  Status](#3--status)
+  - [4.  Motivation](#4--motivation)
+  - [5.  Specification](#5--specification)
+    - [5.1 Token Properties](#51-token-properties)
+      - [5.1.1 Metadata Example](#511-metadata-example)
+    - [5.2 Token Management Operation](#52-token-management-operation)
       - [5.2.1 Issue token](#521-issue-token)
       - [5.2.2 Transfer Tokens](#522-transfer-tokens)
       - [5.2.3  Freeze Tokens](#523--freeze-tokens)
       - [5.2.4  Unfreeze Tokens](#524--unfreeze-tokens)
       - [5.2.5 Mint Tokens](#525-mint-tokens)
       - [5.2.6 Burn Tokens](#526-burn-tokens)
-  * [6. Token Use Case Examples](#6-token-use-case-examples)
-  * [7. License](#6-license)
-
-
+  - [6. Token Use Case Examples](#6-token-use-case-examples)
+  - [7. License](#6-license)
 
 ## 1.  Summary
 
-This BEP describes a proposal for non-fungible token management on the Binance Chain.
+This BEP describes a proposal for non-fungible tokens(NFTs) management on the Binance Chain.
 
 ## 2.  Abstract
 
@@ -53,6 +51,25 @@ Design and issue non-fungible asset on the Binance Chain, as the basic economic 
 
 - Mintable: Mintable means whether this token can be minted in the future, which would increase the total supply of the token
 
+- Metadata(OPTIONAL): Contains more details about the assets which this NFTs represent
+
+### 5.1.1 Metadata Example
+
+This is the example of what the "Metadata" can contain
+
+```json
+{
+  "description": {
+    "type": "string",
+    "description": "Describes the asset to which this NFT represents"
+  },
+  "image": {
+    "type": "string",
+    "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+  }
+}
+```
+
 ### 5.2 Token Management Operation
 
 #### 5.2.1 Issue token
@@ -68,8 +85,7 @@ Issuing token is to create a new non-fungible token on Binance Chain. The new no
 | Total Supply | int64    | The total supply for this token can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int32. The amount before boosting should not exceed 90 billion. |
 | Owner        | Address  | The initial issuer of this token, the BNB balance of issuer should be more than the fee for issuing tokens |
 | Mintable     | Boolean  | Whether this token could be minted(increased) after the initial issuing |
-
- 
+| Metadata     | object   | OPTIONAL. Contains more details about the assets which this NFTs represent |
 
 The data in all the above fields are not changeable after the Issue Transaction, except “Total Supply” can be changed via “Mint” or “Burn” operations.
 
@@ -124,7 +140,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 - Transferer initiators sign a transfer transaction and make it broadcasted to one of Binance Chain nodes
 - The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
 - Transfer transaction is committed on the blockchain by block proposer
-- Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators. 
+- Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators.
 - Add the tokens to the destination addresses
 
 #### 5.2.3  Freeze Tokens
@@ -148,7 +164,7 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 
 #### 5.2.4  Unfreeze Tokens
 
-Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again. 
+Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again.
 
 **Data Structure** **for Unfreeze Operation**: A data structure is needed to represent the freeze/unfreeze operation
 
@@ -167,7 +183,7 @@ Unfreezing is to unlock some of the frozen tokens in the user's account and make
 
 #### 5.2.5 Mint Tokens
 
-Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner. 
+Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner.
 
 **Data Structure** **for Mint Operation**: A data structure is needed to represent the mint operation
 
