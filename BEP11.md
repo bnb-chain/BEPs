@@ -1,5 +1,4 @@
-# BEP-2: IEOs on Binance Chain
-
+# BEP-11: IEOs on Binance Chain
 
 - [BEP-11: IEOs on Binance Chain](#ieos-on-binance-chain)
   * [1.  Summary](#1--summary)
