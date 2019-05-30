@@ -1,7 +1,7 @@
 # BEP-2: IEOs on Binance Chain
 
 
-- [BEP-2: IEOs on Binance Chain](#ieos-on-binance-chain)
+- [BEP-11: IEOs on Binance Chain](#ieos-on-binance-chain)
   * [1.  Summary](#1--summary)
   * [2.  Abstract](#2--abstract)
   * [3.  Status](#3--status)
@@ -15,7 +15,7 @@
     + [5.6 Ending an Offering](#56-ending-an-offering)  
     + [5.7 Cancelling an Offering](#57-cancelling-an-offering)  
     + [5.8 Random value generator](#58-random-value-generator)
-    + [5.9 KYC & Sybil resistance](#59-kyc-and-sybil-resistance)  
+    + [5.9 KYC & Sybil resistance](#59-kyc--sybil-resistance)  
   * [6. License](#6-license)
 
 ## 1.  Summary
