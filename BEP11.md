@@ -115,6 +115,8 @@ Once the _claim period_ is over, the Offering owner can send a transaction to th
 1. Use a [CSRNG](#58-random-value-generator) to generate a seed value. Record this into storage.
 2. Input the seed value into a PRNG to deterministically generate 3-digit numbers. Mark all the matching generated tickets (by comparing last 3 digits of ticket numbers) as winning. Repeat until the max possible no. of tickets (`= Math.min(Supply / TokensPerTicket, TotalClaimedTickets`) have been matched.
 
+Using a recorded seed value followed by a deterministic PRNG allows others to later on verify which numbers where generated during the lottery allocation process.
+
 ### 5.5 Withdrawing tokens
 
 Once the _lottery allocation_ is complete, callers can send a transaction to the Offering address to obtain their "won" tokens. Their BNB balance is deducted accordingly. 
