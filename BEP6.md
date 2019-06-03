@@ -1,7 +1,7 @@
 # BEP-6: Delist Trading Pairs
 
 ## 1. Summary
-This BEP describes a proposal for delisting trading pairs on the Binance Chain.
+This BEP describes a proposal for delisting trading pairs from the Binance DEX.
 ## 2. Abstract
 Listing new trading pairs is done via listing proposals. Suppose a token has credit issue or one of its trading pairs has too little trading volume for a long time, then the community might consider to drop related trading pairs to save network cost. This BEP proposes a method to delist trading pairs via governance. The below picture describes the overview of how delist logic works. 
 
@@ -57,7 +57,7 @@ Once a `DelistTradingPair` proposal is passed, it will enter cooling-off period.
 ### 5.3 Delist
 Delist happens on the 3rd midnight (UTC) after the proposal is voted pass. There are 2 steps to delist trading pairs as below.
 #### 5.3.1 Trading Pairs Constraint Check
-In binance chain, all listed tokens must be listed against BNB first. Suppose there are three tokens on binance chain: `A`, `B` and `BNB`, and there only one trading pair: `A_BNB`. If someone wants to create a new trading pair: `A_B`, then he must create another trading pair first: `B_BNB`.
+On Binance Chain, all listed tokens must be listed against BNB first. Suppose there are three tokens on binance chain: `A`, `B` and `BNB`, and there only one trading pair: `A_BNB`. If someone wants to create a new trading pair: `A_B`, then he must create another trading pair first: `B_BNB`.
 
 In conclude, a `non-BNB` trading pair `A_B` will depend on two other trading pairs: `A_BNB` and `B_BNB`, and any `BNB` related trading pair might be the dependency of other trading pairs.
 
