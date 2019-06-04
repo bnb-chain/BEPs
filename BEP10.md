@@ -25,7 +25,7 @@ This BEP is WIP.
 
 ## 4. Motivation
 
-Binance Chain is designed to connect with multiple service providers, and each provider is incentivized to broadcast more transactions. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
+Binance Chain is designed to connect with multiple service providers, such as different wallelt providers and trading platforms. By adding an optional field in each transaction message, the origin of any transaction could be tracked. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
 
 ## 5. Specification
 
