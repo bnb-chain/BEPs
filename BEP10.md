@@ -55,11 +55,12 @@ All of these constant values shall be considered hardcoded in client implementat
 
 
 
-| Identifier | Source Description           | 
-| ---------- | ---------------------------- | 
+| Identifier | Source Description           |
+| ---------- | ---------------------------- |
 | 0          | Default source value, e.g. for Binance Chain Command Line, or SDKs   |
 | 1          | Binance DEX Web Wallet       |
 | 2          | Trust Wallet                 |
+| 714         | Binance|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
 
