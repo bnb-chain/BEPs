@@ -43,9 +43,10 @@ The transaction is a standard way to wrap a message with signatures.
 
 ### 5.2 Register Process
 
-- Service Provider proposes to add a source type
-- Maintainer review the proposal
-- If the proposal gets accepted, this new type will be recorded. 
+- Service Provider choose their own source identifier
+- They have to create a PR to BEP-10 and add their identifier code in the form under section **5.3**
+- Maintainer review their PR
+- If the PR gets accepted, this new identifier will be recognized
 
 ### 5.3  Registered Source types
 
@@ -60,6 +61,8 @@ All of these constant values shall be considered hardcoded in client implementat
 | 0          | Default source value, e.g. for Binance Chain Command Line, or SDKs   |
 | 1          | Binance DEX Web Wallet       |
 | 2          | Trust Wallet                 |
+| 3          | CanWork.io [Decentralised Serviceplace App](https://github.com/canyacoin/canwork-web-ui)|
+| 4          | CanYaDAO [Decentralised Autonomous Organisation](https://github.com/canyacoin/canyadao)|
 | 714         | Binance|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
