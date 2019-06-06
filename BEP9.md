@@ -31,7 +31,7 @@ BEP-9 Proposal describes functionality to time-lock tokens on the Binance Chain.
 
 ## 3.  Status
 
-This BEP is WIP.
+This BEP is under implementation.
 
 ## 4.  Motivation
 
