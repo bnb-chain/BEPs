@@ -233,3 +233,7 @@ Every token is transferrable, tradable, mintable, burnable and most important, n
 ## 7. License
 
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+## 8. References
+
+- [Ethereum eip-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
