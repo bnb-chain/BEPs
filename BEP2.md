@@ -1,24 +1,21 @@
 # BEP-2: Tokens on Binance Chain
 
-
 - [BEP-2: Tokens on Binance Chain](#bep-2-tokens-on-binance-chain)
-  * [1.  Summary](#1--summary)
-  * [2.  Abstract](#2--abstract)
-  * [3.  Status](#3--status)
-  * [4.  Motivation](#4--motivation)
-  * [5.  Specification](#5--specification)
-    + [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain-bnb)
-    + [5.2 Token Properties](#52-token-properties)
-    + [5.3 Token Management Operation](#53-token-management-operation)
+  - [1.  Summary](#1--summary)
+  - [2.  Abstract](#2--abstract)
+  - [3.  Status](#3--status)
+  - [4.  Motivation](#4--motivation)
+  - [5.  Specification](#5--specification)
+    - [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain-bnb)
+    - [5.2 Token Properties](#52-token-properties)
+    - [5.3 Token Management Operation](#53-token-management-operation)
       - [5.3.1 Issue token](#531-issue-token)
       - [5.3.2 Transfer Tokens](#532-transfer-tokens)
       - [5.3.3  Freeze Tokens](#533--freeze-tokens)
       - [5.3.4  Unfreeze Tokens](#534--unfreeze-tokens)
       - [5.3.5 Mint Tokens](#535-mint-tokens)
       - [5.3.6 Burn Tokens](#536-burn-tokens)
-  * [6. License](#6-license)
-
-
+  - [6. License](#6-license)
 
 ## 1.  Summary
 
@@ -33,7 +30,7 @@ BEP-2 Proposal describes a common set of rules for token management within the B
 
 ## 3.  Status
 
-This BEP is under implementation. 
+This BEP is already implemented.
 
 ## 4.  Motivation
 
@@ -49,15 +46,15 @@ The Binance Token, BNB, is the native asset on Binance Chain and created within 
 
 - Source Address: Source Address is the owner of the issued token.
 
-- Token Name: Token Name represents the long name of the token - e.g. "MyToken". 
+- Token Name: Token Name represents the long name of the token - e.g. "MyToken".
 
 - Symbol: Symbol is the identifier of the newly issued token.
 
-- Total Supply: Total supply will be the total number of issued tokens. 
+- Total Supply: Total supply will be the total number of issued tokens.
 
 - Mintable: Mintable means whether this token can be minted in the future, which would increase the total supply of the token
 
-###  5.3 Token Management Operation
+### 5.3 Token Management Operation
 
 #### 5.3.1 Issue token
 
@@ -72,8 +69,6 @@ Issuing token is to create a new token on Binance Chain. The new token represent
 | Total Supply | int64    | The total supply for this token can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int64. The amount before boosting should not exceed 90 billion. |
 | Owner        | Address  | The initial issuer of this token, the BNB balance of issuer should be more than the fee for issuing tokens |
 | Mintable     | Boolean  | Whether this token could be minted(increased) after the initial issuing |
-
- 
 
 The data in all the above fields are not changeable after the Issue Transaction, except “Total Supply” can be changed via “Mint” or “Burn” operations.
 
@@ -116,7 +111,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 | Address   | Address  | Address for token holders                                    |
 | Coins     | []Coin   | A set of sorted coins, one per currency. The denominations of coins are in descending order. |
 
-**Coin Structure**
+**Coin Structure:**
 
 | **Field** | **Type** | **Description**                                              |
 | :--------- | :-------- | :------------------------------------------------------------ |
@@ -128,10 +123,10 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 - Transferer initiators sign a transfer transaction and make it broadcasted to one of Binance Chain nodes
 - The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
 - Transfer transaction is committed on the blockchain by block proposer
-- Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators. 
+- Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators.
 - Add the tokens to the destination addresses
 
-#### 5.3.3  Freeze Tokens
+#### 5.3.3 Freeze Tokens
 
 A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.  
 
@@ -150,9 +145,9 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 - Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.  
 - This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
 
-#### 5.3.4  Unfreeze Tokens
+#### 5.3.4 Unfreeze Tokens
 
-Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again. 
+Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again.
 
 **Data Structure** **for Unfreeze Operation**: A data structure is needed to represent the freeze/unfreeze operation
 
