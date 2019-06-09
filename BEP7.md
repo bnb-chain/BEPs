@@ -51,14 +51,18 @@ Design and issue non-fungible asset on the Binance Chain, as the basic economic 
 
 - Mintable: Mintable means whether this token can be minted in the future, which would increase the total supply of the token
 
-- Metadata(OPTIONAL): Contains more details about the assets which this NFTs represent
+- Metadata(OPTIONAL): Contains more details about the assets which this NFT represents
 
 ### 5.1.1 Metadata Example
 
-This is the example of what the "Metadata" can contain
+This is the example of what the "Metadata" can contain, compliant to [ERC721 Metadata JSON Schema]()
 
 ```json
 {
+  "name": {
+    "type": "string",
+    "description": "Identifies the asset to which this NFT represents"
+  },
   "description": {
     "type": "string",
     "description": "Describes the asset to which this NFT represents"
