@@ -64,6 +64,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 3          | CanWork.io Decentralised [Serviceplace App](https://github.com/canyacoin/canwork-web-ui)|
 | 4          | CanYaDAO [Decentralised Autonomous Organisation](https://github.com/canyacoin/canyadao)|
 | 5          | Math Wallet                 |
+| 12         | Coinomi|
 | 714         | Binance|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
