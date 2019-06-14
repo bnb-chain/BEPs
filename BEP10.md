@@ -21,7 +21,7 @@ By adding a field in each transaction message, the origin of any transaction cou
 
 ## 3.  Status
 
-This BEP is WIP.
+This BEP is under implementation.
 
 ## 4. Motivation
 
