@@ -16,7 +16,7 @@ Listing new trading pairs is done via listing proposals. Suppose a token has a c
 ```
 
 ## 3. Status
-This BEP is WIP.
+This BEP is under implementation.
 ## 4. Motivation
 The purpose of delisting is to prioritise  computing resources on healthy assets and provide a way to optimise trading markets on DEX.
 ## 5. Specification
