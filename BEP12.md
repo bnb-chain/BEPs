@@ -70,14 +70,16 @@ func memoValiation(address, tx) error {
 ```
 
 ### Validations Entrance
-CheckTx is the entrance of all customized validation functions. To minimize the impact to performance, we will check the highest bit of account flags first. If it is zero, no validation function will be called. Otherwise, we will iterate all bits which have binded validation functions. To reduce the cost of function call, we will check account flags before calling validation functions. This is the pseudocode:
+“AnteHandler” is the entrance of all customized validation functions. To minimize the impact to performance, only when the running mode is check mode and the highest bit of account flags is 1, then the validation functions will be called. To reduce the cost of function call, we will check account flags before calling validation functions. This is the pseudocode:
 
 ```
-func checkTx(tx) error {
-    ...
-    err = customizedValiation(tx)
-    if err != nil {
-        return err
+func anteHandler(tx) error {
+    …
+    if mode == CheckMode {
+        err = customizedValiation(tx)
+        if err != nil {
+            return err
+        }
     }
     ...
 }
@@ -86,18 +88,19 @@ func customizedValiation(tx) error {
           account = getAccount(addr)
           if isHighestFlagsBitZero(account.Flags) {
               return nil
-          }
+          } 
           if (account.Flags & MemoCheck ) { // MemoCheck = 0x01
               err := memoValiation(addr, tx)
               if err != nil {
                  return err
               }
           }
-          ...
+          …
           // Other validation functions
-          ...
+          ....
     }
 }
+
 ```
 ### Impact to Upgrade
 For initial version, we just need to make a decision on which height binance chain will support setting account flags.
