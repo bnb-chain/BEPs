@@ -1,18 +1,19 @@
 # BEP-7: Non-fungible Tokens on Binance Chain
 
 - [BEP-7: Non-fungible Tokens on Binance Chain](#bep-7-non-fungible-tokens-on-binance-chain)
-  - [1.  Summary](#1--summary)
-  - [2.  Abstract](#2--abstract)
-  - [3.  Status](#3--status)
-  - [4.  Motivation](#4--motivation)
-  - [5.  Specification](#5--specification)
+  - [1. Summary](#1--summary)
+  - [2. Abstract](#2--abstract)
+  - [3. Status](#3--status)
+    - [Couple things to keep in mind](couple-things-to-keep-in-mind)
+  - [4. Motivation](#4--motivation)
+  - [5. Specification](#5--specification)
     - [5.1 Token Properties](#51-token-properties)
       - [5.1.1 Metadata Example](#511-metadata-example)
     - [5.2 Token Management Operation](#52-token-management-operation)
       - [5.2.1 Issue token](#521-issue-token)
       - [5.2.2 Transfer Tokens](#522-transfer-tokens)
-      - [5.2.3  Freeze Tokens](#523--freeze-tokens)
-      - [5.2.4  Unfreeze Tokens](#524--unfreeze-tokens)
+      - [5.2.3 Freeze Tokens](#523--freeze-tokens)
+      - [5.2.4 Unfreeze Tokens](#524--unfreeze-tokens)
       - [5.2.5 Mint Tokens](#525-mint-tokens)
       - [5.2.6 Burn Tokens](#526-burn-tokens)
   - [6. Token Use Case Examples](#6-token-use-case-examples)
@@ -29,13 +30,19 @@ BEP-7 Proposal describes a common set of rules for non-fungible token management
 - What information makes a non-fungible token on Binance Chain
 - What actions can be performed on a non-fungible token on Binance Chain
 
+### Couple things to keep in mind
+
+- This BEP won't contain "how to implement" in terms of implmentation on the Binance Chain codebase, e.g. which module NFT should be in (this kind of discussion is happening on [cosmos-sdk/issues/4046](https://github.com/cosmos/cosmos-sdk/issues/4046)), because that should be happening in the PR(against to Binance Chain, when it's fully open source, so that dev can send out PR.
+
+- Apparently Binance chain doens't have solidity-such smart contract implemented, so don't expect to see many smart contract implmenations like what you can see in [EIP-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) in this BEP.
+
 ## 3.  Status
 
 This BEP is under drafting.
 
 ## 4.  Motivation
 
-Design and issue non-fungible asset on the Binance Chain, as the basic economic foundations of the blockchain.
+Design and issue non-fungible asset on the Binance Chain, as one of the basic economic foundations of the blockchain.
 
 ## 5.  Specification
 
