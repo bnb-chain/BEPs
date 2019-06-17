@@ -54,10 +54,6 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 
 - Symbol: Symbol is the identifier of the newly issued token.
 
-- Total Supply: Total supply will be the total number of issued tokens.
-
-- Mintable: Mintable means whether this token can be minted in the future, which would increase the total supply of the token
-
 - Metadata(OPTIONAL): Contains more details about the assets which this NFT represents
 
 ### 5.1.1 Metadata Example
@@ -66,18 +62,26 @@ This is the example of what the "Metadata" can contain, compliant to [ERC721 Met
 
 ```json
 {
-  "name": {
-    "type": "string",
-    "description": "Identifies the asset to which this NFT represents"
-  },
-  "description": {
-    "type": "string",
-    "description": "Describes the asset to which this NFT represents"
-  },
-  "image": {
-    "type": "string",
-    "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
-  }
+    "title": "Asset Metadata",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Identifies the asset to which this NFT represents"
+        },
+        "description": {
+            "type": "string",
+            "description": "Describes the asset to which this NFT represents"
+        },
+        "image": {
+            "type": "string",
+            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+        },
+        "tokenURI": {
+            "type": "string",
+            "description": "A URI pointing to a resource with more token related metadata that doesn't belong on chain."
+        }
+    }
 }
 ```
 
@@ -93,9 +97,7 @@ Issuing token is to create a new non-fungible token on Binance Chain. The new no
 | :------------ | :-------- | :------------------------------------------------------------ |
 | Name         | string   | Name of the newly issued asset, limited to 32 unicode characters,  e.g. "ABCcoin" |
 | Symbol       | string   | The length of the string for representing this asset is between 8 and 16 alphanumeric characters and is case insensitive. ".B" suffixed symbol is also allowed for pegging to those tokens already exist on other chains. The symbol is suffixed with the first 3 bytes of the issue transaction hash to remove a constraint of requiring unique token names. The native token, BNB, does not require this suffix. |
-| Total Supply | int64    | The total supply for this token can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int32. The amount before boosting should not exceed 90 billion. |
 | Owner        | Address  | The initial issuer of this token, the BNB balance of issuer should be more than the fee for issuing tokens |
-| Mintable     | Boolean  | Whether this token could be minted(increased) after the initial issuing |
 | Metadata     | object   | OPTIONAL. Contains more details about the assets which this NFTs represent |
 
 The data in all the above fields are not changeable after the Issue Transaction, except “Total Supply” can be changed via “Mint” or “Burn” operations.
@@ -248,3 +250,6 @@ The content is licensed under [CC0](https://creativecommons.org/publicdomain/zer
 ## 8. References
 
 - [Ethereum eip-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
+- [NFT Module on cosmos/cosmos-sdk](https://github.com/cosmos/cosmos-sdk/issues/4046)
+- [NFT Sample Implementation #4209 on cosmos/cosmos-sdk](https://github.com/cosmos/cosmos-sdk/pull/4209)
+
