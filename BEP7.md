@@ -1,25 +1,23 @@
 # BEP-7: Non-fungible Tokens on Binance Chain
 
 - [BEP-7: Non-fungible Tokens on Binance Chain](#bep-7-non-fungible-tokens-on-binance-chain)
-  - [1. Summary](#1--summary)
-  - [2. Abstract](#2--abstract)
-  - [3. Status](#3--status)
+  - [1. Summary](#1-summary)
+  - [2. Abstract](#2-abstract)
+  - [3. Status](#3-status)
     - [Couple things to keep in mind](couple-things-to-keep-in-mind)
-  - [4. Motivation](#4--motivation)
-  - [5. Collection Specification](#5--specification)
-    - [5.1 Collection Properties](#51--collection-properties)
-    - [5.2 Collection Management Operation](#52--token-management-operation)
-        - [5.2.1 Issue collection](#521--issue-collection)
-  - [6. Token Specification](#5--token-specification)
-    - [6.1 Properties](#52--token-properties)
-    - [6.2 Token Management Operation](#62--token-management-operation)
-        - [6.3.1 Issue token](#631--issue-token)
-        - [6.3.2 Transfer Tokens](#632--transfer-tokens)
-        - [6.3.3 Freeze Tokens](#633--freeze-tokens)
-        - [6.3.4 Unfreeze Tokens](#634--unfreeze-tokens)
-        - [6.3.5 Mint Tokens](#635--mint-tokens)
-        - [6.3.6 Burn Tokens](#636--burn-tokens)
-  - [7. Token Use Case Examples](#7--token-use-case-examples)
+  - [4. Motivation](#4-motivation)
+  - [5. Collection Specification](#5-specification)
+    - [5.1 Collection Properties](#51-collection-properties)
+    - [5.2 Collection Management Operation](#52-token-management-operation)
+      - [5.2.1 Issue collection](#521-issue-collection)
+  - [6. Token Specification](#5-token-specification)
+    - [6.1 Properties](#52-token-properties)
+    - [6.2 Token Management Operation](#62-token-management-operation)
+      - [6.2.1 Issue token](#621-issue-token)
+      - [6.2.2 Transfer Tokens](#622-transfer-tokens)
+      - [6.2.3 Freeze Tokens](#623-freeze-tokens)
+      - [6.2.4 Unfreeze Tokens](#624-unfreeze-tokens)
+  - [7. Token Use Case Examples](#7-token-use-case-examples)
   - [8. License](#8-license)
   - [9. Reference](#9-reference)
 
@@ -54,7 +52,7 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 
 - Token Name: Token Name represents the long name of the token - e.g. "BinanceAnnualEvent2019"
 
-- Symbol: Symbol is the identifier of the newly issued collection.
+- Denom: Denom is the identifier of the newly issued collection.
 
 - Total Supply: Total supply is the total number of issued NFT tokens belong to this collection.
 
@@ -64,9 +62,9 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 // Collection of non fungible tokens
 type Collection struct {
   Name          string  `json:"name"`
-	Symbol        string  `json:"symbol,string,omitempty"` // name of the collection;
+  Denom        string  `json:"denom,string,omitempty"` // name of the collection;
   TotalSupply   int64   `json:"totalSupply"`             // total supply of the NFT in this collection;
-	NFTs          NFTs    `json:"nfts"`                    // NFTs that belong to a collection;
+  NFTs          NFTs    `json:"nfts"`                    // NFTs that belong to a collection;
 }
 ```
 
@@ -79,19 +77,19 @@ Issuing collection is to create a new unique collection which contains non-fungi
 | **Field**  | **Type**  | **Description**              |
 | :--------- | :-------- | :---------------------------- |
 | Name       | string    | name of the collection |
-| Symbol     | string    | symbol of the collection |
+| Denom      | string    | The symbol of the collection |
 | TotalSupply| int64     | total supply of the NFT in this collection |
 | NFTs       | []NFT     | A set of NFT token |
 
 ```go
 // NewCollection creates a new NFT Collection
-func NewCollection(name string, symbol string, totalSupply uint64, nfts NFTs) Collection {
-	return Collection{
+func NewCollection(name string, denom string, totalSupply uint64, nfts NFTs) Collection {
+  return Collection{
     Name: strings.TrimSpace(name),
-		Symbol: strings.TrimSpace(symbol),
+    Denom: strings.TrimSpace(denom),
     TotalSupply: uint64(totalSupply),
     NFTs:  NewNFTs([]NFT(nfts)...),
-	}
+  }
 }
 ```
 
@@ -113,7 +111,7 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 
 ### 6.1 Token Properties
 
-To be compatibile to other NFT on other blockchain as much as possible. Excepts to Id and Owner, Name, Description, ImageURI, and TokenURI are all described in 
+> x/nft/types/nft.go brings metadata on-chain
 
 - Id: Unique id of the token.
 
@@ -121,18 +119,9 @@ To be compatibile to other NFT on other blockchain as much as possible. Excepts 
 
 - Metadata(OPTIONAL): Contains more details about the assets which this NFT represents
 
-```go
-// BaseNFT non fungible token definition
-type BaseNFT struct {
-	ID          string         `json:"id,omitempty"` // id of the token; not exported to clients
-	Owner       sdk.AccAddress `json:"owner"`        // account address that owns the NFT
-	Metadata    object         `json:"metadata"`     // more details about the assets which this NFT represents
-}
-```
-
 #### 6.1.1 Metadata Example
 
- This is the example of what the "Metadata" can contain, compliant to [ERC721 Metadata JSON Schema](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
+The metadata extension is OPTIONAL for BEP-7 token. This allows your smart contract to be interrogated for its name and for details about the assets which your NFTs represent.
 
  ```json
 {
@@ -165,23 +154,94 @@ type BaseNFT struct {
 
 Issuing token is to create a new non-fungible token on Binance Chain. The new non-fungible token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
 
+**Data Structure for Issue Operation**: A data structure is needed to represent the new token:
+
+| **Field**    | **Type** | **Description**                                              |
+| :------------ | :--------  | :------------------------------------------------------------ |
+| Id            | string     | Incremental id in the collection it belongs to |
+| Owner         | Address    | The initial issuer of this token |
+| Metadata      | Object     | OPTIONAL. Contains more details about the assets which this NFTs represent |
+
 #### 6.2.2 Transfer Tokens
+
+Transfer transaction is to send tokens from input addresses to output addresses.
+
+**Message Structure for Transfer Operation**: A data structure is needed to represent the transfer operation between addresses.
+
+| **Field** | **Type** | **Description**              |
+| :--------- | :-------- | :---------------------------- |
+| Input     | []Input  | A set of transaction inputs  |
+| Output    | []Output | A set of transaction outputs |
+
+**Input Data Structure:**
+
+| **Field** | **Type** | **Description**                                              |
+| :--------- | :-------- | :------------------------------------------------------------ |
+| Address   | Address  | Address for token holders                                    |
+| Coins     | []Coin   | A set of sorted coins, one per currency. The symbols of coins are in descending order. |
+
+**Output Data Structure:**
+
+| **Field** | **Type** | **Description**                                              |
+| :--------- | :-------- | :------------------------------------------------------------ |
+| Address   | Address  | Address for token holders                                    |
+| Coins     | []Coin   | A set of sorted coins, one per currency. The denominations of coins are in descending order. |
+
+**Coin Structure:**
+
+| **Field** | **Type** | **Description**                                                 |
+| :--------- | :-------- | :------------------------------------------------------------ |
+| Denom     | string   | The symbol of a collection                                      |
+| Id        | string   | The id of a token in the collection                             |
+| Amount    | int64    | The amount is positive and can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int64. |
+
+**Transfer Process:**
+
+- Transferer initiators sign a transfer transaction and make it broadcasted to one of Binance Chain nodes
+- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Transfer transaction is committed on the blockchain by block proposer
+- Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators.
+- Add the tokens to the destination addresses
 
 #### 6.2.3  Freeze Tokens
 
 A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.  
 
+**Data Structure** **for Freeze Operation**: A data structure is needed to represent the freeze operation
+
+| **Field** | **Type** | **Description**                                                 |
+| :--------- | :-------- | :------------------------------------------------------------ |
+| Denom     | string   | The symbol of a collection - e.g. NNB-B90                       |
+| Id        | string   | The id of a token in the collection                             |
+| Amount    | int64    | The unfreeze amount can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. This amount should be no less than the frozen amount |
+
+**Freeze Process:**
+
+- Address-holder signed a freeze transaction and make it broadcasted to one of Binance Chain nodes
+- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Freeze transaction is committed on the blockchain by block proposer
+- Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.  
+- This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
+
 #### 6.2.4  Unfreeze Tokens
 
 Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again.
 
-#### 6.2.5 Mint Tokens
+**Data Structure** **for Unfreeze Operation**: A data structure is needed to represent the freeze/unfreeze operation
 
-Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner.
+| **Field** | **Type** | **Description**                                              |
+| :--------- | :-------- | :------------------------------------------------------------ |
+| Denom     | string   | The symbol of a collection - e.g. NNB-B90                       |
+| Id        | string   | The id of a token in the collection                             |
+| Amount    | int64    | The unfreeze amount can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. This amount should be no less than the frozen amount |
 
-#### 6.2.6 Burn Tokens
+**Unfreeze Process:**
 
-Burn transaction is to reduce the total supply of a token. The transaction initiator must be the token owner. 
+- Address-holder signed an unfreeze transaction and make it broadcasted to one of Binance Chain nodes
+- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Unfreeze transaction is committed on the blockchain by block proposer
+- Validators will verify the transaction initiator’s frozen balance is no less than the required amount. The fee will be deducted from the address of the transaction source.
+- This amount of token will be moved from frozen to balance in the transaction initiator’s address.
 
 ## 7. Token Use Case Examples
 
@@ -200,7 +260,9 @@ The content is licensed under [CC0](https://creativecommons.org/publicdomain/zer
 
 ## 9. References
 
-- [Ethereum eip-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
-- [NFT Module on cosmos/cosmos-sdk](https://github.com/cosmos/cosmos-sdk/issues/4046)
-- [NFT Sample Implementation #4209 on cosmos/cosmos-sdk](https://github.com/cosmos/cosmos-sdk/pull/4209)
-
+- [ERC-721 Non-Fungible Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
+- [ERC-165 Standard Interface Detection](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md)
+- [ERC-1538 Transparent Contract Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1538.md)
+- [ERC-1155 Multi Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md)
+- [NFT Module on cosmos-sdk](https://github.com/cosmos/cosmos-sdk/issues/4046)
+- [NFT Sample Implementation on cosmos-sdk](https://github.com/cosmos/cosmos-sdk/pull/4209)
