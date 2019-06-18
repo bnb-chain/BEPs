@@ -10,8 +10,8 @@
     - [5.1 Collection Properties](#51-collection-properties)
     - [5.2 Collection Management Operation](#52-collection-management-operation)
       - [5.2.1 Issue collection](#521-issue-collection)
-  - [6. Token Specification](#5-token-specification)
-    - [6.1 Token Properties](#52-token-properties)
+  - [6. Token Specification](#6-token-specification)
+    - [6.1 Token Properties](#62-token-properties)
     - [6.2 Token Management Operation](#62-token-management-operation)
       - [6.2.1 Issue token](#621-issue-token)
       - [6.2.2 Transfer Tokens](#622-transfer-tokens)
@@ -258,7 +258,7 @@ Every token is transferrable, tradable, mintable, burnable and most important, n
 
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
-## 9. References
+## 9. Reference
 
 - [ERC-721 Non-Fungible Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
 - [ERC-165 Standard Interface Detection](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md)
