@@ -11,7 +11,7 @@
     - [5.2 Collection Management Operation](#52-collection-management-operation)
       - [5.2.1 Issue collection](#521-issue-collection)
   - [6. Token Specification](#5-token-specification)
-    - [6.1 Properties](#52-token-properties)
+    - [6.1 Token Properties](#52-token-properties)
     - [6.2 Token Management Operation](#62-token-management-operation)
       - [6.2.1 Issue token](#621-issue-token)
       - [6.2.2 Transfer Tokens](#622-transfer-tokens)
@@ -203,7 +203,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 - Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators.
 - Add the tokens to the destination addresses
 
-#### 6.2.3  Freeze Tokens
+#### 6.2.3 Freeze Tokens
 
 A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.  
 
@@ -223,7 +223,7 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 - Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.  
 - This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
 
-#### 6.2.4  Unfreeze Tokens
+#### 6.2.4 Unfreeze Tokens
 
 Unfreezing is to unlock some of the frozen tokens in the user's account and make them liquid again.
 
