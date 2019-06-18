@@ -11,7 +11,7 @@
     - [5.2 Collection Management Operation](#52-collection-management-operation)
       - [5.2.1 Issue collection](#521-issue-collection)
   - [6. Token Specification](#6-token-specification)
-    - [6.1 Token Properties](#62-token-properties)
+    - [6.1 Token Properties](#61-token-properties)
     - [6.2 Token Management Operation](#62-token-management-operation)
       - [6.2.1 Issue token](#621-issue-token)
       - [6.2.2 Transfer Tokens](#622-transfer-tokens)
