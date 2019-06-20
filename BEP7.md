@@ -56,14 +56,17 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 
 - Total Supply: Total supply is the total number of issued NFT tokens belong to this collection.
 
+- Mintable: A boolean balue to indicate whether the owner can increase the totalSupply.
+
 - NFTs: An array contains items in NFT interface(described below)
 
 ```go
 // Collection of non fungible tokens
 type Collection struct {
   Name          string  `json:"name"`
-  Denom        string  `json:"denom,string,omitempty"` // name of the collection;
+  Denom         string  `json:"denom,string,omitempty"`  // name of the collection;
   TotalSupply   int64   `json:"totalSupply"`             // total supply of the NFT in this collection;
+  Mintable      bool    `json:"mintable"`                // can increase total supply or not;
   NFTs          NFTs    `json:"nfts"`                    // NFTs that belong to a collection;
 }
 ```
@@ -79,6 +82,7 @@ Issuing collection is to create a new unique collection which contains non-fungi
 | Name       | string    | name of the collection |
 | Denom      | string    | The symbol of the collection |
 | TotalSupply| int64     | total supply of the NFT in this collection |
+| Mintable:  | bool      | true indicate the owner can increase the totalSupply |
 | NFTs       | []NFT     | A set of NFT token |
 
 ```go
