@@ -113,6 +113,8 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 
 > x/nft/types/nft.go brings metadata on-chain
 
+- collection: The denom of the collection it belongs to.
+
 - Id: Unique id of the token.
 
 - Owner: The owner address.
@@ -158,6 +160,7 @@ Issuing token is to create a new non-fungible token on Binance Chain. The new no
 
 | **Field**    | **Type** | **Description**                                              |
 | :------------ | :--------  | :------------------------------------------------------------ |
+| collection    | string     | The denom of the collection it belongs to |
 | Id            | string     | Incremental id in the collection it belongs to |
 | Owner         | Address    | The initial issuer of this token |
 | Metadata      | Object     | OPTIONAL. Contains more details about the assets which this NFTs represent |
