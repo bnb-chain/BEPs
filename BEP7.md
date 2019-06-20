@@ -203,8 +203,7 @@ Issuing token is to create a new non-fungible token on Binance Chain. The new no
 
 ```go
 // NewBaseNFT creates a new NFT instance
-func NewBaseNFT(ID string, owner address, metadataURI string,
-) BaseNFT {
+func NewBaseNFT(ID string, owner address, metadataURI string) BaseNFT {
   return BaseNFT{
     Collection:  collection,
     ID:          ID,
