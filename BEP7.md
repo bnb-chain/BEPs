@@ -82,7 +82,7 @@ Issuing collection is to create a new unique collection which contains non-fungi
 | Name       | string    | name of the collection |
 | Denom      | string    | The symbol of the collection |
 | TotalSupply| int64     | total supply of the NFT in this collection |
-| Mintable:  | bool      | true indicate the owner can increase the totalSupply |
+| Mintable:  | bool      | true indicates the owner can increase the totalSupply |
 | NFTs       | []NFT     | A set of NFT token |
 
 ```go
