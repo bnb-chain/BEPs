@@ -51,24 +51,27 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 
 ### 5.1 Collection Properties
 
+- Owner: the owner adress of the collection.
+
 - Token Name: Token Name represents the long name of the token - e.g. "BinanceAnnualEvent2019"
 
-- Denom: Denom is the identifier of the newly issued collection.
+- Denom: Denom is the identifier(symbol) of the newly issued collection.
 
 - Total Supply: Total supply is the total number of issued NFT tokens belong to this collection.
 
 - Mintable: A boolean value to indicate whether the owner can increase the totalSupply.
 
-- NFTs: An array contains items in NFT interface(described below)
+- NFTs: An array contains items in NFT interface(described below).
 
 ```go
 // Collection of non fungible tokens
 type Collection struct {
-  Name          string  `json:"name"`
-  Denom         string  `json:"denom,string,omitempty"`  // name of the collection;
-  TotalSupply   int64   `json:"totalSupply"`             // total supply of the NFT in this collection;
-  Mintable      bool    `json:"mintable"`                // can increase total supply or not;
-  NFTs          NFTs    `json:"nfts"`                    // NFTs that belong to a collection;
+  Owner         string  `json:"owner"`                    // owner of the collection;
+  Name          string  `json:"name"`                     // name of the collection;
+  Denom         string  `json:"denom,string,omitempty"`   // the identifier(symbol) of the newly issued collection;
+  TotalSupply   int64   `json:"totalSupply"`              // total supply of the NFT in this collection;
+  Mintable      bool    `json:"mintable"`                 // can increase total supply or not;
+  NFTs          []NFT   `json:"nfts"`                     // NFTs that belong to a collection;
 }
 ```
 
@@ -137,6 +140,16 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 - Owner: The owner address.
 
 - MetadataURI(OPTIONAL): Contains more details about the assets which this NFT represents
+
+```go
+// Collection of non fungible tokens
+type Collection struct {
+  Collection    string  `json:"collection"`              // sumbol of the collection it belongs to;
+  ID            string  `json:"denom,string,omitempty"`  // unique ID;
+  Owner         int64   `json:"owner"`                   // total supply of the NFT in this collection;
+  MetadataURI   string  `json:"mintable"`                // can increase total supply or not;
+}
+```
 
 #### 6.1.1 MetadataURI Example
 
