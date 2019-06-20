@@ -10,6 +10,7 @@
     - [5.1 Collection Properties](#51-collection-properties)
     - [5.2 Collection Management Operation](#52-collection-management-operation)
       - [5.2.1 Issue collection](#521-issue-collection)
+      - [5.2.2 Increase total supply](#522-increase-total-supply)
   - [6. Token Specification](#6-token-specification)
     - [6.1 Token Properties](#61-token-properties)
     - [6.2 Token Management Operation](#62-token-management-operation)
@@ -79,6 +80,7 @@ Issuing collection is to create a new unique collection which contains non-fungi
 
 | **Field**  | **Type**  | **Description**              |
 | :--------- | :-------- | :---------------------------- |
+| Owner      | address   | the owner adress of the collection |
 | Name       | string    | name of the collection |
 | Denom      | string    | The symbol of the collection |
 | TotalSupply| int64     | total supply of the NFT in this collection |
@@ -96,6 +98,19 @@ func NewCollection(name string, denom string, totalSupply uint64, nfts NFTs) Col
   }
 }
 ```
+
+#### 5.2.2 Increase total supply
+
+This can be performed only when the following conditions are satisfied:
+
+1. Performance is the collection owner.
+
+2. Mintable value of the collection is true
+
+| **Field**  | **Type**  | **Description**              |
+| :--------- | :-------- | :---------------------------- |
+| Denom      | string    | The symbol of the collection |
+| Amount     | int64     | The amount is positive and can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int64. |
 
 **Symbol Convention:**
 
@@ -115,23 +130,21 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 
 ### 6.1 Token Properties
 
-> x/nft/types/nft.go brings metadata on-chain
-
 - collection: The denom of the collection it belongs to.
 
-- Id: Unique id of the token.
+- ID: Unique id of the token.
 
 - Owner: The owner address.
 
-- Metadata(OPTIONAL): Contains more details about the assets which this NFT represents
+- MetadataURI(OPTIONAL): Contains more details about the assets which this NFT represents
 
-#### 6.1.1 Metadata Example
+#### 6.1.1 MetadataURI Example
 
 The metadata extension is OPTIONAL for BEP-7 token. This allows your smart contract to be interrogated for its name and for details about the assets which your NFTs represent.
 
  ```json
 {
-    "title": "Asset Metadata",
+    "title": "Asset MetadataURI",
     "type": "object",
     "properties": {
         "name": {
@@ -158,6 +171,12 @@ The metadata extension is OPTIONAL for BEP-7 token. This allows your smart contr
 
 #### 6.2.1 Issue token
 
+This can be performed only when the following conditions are satisfied:
+
+1. Performance is the collection owner.
+
+2. The amount of the minted tokens on the collections has not exceeded the total supply of the collection.
+
 Issuing token is to create a new non-fungible token on Binance Chain. The new non-fungible token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
 
 **Data Structure for Issue Operation**: A data structure is needed to represent the new token:
@@ -165,9 +184,22 @@ Issuing token is to create a new non-fungible token on Binance Chain. The new no
 | **Field**    | **Type** | **Description**                                              |
 | :------------ | :--------  | :------------------------------------------------------------ |
 | collection    | string     | The denom of the collection it belongs to |
-| Id            | string     | Incremental id in the collection it belongs to |
-| Owner         | Address    | The initial issuer of this token |
-| Metadata      | Object     | OPTIONAL. Contains more details about the assets which this NFTs represent |
+| ID            | string     | Incremental id in the collection it belongs to |
+| Owner         | Address    | The owner of this token |
+| MetadataURI   | string     | OPTIONAL. Contains more details about the assets which this NFTs represent |
+
+```go
+// NewBaseNFT creates a new NFT instance
+func NewBaseNFT(ID string, owner address, metadataURI string,
+) BaseNFT {
+  return BaseNFT{
+    Collection:  collection,
+    ID:          ID,
+    Owner:       owner,
+    MetadataURI: strings.TrimSpace(metadataURI),
+  }
+}
+```
 
 #### 6.2.2 Transfer Tokens
 
@@ -199,7 +231,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 | **Field** | **Type** | **Description**                                                 |
 | :--------- | :-------- | :------------------------------------------------------------ |
 | Denom     | string   | The symbol of a collection                                      |
-| Id        | string   | The id of a token in the collection                             |
+| ID        | string   | The id of a token in the collection                             |
 | Amount    | int64    | The amount is positive and can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int64. |
 
 **Transfer Process:**
@@ -219,8 +251,7 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 | **Field** | **Type** | **Description**                                                 |
 | :--------- | :-------- | :------------------------------------------------------------ |
 | Denom     | string   | The symbol of a collection - e.g. NNB-B90                       |
-| Id        | string   | The id of a token in the collection                             |
-| Amount    | int64    | The unfreeze amount can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. This amount should be no less than the frozen amount |
+| ID        | string   | The id of a token in the collection                             |
 
 **Freeze Process:**
 
@@ -239,8 +270,7 @@ Unfreezing is to unlock some of the frozen tokens in the user's account and make
 | **Field** | **Type** | **Description**                                              |
 | :--------- | :-------- | :------------------------------------------------------------ |
 | Denom     | string   | The symbol of a collection - e.g. NNB-B90                       |
-| Id        | string   | The id of a token in the collection                             |
-| Amount    | int64    | The unfreeze amount can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. This amount should be no less than the frozen amount |
+| ID        | string   | The id of a token in the collection                             |
 
 **Unfreeze Process:**
 
