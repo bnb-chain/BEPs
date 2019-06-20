@@ -142,8 +142,8 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 - MetadataURI(OPTIONAL): Contains more details about the assets which this NFT represents
 
 ```go
-// Collection of non fungible tokens
-type Collection struct {
+// non fungible token
+type NFT struct {
   Collection    string  `json:"collection"`              // sumbol of the collection it belongs to;
   ID            string  `json:"denom,string,omitempty"`  // unique ID;
   Owner         int64   `json:"owner"`                   // total supply of the NFT in this collection;
