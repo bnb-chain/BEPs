@@ -106,7 +106,7 @@ func NewCollection(name string, denom string, totalSupply uint64, nfts NFTs) Col
 
 This can be performed only when the following conditions are satisfied:
 
-1. Performance is the collection owner.
+1. Executor is the collection owner.
 
 2. Mintable value of the collection is true
 
@@ -186,7 +186,7 @@ The metadata extension is OPTIONAL for BEP-7 token. This allows your smart contr
 
 This can be performed only when the following conditions are satisfied:
 
-1. Performance is the collection owner.
+1. Executor is the collection owner.
 
 2. The amount of the minted tokens on the collections has not exceeded the total supply of the collection.
 
@@ -309,9 +309,12 @@ The content is licensed under [CC0](https://creativecommons.org/publicdomain/zer
 
 ## 9. Reference
 
+**ERC standards**
 - [ERC-721 Non-Fungible Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
 - [ERC-165 Standard Interface Detection](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md)
 - [ERC-1538 Transparent Contract Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1538.md)
 - [ERC-1155 Multi Token Standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md)
+
+**cosmos SDK**
 - [NFT Module on cosmos-sdk](https://github.com/cosmos/cosmos-sdk/issues/4046)
 - [NFT Sample Implementation on cosmos-sdk](https://github.com/cosmos/cosmos-sdk/pull/4209)
