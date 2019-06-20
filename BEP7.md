@@ -75,7 +75,7 @@ type Collection struct {
 
 #### 5.2.1 Issue collection
 
-Issuing collection is to create a new unique collection which contains non-fungible token as children on Binance Chain. The new collection represents ownership of something new, and can also peg to existing NFT token from any other blockchains.
+Issuing collection is to create a new unique collection which contains non-fungible token as children on Binance Chain. The new collection represents ownership of something new, and can also peg to existing NFT token from any other blockchains. **The difficulty of creating a BEP7 collection should be indentical to creating BEP2 token, in order to block scammers.**
 
 | **Field**  | **Type**  | **Description**              |
 | :--------- | :-------- | :---------------------------- |
