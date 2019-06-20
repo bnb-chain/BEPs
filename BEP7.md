@@ -56,7 +56,7 @@ Design and issue non-fungible asset on the Binance Chain, as one of the basic ec
 
 - Total Supply: Total supply is the total number of issued NFT tokens belong to this collection.
 
-- Mintable: A boolean balue to indicate whether the owner can increase the totalSupply.
+- Mintable: A boolean value to indicate whether the owner can increase the totalSupply.
 
 - NFTs: An array contains items in NFT interface(described below)
 
