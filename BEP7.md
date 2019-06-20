@@ -83,7 +83,7 @@ Issuing collection is to create a new unique collection which contains non-fungi
 
 | **Field**  | **Type**  | **Description**              |
 | :--------- | :-------- | :---------------------------- |
-| Owner      | address   | the owner adress of the collection |
+| Owner      | address   | the owner address of the collection |
 | Name       | string    | name of the collection |
 | Denom      | string    | The symbol of the collection |
 | TotalSupply| int64     | total supply of the NFT in this collection |
