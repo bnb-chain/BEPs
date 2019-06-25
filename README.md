@@ -10,4 +10,5 @@ Here are the list of subjects of BEPs:
 * [BEP-6](BEP6.md): Delist Trading Pairs on Binance Chain
 * [BEP-9](BEP9.md): Time Locking of Tokens on Binance Chain
 * [BEP-10](BEP10.md): Registered Types for Transaction Source
+* [BEP-12](BEP12.md): Introduce Customized Scripts and Transfer Memo Validation
 
