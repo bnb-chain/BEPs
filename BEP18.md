@@ -24,7 +24,9 @@ This BEP describes [state sync](https://docs.binance.org/fullnode.html#state-syn
 
 [State sync](https://docs.binance.org/fullnode.html#state-sync) is a way to help newly-joined users sync the latest status of the binance chain. It syncs the latest sync-able peer's status so that fullnode user (who wants to catch up with chain as soon as possible) doesn't need sync from block height 0 (with a cost that discards all historical blocks locally).
 
-BEP-18 Proposal describes an enhancement of existing state sync implementation to improve user experience. It introduces the following details:
+BEP-18 Proposal describes an enhancement of existing state sync implementation to improve user experience. The latest status to be synced is represented by **"snapshot"**, which consists of a manifest file and a bunch of snapshot chunk files. The manifest file summarizes version, height and checksums of snapshot chunk files of this snapshot. The snapshot chunk files encoded essential state data to recover a full node.
+
+This BEP introduces the following details:
 
 - What's the procedure to take a snapshot
 - What's the procedure to sync snapshot from other peers
@@ -42,8 +44,6 @@ We propose this BEP to enhance full node user experience (and ease their pain) o
 
 2. Interruption during state sync (node process get killed because of reboot computer or user impatience) would make already synced data in vain (because the current full node doesn't persist synced part on disk). Worsely it mistakenly writes a lock file prevents user state sync again. <br> <br> In this enhancement, we want support break-resume downloading and keep the consistent status for arbitrarily restart.
 
-3. Users cannot control which height they can sync from. The current implementation only allows user sync latest sync-able height. <br> <br> In this enhancement, we want make syncing from historical sync-able height possible. The user either specify a height to sync in the config file or follow the latest sync-able height. 
-
 ## 5.  Specification
 
 State sync will download **manifest** and **snapshot chunks** from other peers.
@@ -53,7 +53,7 @@ State sync will download **manifest** and **snapshot chunks** from other peers.
 There are two ways to take snapshots from a fullnode: automatically or manually. Snapshots will be put under `$HOME/data/snapshot/<height>`. All types involved in the snapshot are encoded by go-amino and compressed by snappy. More details will be explained later.
 
 1. To make fullnode automatically take snapshots, just make sure `state_sync_reactor` in `$HOME/config.toml` is set to true.
-2. To manually take snapshots, stop the node if it is running, then run `./bnbchaind snapshot --home <home> --height <syncable_height>`, the `<syncable_height>` can be found from standard output (instead of default bnc.log) of bnbchaind process.
+2. To manually take snapshots, stop the node if it is running, then run `./bnbchaind snapshot --home <home> --height <height>`.
 
 If the snapshot taking procedure is interrupted, the node will be still in good status, but it cannot provide the interrupted height for other peers.
 
@@ -64,8 +64,6 @@ Note: automatically take snapshot would keep occupying disk space. Fullnode woul
 Syncing snapshot is designed to be only run once during full node first start. To enable state sync from others, `state_sync_reactor` should be true and `state_sync_height` should be set to non-negative (default `-1` means disable syncing from others).
 
 If a user wants to sync from (majority) peers' latest sync-able height, they should set `state_sync_height` to 0.
-
-If a user wants to sync from a specific height, they should set `state_sync_height` to a sync-able height.
 
 Stop and restart fullnode during state sync is allowed. The next time full node is started, it will resume by loading Manifest and downloaded chunks then download missing chunks.
 
