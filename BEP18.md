@@ -22,9 +22,9 @@ This BEP describes [state sync](https://docs.binance.org/fullnode.html#state-syn
 
 ## 2.  Abstract
 
-[State sync](https://docs.binance.org/fullnode.html#state-sync) is a way to help newly-joined users sync the latest status of the binance chain. It syncs the latest sync-able peer's status so that fullnode user (who wants to catch up with chain as soon as possible) doesn't need sync from block height 0 (with a cost that discards all historical blocks locally).
+[State sync](https://docs.binance.org/fullnode.html#state-sync) is a way to help newly-joined users sync the latest status of the binance chain. It syncs the latest sync-able peer's status so that fullnode user (who wants to catch up with chain as soon as possible with a cost that discards all historical blocks locally) doesn't need sync from block height 0.
 
-BEP-18 Proposal describes an enhancement of existing state sync implementation to improve user experience. The latest status to be synced is represented by **"snapshot"**, which consists of a manifest file and a bunch of snapshot chunk files. The manifest file summarizes version, height and checksums of snapshot chunk files of this snapshot. The snapshot chunk files encoded essential state data to recover a full node.
+BEP-18 Proposal describes an enhancement of existing state sync implementation to improve user experience. The status of the blockchain that can be synced is represented in a **"snapshot"**, which consists of a manifest file and a bunch of snapshot chunk files. The manifest file summarizes version, height, and checksums of snapshot chunk files of this snapshot. The snapshot chunk files contain encoded essential state data to recover a full node.
 
 This BEP introduces the following details:
 
@@ -38,7 +38,7 @@ This BEP is still working in progress.
 
 ## 4.  Motivation
 
-We propose this BEP to enhance full node user experience (and ease their pain) on using state sync because of following implementation limitations.
+We propose this BEP to enhance full node user experience (and ease their pain) on using state sync because of the following implementation limitations.
 
 1. Users complain most about state syncing testnet is very slow and usually stuck on some requests. <br> <br> In this enhancement, we want data to respond more evenly across peers so that syncing can continuously make progress and the overall syncing time can reduce from 30 - 45 min to around 5 min.
 
@@ -52,12 +52,12 @@ State sync will download **manifest** and **snapshot chunks** from other peers.
 
 There are two ways to take snapshots from a fullnode: automatically or manually. Snapshots will be put under `$HOME/data/snapshot/<height>`. All types involved in the snapshot are encoded by go-amino and compressed by snappy. More details will be explained later.
 
-1. To make fullnode automatically take snapshots, just make sure `state_sync_reactor` in `$HOME/config.toml` is set to true.
+1. To make fullnode automatically take snapshots, just make sure `state_sync_reactor` in `$HOME/config.toml` is set to true. When set automatically snapshot, the fullnode will take a snapshot for blocks with a blocking time of 00:00 UTC each day. No snapshot will be taken for any other blocks during the day.
 2. To manually take snapshots, stop the node if it is running, then run `./bnbchaind snapshot --home <home> --height <height>`.
 
-If the snapshot taking procedure is interrupted, the node will be still in good status, but it cannot provide the interrupted height for other peers.
+If the snapshot taking procedure is interrupted, the node will be still in good status, but it cannot provide the interrupted height for other peers to sync.
 
-Note: automatically take snapshot would keep occupying disk space. Fullnode would not delete them automatically, so the user should periodically delete unneeded snapshots manually if they want to save disk space.
+Note: Automatic snapshot files will keep occupying disk space. Fullnode would not delete them automatically, so the user should periodically delete unneeded snapshots manually if they want to save disk space.
 
 ### 5.2 Sync snapshot
 
@@ -65,7 +65,7 @@ Syncing snapshot is designed to be only run once during full node first start. T
 
 If a user wants to sync from (majority) peers' latest sync-able height, they should set `state_sync_height` to 0.
 
-Stop and restart fullnode during state sync is allowed. The next time full node is started, it will resume by loading Manifest and downloaded chunks then download missing chunks.
+Stop and restart fullnode during state sync is allowed. The next time full node is started, it will resume by loading Manifest and downloaded snapshot chunks then download missing snapshot chunks.
 
 Once state sync is successful, a `STATESYNC.LOCK` file will be created under `$HOME/data` to prevent state sync next time.
 
@@ -81,8 +81,8 @@ SHA256 hash sum of each chunk synced will be checked against the hash declared w
 | Height         | int64       | height of this snapshot                                                                                                                                                                                                                                                                                                                                          |
 | StateHashes    | []SHA256Sum | hashes of tendermint state chunks                                                                                                                                                                                                                                                                                                                                |
 | AppStateHashes | []SHA256Sum | hashes of app state chunks                                                                                                                                                                                                                                                                                                                                       |
-| BlockHashes    | []SHA256Sum | hashes of the block in this snapshot, currently only one block is synced                                                                                                                                                                                                                                                                                             |
-| NumKeys        | []int64     | number of keys for each sub-store, this sacrifices clear boundary between cosmos and tendermint, saying tendermint knows application DB might be organized by sub-stores.<br><br> |
+| BlockHashes    | []SHA256Sum | hashes of the blocks in this snapshot, currently only the block of requested height is synced. This synced block is needed mainly to make sure local databases are consistent with each other after state sync. It also provides block metadata like a timestamp for tendermint abci application.                                                                                                                                                                                                                                                                                             |
+| NumKeys        | []int64     | number of keys for each sub-store.<br><br> |
 
 ### 5.4 Snapshot chunk format
 
@@ -94,8 +94,8 @@ SHA256 hash sum of each chunk synced will be checked against the hash declared w
 
 | Field        | Type     | Description                                                                                                                                                                                  |
 |--------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| StartIdx     | int64    | compare (startIdx and number of complete nodes) against (Manifest.NumKeys) we can know each node's sub-store                                                                                      |
-| Completeness | uint8    | flag of completeness of this chunk, not enum because of go-amino doesn't support enum encoding                                                                                               |
+| StartIdx     | int64    | compare (startIdx and number of complete nodes) against (Manifest.NumKeys) we can know each node should be persisted to which application db's sub-store. <br/><br/>For example, `acc` and `token` store each has 10 and 5 nodes (with `NumKeys = []int64{10, 5}` in Manifest).  <br/><br/> An app state chunk whose `StartIdx` is `0` and completeness is `0` (complete) with `12` nodes, the first of 10 nodes will be persisted to `acc` store and last 2 nodes will be persisted to `token` store. <br/><br/> After above chunk, there might be *4* app chunks whose `StartIdx` are `12`, but `Completeness` would be `1`, `2`, `2`, `3` respectively and each chunk contains only one element in Nodes. The actual *3rd* `token` store iavl tree node should be recovered by combining these 4 chunks' node elements together. At the recovering side, we know the order of 2 middle chunks because their order is kept in the Manifest file.                                                                               |
+| Completeness | uint8    | flag of completeness of this chunk, not enum because of go-amino doesn't support enum encoding.                                                                                                     |
 | Nodes        | [][]byte | iavl tree serialized node, one big node (i.e. active orders and order book) might be split into different chunks (they share same StartIdx with different completeness flag), the order is ensured in the manifest file |
 
 #### 5.4.2 Tendermint state chunk
