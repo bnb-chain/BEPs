@@ -3,12 +3,12 @@
 - [BEP-23: Continuous WalletConnect](#bep-23--continuous-walletconnect)
   * [1. Summary](#1-summary)
   * [2. Abstract](#2-abstract)
-  * [3. Status](#3--status)
+  * [3. Status](#3-status)
   * [4. Motivation](#4-motivation)
   * [5. Specification](#5-specification)
     + [5.1 Continuous Signing Wallet](#51-continuous-signing-wallet)
     + [5.2 Secure Auto Sign in the Mobile Wallets](#52-secure-auto-sign-in-the-mobile-wallets)
-    + [5.3 Web Wallet Continuous Connection](#53--web-wallet-continuous-connection)
+    + [5.3 Web Wallet Continuous Connection](#53-web-wallet-continuous-connection)
   * [6. License](#6-license)
 
 ## 1. Summary
