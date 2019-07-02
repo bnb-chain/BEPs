@@ -1,6 +1,6 @@
-# BEP-21: Improvements to Freeze Function
+# BEP-24: Improvements to Freeze Function
 
-- [BEP-21: Improvements to Freeze Function](#bep-21-improvements-to-freeze-function)
+- [BEP-24: Improvements to Freeze Function](#bep-24-improvements-to-freeze-function)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -19,7 +19,7 @@ This BEP describes an improvement for the freeze feature of tokens on the Binanc
 
 ## 2.  Abstract
 
-BEP-21 Proposal describes functionality to improve freeze functionality of tokens on the Binance Chain. Such as:
+BEP-24 Proposal describes functionality to improve freeze functionality of tokens on the Binance Chain. Such as:
 
 + **Freeze from Any**: Currently only the token owner can freeze tokens. This should be updated to allow any account holder to freeze tokens on their address. 
 + **BondPeriod**: Freeze the token with a specified bond period for the token after which they can be claimed. 
