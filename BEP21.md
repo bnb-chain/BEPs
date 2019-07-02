@@ -21,11 +21,11 @@ This BEP describes an improvement for the freeze feature of tokens on the Binanc
 
 BEP-21 Proposal describes functionality to improve freeze functionality of tokens on the Binance Chain. Such as:
 
-+ Freeze from Any: Currently only the token owner can freeze tokens. This should be updated to allow any account holder to freeze tokens on their address. 
-+ Freeze with BondPeriod: Freeze the token with a specified bond period for the token after which they can be claimed. 
-+ Unfreeze: Unfreeze the tokens and begin the unbonding period (if any). A second unfreeze call after tokens are unbonded is necessary to then claim. 
-+ QueryBondPeriod: QueryBondPeriod will return the bond period of the token freeze. 
-+ QueryUnlockTime: QueryUnlockTime will return the unlock time of the token freeze. 
++ **Freeze from Any**: Currently only the token owner can freeze tokens. This should be updated to allow any account holder to freeze tokens on their address. 
++ **BondPeriod**: Freeze the token with a specified bond period for the token after which they can be claimed. 
++ **Unfreeze**: Unfreeze the tokens and begin the unbonding period (if any). A second unfreeze call after tokens are unbonded is necessary to then claim. 
++ **QueryBondPeriod**: QueryBondPeriod will return the bond period of the token freeze. 
++ **QueryUnlockTime**: QueryUnlockTime will return the unlock time of the token freeze. 
 
 ## 3.  Status
 
@@ -34,7 +34,7 @@ This BEP is under implementation.
 ## 4.  Motivation
 
 Some dApps require token holders to perform certain actions in holding utility coins before unlocking features, such as freezing tokens for certain time periods.
-For example, a dApp with a certain premium feature set may require token holders to freeze a certain quantity of tokens on their address for 30 days (bond period). 
+For example, a dApp with a certain premium feature set may require token holders to freeze a certain quantity of tokens on their address for a minimum of 30 days (bond period). 
 
 ## 5.  Specification
 
