@@ -27,6 +27,15 @@ BEP-24 Proposal describes functionality to improve freeze functionality of token
 + **QueryBondPeriod**: QueryBondPeriod will return the bond period of the token freeze. 
 + **QueryUnlockTime**: QueryUnlockTime will return the unlock time of the token freeze. 
 
+Difference to [BEP9](https://github.com/binance-chain/BEPs/blob/master/BEP9.md).
+
+BEP9 refers to timelocking of tokens that can be reclaimed after a certain date.
+
+BEP24 refers to bonding of tokens, that are locked indefinitely. The user can try to unfreeze *at any time* but it will begin a mandatory unbonding period, such as 30 days. This is more similar to the process of staking.
+
+BEP24 can be built on the fundamentals of BEP9. Without BEP24, users will have to keep coming online to re-lock their tokens.
+
+
 ## 3.  Status
 
 This BEP is under implementation.
