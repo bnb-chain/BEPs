@@ -15,23 +15,22 @@
 
 ## 1.  Summary 
 
-This BEP describes an improvement for the freeze feature of tokens on the Binance Chain.
+This BEP describes an improvement for the [BEP9](https://github.com/binance-chain/BEPs/blob/master/BEP9.md) freeze feature of tokens on the Binance Chain.
 
 ## 2.  Abstract
 
-BEP-24 Proposal describes functionality to improve freeze functionality of tokens on the Binance Chain. Such as:
+BEP-24 Proposal describes functionality to improve freeze functionality of tokens on the Binance Chain:
 
-+ **Freeze from Any**: Currently only the token owner can freeze tokens. This should be updated to allow any account holder to freeze tokens on their address. 
 + **BondPeriod**: Freeze the token with a specified bond period for the token after which they can be claimed. 
-+ **Unfreeze**: Unfreeze the tokens and begin the unbonding period (if any). A second unfreeze call after tokens are unbonded is necessary to then claim. 
-+ **QueryBondPeriod**: QueryBondPeriod will return the bond period of the token freeze. 
-+ **QueryUnlockTime**: QueryUnlockTime will return the unlock time of the token freeze. 
++ **Unfreeze**: Unfreeze the tokens and begin the unbonding period. A second unfreeze call after tokens are unbonded is necessary to then claim. 
++ **QueryBondPeriod**: QueryBondPeriod will return the **bond period** of the token freeze. 
++ **QueryUnlockTime**: QueryUnlockTime will return the unlock time when the token begins unlocking. 
 
 Difference to [BEP9](https://github.com/binance-chain/BEPs/blob/master/BEP9.md).
 
 BEP9 refers to timelocking of tokens that can be reclaimed after a certain date.
 
-BEP24 refers to bonding of tokens, that are locked indefinitely. The user can try to unfreeze *at any time* but it will begin a mandatory unbonding period, such as 30 days. This is more similar to the process of staking.
+BEP24 refers to how long the tokens take to unlock. The user can try to unfreeze *at any time* but it will begin a mandatory unbonding period, such as 30 days. This is more similar to the process of staking.
 
 BEP24 can be built on the fundamentals of BEP9. Without BEP24, users will have to keep coming online to re-lock their tokens.
 
