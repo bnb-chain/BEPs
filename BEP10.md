@@ -67,6 +67,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 7          | GoBNB [GoBNB Payments App](https://github.com/gobnb/)
 | 5          | Math Wallet                 |
 | 12         | Coinomi|
+| 18          | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
 | 714         | Binance|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
