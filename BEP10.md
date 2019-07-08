@@ -66,6 +66,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 6          | SafePal Wallet [Secure, simple, powerful cold wallet for the masses.](https://www.safepal.io)|
 | 7          | GoBNB [GoBNB Payments App](https://github.com/gobnb/)
 | 5          | Math Wallet                 |
+| 8          | [Magnum Wallet](https://magnumwallet.co)|
 | 12         | Coinomi|
 | 714         | Binance|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
