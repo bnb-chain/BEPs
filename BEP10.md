@@ -63,11 +63,15 @@ All of these constant values shall be considered hardcoded in client implementat
 | 2          | Trust Wallet                 |
 | 3          | CanWork.io Decentralised [Serviceplace App](https://github.com/canyacoin/canwork-web-ui)|
 | 4          | CanYaDAO [Decentralised Autonomous Organisation](https://github.com/canyacoin/canyadao)|
+| 5          | Math Wallet                 |
 | 6          | SafePal [Secure, simple, powerful hardware wallet for the masses](https://www.safepal.io)|
 | 7          | GoBNB [GoBNB Payments App](https://github.com/gobnb/)
-| 5          | Math Wallet                 |
+| 8          | [Magnum Wallet](https://magnumwallet.co)|
+| 9          | [Atomic Wallet](https://atomicwallet.io)|
 | 12         | Coinomi|
-| 714         | Binance|
+| 18         | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
+| 714        | Binance|
+| 777        | Guarda Wallet [Multi-currency, custody-free wallet](https://guarda.co/)
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
 
