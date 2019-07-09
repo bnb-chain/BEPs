@@ -63,7 +63,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 2          | Trust Wallet                 |
 | 3          | CanWork.io Decentralised [Serviceplace App](https://github.com/canyacoin/canwork-web-ui)|
 | 4          | CanYaDAO [Decentralised Autonomous Organisation](https://github.com/canyacoin/canyadao)|
-| 6          | SafePal Wallet [Secure, simple, powerful cold wallet for the masses.](https://www.safepal.io)|
+| 6          | SafePal [Secure, simple, powerful hardware wallet for the masses](https://www.safepal.io)|
 | 7          | GoBNB [GoBNB Payments App](https://github.com/gobnb/)
 | 5          | Math Wallet                 |
 | 12         | Coinomi|
