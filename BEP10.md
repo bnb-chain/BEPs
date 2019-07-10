@@ -68,6 +68,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 7          | GoBNB [GoBNB Payments App](https://github.com/gobnb/)
 | 8          | [Magnum Wallet](https://magnumwallet.co)|
 | 9          | [Atomic Wallet](https://atomicwallet.io)|
+| 10         | [Equal Wallet](https://equal.tech/)|
 | 12         | Coinomi|
 | 18         | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
 | 714        | Binance|
