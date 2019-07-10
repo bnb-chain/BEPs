@@ -21,9 +21,9 @@ Binance Chain serves fast transferring transactions and also high capacity asset
 
 For these tokens, the best way to use Binance Chain is to spread the tokens on multiple chains. One can issue or peg part of total token supply on Binance Chain to enjoy the speed, fast finality and powerful exchange, meanwhile keep other benefit and necessity on other chains. Many new requirements are imposed for such model:
 
-1. there should be easy way for users to swap unidirectionally or bidirectionally between Binance Chain and the other chain, better in a trustless way;
+1. there should be an easy way for users to swap unidirectionally or bidirectionally between Binance Chain and the other chain, better in a trustless way;
 2. there should be restrictions and/or transparency to ensure the total supply of tokens remained the same, and no one, even the issuer cannot freely change the circulation at will;
-3. there should be easy way to calculate how many tokens are in circulation on each chain of both sides.
+3. there should be an easy way to calculate how many tokens are in circulation on each chain of both sides.
 
 Here new transaction and logics are required on Binance Chain, as it doesn’t support Smart Contract. Also a standard infrastructure and procedure should be proposed and used as best practice for such inter-chain communications.
 
@@ -39,7 +39,7 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 
 ### Roles
 
-*   **Client**: users that who want to swap tokens from Ethereum to Binance Chain, or the other way round;
+*   **Client**: users who want to swap tokens from Ethereum to Binance Chain, or the other way round;
 *   **Owner**: the issuers or anyone who want to peg the tokens from Ethereum to Binance Chain. In most cases, the Owner should be the issuer of the token. There expects one or multiple Owners to provide some service for one blockchain/project, depending on the size of the blockchain/project. 
 
 ### Infrastructure Components
@@ -96,16 +96,16 @@ The below are the details for HTLT and CHLT.
 
 ### Hash Timer Locked Transfer
 
-Hash Timer Locked Transfer (HTLT) is a new transaction type on Binance Chain, to serve as HTLC in the first step of Atomic Swap, with parameters defined as the below:
+Hash Timer Locked Transfer (HTLT) is a new transaction type on Binance Chain, to serve as HTLC in the first step of Atomic Swap, with parameters defined as below:
 
 | Name | Type | Description | Optional |
 | -----| ---- | ----------- | -------- |
 | From | Address | Sender address, where the asset is from | No| 
 | To | Address | Receiver address, where the asset is to, if the proper condition meets. This address must be flagged with HTLT flag in order to claim the transfer to be fully done once the hashed secret is disclosed by Sender. | No | 
 | ToOnOtherChain  | bytes   | an byte array, maximum 32 bytes, in any proper encoding | No            | 
-| Random Number Hash | 32 bytes   | Sender address, where the asset is from | No | 
+| Random Number Hash | 32 bytes   | hash of a random number, based on SHA256 | No |
 | Coins | []Coin   |similar to the Coins in the original Transfer defined in BEP2| No | 
-| TimeSpan | int64   | number of blocks to wait before the asset may be returned to From if not claimed via Random. The number must be larger than or equal to 360 (>2 minutes), and smaller than 518400 (>48 hours) | No | 
+| TimeSpan | int64   | number of blocks to wait before the asset may be returned to From if not claimed via Random. The number must be larger than or equal to 360 (>2 minutes), and smaller than 518400 (< 48 hours) | No |
 
 Before the above `To` claims the transferred Coins with the correct random number that can generate the same Random Hash, the Coins will not appear as balance on `To` address. The transaction is signed by private key for `From` address.
 
@@ -117,7 +117,7 @@ Claim Hash Timer Locked (CHTL) is to claim the locked asset by showing the Rando
 | Name | Type | Description | Optional |
 | -----| ---- | ----------- | -------- |
 | From | Address | Sender address, where the asset is from | No| 
-| Random Number Hash | 32 bytes   | Sender address, where the asset is from | No |
+| Random Number Hash | 32 bytes   | hash of a random number, based on SHA256 | No |
 | transaction hash | bytes | the hash of HTLT transaction that locked the asset | No| 
 
 ## APS Smart Contract Interface for Other Blockchain
