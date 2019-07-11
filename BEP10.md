@@ -17,11 +17,11 @@ This BEP describes how to have a better understanding of the origin of a transac
 
 ## 2. Abstract
 
-By adding a field in each transaction message, the origin of any transaction could be tracked. 
+By adding a field in each transaction message, the origin of any transaction could be tracked.
 
 ## 3.  Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 ## 4. Motivation
 

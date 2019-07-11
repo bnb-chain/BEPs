@@ -20,13 +20,13 @@ This BEP describes a new on-chain match engine, Maker/Taker concepts are introdu
 
 ## 2. Abstract
 
-The current match engine uses a periodic auction match algorithm. Matching will be executed once every block,  all the candidate orders will be tried to be matched at the same time at the same price in every auction. 
+The current match engine uses a periodic auction match algorithm. Matching will be executed once every block,  all the candidate orders will be tried to be matched at the same time at the same price in every auction.
 
 Based on that algorithm, this specification introduces the concepts of maker and taker. The match is still executed only once in each block while the execution prices may vary for maker and taker orders.
 
 ## 3.  Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 ## 4. Motivation
 
@@ -37,7 +37,7 @@ On not-so-liquid or highly volatile markets, the classic periodic auction match 
 An Auction Match comprises two steps, Price Determination followed by Execution Allocation.
 
 ### 5.1 Price Determination
-This BEP keeps the current algorithm to determine the single equilibrium match price, the following criteria shall be assessed in sequence: 
+This BEP keeps the current algorithm to determine the single equilibrium match price, the following criteria shall be assessed in sequence:
  - Maximize the execution quantity
  - Execute all orders or at least all orders on one side that are fillable against the selected price.
  - Indicate the market pressure from either buy or sell and also consider to limit the max price movement
@@ -56,9 +56,9 @@ Among all the orders to be allocated, between buy and sell sides, this specifica
 | Maker Side  | buy or sell side which has maker orders. May also have taker orders.  |
 | Taker Side  | buy or sell side which only has taker orders. |
 
-In each round of match, for all the orders that can be filled with the concluded price `P`, the algorithm ensures only one of the below two circumstances can happen, 
+In each round of match, for all the orders that can be filled with the concluded price `P`, the algorithm ensures only one of the below two circumstances can happen,
 
-1. Both buy and sell side are `Taker Side`, when there is no leftover orders from all the previous blocks; or, 
+1. Both buy and sell side are `Taker Side`, when there is no leftover orders from all the previous blocks; or,
 
 2. One side is `Maker Side` that has orders from previous blocks (and may/may not have orders from this current block),  and the other is `Taker Side` that only has orders from this current block.
 
@@ -83,7 +83,7 @@ Candidates would be matched right after one block is committed. Each block has o
 In `OrderUpdates` messages, the trades generated in each block are published, either in json format or avro format.  Here we can add a new field `TickType` to the `Trade` to indicate which side is the taker.
 
 
-| TickType Enum | Int value | Explanation | 
+| TickType Enum | Int value | Explanation |
 | ------------- | --------- | ----------- |
 | Unknown       | 0         | For compatibility, all trades would use this before upgrade.
 | SellTaker     | 1         | Sell order is the taker

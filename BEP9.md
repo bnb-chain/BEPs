@@ -14,7 +14,7 @@
       - [5.1.4 QueryTimeLock](#514-querytimelock)
   - [6. License](#6-license)
 
-## 1.  Summary 
+## 1.  Summary
 
 This BEP describes a proposal for a time-locking feature of tokens on the Binance Chain.
 
@@ -31,7 +31,7 @@ BEP-9 Proposal describes functionality to time-lock tokens on the Binance Chain.
 
 ## 3.  Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 ## 4.  Motivation
 
@@ -44,7 +44,7 @@ For example, some projects may lock some allocation of the issued tokens as a co
 
 #### 5.1.1 TimeLock
 
-TimeLock transactions can lock tokens from the owner address for a specified time period. Any address can TimeLock its own tokens. 
+TimeLock transactions can lock tokens from the owner address for a specified time period. Any address can TimeLock its own tokens.
 
 A fee (a fixed amount of BNB) will be charged on TimeLock transactions.
 

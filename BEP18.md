@@ -34,7 +34,7 @@ This BEP introduces the following details:
 
 ## 3.  Status
 
-This BEP is still working in progress.
+This BEP is already implemented.
 
 ## 4.  Motivation
 
@@ -88,8 +88,8 @@ SHA256 hash sum of each chunk synced will be checked against the hash declared w
 
 #### 5.4.1 App state chunk
 
- App state chunk includes iavl tree nodes. Usually, each app state chunk takes up to 4MB serialized iavl tree nodes (before snappy compression). 
- 
+ App state chunk includes iavl tree nodes. Usually, each app state chunk takes up to 4MB serialized iavl tree nodes (before snappy compression).
+
  Iavl tree node bigger than 4MB is split into different incomplete chunks, that's where `Completeness` field effect.
 
 | Field        | Type     | Description                                                                                                                                                                                  |

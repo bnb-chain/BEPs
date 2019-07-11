@@ -16,7 +16,7 @@ Listing new trading pairs is done via listing proposals. Suppose a token has a c
 ```
 
 ## 3. Status
-This BEP is under implementation.
+This BEP is already implemented.
 ## 4. Motivation
 The purpose of delisting is to prioritise  computing resources on healthy assets and provide a way to optimise trading markets on DEX.
 ## 5. Specification
@@ -62,7 +62,7 @@ In conclusion, a `non-BNB` trading pair `A_B` will depend on two other trading p
 
 This constraint is checked before the removal of the trading pair. If the constraint is not satisfied, the trading pair won’t be removed. If the delister still wishes to delist the trading pair, he must propose a new `DelistTradingPair` proposal on this trading pair again. However, before doing that, the delister must delist all dependent trading pairs first.
 
-#### 5.3.2 Remove Trading Pair And Expire All Orders  
+#### 5.3.2 Remove Trading Pair And Expire All Orders
 Once the trading pair constraint check has been passed, the clearance operation will be triggered and all related outstanding orders will expire. The locked tokens in the orders will be refunded to users and order expiration fee will be charged.
 
 After these 2 steps, the trading pair will be removed. The delisting process is complete.
