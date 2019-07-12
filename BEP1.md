@@ -26,7 +26,7 @@ There are three types of BEP:
 
 - Feature Request: A Feature Request BEP describes functional changes on Binance Chain or/and Binance DEX, such as a change to the network protocol, proposer selection mechanism in consensus algorithm, change in block size or fee mechanism in application level.
 - Improvement: Improvements are advice gathered from the community.
-- Standard: This kind of proposal will change the workflow of Binance Chain working process, like this BEP itself. 
+- Standard: This kind of proposal will change the workflow of Binance Chain working process, like this BEP itself.
 
 ## 4.  BEP Workflow
 
@@ -36,8 +36,8 @@ There are three types of BEP:
 
 Each status change is requested by the BEP author and reviewed by the BEP editors. Use a pull request to update the status.
 
-- Work in progress (WIP) -- A community member will write a draft BEP as a pull request. 
-- Draft -- An editor will add notes and some requests, then if all changes are made, it will go to the next stage. If it’s not approved, it will be dropped. 
+- Work in progress (WIP) -- A community member will write a draft BEP as a pull request.
+- Draft -- An editor will add notes and some requests, then if all changes are made, it will go to the next stage. If it’s not approved, it will be dropped.
 - Final -- This BEP is ready to be implemented
 - Implementation -- the development team could start work on this BEP
 
@@ -45,7 +45,7 @@ Other exceptional statuses include:
 
 - Deferred -- This is for some BEPs that depend on changes of a future BEP implementation. The current BEP will stay in the *Deferred* state and wait for the hardfork.
 - Dropped -- A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
-- Superseded -- A BEP which was previously final but is no longer considered applicable. This happens when an on-going implementation conflicts with a newly created BEP in *Final* state. The latter needs to refer to the incompatibility BEP and elaborate backward incompatibilities issue. 
+- Superseded -- A BEP which was previously final but is no longer considered applicable. This happens when an on-going implementation conflicts with a newly created BEP in *Final* state. The latter needs to refer to the incompatibility BEP and elaborate backward incompatibilities issue.
 
 ## 5.  Reference
 

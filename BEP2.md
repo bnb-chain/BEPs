@@ -65,7 +65,7 @@ Issuing token is to create a new token on Binance Chain. The new token represent
 | **Field**    | **Type** | **Description**                                              |
 | :------------ | :-------- | :------------------------------------------------------------ |
 | Name         | string   | Name of the newly issued asset, limited to 32 unicode characters,  e.g. "ABCcoin" |
-| Symbol       | string   | The length of the string for representing this asset is between 3 and 8 alphanumeric characters and is case insensitive. ".B" suffixed symbol is also allowed for pegging to those tokens already exist on other chains. The symbol is suffixed with the first 3 bytes of the issue transaction hash to remove a constraint of requiring unique token names. The native token, BNB, does not require this suffix. |
+| Symbol       | string   | The length of the string for representing this asset is between 3 and 8 alphanumeric characters and is case insensitive. "B" suffixed symbol is also allowed for pegging to those tokens already exist on other chains. The symbol is suffixed with the first 3 bytes of the issue transaction hash to remove a constraint of requiring unique token names. The native token, BNB, does not require this suffix. |
 | Total Supply | int64    | The total supply for this token can have a maximum of 8 digits of decimal and is boosted by 1e8 in order to store as int64. The amount before boosting should not exceed 90 billion. |
 | Owner        | Address  | The initial issuer of this token, the BNB balance of issuer should be more than the fee for issuing tokens |
 | Mintable     | Boolean  | Whether this token could be minted(increased) after the initial issuing |
@@ -74,9 +74,9 @@ The data in all the above fields are not changeable after the Issue Transaction,
 
 **Symbol Convention:**
 
-[Symbol][.B]-[Suffix]
+[Symbol][B]-[Suffix]
 
-Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It helps to remove the constraint of requiring unique token names. If this token pegs to an existing blockchain, there should be an additional suffix of “.B”. 
+Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It helps to remove the constraint of requiring unique token names. If this token pegs to an existing blockchain, there should be an additional suffix of “B”.
 
 **Issue Process:**
 
@@ -128,7 +128,7 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 
 #### 5.3.3 Freeze Tokens
 
-A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.  
+A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.
 
 **Data Structure** **for Freeze Operation**: A data structure is needed to represent the freeze operation
 
@@ -142,7 +142,7 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 - Address-holder signed a freeze transaction and make it broadcasted to one of Binance Chain nodes
 - The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
 - Freeze transaction is committed on the blockchain by block proposer
-- Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.  
+- Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.
 - This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
 
 #### 5.3.4 Unfreeze Tokens
@@ -161,12 +161,12 @@ Unfreezing is to unlock some of the frozen tokens in the user's account and make
 - Address-holder signed an unfreeze transaction and make it broadcasted to one of Binance Chain nodes
 - The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
 - Unfreeze transaction is committed on the blockchain by block proposer
-- Validators will verify the transaction initiator’s frozen balance is no less than the required amount. The fee will be deducted from the address of the transaction source. 
+- Validators will verify the transaction initiator’s frozen balance is no less than the required amount. The fee will be deducted from the address of the transaction source.
 - This amount of token will be moved from frozen to balance in the transaction initiator’s address.
 
 #### 5.3.5 Mint Tokens
 
-Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner. 
+Mint transaction is to increase the total supply of a mintable token. The transaction initiator must be the token owner.
 
 **Data Structure** **for Mint Operation**: A data structure is needed to represent the mint operation
 
@@ -185,7 +185,7 @@ Mint transaction is to increase the total supply of a mintable token. The transa
 
 #### 5.3.6 Burn Tokens
 
-Burn transaction is to reduce the total supply of a token. The transaction initiator must be the token owner. 
+Burn transaction is to reduce the total supply of a token. The transaction initiator must be the token owner.
 
 **Data Structure** **for Burn Operation**: A data structure is needed to represent the burn operation
 
