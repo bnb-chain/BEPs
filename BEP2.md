@@ -192,7 +192,7 @@ Burn transaction is to reduce the total supply of a token. The transaction initi
 | **Field** | **Type** | **Description**                                              |
 | :--------- | :-------- | :------------------------------------------------------------ |
 | Symbol    | string   | The symbol should belong to an existing token,e.g. NNB-B90   |
-| Amount    | int64    | Burnt supply for this token can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. The amount should be no less than its total supply |
+| Amount    | int64    | Burnt supply for this token can have a maximum of 8 digits of decimal, and the value is boosted by 1e8 to store in an int64. The amount should be less than its total supply |
 
 **Burn Process:**
 
