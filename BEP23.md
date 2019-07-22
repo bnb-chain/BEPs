@@ -71,6 +71,7 @@ In order to not to blindly and silently sign the transactions, users can enable 
 Even the mobile wallets can keep the connection with Bridge Server, it also requires the DApp side (Web Wallet) can manage to connect with Bridge Server on the same topic. As users may often refresh the pages to resolve trading API issues or trading page instability. After each time the page is refreshed, the DApp should:
 look up the topic in the localStorage, and connect to the Bridge Server with the same topic
 after the re-connection is established, confirm with Bridge Server whether mobile wallet is still connected. If the mobile wallet is not connected any more (through several times of check, to ensure the disconnection is there), DApp may stop connecting and ask for user to re-establish the whole process. This is to prevent mobile wallet connection is lost, and this is a new part of communication not included in the official Wallet Connect protocol. 
+If Dapp(Web Wallet) close the page or tab. Dapp should kill current session and if Wallet peer exit, should also kill current session manually
 
 ## 6. License
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
