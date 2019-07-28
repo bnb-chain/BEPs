@@ -44,7 +44,7 @@ By default, all accounts’ flags are zero which means no script is specified. S
 
 Besides, the account flags changes will take effect since the next transaction.
 
-### Memo Check Script for Transfer
+### 0x1: Memo Check Script for Transfer
 This script is aimed to ensure the transfer transactions have valid memo if the receivers require this.
 
 Firstly, this script will check the following conditions:
@@ -71,6 +71,49 @@ if !isAllDigital(tx.memo) {
 return nil
 }
 ```
+
+### 0x2: Whitelisted Sender
+This script is used to ensure transfer transactions have valid recipients.
+The script will reject transfers to addresses that are not currently whitelisted.
+
+Firstly, this script will check the following conditions:
+
+- The transaction type is send.
+- The from address has flag 0x2
+
+Pseudocode:
+```
+func whitelistValidation(addr, tx) error {
+    if tx.Type != "send" {
+        return nil
+    }
+    if ! isSender(tx, addr) {
+        return nil
+    }
+    if ! isRecipientWhitelisted(addr, tx) {
+        return err("recipient not whitelisted")
+    }
+    return nil
+}
+```
+
+
+#### New Transaction: WhitelistRecipient
+Parameters for adding a whitelisted recipient
+
+|       | Type           | Description |
+|-------|----------------|-------------|
+| From  | sdk.AccAddress | Sender Address        |
+| To    | sdk.AccAddress | Whitelisted Recipient |
+
+
+#### New Transaction: UnwhitelistRecipient
+Parameters for removing a whitelisted recipient
+
+|       | Type           | Description |
+|-------|----------------|-------------|
+| From  | sdk.AccAddress | Sender Address        |
+| To    | sdk.AccAddress | Whitelisted Recipient |
 
 ### Scalability
 In the future, more scripts will be supported and existing scripts might need to be updated, so we must take scalability into consideration in the implementation.
