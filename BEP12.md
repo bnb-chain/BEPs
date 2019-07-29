@@ -108,6 +108,10 @@ Parameters for adding whitelisted recipients:
 | From          | sdk.AccAddress   | Sender Address          |
 | Recipients    | sdk.AccAddress[] | Recipients to whitelist |
 
+
+The proposed fee is 0.00005, plus 0.00005 per recipient.
+This accounts for the increase in state size.
+
 #### New Transaction: UnwhitelistRecipients
 A node should reject the transaction if any of the accounts are not already whitelisted by this sender.
 
@@ -118,6 +122,8 @@ Parameters for removing whitelisted recipients:
 | From        | sdk.AccAddress   | Sender Address                   |
 | Recipients  | sdk.AccAddress[] | Whitelisted Recipients to remove |
 
+The proposed fee is 0.00005.
+There is not an additional fee per address to account for the freed state space.
 
 ### Scalability
 In the future, more scripts will be supported and existing scripts might need to be updated, so we must take scalability into consideration in the implementation.
