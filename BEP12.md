@@ -99,7 +99,9 @@ func whitelistValidation(addr, tx) error {
 
 
 #### New Transaction: WhitelistRecipients
-Parameters for adding whitelisted recipients
+A node should reject the transaction if any of the accounts are already whitelisted by this sender.
+
+Parameters for adding whitelisted recipients:
 
 |               | Type             | Description             |
 |---------------|------------------|-------------------------|
@@ -107,7 +109,9 @@ Parameters for adding whitelisted recipients
 | Recipients    | sdk.AccAddress[] | Recipients to whitelist |
 
 #### New Transaction: UnwhitelistRecipients
-Parameters for removing whitelisted recipients
+A node should reject the transaction if any of the accounts are not already whitelisted by this sender.
+
+Parameters for removing whitelisted recipients:
 
 |             | Type             | Description                      |
 |-------------|------------------|----------------------------------|
