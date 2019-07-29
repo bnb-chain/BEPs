@@ -98,22 +98,22 @@ func whitelistValidation(addr, tx) error {
 ```
 
 
-#### New Transaction: WhitelistRecipient
-Parameters for adding a whitelisted recipient
+#### New Transaction: WhitelistRecipients
+Parameters for adding whitelisted recipients
 
-|       | Type           | Description |
-|-------|----------------|-------------|
-| From  | sdk.AccAddress | Sender Address        |
-| To    | sdk.AccAddress | Whitelisted Recipient |
+|               | Type             | Description             |
+|---------------|------------------|-------------------------|
+| From          | sdk.AccAddress   | Sender Address          |
+| Recipients    | sdk.AccAddress[] | Recipients to whitelist |
 
+#### New Transaction: UnwhitelistRecipients
+Parameters for removing whitelisted recipients
 
-#### New Transaction: UnwhitelistRecipient
-Parameters for removing a whitelisted recipient
+|             | Type             | Description                      |
+|-------------|------------------|----------------------------------|
+| From        | sdk.AccAddress   | Sender Address                   |
+| Recipients  | sdk.AccAddress[] | Whitelisted Recipients to remove |
 
-|       | Type           | Description |
-|-------|----------------|-------------|
-| From  | sdk.AccAddress | Sender Address        |
-| To    | sdk.AccAddress | Whitelisted Recipient |
 
 ### Scalability
 In the future, more scripts will be supported and existing scripts might need to be updated, so we must take scalability into consideration in the implementation.
