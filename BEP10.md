@@ -74,6 +74,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 711        | [CoolWallet S](https://coolwallet.io/)|
 | 714        | Binance|
 | 777        | Guarda Wallet [Multi-currency, custody-free wallet](https://guarda.co/)
+| 888        | TrustToken: [Cross-chain, multi-currency fiat onramp+offramp](https://app.trusttoken.com)|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
 
