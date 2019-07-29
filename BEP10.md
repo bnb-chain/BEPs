@@ -69,6 +69,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 8          | [Magnum Wallet](https://magnumwallet.co)|
 | 9          | [Atomic Wallet](https://atomicwallet.io)|
 | 10         | [Equal Wallet](https://equal.tech/)|
+| 11         | [Infinito Wallet](https://www.infinitowallet.io/)|
 | 12         | Coinomi|
 | 18         | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
 | 711        | [CoolWallet S](https://coolwallet.io/)|
