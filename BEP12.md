@@ -27,7 +27,7 @@ type Account struct {
   FrozenCoins          sdk.Coins           `json:"frozen"`
   LockedCoins          sdk.Coins           `json:"locked"`
   Flags                uint64              `json:”flags”`
-  Whitelist            []sdk.AccAddress    `json:"whitelist"`
+  Whitelist            []sdk.AccAddress    `json:"recipients"`
 }
 ```
 Each address represents an account. The account structure is shown as above. We will add a new field named “flags” into “Account”. Its data type is 64bit unsigned int. Each bit will represent a script, which means an account can specify at most 64 scripts. The flags of all existing accounts are zero. Users can send transactions to update their account flags.
