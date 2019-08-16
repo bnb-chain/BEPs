@@ -2,7 +2,7 @@
 
 # Summary
 
-This BEP is about introducing Hash Timer Locked Contract functions and further mechanism to handle inter-blockchain token peg.
+This BEP is about introducing Hash Timer Locked Contract functions and further mechanism to handle inter-blockchain tokens peg.
 
 # Abstract
 
@@ -10,7 +10,7 @@ This BEP is about introducing Hash Timer Locked Contract functions and further m
 
 # Status
 
-DRAFT
+This BEP is under implementation.
 
 # Motivation
 
@@ -80,6 +80,20 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 3. Client or Client tooling monitors events of the APS contract on Ethereum. If it detects Deputy process’s call, it will verify and call the APS contract to claim the tokens by disclosing the random number generating the hash.
 4. Deputy process monitors the events from APS contract. If there is a successful claim, it will read the value of the random number Client disclosed and broadcast a CHLT transaction to claim the locked tokens by the Client via the HTLT.
 
+### Swap between several BEP2 tokens
+
+In the following scenarios, client will need swap between several BEP2 tokens:
+
+1. Users want to swap assets that are not listed on Binance DEX.
+2. Users want to swap several assets with several others at the same time.
+
+For instance, suppose a client has some `BNB` token and want to swap some other BEP2 tokens which are not listed on Binance Dex, like `ABC` and `DEF`:
+
+1. Client send a HTLT transaction to an deputy address who has `ABC` and `DEF`. In the HTLT transaction, the client locks some `BNB` and expresses his expected gained `ABC` and `DEF` amount, for example: `1000ABC,10000DEF`.
+2. Deputy process filter out the HTLT transactions in which the `to` equal to deputy address and the swap ratio is reasonalbe. Then the deputy send `Deposit HTLT` transaction to lock some `ABC` and `DEF` under the same hash timer lock. 
+3. Client or client tooling monitors deposit HTLT transactions. If the locked `ABC` and `DEF` is acceptable, the client claim the HTLT with correct random number. Then the client will get locked `ABC` and `DEF`, and the deputy will get locked `BNB`.
+4. If the locked `ABC` and `DEF` is not acceptable for the client, the client can refuse to claim the HTLT and just refund the HTLT after expired height(Anyone can refund the HTLT after expired height). In this situation, locked `BNB` will be back to client address and the locked `ABC` and `DEF` will be back to deputy address.
+
 #### Client Tooling
 
 Client Tooling is the part to help user experience. While the most commonly used tools are wallets, command line interfaces and programming SDKs, wallets are the most critical part. The wallet is expected to handle the below part to facilitate the swap, which can be challenging to the existing wallets to call the specific smart contract.
@@ -90,7 +104,7 @@ Client Tooling is the part to help user experience. While the most commonly used
 
 ## New Transaction Types on Binance Chain
 
-The below are the details for HTLT, CHTL and RHTL.
+The below are the details for HTLT, deposit HTLT, claim HTLT and refund HTLT.
 
 ### Hash Timer Locked Transfer
 
@@ -98,69 +112,83 @@ Hash Timer Locked Transfer (HTLT) is a new transaction type on Binance Chain, to
 
 | Name | Type | Description | Optional |
 | -----| ---- | ----------- | -------- |
-| From | Address | Sender address, where the asset is from | No| 
-| To | Address | Receiver address, where the asset is to, if the proper condition meets. This address must be flagged with HTLT flag in order to claim the transfer to be fully done once the hashed secret is disclosed by Sender. | No | 
-| ToOnOtherChain | bytes | a byte array, maximum 32 bytes, in any proper encoding | No  | 
+| From | Address | Sender address, where the asset is from | No | 
+| To | Address | Receiver address, where the asset is to, if the proper condition meets. | No | 
+| RecipientOtherChain | bytes | a byte array, maximum 32 bytes, in any proper encoding | Yes | 
+| SenderOtherChain | bytes | a byte array, maximum 32 bytes, in any proper encoding | Yes | 
 | RandomNumberHash | 32 bytes | hash of a random number and timestamp, based on SHA256 | No |
-| Timestamp | uint64 | Supposed to be the time of sending transaction, counted by second. It should be identical to the one in swap contract | No |
-| CoinIn | uint64 | expected gained token on the other chain, 8 decimals | No | 
-| CoinOut | Coin |similar to the Coin in the original Transfer defined in BEP2, asset to swap out | No | 
-| TimeSpan | uint64   | number of blocks to wait before the asset may be returned to From if not claimed via Random. The number must be larger than or equal to 360 (>2 minutes), and smaller than 518400 (< 48 hours) | No |
+| Timestamp | int64 | Supposed to be the time of sending transaction, counted by second. It should be identical to the one in swap contract | No |
+| OutAmount | Coins | similar to the Coins in the original Transfer defined in BEP2, assets to swap out | No | 
+| ExpectedIncome | string | expected gained token on the other chain, like 1000:eth | No | 
+| HeightSpan | int64   | number of blocks to wait before the asset may be returned to From if not claimed via Random. The number must be larger than or equal to 360 (>2 minutes), and smaller than 518400 (< 48 hours) | No  |
+| CrossChain | bool   | Specify if the HTLT is for cross chain atomic swap | No |
 
 Before the above `To` claims the transferred Coins with the correct random number that can generate the same Random Hash, the Coins will not appear as balance on `To` address. The transaction is signed by private key for `From` address.
 
+When `CrossChain` is false, then this HTLT is for single chain atomic swap which mean we can use it to swap two BEP2 tokens.
 
-### Claim Hash Timer Locked 
+Once the `HTLT` transaction is done, an atomic swap will be created and the `SwapID` will be returned in the response. `SwapID` equals to `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)`, If the swap is not a response to another swap on other chain, `SenderOtherChain` should be nil.
 
-Claim Hash Timer Locked (CHTL) is to claim the locked asset by showing the Random Number value that matches the hash. Each HTLT locked asset is guaranteed to be release once.
+### Deposit HTLT 
 
-| Name | Type | Description | Optional |
-| -----| ---- | ----------- | -------- |
-| From | Address | Sender address, where the asset is from | No| 
-| RandomNumberHash | 32 bytes | hash of a random number and timestamp, based on SHA256 | No |
-| RandomNumber | 32 bytes | secret random number | No |
-
-### Refund
-
-Refund is to refund the locked asset after timelock is expired. 
+Deposit Hash Timer Locked Transfer is to lock new BEP2 asset to an existed HTLT which is for single chain atomic swap. 
 
 | Name | Type | Description | Optional |
 | -----| ---- | ----------- | -------- |
-| From | Address | Sender address, where the asset is from | No| 
-| RandomNumberHash | 32 bytes | hash of a random number and timestamp, based on SHA256 | No |
+| From | Address | Sender address, where the assets are from | No | 
+| SwapID | 32 bytes | `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)` | No |
+| OutAmount | Coins | similar to the Coins in the original transfer defined in BEP2, assets to swap out | No | 
+
+### Claim HTLT 
+
+Claim Hash Timer Locked Transfer is to claim the locked asset by showing the random number value that matches the hash. Each HTLT locked asset is guaranteed to be release once.
+
+| Name | Type | Description | Optional |
+| -----| ---- | ----------- | -------- |
+| From | Address | Sender address | No | 
+| SwapID | 32 bytes | `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)` | No |
+| RandomNumber | 32 bytes | random number | No |
+
+### Refund HTLT
+
+Refund Hash Timer Locked Transfer is to refund the locked asset after timelock is expired. 
+
+| Name | Type | Description | Optional |
+| -----| ---- | ----------- | -------- |
+| From | Address | Sender address | No | 
+| SwapID | 32 bytes | `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)` | No |
 
 ## APS Smart Contract Interface for Other Blockchain
 
 ### Transaction interfaces
 
-1. function **initiate**(bytes32 _secretHashLock, uint64 _timestamp, uint256 _timelock, address _receiverAddr, bytes20 _BEP2Addr, uint256 _outAmount, uint256 _inAmount)
-    1. `_timestamp` is supposed to be the time of sending transaction, counted by second. It should be identical to the one in HTLT.
-    2. `_secretHashLock` is the hash of `_secretKey` and `_timestamp`
-    3. `_timelock` is the number of blocks to wait before the asset can be refunded
+1. function **htlt**(bytes32 _randomNumberHash, uint64 _timestamp, uint256 _heightSpan, address _receiverAddr, bytes20 _bep2SwapSender, bytes20 _bep2Addr, uint256 _outAmount, uint256 _bep2Amount)
+    1. `_timestamp` is supposed to be the time of sending transaction, counted by second. If this htlt is response to another htlt on other chain, then their timestamp should be identical.
+    2. `_randomNumberHash`: `sha256(_randomNumber, _timestamp)`
+    3. `_heightSpan` is the number of blocks to wait before the asset can be refunded
     4. `_receiverAddr` is the Ethereum address of swap counter party
-    5. `_BEP2Addr` is the receiver address on Binance Chain. 
-    6. `_outAmount` is the swapped out ERC20 token.
-    7. `_inAmount` is the expected received BEP2 token on Binance Chain.
-2. function **refund**(bytes32 _secretHashLock)
-    1. `_secretHashLock` is the hash of `_secretKey` and `_timestamp`
-3. function **claim**(bytes32 _secretHashLock, bytes32 _secretKey)
-    1. `_secretHashLock` is the hash of `_secretKey` and `_timestamp`
-    2. `_secretKey` is a random 32-length byte array. Client must keep it private strictly.
+    5. `_bep2Sender` the swap sender address on Binance Chain
+    6. `_bep2Recipient` is the recipient address on Binance Chain.
+    7. `_outAmount` is the swapped out ERC20 token.
+    8. `_bep2Amount` is the expected received BEP2 token on Binance Chain.
+2. function **refund**(bytes32 _swapID)
+    1. `_swapID `: `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)`
+3. function **claim**(bytes32 _swapID, bytes32 _randomNumber)
+    1. `_swapID ` : `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)`
+    2. `_randomNumber` is a random 32-length byte array. Client must keep it private strictly.
 
 ### Query interfaces
 
-1. function **initializable**(bytes32 _secretHashLock) returns (bool)
-2. function **refundable**(bytes32 _secretHashLock) returns (bool)
-3. function **claimable**(bytes32 _secretHashLock) returns (bool)
-4. function **querySwapByHashLock**(bytes32 _secretHashLock) returns (uint64 _timestamp, uint256 _expireHeight, uint256 _outAmount, uint256 _inAmount, address _sender, address _receiver, bytes20 _BEP2Addr, bytes32 _secretKey, uint8 _status)
-5. function **querySwapByIndex**(uin256 _index) returns (bytes32 _secretHashLock, uint64 _timestamp, uint256 _expireHeight, uint256 _outAmount, uint256 _inAmount, address _sender, address _receiver, bytes20 _BEP2Addr, bytes32 _secretKey, uint8 _status)
-6. function **index**() returns (uint256 _index)
+1. function **isSwapExist**(bytes32 _swapID) returns (bool)
+2. function **refundable**(bytes32 _swapID) returns (bool)
+3. function **claimable**(bytes32 _swapID) returns (bool)
+4. function **queryOpenSwap**(bytes32 _swapID) returns (bytes32 _randomNumberHash, uint64 _timestamp, uint256 _expireHeight, uint256 _outAmount, address _sender, address _recipient)
 
 ### Event
 
-1. event **SwapInitialization**(address indexed _msgSender, address indexed _receiverAddr, bytes20 _BEP2Addr, uint256 _index, bytes32 _secretHashLock, uint64 _timestamp, uint256 _expireHeight, uint256 _outAmount, uint256 _inAmount);
-2. event **SwapExpire**(address indexed _msgSender, address indexed _swapSender, bytes32 _secretHashLock);
-3. event **SwapCompletion**(address indexed _msgSender, address indexed _receiverAddr, bytes32 _secretHashLock, bytes32 _secretKey);
+1. event **HTLT**(address indexed _msgSender, address indexed _recipientAddr, bytes32 indexed _swapID, bytes32 _randomNumberHash, uint64 _timestamp, bytes20 _bep2Addr, uint256 _index, uint256 _expireHeight, uint256 _outAmount, uint256 _bep2Amount);
+2. event **Refunded**(address indexed _msgSender, address indexed _recipientAddr, bytes32 indexed _swapID, bytes32 _randomNumberHash);
+3. event **Claimed**(address indexed _msgSender, address indexed _recipientAddr, bytes32 indexed _swapID, bytes32 _randomNumberHash, bytes32 _randomNumber);
 
 ## License
 
