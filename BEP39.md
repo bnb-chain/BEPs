@@ -46,6 +46,7 @@ The following is the update for the `/ws/userAddress` websocket with the added `
     "e":"outboundTransferInfo",                                                // Event type
     "E":12893,                                                                 // Event height
     "H":"0434786487A1F4AE35D49FAE3C6F012A2AAF8DD59EC860DC7E77123B761DD91B",    // Transaction hash
+    "M": "MEMO"                                                                // Memo
     "f":"bnb1z220ps26qlwfgz5dew9hdxe8m5malre3qy6zr9",                          // From addr
     "t":
       [{
@@ -53,7 +54,6 @@ The following is the update for the `/ws/userAddress` websocket with the added `
         "c":[{                                                                 // Coins
           "a":"BNB",                                                           // Asset
           "A":"100.00000000"                                                   // Amount
-          "M": "MEMO"                                                          // Memo
           }]
       }]
   }
