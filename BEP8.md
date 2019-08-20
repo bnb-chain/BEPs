@@ -4,7 +4,7 @@
 This BEP is about introducing the threshold signature scheme (TSS) in Binance Chain by adding an extra binary.
 
 ## Abstract
-Threshold Signature Scheme (TSS) is a cryptographic protocol for distributed key generation and signing. TSS allows constructing a signature that is distributed among different parties (for example three users), and each user receives a share of the private signing key. To sign a transaction, at least two of these three users need to join. For individuals, threshold signatures allow for two-factor security or splitting the ability to sign between two devices so that a single compromised device won’t put the money at risk. For businesses, threshold signatures allow for the realization of access control policies that prevent both insiders and outsiders from stealing corporate funds. TSS technology allows us to replace all signing commands with distributed computations.The private key is no longer a single point of failure.
+**Threshold Signature Scheme (TSS)** is a cryptographic protocol for distributed key generation and signing. TSS allows constructing a signature that is distributed among different parties (for example three users), and each user receives a share of the private signing key. To sign a transaction, at least two of these three users need to join. For individuals, threshold signatures allow for two-factor security or splitting the ability to sign between two devices so that a single compromised device won’t put the money at risk. For businesses, threshold signatures allow for the realization of access control policies that prevent both insiders and outsiders from stealing corporate funds. TSS technology allows us to replace all signing commands with distributed computations.The private key is no longer a single point of failure.
 
 ## Status
 DRAFT
@@ -35,7 +35,7 @@ Let’s take a look at the major steps in TSS:
 
 The following diagram demonstrates total parties=3& threshold =1, deployment, i.e., 3 participants for the keygen and any 2 or 3 of these participants can do the signing, and one signature will be broadcast to the Binance Chain Successfully.
 
-![img](https://lh3.googleusercontent.com/JmrMjUgE6P13PUl89mnqlB9XtybQWdbUJFdBoTEkkflF7XAQC3KrlLKqXzr3Jdm4Uq9uGsYFz_ylHEbwvkYCR16fqva5ovOepMkPuieV5ApRyGuagMy6eQssBNS9UfA2G053aRKL)**
+![img](https://lh3.googleusercontent.com/JmrMjUgE6P13PUl89mnqlB9XtybQWdbUJFdBoTEkkflF7XAQC3KrlLKqXzr3Jdm4Uq9uGsYFz_ylHEbwvkYCR16fqva5ovOepMkPuieV5ApRyGuagMy6eQssBNS9UfA2G053aRKL)
 
 ## TSS Binary Commands
 Here are the global transaction flags:
