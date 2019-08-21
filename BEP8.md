@@ -23,7 +23,7 @@ On Binance Chain, the new TSS feature will help users manage their funds in a mu
 ### Threshold Signature Scheme (TSS) Binary
 The TSS binary relies on P2P network and it can be deployed in WAN/LAN with a centralized Bootstrap or Relay server or without. In the first release of the TSS binary, It will support running on a LAN.
 *Where can I download the Binance TSS Binary?*
-* You can download the TSS client from: <https://github.com/binance-chain/node-binary/tss>
+* You can download the TSS client from: <https://github.com/binance-chain/node-binary>
 
 ## Workflow
 Let’s take a look at the major steps in TSS:
