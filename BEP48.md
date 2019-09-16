@@ -1,4 +1,4 @@
-# BEP40: Changes to default cancellation and partial fill
+# BEP48: Changes to default cancellation and partial fill
 
 ## Summary
 
