@@ -72,6 +72,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 11         | [Infinito Wallet](https://www.infinitowallet.io/)|
 | 12         | Coinomi|
 | 18         | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
+| 82         | [Cosmostation Wallet](https://www.cosmostation.io)|
 | 711        | [CoolWallet S](https://coolwallet.io/)|
 | 714        | Binance|
 | 777        | Guarda Wallet [Multi-currency, custody-free wallet](https://guarda.co/)
