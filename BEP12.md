@@ -72,6 +72,26 @@ return nil
 }
 ```
 
+### Blocking incoming transfer transactions
+The purpose of this script is to temporary block all incoming MsgSend transactions. This can be helpful in preventing users from sending tokens on the wrong/unmaintained account. 
+Accounts, that are used for providing some service based on transfers may use this script in order to temporary stop service.
+
+This is the pseudocode:
+```
+func incomingTxValidation(addr, tx) error {
+if tx.Type != “send” {
+    return nil
+}
+if ! isReceiver(tx, addr) {
+   return nil
+}
+if  addr.flags.blockIncomingTxs == 1 {
+    return err(“account is not ready to accept MsgSend transaction”)
+}
+return nil
+}
+```
+
 ### Scalability
 In the future, more scripts will be supported and existing scripts might need to be updated, so we must take scalability into consideration in the implementation.
 
