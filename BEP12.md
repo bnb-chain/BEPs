@@ -85,12 +85,11 @@ if tx.Type != “send” {
 if ! isReceiver(tx, addr) {
    return nil
 }
-if  addr.flags.blockIncomingTxs == 1 {
-    return err(“account is not ready to accept MsgSend transaction”)
-}
-return nil
+return err(“account is not ready to accept MsgSend transaction”)
 }
 ```
+
+As a consequence, before setting this flag account owner should make sure to leave enough BNB tokens for covering fees for setting and unsetting this flag, otherwise, an account will stay in blocked state forever.
 
 ### Scalability
 In the future, more scripts will be supported and existing scripts might need to be updated, so we must take scalability into consideration in the implementation.
