@@ -54,10 +54,10 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 #### Preparation Stage
 
 1. Owner should issue proper number of tokens on Binance Chain as the Pegged 
-2. Owner should create one address on Binance Chain (as OB in the below diagram), and transfer in enough number of tokens for swap
+2. Owner should create one address on Binance Chain, and transfer in enough number of tokens for swap
 3. Owner should deploy the APS Ethereum smart contract on Ethereum, and deposit enough number of tokens for swap into a dedicated address (which both should be public announced).
-4. Client should have an address on both Binance Chain (CB) and Ethereum (CE).
-5. For such swap, Owner should publish all their OB and APS contract address, and also the expected minimum time span, MinLockTime.
+4. Client should have an address on both Binance Chain and Ethereum.
+5. For such swap, Owner should publish all their Binance Chain and APS contract address, and also the expected minimum time span, MinLockTime.
 
 #### Usage Expectation and Benefits
 
