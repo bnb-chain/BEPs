@@ -39,8 +39,8 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 
 ### Roles
 
-*   **Client**: users who want to swap tokens from Ethereum to Binance Chain, or the other way round;
-*   **Owner**: the issuers or anyone who want to peg the tokens from Ethereum to Binance Chain. In most cases, the Owner should be the issuer of the token. There expects one or multiple Owners to provide some service for one blockchain/project, depending on the size of the blockchain/project. 
+*   **Client**: users who want to swap tokens from Ethereum to Binance Chain, or the other way round. Client address on Binance chain is called **CB** in the following sections;
+*   **Owner**: the issuers or anyone who want to peg the tokens from Ethereum to Binance Chain. In most cases, the Owner should be the issuer of the token. There expects one or multiple Owners to provide some service for one blockchain/project, depending on the size of the blockchain/project. Pegged Token Owner address on Binance chain is called **OB** in the following sections
 
 ### Infrastructure Components
 
