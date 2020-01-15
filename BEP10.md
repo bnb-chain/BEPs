@@ -81,6 +81,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 999        | [TokenPocket Wallet](https://www.tokenpocket.pro/)|
 | 1014       | Binance OCBS service|
 | 1035       | Trubi Token Swap service|
+| 2048       | BNB Browser: [Metamask like wallet for BNB](https://chrome.google.com/webstore/detail/bnb-browser/eeflaanifildahldmpahjmgmgippmgne?hl=en)|
 | 800,000,000 ~ 1,600,000,000| reserved source code|
 
 
