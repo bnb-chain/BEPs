@@ -14,3 +14,4 @@ Here are the list of subjects of BEPs:
 * [BEP-12](BEP12.md): Introduce Customized Scripts and Transfer Memo Validation
 * [BEP-18](BEP18.md): State sync enhancement
 * [BEP-19](BEP19.md): Introduce Maker and Taker for Match Engine
+* [BEP-69](BEP69.md): Mini-BEP2 Tokens
