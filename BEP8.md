@@ -54,7 +54,7 @@ Different from the normal BEP2, using a mini-token system is good at:
 ## 5.  Specification
 
 ### 5.1 Mini-BEP2 Token on Binance Chain
-A new module “miniToken” should be created for Mini-BEP2 token. The Mini-BEP2 token should be stored in an independent blockchain storage from BEP2 token, and new transaction types should be created for Mini-BEP2 token specifically. The minimum amount of Mini-BEP2 Token in any of such transactions should be above a threshold in order to limit the number of Mini-BEP2 token holders and network resource consumption. Besides, the issue/listing fees are much cheaper than BEP2 token and the Mini-BEP2 token can be listed by the issuer directly without voting.
+A new module “miniToken” should be created for Mini-BEP2 token. The Mini-BEP2 token should be stored in an independent blockchain storage from BEP2 token. Most BEP2 transaction types, including transfer/multisend, mint/burn and freeze/unfreeze will be reused by Mini-BEP2 token, except issue and list. The minimum amount of Mini-BEP2 Token in any of such transactions should be above a threshold in order to limit the number of Mini-BEP2 token holders and network resource consumption. Besides, the issue/listing fees are much cheaper than BEP2 token and the Mini-BEP2 token can be listed by the issuer directly without voting.
 
 ### 5.2 Mini-BEP2 Token Properties
 - Source Address: Source Address is the owner of the issued token.
@@ -110,19 +110,19 @@ The data in all the above fields are not changeable after the Issue Transaction,
 - New token’s symbol is generated based on the transaction hash. It is added to the issuer’s address and token info is saved on the Binance Chain
 
 #### 5.3.2 Transfer Tokens
-There is a new transaction type “miniTokens/Send”. The message structure and transaction process are the same as BEP2 5.3.2 Transfer Tokens. The difference from BEP2 transfer is that the Mini-BEP2 transfer amount should be larger than or equal to 1, unless the sender sends the total amount of the free Mini-BEP2 token in his account.
+The transaction type, message structure and transaction process are the same as BEP2 5.3.2 Transfer Tokens. The difference from BEP2 transfer is that the Mini-BEP2 transfer amount should be larger than or equal to 1, unless the sender sends the total amount of the free Mini-BEP2 token in his account.
 
 #### 5.3.3 Freeze Tokens
-There is a new transaction type  “miniTokens/Freeze”. The message structure and transaction process are the same as BEP2 5.3.3 Freeze Tokens, except that the amount should be larger than or equal to 1, or equal to the free account balance.
+The transaction type, message structure and transaction process are the same as BEP2 5.3.3 Freeze Tokens, except that the amount should be larger than or equal to 1, or equal to the free account balance.
 
 #### 5.3.4 Unfreeze Tokens
-There is a new transaction type “miniTokens/Unfreeze”.  The message structure and transaction process are the same as BEP2 5.3.4 Unfreeze Tokens, except that the amount should be larger than or equal to 1, or equal to the frozen account balance.
+The transaction type, message structure and transaction process are the same as BEP2 5.3.4 Unfreeze Tokens, except that the amount should be larger than or equal to 1, or equal to the frozen account balance.
 
 #### 5.3.5 Mint Tokens
-There is a new transaction type “miniTokens/Mint”.  The message structure and transaction process are the same as BEP2 5.3.5 Mint Tokens, except that the amount should be larger than or equal to 1.
+The transaction type, message structure and transaction process are the same as BEP2 5.3.5 Mint Tokens, except that the amount should be larger than or equal to 1.
 
 #### 5.3.6 Burn Tokens
-There is a new transaction type “miniTokens/Burn”.  The message structure and transaction process are the same as BEP2 5.3.6 Burn Tokens. The difference from BEP2 burn is that the Mini-BEP2 burn amount should be larger than or equal to 1, or equal to the free account balance.
+The transaction type, message structure and transaction process are the same as BEP2 5.3.6 Burn Tokens. The difference from BEP2 burn is that the Mini-BEP2 burn amount should be larger than or equal to 1, or equal to the free account balance.
 
 #### 5.3.7 Set Token URI
 The “miniTokens/SetURI” transaction is to change the value of “TokenURI”. Only token issuer can send this transaction.
