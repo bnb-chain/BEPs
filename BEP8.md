@@ -1,6 +1,6 @@
-# BEP-69: Mini-BEP2 Tokens
+# BEP-8: Mini-BEP2 Tokens
 
-- [BEP-69: Mini-BEP2 Tokens](#bep-68-mini-bep2-tokens)
+- [BEP-8: Mini-BEP2 Tokens](#bep-8-mini-bep2-tokens)
   - [1.  Summary](#1--summary)
   - [2.  Abstract](#2--abstract)
   - [3.  Status](#3--status)
@@ -29,7 +29,7 @@ This BEP describes a proposal for Mini-BEP2 token management on the Binance Chai
 
 ## 2.  Abstract
 
-BEP-69 Proposal describes a common set of rules for Mini-BEP2 token management within the Binance Chain ecosystem. It introduces the following details of Mini-BEP2 token on Binance Chain:
+BEP-8 Proposal describes a common set of rules for Mini-BEP2 token management within the Binance Chain ecosystem. It introduces the following details of Mini-BEP2 token on Binance Chain:
 - What information makes a Mini-BEP2 token on Binance Chain
 - What actions can be performed on a Mini-BEP2 token on Binance Chain
 - How Mini-BEP2 token trading is different from BEP2 token trading
@@ -40,7 +40,7 @@ Draft
 
 ## 4.  Motivation
 
-Similar to SME board in the traditional stock markets, the BEP-69 Proposal is to benefit the below scenarios:
+Similar to SME board in the traditional stock markets, the BEP-8 Proposal is to benefit the below scenarios:
 
 - Small enterprise tokens of utility and/or shares
 - Point system
