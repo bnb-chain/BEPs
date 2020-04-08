@@ -36,7 +36,8 @@ leading to more diversified choices for token owners and exchange traders.
 #### 5.1.1 Current Restriction
 Currently, for listing a trading pair between AAA and BUSD, there are following prerequisites:
 + Existed trading pair between AAA and BNB
-+ Existed trading pair between BUSD and BNB
++ Existed trading pair between BUSD and BNB  
+
 For more information about governance proposal, please refer to the following page:   
 [https://docs.binance.org/governance.html](https://docs.binance.org/governance.html)
 
