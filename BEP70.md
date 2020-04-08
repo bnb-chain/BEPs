@@ -1,5 +1,17 @@
 # BEP70: List and Trade BUSD Pairs
 
+- [BEP-70: List and Trade BUSD Pairs](#bep-70-list-and-trade-buse-pairs)
+  - [1.  Summary](#1--summary)
+  - [2.  Abstract](#2--abstract)
+  - [3.  Status](#3--status)
+  - [4.  Motivation](#4--motivation)
+  - [5.  Specification](#5--specification)
+    - [5.1 Proposing and Listing](#51-proposing-and-listing)
+      - [5.1.1 Current Restriction](#511-current-restriction)
+      - [5.1.2 Proposed Changes](#512-proposed-changes)
+    - [5.2 Trading Fee Calculation](#52-trading-fee-calculation)
+  - [6. License](#6-license)
+
 ## 1. Summary
 This BEP describes a proposal for listing and trading BUSD pairs without explicit dependency on the native token BNB.
 
