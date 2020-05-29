@@ -15,3 +15,5 @@ Here are the list of subjects of BEPs:
 * [BEP-18](BEP18.md): State sync enhancement
 * [BEP-19](BEP19.md): Introduce Maker and Taker for Match Engine
 * [BEP-70](BEP70.md): List and Trade BUSD Pairs
+* [BEP-67](BEP67.md): Price-based Order Expiration
+
