@@ -38,18 +38,18 @@ Elements of the query component may contain characters outside the valid range. 
 
 (See also [[#Simpler syntax|a simpler representation of syntax]])
 
- binanceurn     = "binance:" binanceaddress [ "?" binanceparams ]
+ binanceurn     = "bnb:" binanceaddress [ "?" binanceparams ]
  binanceaddress = *base58
  binanceparams  = binanceparam [ "&" binanceparams ]
- binanceparam   = [ amountparam / memoparam / assetparam]
+ binanceparam   = [ amountparam / memoparam / assetparam / metadata]
 
  amountparam    = "amount=" *digit [ "." *digit ]
  memoparam     = "memo=" *qchar
  assetparam   = "asset=" *qchar
+ metadata = <optional, base64 encoded 1024 maximum raw bytes>
+Here, "qchar" corresponds to valid characters of an RFC 3986 URI query component, excluding the "=" and "&" characters, which this BEP takes as separators. And optional metadata field is for extensible purpose, customizable content for different app parsing.
 
-Here, "qchar" corresponds to valid characters of an RFC 3986 URI query component, excluding the "=" and "&" characters, which this BEP takes as separators.
-
-The scheme component ("binance:") is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
+The scheme component ("bnb:") is case-insensitive, and implementations must accept any combination of uppercase and lowercase letters. The rest of the URI is case-sensitive, including the query parameter keys.
 
 === Query Keys ===
 
@@ -83,7 +83,7 @@ Also, very likely, what he will find are mostly technical specifications - not t
 Variables which are prefixed with a req- are considered required.  If a client does not implement any variables which are prefixed with req-, it MUST consider the entire URI invalid.  Any other variables which are not implemented, but which are not prefixed with a req-, can be safely ignored.
 
 ==Backward compatibility==
-As this BEP draft is written, several clients, like trust-wallet, already implement a binance: URI scheme similar to this one, however usually without the additional "req-" prefix requirement.  Thus, it is recommended that additional variables prefixed with req- not be used in a mission-critical way until a grace period of 6 months from the finalization of this BEP has passed in order to allow client developers to release new versions, and users of old clients to upgrade.
+Currently no URI like bnb: is adopted by any exising wallet, all clear here.
 
 == Appendix ==
 
