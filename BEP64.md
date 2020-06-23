@@ -81,6 +81,11 @@ The scheme component ("bnb:") is case-insensitive, and implementations must acce
 #### 3.5.1 Transfer amount/size
 
 If an amount is provided, it MUST be specified in decimal.
+
+All amounts MUST NOT have more than 8 decimal digits.
+
+I.e. amount=50.123456789 is invalid.
+
 All amounts MUST contain no commas and use a period (.) as the separating character to separate whole numbers and decimal fractions.
 
 I.e. amount=50.00 or amount=50 is treated as 50, and amount=50,000.00 is invalid.
