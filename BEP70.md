@@ -23,7 +23,7 @@ However, on Binance Chain now, if you want to trade between your token and BUSD 
 This BEP proposes the solutions for listing and trading BUSD pairs without explicit dependency on BNB.
 
 ## 3. Status
-Draft
+This BEP is already implemented.
 
 ## 4. Motivation
 The purpose of this BEP are   
