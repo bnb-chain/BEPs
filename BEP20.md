@@ -1,4 +1,4 @@
-# BEP20 Tokens on Binance Smart Chain
+# BEP20: Tokens on Binance Smart Chain
 
 - [BEP-20: Tokens on Binance Smart Chain](#bep20-tokens-on-binance-smart-chain)
   - [1. Summary](#1--summary)
