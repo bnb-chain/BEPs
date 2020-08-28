@@ -36,7 +36,7 @@ BEP-8 Proposal describes a common set of rules for Mini-BEP2 token management wi
 
 ## 3.  Status
 
-Draft
+This BEP is already implemented.
 
 ## 4.  Motivation
 
