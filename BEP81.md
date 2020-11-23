@@ -1,5 +1,5 @@
 
-# BEP-71: Tokenized Fee Service Layer For Binance Chain
+# BEP-81: Tokenized Fee Service Layer For Binance Chain
 
 - [Tokenized Fee Service Layer For Binance Chain](#bep-71-smart-contract-execution-fee)
   - [1. Summary](#1-summary)
