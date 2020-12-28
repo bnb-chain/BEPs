@@ -38,8 +38,8 @@ This BEP is under draft.
 ## 5. Specification
 
 Two new permissionless methods will be imported into TokenManager contract:
-Mirror: If a BEP20 contract is not bound to any BEP2 token, anyone can call the mirror method to automatically issue a BEP2 token and bind them. The user is not required to have any BEP20 token and just needs to pay enough BEP2 issue fee. Besides, the BEP20 contract is even not required to implement getOwner method. After binding, all circulation is on BSC.
-Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync method to balance the total supply on BC and BSC. For example, someone mint some BEP20 token, after calling sync method,  the equivalent token will be minted on BC and transferred to the pure-code-controlled-escrow address. If someone burn some BEP20 token, after calling sync method, the equivalent token will be burned on BC from the pure-code-controlled-escrow address
+Mirror: If a BEP20 contract is not bound to any BEP2 token, anyone can call the mirror method to automatically issue a BEP2 token and bind them. The user is not required to have any BEP20 token and just needs to pay enough BEP2 issue fee. Besides, the BEP20 contract is even not required to implement getOwner method. After binding, all the initial circulation is on BSC.
+Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync method to balance the total supply on BC and BSC. For example, someone mint some BEP20 token, after calling sync method,  the equivalent token will be minted on BC and transferred to the pure-code-controlled-escrow address. If someone burn some BEP20 token, after calling sync method, the equivalent token will be burned on BC from the pure-code-controlled-escrow address.
 
 ### 5.1 TokenManager
 
@@ -57,14 +57,15 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
 
 1. Ensure the BEP20 token hasn’t been bound before and is not in mirror pending status.
 2. Ensure the BEP20 symbol follows the BEP2 symbol requirements.
-3. Ensure the equivalent total supply is no greater than Max BEP2 total supply.
-4. Ensure msg.value >= MirrorFee + CrossChainFee and msg.value = N * 10^10
-5. Ensure expired time is earlier than one day later and no earlier than two minutes later.
+3. Ensure the BEP20 name follows the BEP2 name requirements.
+4. Ensure the equivalent total supply is no greater than Max BEP2 total supply.
+5. Ensure msg.value >= MirrorFee + CrossChainFee and msg.value = N * 10^10
+6. Ensure expired time is earlier than one day later and no earlier than two minutes later.
 
 ##### 5.1.1.3 Core Mechanism
 
-1. Transfer relayFee to TokenHub
-2. Mark the BEP20 token is in mirror pending status
+1. Transfer CrossChainFee to TokenHub
+2. Mark the BEP20 token as mirror pending status
 3. RLP Encode mirror package:
 
 | **Param Name**    | **Type** | **Description**        |
@@ -79,7 +80,7 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
 | ExpiredTime       | uint64   | The package expired time, counted by second |
 
 4. Call CrossChain contract to send a cross chain package.
-5. If a BEP20 token is in mirror pending status, reject approveBind on it
+5. If a BEP20 token is in mirror pending status or already mirrored, reject approveBind on it.
 
 ##### 5.1.1.4 Handle ack packages
 
@@ -120,15 +121,14 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
 
 ##### 5.1.2.2 Pre-check
 
-1. Ensure the BEP20 token has already been bound.
-2. Ensure the BEP20 is bound by mirror.
-3. Ensure msg.value >= SyncFee + CrossChainFee and msg.value = N * 10^10
-4. Ensure the equivalent total supply on BC doesn’t exceed the maximum limit
-5. Ensure expired time is earlier than one day later and no earlier than two minutes later.
+1. Ensure the BEP20 is bound by mirror.
+2. Ensure msg.value >= SyncFee + CrossChainFee and msg.value = N * 10^10
+3. Ensure the equivalent total supply on BC doesn’t exceed the maximum limit
+4. Ensure expired time is earlier than one day later and no earlier than two minutes later.
 
 ##### 5.1.2.3 Core mechanism
 
-1. Transfer relayFee to TokenHub
+1. Transfer CrossChainFee to TokenHub
 2. RLP encode sync total supply package:
 
     | **Param Name**    | **Type** | **Description**        |
