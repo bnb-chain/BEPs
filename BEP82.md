@@ -1,4 +1,4 @@
-# BEP-82: Token Owner Changes
+# BEP-82: Token Ownership Changes
 
 ## 1. Summary
 This BEP describes the changes related to the token owner who issued a token on Binance Chain.
@@ -17,12 +17,12 @@ To reduce the transaction's dependence on the related token’s owner and make t
 - Removing the owner verification when handling some token related transactions.
 
 ## 5. Specification
-### 5.1 Owner Transfer
-**OwnerTransfer** transaction can transfer ownership of a specific token to another address, and only the original owner has the permission to send this transaction.
+### 5.1 Transfer Ownership
+**TransferOwnership** transaction can transfer ownership of a specific token to another address, and only the original owner has the permission to send this transaction.
 
-A fee (a fixed amount of BNB) will be charged on **OwnerTransfer** transaction.
+A fee (a fixed amount of BNB) will be charged on **TransferOwnership** transactions.
 
-Parameters for OwnerTransfer Operation:
+Parameters for TransferOwnership Operation:
 
 |     **Field**       | **Type**    |    **Description**        |
 | ------------------- | ----------- | ------------------------  |
@@ -31,41 +31,24 @@ Parameters for OwnerTransfer Operation:
 | NewOwner            | string      | the address who is assigned to be the new owner of the token |
 
 ### 5.2 Token Owner Verification Changes
-Currently, some token-related transactions are restricted to being proposed by token owners while others are not.  
+Currently, some token-related transactions are restricted to being proposed by token owners while others are not.  After the implementation of this BEP, any address can burn its own tokens. Here is the comparison below:
 
-|    **Transaction Type**   |  **Verify Owner**   |
-| ------------------------- | ------------------- |
-| list token                | yes                 |
-| mint token                | yes                 |
-| burn token                | yes                 |
-| freeze token              | no                  |
-| set URI                   | yes                 |
-| atomic swap related       | no                  |
-| time lock                 | no                  |
-| time unlock               | no                  |
-| time relock               | no                  |
-| transfer                  | no                  |
-| cross transfer out        | no                  |
-| cross bind                | yes                 |
-| cross unbind              | yes                 |
+|    **Transaction Type**   |  **Verify Owner(Before)** |  **Verify Owner(After)**  |
+| ------------------------- | ------------------------- |---------------------------|
+| list token                | yes                       | yes                       |
+| mint token                | yes                       | yes                       |
+| burn token                | yes                       | no                        |
+| freeze token              | no                        | no                        |
+| set URI                   | yes                       | yes                       |
+| atomic swap related       | no                        | no                        |
+| time lock                 | no                        | no                        |
+| time unlock               | no                        | no                        |
+| time relock               | no                        | no                        |
+| transfer                  | no                        | no                        |
+| cross transfer out        | no                        | no                        |
+| cross bind                | yes                       | yes                       |
+| cross unbind              | yes                       | yes                       |
 
-After the implementation of this BEP, any address can burn its own tokens. And the table will be like the below:
-
-|    **Transaction Type**   |  **Verify Owner**   |
-| ------------------------- | ------------------- |
-| list token                | yes                 |
-| mint token                | yes                 |
-| burn token                | no                  |
-| freeze token              | no                  |
-| set URI                   | yes                 |
-| atomic swap related       | no                  |
-| time lock                 | no                  |
-| time unlock               | no                  |
-| time relock               | no                  |
-| transfer                  | no                  |
-| cross transfer out        | no                  |
-| cross bind                | yes                 |
-| cross unbind              | yes                 |
 
 ## 6. License
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
