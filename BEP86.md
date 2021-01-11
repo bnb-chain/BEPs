@@ -1,6 +1,6 @@
-# BEP-86: Dynamic Extra Incentive To BSC Relayers
+# BEP-86: Dynamic Extra Incentive For BSC Relayers
 
-- [BEP-86: Dynamic Extra Incentive To BSC Relayers](#bep-86-dynamic-extra-incentive-to-bsc-relayers)
+- [BEP-86: Dynamic Extra Incentive For BSC Relayers](#bep-86-dynamic-extra-incentive-for-bsc-relayers)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -29,13 +29,13 @@ Anyone can maintain a bsc-relayer by depositing 100:BNB to the RelayerHub contra
 ## 5. Specification
 
 ### 5.1 Governable Parameter
-Import a governable parameter `extraRelayerReward` to the [RelayerIncentivize Contract](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/RelayerIncentivize.sol):
-1. The `extraRelayerReward` represents the amount of BNB which will be transferred from the SystemReward to the bsc relayer reward pool.
-2. The `extraRelayerReward` can be modified by sidechain governance on BC.
+Import a governable parameter `dynamicExtraIncentiveAmount` to the [RelayerIncentivize Contract](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/RelayerIncentivize.sol):
+1. The `dynamicExtraIncentiveAmount` represents the amount of BNB which will be transferred from the SystemReward to the bsc relayer reward pool.
+2. The `dynamicExtraIncentiveAmount` can be modified by sidechain governance on BC.
 
 ### 5.2 Modify RelayerIncentivize Contract
 Modify the `addReward` method in the RelayerIncentivize contract:
-1. Try to claim `extraRelayerReward` from the SystemReward contract.
+1. Try to claim `dynamicExtraIncentiveAmount` from the SystemReward contract.
 2. Add the new claimed reward to the existing reward.
 3. Add the total reward to the relayer reward pool.
 
