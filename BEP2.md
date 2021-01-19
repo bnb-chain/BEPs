@@ -30,7 +30,7 @@ BEP-2 Proposal describes a common set of rules for token management within the B
 
 ## 3.  Status
 
-This BEP is already implemented.
+This BEP is already implemented, and it has been improved via [BEP87](./BEP87.md).
 
 ## 4.  Motivation
 
