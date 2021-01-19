@@ -20,4 +20,4 @@ Here are the list of subjects of BEPs:
 * [BEP-67](BEP67.md): Price-based Order Expiration
 * [BEP-84](BEP84.md): Mirror BEP20 to Binance Chain
 * [BEP-86](BEP86.md): Dynamic Extra Incentive For BSC Relayers
-
+* [BEP-89](BEP89.md): Visual Fork of Binance Smart Chain
