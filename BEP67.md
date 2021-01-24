@@ -19,8 +19,7 @@ This BEP describes an enhancement of the [Order Expiration](https://docs.binance
 Currently orders on Binance Chain will be expired after 3 days. Order cannot live long on the market even their price stays competitive, which is not convenient and incurs cost to traders. The solution is to keep orders in the best 500 price levels for 30 days rather than 3 days.
 
 ## 3. Status
-
-This BEP is under specification.
+This BEP is already implemented.
 
 ## 4. Motivation
 

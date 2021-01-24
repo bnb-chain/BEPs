@@ -15,6 +15,9 @@ Here are the list of subjects of BEPs:
 * [BEP-12](BEP12.md): Introduce Customized Scripts and Transfer Memo Validation
 * [BEP-18](BEP18.md): State sync enhancement
 * [BEP-19](BEP19.md): Introduce Maker and Taker for Match Engine
+* [BEP-20](BEP20.md): Tokens on Binance Smart Chain
 * [BEP-70](BEP70.md): List and Trade BUSD Pairs
 * [BEP-67](BEP67.md): Price-based Order Expiration
-
+* [BEP-84](BEP84.md): Mirror BEP20 to Binance Chain
+* [BEP-86](BEP86.md): Dynamic Extra Incentive For BSC Relayers
+* [BEP-89](BEP89.md): Visual Fork of Binance Smart Chain

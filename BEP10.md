@@ -75,7 +75,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 21         | Vision - [Portfolio & Multi-Chain Wallet](https://vision-crypto.com/)|
 | 68         | Trubi Wallet|
 | 82         | [Cosmostation Wallet](https://www.cosmostation.io)|
-| 91         | [Frontier Wallet](https://frontierwallet.com/) |
+| 91         | [Frontier](https://frontier.xyz/) |
 | 711        | [CoolWallet S](https://coolwallet.io/)|
 | 714        | Binance|
 | 777        | Guarda Wallet [Multi-currency, custody-free wallet](https://guarda.co/)
