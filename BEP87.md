@@ -7,7 +7,7 @@ This BEP proposes to reduce the minimum length limit for token symbol on Binance
 Currently, the token symbol minimum length is limited to 3. After implementing this BEP, the users are allowed to issue a token with a symbol of 2 characters.
 
 ## 3. Status
-draft
+This BEP is already implemented
 
 ## 4. Motivation
 As many users have the requirements to issue a two-character token on Binance Chain, the minimum token symbol length will be changed to 2 in this BEP.
