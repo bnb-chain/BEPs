@@ -9,7 +9,7 @@ Currently, many token-related transactions, such as token listing, minting, burn
 This BEP proposes the solutions to provide more convenience and flexibility for these transactions.
 
 ## 3. Status
-draft
+This BEP is already implemented
 
 ## 4. Motivation
 To reduce the transaction's dependence on the related token’s owner and make the ownership of token changeable, we introduce those solutions as following:

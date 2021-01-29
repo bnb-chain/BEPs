@@ -27,14 +27,14 @@
 This BEP proposes a scheme to facilitate users to issue and bind BEP2 tokens with existing BEP20 tokens.
 
 ## 2. Abstract
-Currently, if a user wants to issue and bind a BEP2 token with an existing BEP20 token, it has to do a set of complex operations, including issue BEP2 tokens, sending a bind transaction and approving the binding request. The BEP will bring a mechanism to simplify the above process. In the new mechanism, what anyone can do this is just sending a transaction to Binance Smart Chain. 
+Currently, if a user wants to issue and bind a BEP2 token with an existing BEP20 token, it has to do a set of complex operations, including issue BEP2 tokens, sending a bind transaction and approving the binding request. The BEP will bring a mechanism to simplify the above process. In the new mechanism, what anyone can do this is just sending a transaction to Binance Smart Chain.
 
 ## 3. Motivation
-Current bind mechanism is based on the context that our community members are on the Binance Chain and they want to extend their tokens to the Binance Smart Chain. However, with the evolution of our community, things changed. In most cases, users issue bep20 on the Binance Smart Chain first without considering whether they will issue BEP2 on the Binance Chain or not,  so a new mechanism to conveniently extend BEP20 assets to the Binance Chain is required. In addition, the new mechanism will encourage users to extend their assets to the Binance Chain which is very helpful to flourish the Binance Chain community. 
+Current bind mechanism is based on the context that our community members are on the Binance Chain and they want to extend their tokens to the Binance Smart Chain. However, with the evolution of our community, things changed. In most cases, users issue bep20 on the Binance Smart Chain first without considering whether they will issue BEP2 on the Binance Chain or not,  so a new mechanism to conveniently extend BEP20 assets to the Binance Chain is required. In addition, the new mechanism will encourage users to extend their assets to the Binance Chain which is very helpful to flourish the Binance Chain community.
 
 ## 4. Status
-This BEP is under draft.
- 
+This BEP is already implemented
+
 ## 5. Specification
 
 Two new permissionless methods will be imported into TokenManager contract:
@@ -84,7 +84,7 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
 
 ##### 5.1.1.4 Handle ack packages
 
-1. Fail ack package: 
+1. Fail ack package:
     1. RLP decode mirror package.
     2. Refund MirrorFee to mirror sender.
     3. Set the BEP20 pending mirror status to false
@@ -108,7 +108,7 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
         2. Write the bound pair to TokenHub
         3. Mark the bep20 token as bound by mirror
         4. Emit bound success event
-    
+
 #### 5.1.2 Sync
 
 ##### 5.1.2.1 Parameters
@@ -139,12 +139,12 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
     | BEP20Supply       | uint256  | BEP20 total supply     |
     | SyncFee           | uint256  | Sum of cross chain fee and sync fee |
     | ExpiredTime       | uint64   | The package expired time, counted by second |
-    
+
 3. Call CrossChain contract to send a cross chain package.
 
 ##### 5.1.2.4 Handle ack packages
 
-1. Fail ack package: 
+1. Fail ack package:
     1. RLP decode sync total supply package.
     2. Refund SyncFee to users.
 
@@ -162,7 +162,7 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
         1. Refund SyncFee to sync sender
         2. Emit sync failure event
     3. If ErrorCode is zero:
-        1. Transfer SyncFee to TokenHub 
+        1. Transfer SyncFee to TokenHub
         2. Emit sync success event
 
 ### 5.1.3 Implement Parameter Update Interface
@@ -183,7 +183,7 @@ function updateParam(string calldata key, bytes calldata value)
 2. Ensure expiredTime is not passed.
 3. Ensure the bep20 contract is not bound.
 4. Convert BEP20 total supply to the total supply on BC and Ensure the total supply doesn’t exceed the maximum limit of BEP2.
-5. Issue a new BEP2 token, the suffix should be the hash of oracle payload and current channel sequence. Besides, the new BEP2 token owner will be the pure-code-controlled-escrow address. 
+5. Issue a new BEP2 token, the suffix should be the hash of oracle payload and current channel sequence. Besides, the new BEP2 token owner will be the pure-code-controlled-escrow address.
 6. Transfer all tokens to the pure-code-controlled-escrow address and write BEP20 address and decimals to the BEP2 token attribution table.
 7. Unlock mirror fee from peg account to BC fee pool, so that validators can get these fees.
 8. If all above steps are successful, generate a success ack package. The mirrorFee in ack package should equal to the value in sync package. Otherwise, generate an ack failure package.
@@ -194,16 +194,16 @@ function updateParam(string calldata key, bytes calldata value)
 2. Ensure expiredTime is not passed
 3. Convert BEP20 total supply to BEP2 total supply and ensure the total supply doesn’t exceed the maximum limit of BEP2.
 4. Mint/Burn
-    1. BSC total supply > BC total supply, mint BEP2 and transfer all new minted tokens to the pure-code-controlled-escrow address. 
+    1. BSC total supply > BC total supply, mint BEP2 and transfer all new minted tokens to the pure-code-controlled-escrow address.
     2. BSC total supply == BC total supply, nothing to do
-    3. BSC total supply > BC total supply, burn BEP2 from the pure-code-controlled-escrow address. 
+    3. BSC total supply > BC total supply, burn BEP2 from the pure-code-controlled-escrow address.
 5. Unlock sync fee from the pure-code-controlled-escrow address to BC fee pool.
 6. If all above steps are successful, generate a success ack package. The mirrorFee in ack package should equal to the value in sync package. Otherwise, generate an ack failure package.
 
 ## 5.3 Proposals to Enable New Channels
 After BC and BSC are both upgraded, submit a proposal on BC to add two channels:
 1. Mirror channel
-    1. Channel id: 4 
+    1. Channel id: 4
     2. Handler address: 0x0000000000000000000000000000000000001008
     3. Is reward from systemReward: false
 2. Sync total supply channel:

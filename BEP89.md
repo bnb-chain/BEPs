@@ -12,17 +12,17 @@
     - [5.4 Backwards Compatibility](#54-backwards-compatibility)
   - [6. License](#6-license)
 
-## 1.  Summary 
+## 1.  Summary
 
-This BEP describes a proposal to enable the chain to display the whole view of validators that on different upcoming forks.  
+This BEP describes a proposal to enable the chain to display the whole view of validators that on different upcoming forks.
 
 ## 2.  Abstract
 
-The four bytes of `Header.Extra[28:32]` will be fulfilled with `NEXT_FORK_HASH`. The `NEXT_FORK_HASH` indicates which fork the signer of this block is going to stay on. By analysing `N` (`N` is the amount of validators) continuous block headers, we are able to know which fork is supported by the majority of validators and exact which validator has not upgraded yet. 
+The four bytes of `Header.Extra[28:32]` will be fulfilled with `NEXT_FORK_HASH`. The `NEXT_FORK_HASH` indicates which fork the signer of this block is going to stay on. By analysing `N` (`N` is the amount of validators) continuous block headers, we are able to know which fork is supported by the majority of validators and exact which validator has not upgraded yet.
 
 ## 3.  Status
 
-Draft.
+This BEP is already implemented
 
 ## 4.  Motivation
 
@@ -32,7 +32,7 @@ Binance Smart Chain will have some hard forks inevitably in the long run. Binanc
 
 ###  5.1 Fork Hash
 
-Fork Hash is introduced in [EIP-2124](https://eips.ethereum.org/EIPS/eip-2124). It is a mechanism that can let ethereum nodes precisely identify whether another node will be useful. 
+Fork Hash is introduced in [EIP-2124](https://eips.ethereum.org/EIPS/eip-2124). It is a mechanism that can let ethereum nodes precisely identify whether another node will be useful.
 
 - `FORK_HASH`. IEEE CRC32 checksum ([4]byte) of the genesis hash and fork blocks numbers that already passed. E.g. Fork Hash for mainnet would be: `forkhash₂ = 0x91d1f948 (DAO fork) = CRC32(<genesis-hash> || uint64(1150000) || uint64(1920000))`.
 - `FORK_NEXT`. Block number (uint64) of the next upcoming fork, or 0 if no next fork is known.
@@ -40,7 +40,7 @@ Fork Hash is introduced in [EIP-2124](https://eips.ethereum.org/EIPS/eip-2124). 
 
 ### 5.2 Vanity
 
-Format of `Header.Extra`: 
+Format of `Header.Extra`:
 
 ```
 |   32 bytes       |       20 * N bytes      |   65 bytes     |
@@ -57,7 +57,7 @@ Format of `Header.Extra`:
 
 ### 5.4 Backwards Compatibility
 
-- This BEP itself is not a hardfork one, it breaks nothing of consensus. 
+- This BEP itself is not a hardfork one, it breaks nothing of consensus.
 - Downstream service is completely compatible with this BEP.
 
 ## 6. License
