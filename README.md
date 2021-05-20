@@ -23,3 +23,4 @@ Here are the list of subjects of BEPs:
 * [BEP-86](BEP86.md): Dynamic Extra Incentive For BSC Relayers
 * [BEP-87](BEP87.md): Token Symbol Minimum Length Change
 * [BEP-89](BEP89.md): Visual Fork of Binance Smart Chain
+* [BEP-91](BEP91.md): Increase Block Gas Ceiling for Binance Smart Chain
