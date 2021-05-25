@@ -14,7 +14,7 @@ This BEP describes a proposal for the increment of **gasceil** of BSC.
 
 ## 2. Abstract
 
-BEP-91 Proposal describes a change of BSC node configuration, and suggests Validator operators should increase the value of  the block `GasCeil`from `40000000` to `60000000`.
+BEP-91 Proposal describes a change of BSC node configuration, and suggests Validator operators should increase the value of  the block `GasCeil`from `60000000` to `75000000`, and increase the value of  the block `GasFloor`from `40000000` to `60000000` .
 
 ## 3. Status
 
