@@ -1,6 +1,6 @@
-# BEP-92: Implementation of SHA3-256 FIPS 202 hash precompile and EcRecover Uncompressed public key precompile
+# BEP-92: Implementation of SHA3-256 FIPS 202 hash and EcRecover Uncompressed public key precompiled contracts
 
-- [BEP-92: Implementation of SHA3-256 FIPS 202 hash precompile and EcRecover Uncompressed public key precompile](#bep-92)
+- [BEP-92: Implementation of SHA3-256 FIPS 202 hash precompiled and EcRecover Uncompressed public key precompiled](#bep-92)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -10,11 +10,11 @@
   
 ## 1. Summary
 
-This BEP describes a proposal for Implementation of SHA3-256 as precompiles for BSC
+This BEP describes a proposal for Implementation of SHA3-256 as precompiled for BSC
 
 ## 2. Abstract
 
-BEP-92 Proposal describes a addition of implementation of SHA3-256 FIPS 202 hash and EcRecover Uncompressed public key methods as precompile native contracts
+BEP-92 Proposal describes a addition of implementation of SHA3-256 FIPS 202 hash and EcRecover Uncompressed public key methods as precompiled native contracts
 
 ## 3. Status
 
@@ -24,14 +24,14 @@ This BEP is a Work in Progress(WIP).
 
 - In order to validate the merkle tree data from ICON and other similar blockchains, which uses the SHA3-256 hashing function. 
 - When the transaction hashes are created using the SHA3-256 hashing function and the same hashing mechanism is needed to validate signatures of validators in ICON. 
-- Currently ICON uses a similar address building scheme to ethereum. ICON uses a part of the hash value of the public key, but with with SHA3-256 FIPS hashing function. So the need for new ecrecoverPublicKey function as part of precompiles.
+- Currently ICON uses a similar address building scheme to ethereum. ICON uses a part of the hash value of the public key, but with with SHA3-256 FIPS hashing function. So the need for new ecrecoverPublicKey function as part of precompiled.
 
 ## 5. Specification
 Ethereum based virtual machines uses Keccak-256 hashing algorithm to evaulate blocks, but most of the modern blockchains adapted SHA3-256,(slightly different padding rule) as part of [NIST FIPS 202](#https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf).
 
 To make it easier for other blockchains to interoperate with Binance smart chain, this BEP proposing to add the functionalities of SHA3-256 as part of precompiled native contracts.
 
-Test data to be used to validate the output of the proposed precompile functions.
+Test data to be used to validate the output of the proposed precompiled contract functions.
 
 sha3fips
 params
