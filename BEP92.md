@@ -22,14 +22,14 @@ This BEP is a Work in Progress(WIP).
 
 ## 4. Motivation
 
+To bring more interoperability to Binance Smart Chain, this BEP proposing to add additional capabilities to verify sha3-256 based blockchains in the likes of ICON republic.
+
 - In order to validate the merkle tree data from ICON and other similar blockchains, which uses the SHA3-256 hashing function. 
 - When the transaction hashes are created using the SHA3-256 hashing function and the same hashing mechanism is needed to validate signatures of validators in ICON. 
 - Currently ICON uses a similar address building scheme to ethereum. ICON uses a part of the hash value of the public key, but with with SHA3-256 FIPS hashing function. Hence the need for new ecrecoverPublicKey function as part of precompiled.
 
 ## 5. Specification
 Ethereum based virtual machines uses Keccak-256 hashing algorithm to evaulate blocks, but most of the modern blockchains adapted SHA3-256,(slightly different padding rule) as part of [NIST FIPS 202](#https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf).
-
-To make it easier for other blockchains to interoperate with Binance smart chain, this BEP proposing to add the functionalities of SHA3-256 as part of precompiled native contracts.
 
 Test data to be used to validate the output of the proposed precompiled contract functions.
 
