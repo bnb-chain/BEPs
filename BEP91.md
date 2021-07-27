@@ -14,7 +14,7 @@ This BEP describes a proposal for the increment of **gasceil** of BSC.
 
 ## 2. Abstract
 
-BEP-91 Proposal describes a change of BSC node configuration, and suggests Validator operators should increase the value of  the block `GasCeil`from `60000000` to `75000000`, and increase the value of  the block `GasFloor`from `40000000` to `60000000` .
+BEP-91 Proposal describes a change of BSC node configuration, and suggests Validator operators should increase the value of  the block `GasCeil`from `75000000` to `100000000`, and increase the value of  the block `GasFloor`from `60000000` to `75000000` .
 
 ## 3. Status
 
@@ -34,12 +34,17 @@ Increased gasceil will lead to more transactions per block. It will be a direct 
 
 ## 5. Specification
 
-According to the past laboratory tests, BSC can process real transactions with more than 70M Gas. Considering the complex network environment in mainnet and the different hardware of validators, 60M is a relatively reasonable value. If 60M is larger than expected, the miner module of BSC will adaptively adjust it to avoid network overloading. 
+According to the past laboratory tests, BSC can process real transactions with more than 120M Gas. Considering the complex network environment in mainnet and the different hardware of validators, 100M is a relatively reasonable value. If 100M is larger than expected, the miner module of BSC will adaptively adjust it to avoid network overloading. 
 
 It is strongly recommended to raise the gasceil parameter as well as hardware. The validator may get less reward than expected if its hardware fails to validate enough tx.
 
 As the transaction volume continues to increase, more changes should be made to the internal logic on transaction execution, storage and P2P communication.
 
-## 6. License
+## 6. History
+
+- 2021-05-25: Raise gas limit from 60000000 to 75000000
+- 2021-07-27: Raise gas limit from 75000000 to 100000000
+
+## 7. License
 
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
