@@ -24,3 +24,6 @@ Here are the list of subjects of BEPs:
 * [BEP-87](BEP87.md): Token Symbol Minimum Length Change
 * [BEP-89](BEP89.md): Visual Fork of Binance Smart Chain
 * [BEP-91](BEP91.md): Increase Block Gas Ceiling for Binance Smart Chain
+* [BEP-93](BEP93.md): Diff Sync Protocol on BSC
+* [BEP-95](BEP95.md): Introduce Real-Time Burning Mechanism
+
