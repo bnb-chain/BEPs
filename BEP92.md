@@ -27,7 +27,7 @@ This BEP is a Work in Progress(WIP).
 This BEP proposing to enable more interoperability capablilities for Binance Smart Chain to verify sha3-256 based blockchains in the likes of ICON republic.
 
 - In order to validate the merkle tree data from blockchains which uses SHA3-256 hashing functions.
-- Used to recover & validate public key from signatures of validators.
+- Need these precompiles to recover & validate public key from signatures of validators.
 - Any blockchain using SHA3-256 FIPS 202 standard will need these preompiles interoperate with EVM based blockchains. Hence the need for both hashing & recover functions based on SHA3-256.
 
 ## 5. Specification
@@ -36,8 +36,8 @@ Ethereum based virtual machines uses Keccak-256 hashing algorithm to evaulate bl
 
 ## 6. Gas
 
-SHA3-256 is in the same family as keccak256. Hence the gas price consumption for hash operation will be similar to existing Keccak operation.
-Hence,
+SHA3-256 is in the same family as keccak256. Hence, the gas price consumption for hash operation will be similar to existing Keccak operation.
+
 ```
 Gsha3 = 30 
 (Paid for each SHA3 operation.)
