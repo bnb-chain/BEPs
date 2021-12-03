@@ -16,7 +16,7 @@ This BEP describes a proposal for Implementation of SHA3-256 as precompiled for 
 
 ## 2. Abstract
 
-BEP-92 Proposal describes a addition of implementation of SHA3-256 FIPS 202 hash and EcRecover Uncompressed public key methods as precompiled native contracts
+BEP-92 Proposal describes an addition of implementation of SHA3-256 FIPS 202 hash and EcRecover Uncompressed public key methods as precompiled native contracts
 
 ## 3. Status
 
