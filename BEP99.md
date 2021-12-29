@@ -46,23 +46,25 @@ The [slash contract](https://bscscan.com/address/0x00000000000000000000000000000
 
 [Temporary Maintenance Flow]()
 
-#### Positive Maintenance
+#### Proactive Maintenance
 
-Validator can claim itself to enter scheduled maintenance by sending a transaction signed by the consensus key. 
+Validator can claim itself to enter scheduled maintenance by sending a transaction signed by the consensus key. The validator can claim itself to exit maintenance by sending another transaction. 
 
-A percentage of the collected reward will be distributed to the system reward contract within the transaction.
+The slash cleaning work will be done within the exit transaction:
 
-The validator can claim itself to exit maintenance by sending another transaction. 
+`SlashCount` =  (`MaintenanceEndHeight` - `MaintenanceStartHeight`) / len(`currentValidatorSet`) / `Scale`
 
-The maintenance should not last over a limited time, otherwise the validator will be slashed.
+Scale is a governable parameter, the initial setting is 2, usually it should be larger than 1. If  SlashCount is larger than a predefined value, the validator will still be slashed. 
+
+The validator can get more time to bring the node back before being slashed if it claims itself to enter maintenance. 
+
+Validator is encouraged to claim  itself to exit maintenance even if it will be put in jail, since it can send the unjail transaction earlier.
 
 #### Passive Maintenance
 
 Once the number of missed blocks is above a predefined threshold, the validator will enter maintenance automatically. 
 
-The validator still gets a chance to catch up and claim itself online again. 
-
-If it fails to be online within a predefined period, anyone(reward searcher) can enforce the validator online by sending a transaction, and the sender can get reward in return. The  slash contract will convert the maintenance period into missed blocks and record it on-chain to lower the impact from the poor performance validator.
+The validator still gets a chance to catch up and claim itself online again.
 
 #### Limit
 
