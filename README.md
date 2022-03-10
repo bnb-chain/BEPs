@@ -26,4 +26,4 @@ Here are the list of subjects of BEPs:
 * [BEP-91](BEP91.md): Increase Block Gas Ceiling for Binance Smart Chain
 * [BEP-93](BEP93.md): Diff Sync Protocol on BSC
 * [BEP-95](BEP95.md): Introduce Real-Time Burning Mechanism
-
+* [BEP-128](BEP128.md): Improvement on BNB Smart Chain Staking Reward Distribution
