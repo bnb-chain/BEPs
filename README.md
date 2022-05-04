@@ -1,6 +1,6 @@
 # BEPs
 
-BEP stands for Binance Chain Evolution Proposal. Each BEP will be a proposal document providing information to the Binance Chain/DEX community.
+BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document providing information to the BNB Chain ecosystem and community.
 
 
 Here are the list of subjects of BEPs:
