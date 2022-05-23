@@ -1,6 +1,6 @@
 # BEPs
 
-BEP stands for Binance Chain Evolution Proposal. Each BEP will be a proposal document providing information to the Binance Chain/DEX community.
+BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document providing information to the BNB Chain ecosystem and community.
 
 
 Here are the list of subjects of BEPs:
@@ -27,4 +27,6 @@ Here are the list of subjects of BEPs:
 * [BEP-93](BEP93.md): Diff Sync Protocol on BSC
 * [BEP-95](BEP95.md): Introduce Real-Time Burning Mechanism
 * [BEP-100](BEP100.md): BSC Application Sidechain
-
+* [BEP-127](BEP127.md): Temporary Maintenance Mode for Validators 
+* [BEP-128](BEP128.md): Improvement on BNB Smart Chain Staking Reward Distribution
+* [BEP-131](BEP131.md): Introduce candidate validators onto BNB Smart Chain
