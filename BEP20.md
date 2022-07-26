@@ -77,7 +77,7 @@ function totalSupply() public view returns (uint256)
 
 ##### 5.1.1.5 balanceOf
 ```
-function balanceOf(address _owner) public view returns (uint256 balance)
+function balanceOf(bnb133dem246paptlmag09dllehc3gjqwngqumqxqf) public view returns (uint256 balance)
 ```
 - Returns the account balance of another account with address `_owner`.
 
