@@ -217,16 +217,18 @@ contract StakingDappExample {
   }
 
   // events
-  event Delegate(address indexed delegator, address indexed validator, uint256 amount);
-  event Undelegate(address indexed validator, uint256 amount);
-  event ClaimReward(address indexed delegator, uint256 amount);
-  event ClaimUndelegated(address indexed delegator, uint256 amount);
+  event Delegate(address indexed delegator, uint256 amount);
+  event DelegateSubmitted(address indexed validator, uint256 amount);
+  event Undelegate(address indexed delegator, uint256 amount);
+  event UndelegateSubmitted(address indexed validator, uint256 amount);
+  event RewardClaimed(address indexed delegator, uint256 amount);
+  event UndelegatedClaimed(address indexed delegator, uint256 amount);
   event RewardReceived(uint256 amount);
   event UndelegatedReceived(uint256 amount);
 
   receive() external payable {}
 
-  constructor() {
+  constructor() public {
     owner = msg.sender;
     operators[msg.sender] = true;
   }
@@ -249,16 +251,19 @@ contract StakingDappExample {
 
     totalReceived = totalReceived.add(amount);
     reserveUndelegated = reserveUndelegated.add(amount);
-    amount = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
-    if (reserveUndelegated >= 2*amount) {
+    uint256 minDelegation = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
+    if (reserveUndelegated >= 2*minDelegation) {
+      uint256 realAmount = reserveUndelegated-minDelegation;
       uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
-      if (address(this).balance < amount.add(oracleRelayerFee)) {
+      if (address(this).balance < realAmount.add(oracleRelayerFee)) {
         return;
       }
-      _delegate(amount, oracleRelayerFee);
-      totalStaked = totalStaked.add(amount);
-      reserveUndelegated = reserveUndelegated.sub(amount);
+      realAmount = _delegate(realAmount, oracleRelayerFee);
+      totalStaked = totalStaked.add(realAmount);
+      reserveUndelegated = reserveUndelegated.sub(realAmount);
     }
+
+    emit Delegate(msg.sender, amount);
   }
 
   // This function will not always submit delegation request to the staking system contract.
@@ -274,18 +279,22 @@ contract StakingDappExample {
     user.rewardDebt = user.amount.mul(poolInfo.rewardPerShare).sub(pendingReward);
 
     user.pendingUndelegated = user.pendingUndelegated.add(amount);
-    user.undelegateUnlockTime = block.timestamp.add(7*24*3600);
+    user.undelegateUnlockTime = block.timestamp.add(8*24*3600);
 
-    amount = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
-    if (reserveUndelegated < amount) {
+    uint256 minDelegation = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
+    if (reserveUndelegated < minDelegation) {
       uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
-      _undelegate(amount, oracleRelayerFee);
-      totalStaked = totalStaked.sub(amount);
-      reserveUndelegated = reserveUndelegated.add(amount);
+      _undelegate(minDelegation, oracleRelayerFee);
+      totalStaked = totalStaked.sub(minDelegation);
+      reserveUndelegated = reserveUndelegated.add(minDelegation);
     }
 
     totalReceived = totalReceived.sub(amount);
-    emit undelegateSubmitted(msg.sender, amount);
+    emit Undelegate(msg.sender, amount);
+  }
+
+  function getDelegated(address delegator) external view returns(uint256) {
+    return userInfo[delegator].amount;
   }
 
   function claimReward() external noReentrant {
@@ -297,9 +306,9 @@ contract StakingDappExample {
     if (reserveReward < pendingReward) {
       _claimReward();
     }
-    payable(msg.sender).transfer(pendingReward);
     user.rewardDebt = user.amount.mul(poolInfo.rewardPerShare);
-    emit rewardClaimed(msg.sender, pendingReward);
+    payable(msg.sender).transfer(pendingReward);
+    emit RewardClaimed(msg.sender, pendingReward);
   }
 
   function claimUndelegated() external noReentrant {
@@ -309,53 +318,59 @@ contract StakingDappExample {
     if (reserveUndelegated < user.pendingUndelegated) {
       _claimUndelegated();
     }
-    payable(msg.sender).transfer(user.pendingUndelegated);
     reserveUndelegated = reserveUndelegated.sub(user.pendingUndelegated);
     totalReceived = totalReceived.sub(user.pendingUndelegated);
     user.pendingUndelegated = 0;
-    emit undelegatedClaimed(msg.sender, user.pendingUndelegated);
+    payable(msg.sender).transfer(user.pendingUndelegated);
+    emit UndelegatedClaimed(msg.sender, user.pendingUndelegated);
   }
 
-  function getPendingReward() external view returns(uint256 pendingReward) {
-    UserInfo storage user = userInfo[msg.sender];
+  function getPendingReward(address delegator) external view returns(uint256 pendingReward) {
+    UserInfo memory user = userInfo[delegator];
     pendingReward = user.amount.mul(poolInfo.rewardPerShare).sub(user.rewardDebt);
   }
 
   /************************** Internal **************************/
-  function _getHighestYieldingValidator() internal pure returns(address highestYieldingValidator) {
+  function _getHighestYieldingValidator() internal pure returns(uint160 highestYieldingValidator) {
     // this function should return the desirable validator to delegate to
     // need to be implemented by the developer
-    highestYieldingValidator = address(0x1);
+    // use uint160 rather than address to prevent checksum error
+    highestYieldingValidator = uint160(0x001);
   }
 
-  function _getLowestYieldingValidator() internal pure returns(address lowestYieldingValidator) {
+  function _getLowestYieldingValidator() internal pure returns(uint160 lowestYieldingValidator) {
     // this function should return the desirable validator to undelegate from
     // need to be implemented by the developer
-    lowestYieldingValidator = address(0x2);
+    // use uint160 rather than address to prevent checksum error
+    lowestYieldingValidator = uint160(0x001);
   }
 
-  function _delegate(uint256 amount, uint256 oracleRelayerFee) internal {
-    address validator = _getHighestYieldingValidator();
+  function _delegate(uint256 amount, uint256 oracleRelayerFee) internal returns(uint256) {
+    address validator = address(_getHighestYieldingValidator());
+    amount -= amount%TEN_DECIMALS;
     IStaking(STAKING_CONTRACT_ADDR).delegate{value: amount.add(oracleRelayerFee)}(validator, amount);
-    emit delegateSubmitted(msg.sender, validator, amount);
+    emit DelegateSubmitted(validator, amount);
+    return amount;
   }
 
-  function _undelegate(uint256 amount, uint256 oracleRelayerFee) internal {
-    address validator = _getLowestYieldingValidator();
+  function _undelegate(uint256 amount, uint256 oracleRelayerFee) internal returns(uint256) {
+    address validator = address(_getLowestYieldingValidator());
+    amount -= amount%TEN_DECIMALS;
     IStaking(STAKING_CONTRACT_ADDR).undelegate{value: oracleRelayerFee}(validator, amount);
-    emit undelegateSubmitted(validator, amount);
+    emit UndelegateSubmitted(validator, amount);
+    return amount;
   }
 
   function _claimReward() internal {
     uint256 amount = IStaking(STAKING_CONTRACT_ADDR).claimReward();
     totalReward = totalReward.add(amount);
     reserveReward = reserveReward.add(amount);
-    emit rewardReceived(amount);
+    emit RewardReceived(amount);
   }
 
   function _claimUndelegated() internal {
     uint256 amount = IStaking(STAKING_CONTRACT_ADDR).claimUndeldegated();
-    emit undelegatedReceived(amount);
+    emit UndelegatedReceived(amount);
   }
 
   function _updatePool() internal {
@@ -380,7 +395,7 @@ contract StakingDappExample {
     amount = IStaking(STAKING_CONTRACT_ADDR).claimUndeldegated();
     uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
     require(address(this).balance > amount.add(oracleRelayerFee), "insufficient balance");
-    _delegate(amount, oracleRelayerFee);
+    amount = _delegate(amount, oracleRelayerFee);
     totalStaked = totalStaked.add(amount);
     reserveUndelegated = reserveUndelegated.sub(amount);
   }
@@ -391,7 +406,7 @@ contract StakingDappExample {
 
     uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
     require(address(this).balance > oracleRelayerFee, "insufficient balance");
-    _undelegate(amount, oracleRelayerFee);
+    amount = _undelegate(amount, oracleRelayerFee);
     totalStaked = totalStaked.sub(amount);
     reserveUndelegated = reserveUndelegated.add(amount);
   }
