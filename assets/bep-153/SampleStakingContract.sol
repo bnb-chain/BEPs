@@ -1,4 +1,4 @@
-pragma solidity 0.6.4;
+pragma solidity 0.8.16;
 
 interface IStaking {
 
@@ -27,145 +27,7 @@ interface IStaking {
   function getMinDelegation() external view returns(uint256);
 }
 
-library SafeMath {
-  /**
-   * @dev Returns the addition of two unsigned integers, reverting on
-     * overflow.
-     *
-     * Counterpart to Solidity's `+` operator.
-     *
-     * Requirements:
-     * - Addition cannot overflow.
-     */
-  function add(uint256 a, uint256 b) internal pure returns (uint256) {
-    uint256 c = a + b;
-    require(c >= a, "SafeMath: addition overflow");
-
-    return c;
-  }
-
-  /**
-   * @dev Returns the subtraction of two unsigned integers, reverting on
-     * overflow (when the result is negative).
-     *
-     * Counterpart to Solidity's `-` operator.
-     *
-     * Requirements:
-     * - Subtraction cannot overflow.
-     */
-  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-    return sub(a, b, "SafeMath: subtraction overflow");
-  }
-
-  /**
-   * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
-     * overflow (when the result is negative).
-     *
-     * Counterpart to Solidity's `-` operator.
-     *
-     * Requirements:
-     * - Subtraction cannot overflow.
-     */
-  function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-    require(b <= a, errorMessage);
-    uint256 c = a - b;
-
-    return c;
-  }
-
-  /**
-   * @dev Returns the multiplication of two unsigned integers, reverting on
-     * overflow.
-     *
-     * Counterpart to Solidity's `*` operator.
-     *
-     * Requirements:
-     * - Multiplication cannot overflow.
-     */
-  function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-    // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
-    // benefit is lost if 'b' is also tested.
-    // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
-    if (a == 0) {
-      return 0;
-    }
-
-    uint256 c = a * b;
-    require(c / a == b, "SafeMath: multiplication overflow");
-
-    return c;
-  }
-
-  /**
-   * @dev Returns the integer division of two unsigned integers. Reverts on
-     * division by zero. The result is rounded towards zero.
-     *
-     * Counterpart to Solidity's `/` operator. Note: this function uses a
-     * `revert` opcode (which leaves remaining gas untouched) while Solidity
-     * uses an invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     * - The divisor cannot be zero.
-     */
-  function div(uint256 a, uint256 b) internal pure returns (uint256) {
-    return div(a, b, "SafeMath: division by zero");
-  }
-
-  /**
-   * @dev Returns the integer division of two unsigned integers. Reverts with custom message on
-     * division by zero. The result is rounded towards zero.
-     *
-     * Counterpart to Solidity's `/` operator. Note: this function uses a
-     * `revert` opcode (which leaves remaining gas untouched) while Solidity
-     * uses an invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     * - The divisor cannot be zero.
-     */
-  function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-    // Solidity only automatically asserts when dividing by 0
-    require(b > 0, errorMessage);
-    uint256 c = a / b;
-    // assert(a == b * c + a % b); // There is no case in which this doesn't hold
-
-    return c;
-  }
-
-  /**
-   * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
-     * Reverts when dividing by zero.
-     *
-     * Counterpart to Solidity's `%` operator. This function uses a `revert`
-     * opcode (which leaves remaining gas untouched) while Solidity uses an
-     * invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     * - The divisor cannot be zero.
-     */
-  function mod(uint256 a, uint256 b) internal pure returns (uint256) {
-    return mod(a, b, "SafeMath: modulo by zero");
-  }
-
-  /**
-   * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
-     * Reverts with custom message when dividing by zero.
-     *
-     * Counterpart to Solidity's `%` operator. This function uses a `revert`
-     * opcode (which leaves remaining gas untouched) while Solidity uses an
-     * invalid opcode to revert (consuming all remaining gas).
-     *
-     * Requirements:
-     * - The divisor cannot be zero.
-     */
-  function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
-    require(b != 0, errorMessage);
-    return a % b;
-  }
-}
-
 contract StakingDappExample {
-  using SafeMath for uint256;
-
   bool internal locked;
 
   // constants
@@ -194,9 +56,9 @@ contract StakingDappExample {
   uint256 public reserveReward;
   uint256 public reserveUndelegated;
 
-  PoolInfo poolInfo;
-  mapping(address => UserInfo) userInfo;
-  mapping(address => bool) operators;
+  PoolInfo internal poolInfo;
+  mapping(address => UserInfo) internal userInfo;
+  mapping(address => bool) internal operators;
 
   // modifiers
   modifier onlyOwner() {
@@ -228,7 +90,7 @@ contract StakingDappExample {
 
   receive() external payable {}
 
-  constructor() public {
+  constructor() {
     owner = msg.sender;
     operators[msg.sender] = true;
   }
@@ -244,23 +106,23 @@ contract StakingDappExample {
     _updatePool();
     uint256 pendingReward;
     if (user.amount > 0) {
-      pendingReward = user.amount.mul(poolInfo.rewardPerShare).sub(user.rewardDebt);
+      pendingReward = user.amount*poolInfo.rewardPerShare-user.rewardDebt;
     }
-    user.amount = user.amount.add(amount);
-    user.rewardDebt = user.amount.mul(poolInfo.rewardPerShare).sub(pendingReward);
+    user.amount = user.amount+amount;
+    user.rewardDebt = user.amount*poolInfo.rewardPerShare-pendingReward;
 
-    totalReceived = totalReceived.add(amount);
-    reserveUndelegated = reserveUndelegated.add(amount);
+    totalReceived = totalReceived+amount;
+    reserveUndelegated = reserveUndelegated+amount;
     uint256 minDelegation = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
     if (reserveUndelegated >= 2*minDelegation) {
       uint256 realAmount = reserveUndelegated-minDelegation;
       uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
-      if (address(this).balance < realAmount.add(oracleRelayerFee)) {
+      if (address(this).balance < realAmount+oracleRelayerFee) {
         return;
       }
       realAmount = _delegate(realAmount, oracleRelayerFee);
-      totalStaked = totalStaked.add(realAmount);
-      reserveUndelegated = reserveUndelegated.sub(realAmount);
+      totalStaked = totalStaked+realAmount;
+      reserveUndelegated = reserveUndelegated-realAmount;
     }
 
     emit Delegate(msg.sender, amount);
@@ -274,22 +136,22 @@ contract StakingDappExample {
 
     // update reward first
     _updatePool();
-    uint256 pendingReward = user.amount.mul(poolInfo.rewardPerShare).sub(user.rewardDebt);
-    user.amount  = user.amount.sub(amount);
-    user.rewardDebt = user.amount.mul(poolInfo.rewardPerShare).sub(pendingReward);
+    uint256 pendingReward = user.amount*poolInfo.rewardPerShare-user.rewardDebt;
+    user.amount  = user.amount-amount;
+    user.rewardDebt = user.amount*poolInfo.rewardPerShare-pendingReward;
 
-    user.pendingUndelegated = user.pendingUndelegated.add(amount);
-    user.undelegateUnlockTime = block.timestamp.add(8*24*3600);
+    user.pendingUndelegated = user.pendingUndelegated+amount;
+    user.undelegateUnlockTime = block.timestamp+8*24*3600;
 
     uint256 minDelegation = IStaking(STAKING_CONTRACT_ADDR).getMinDelegation();
     if (reserveUndelegated < minDelegation) {
       uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
       _undelegate(minDelegation, oracleRelayerFee);
-      totalStaked = totalStaked.sub(minDelegation);
-      reserveUndelegated = reserveUndelegated.add(minDelegation);
+      totalStaked = totalStaked-minDelegation;
+      reserveUndelegated = reserveUndelegated+minDelegation;
     }
 
-    totalReceived = totalReceived.sub(amount);
+    totalReceived = totalReceived-amount;
     emit Undelegate(msg.sender, amount);
   }
 
@@ -302,11 +164,11 @@ contract StakingDappExample {
     require(user.amount > 0, "no delegation");
 
     _updatePool();
-    uint256 pendingReward = user.amount.mul(poolInfo.rewardPerShare).sub(user.rewardDebt);
+    uint256 pendingReward = user.amount*poolInfo.rewardPerShare-user.rewardDebt;
     if (reserveReward < pendingReward) {
       _claimReward();
     }
-    user.rewardDebt = user.amount.mul(poolInfo.rewardPerShare);
+    user.rewardDebt = user.amount*poolInfo.rewardPerShare;
     payable(msg.sender).transfer(pendingReward);
     emit RewardClaimed(msg.sender, pendingReward);
   }
@@ -318,8 +180,8 @@ contract StakingDappExample {
     if (reserveUndelegated < user.pendingUndelegated) {
       _claimUndelegated();
     }
-    reserveUndelegated = reserveUndelegated.sub(user.pendingUndelegated);
-    totalReceived = totalReceived.sub(user.pendingUndelegated);
+    reserveUndelegated = reserveUndelegated-user.pendingUndelegated;
+    totalReceived = totalReceived-user.pendingUndelegated;
     user.pendingUndelegated = 0;
     payable(msg.sender).transfer(user.pendingUndelegated);
     emit UndelegatedClaimed(msg.sender, user.pendingUndelegated);
@@ -327,7 +189,7 @@ contract StakingDappExample {
 
   function getPendingReward(address delegator) external view returns(uint256 pendingReward) {
     UserInfo memory user = userInfo[delegator];
-    pendingReward = user.amount.mul(poolInfo.rewardPerShare).sub(user.rewardDebt);
+    pendingReward = user.amount*poolInfo.rewardPerShare-user.rewardDebt;
   }
 
   /************************** Internal **************************/
@@ -342,13 +204,13 @@ contract StakingDappExample {
     // this function should return the desirable validator to undelegate from
     // need to be implemented by the developer
     // use uint160 rather than address to prevent checksum error
-    lowestYieldingValidator = uint160(0x001);
+    lowestYieldingValidator = uint160(0x002);
   }
 
   function _delegate(uint256 amount, uint256 oracleRelayerFee) internal returns(uint256) {
     address validator = address(_getHighestYieldingValidator());
     amount -= amount%TEN_DECIMALS;
-    IStaking(STAKING_CONTRACT_ADDR).delegate{value: amount.add(oracleRelayerFee)}(validator, amount);
+    IStaking(STAKING_CONTRACT_ADDR).delegate{value: amount+oracleRelayerFee}(validator, amount);
     emit DelegateSubmitted(validator, amount);
     return amount;
   }
@@ -363,8 +225,8 @@ contract StakingDappExample {
 
   function _claimReward() internal {
     uint256 amount = IStaking(STAKING_CONTRACT_ADDR).claimReward();
-    totalReward = totalReward.add(amount);
-    reserveReward = reserveReward.add(amount);
+    totalReward = totalReward+amount;
+    reserveReward = reserveReward+amount;
     emit RewardReceived(amount);
   }
 
@@ -382,33 +244,33 @@ contract StakingDappExample {
     }
     uint256 newReward = totalReward - poolInfo.lastTotalReward;
     poolInfo.lastTotalReward = totalReward;
-    poolInfo.rewardPerShare = poolInfo.rewardPerShare.add(newReward.div(totalStaked));
+    poolInfo.rewardPerShare = poolInfo.rewardPerShare+newReward/totalStaked;
     poolInfo.lastRewardBlock = block.number;
   }
 
   /*********************** Handle faliure **************************/
   // This parts of functions should be called by the operator when failed event detected by the monitor
   function handleFailedDelegate(uint256 amount) external onlyOperator {
-    totalStaked = totalStaked.sub(amount);
-    reserveUndelegated = reserveUndelegated.add(amount);
+    totalStaked = totalStaked-amount;
+    reserveUndelegated = reserveUndelegated+amount;
 
     amount = IStaking(STAKING_CONTRACT_ADDR).claimUndeldegated();
     uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
-    require(address(this).balance > amount.add(oracleRelayerFee), "insufficient balance");
+    require(address(this).balance > amount+oracleRelayerFee, "insufficient balance");
     amount = _delegate(amount, oracleRelayerFee);
-    totalStaked = totalStaked.add(amount);
-    reserveUndelegated = reserveUndelegated.sub(amount);
+    totalStaked = totalStaked+amount;
+    reserveUndelegated = reserveUndelegated-amount;
   }
 
   function handleFailedUndelegate(uint256 amount) external onlyOperator {
-    totalStaked = totalStaked.add(amount);
-    reserveUndelegated = reserveUndelegated.sub(amount);
+    totalStaked = totalStaked+amount;
+    reserveUndelegated = reserveUndelegated-amount;
 
     uint256 oracleRelayerFee = IStaking(STAKING_CONTRACT_ADDR).getOracleRelayerFee();
     require(address(this).balance > oracleRelayerFee, "insufficient balance");
     amount = _undelegate(amount, oracleRelayerFee);
-    totalStaked = totalStaked.sub(amount);
-    reserveUndelegated = reserveUndelegated.add(amount);
+    totalStaked = totalStaked-amount;
+    reserveUndelegated = reserveUndelegated+amount;
   }
 
   /*********************** Params update **************************/
