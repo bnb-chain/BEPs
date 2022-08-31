@@ -1,0 +1,205 @@
+# Introduce A New Staking Mechanism on BNB Beacon Chain
+
+## 1. Summary
+
+This BEP introduces a new staking mechanism on the BNB Beacon Chain to increase openness and provide economic security.
+
+## 2. Abstract
+
+This BEP introduces a permissionless validator election mechanism and brings the staking economy onto Beacon Chain.
+
+Anyone can stake their BNB to become a validator candidate or delegate their BNB to the validator candidates they trust. The validator set will be determined by the rank of the accumulated bonded tokens on validator candidates. The validators will be responsible for producing new blocks, In return, they will get block rewards, and share the rewards with delegators.
+
+By implementing this, the BNB holder has superpower to contribute to the security and gain reward. Staking BNB grants the right to vote on proposals and make decisions on the future of the network.
+
+## 3. Status
+
+This BEP is a draft.
+
+## 4. Motivation
+
+Currently, the BNB Beacon Chain is secured by a set of trustworthy and preapproved validators. The entrance and exit of a validator are governed by the current validator set. Although this system has high bandwidth, immutability aspects are called into question as censorship and blacklisting are easily implemented.
+
+On the other hand, the BNB Beacon Chain aims to enhance the security of BSC and BAS as a staking and governance layer. After the decommissioning of DEX in [BEP-151](https://github.com/bnb-chain/BEPs/blob/master/BEP151.md), Beacon Chain spares more computing power for security and governance focuses. It is good timing to introduce a [BSC-like staking mechanism](https://github.com/bnb-chain/whitepaper/blob/master/WHITEPAPER.md#staking-and-governance) on Beacon Chain. With this BEP, anyone can compete to join as a candidate to be elected as a validator. The staking status decides the top staked nodes to be the next validator set, and such an election will repeat every 24 hours. The elected validators will be responsible for producing new blocks. The community will decide the total seats of the validator set. It will bring in more decentralization and community involvement.
+
+## 5. Specification
+
+### 5.1 The Current Staking Mechanism
+
+[The current staking mechanism](https://github.com/bnb-chain/bnc-cosmos-sdk/blob/v0.25.0-binance.28/x/stake/handler.go#L19-L22) is conservative:
+
+- It needs to submit a proposal to add or remove validators. The validator set will be updated only if the proposal is approved by a majority of validators.
+- The validator set update will take effect immediately.
+- The staked BNB are all from validators themselves.
+
+### 5.2 The New Staking Mechanism
+
+After the implementation of this BEP:
+
+- The [staking mechanism](https://github.com/bnb-chain/whitepaper/blob/master/WHITEPAPER.md#staking-and-governance) used by BSC will be introduced in BC. It enables all users on BC to get involved in securing the network by applying to be a validator or delegating their BNB to the validators they trust, and earn transaction fees for this.
+- The validator set update and reward distribution happen on BC around UTC 00:00 every day(in the breath block).
+- Some portion of the BSC transaction fee will be distributed to BC validators, as incentives for them to secure the BSC network.
+
+### 5.2.1 Staking Operation
+
+- BNB holders, including the validators, can put their tokens "**bonded**" into the stake. Token holders can **delegate** their tokens to any validator or validator candidate, to expect it can become an actual validator, and later they can choose a different validator or candidate to **re-delegate** their tokens.
+- All validator candidates will be ranked by the accumulated number of bonded tokens on them, and the top ones will become the real validators to propose blocks.
+- Validators get their commission from the blocking reward to cover the cost of running high-quality nodes and share the rest reward with their delegators.
+- Validators can suffer from "**Slashing**", a punishment for their bad behaviors, such as double sign and/or unavailability.
+- There is an "**unbonding period**" for validators and delegators so that the system makes sure the tokens remain bonded when bad behaviors are caught.
+
+Data Structures for Staking Operation
+
+CreateValidator
+
+```
+// Description - description fields for a validator
+type Description struct {
+	Moniker  string `json:"moniker"`  // name
+	Identity string `json:"identity"` // optional identity signature (ex. UPort or Keybase)
+	Website  string `json:"website"`  // optional website link
+	Details  string `json:"details"`  // optional details
+}
+
+// CommissionMsg defines a commission message to be used for creating a
+// validator.
+CommissionMsg struct {
+	Rate          sdk.Dec `json:"rate"`            // the commission rate charged to delegators
+	MaxRate       sdk.Dec `json:"max_rate"`        // maximum commission rate which validator can ever charge
+	MaxChangeRate sdk.Dec `json:"max_change_rate"` // maximum daily increase of the validator commission
+}
+
+// MsgCreateValidator - struct for bonding transactions
+type MsgCreateValidator struct {
+	Description   Description
+	Commission    CommissionMsg
+	DelegatorAddr sdk.AccAddress `json:"delegator_address"`
+	ValidatorAddr sdk.ValAddress `json:"validator_address"`
+	PubKey        crypto.PubKey  `json:"pubkey"`
+	Delegation    sdk.Coin       `json:"delegation"`
+}
+```
+
+EditValidator
+
+```
+// MsgEditValidator - struct for editing a validator
+type MsgEditValidator struct {
+	Description
+	ValidatorAddr sdk.ValAddress `json:"address"`
+	CommissionRate *sdk.Dec `json:"commission_rate"`
+}
+```
+
+Delegate
+
+```
+type MsgDelegate struct {
+	DelegatorAddr sdk.AccAddress `json:"delegator_addr"`
+	ValidatorAddr sdk.ValAddress `json:"validator_addr"`
+	Delegation    sdk.Coin       `json:"delegation"`
+}
+```
+
+Redelegate
+
+```
+type MsgRedelegate struct {
+	DelegatorAddr    sdk.AccAddress `json:"delegator_addr"`
+	ValidatorSrcAddr sdk.ValAddress `json:"validator_src_addr"`
+	ValidatorDstAddr sdk.ValAddress `json:"validator_dst_addr"`
+	Amount           sdk.Coin       `json:"amount"`
+}
+```
+
+Undelegate
+
+```
+type MsgUndelegate struct {
+	DelegatorAddr sdk.AccAddress `json:"delegator_addr"`
+	ValidatorAddr sdk.ValAddress `json:"validator_addr"`
+	Amount        sdk.Coin       `json:"amount"`
+}
+```
+
+### 5.2.2 Validator Set Update
+
+In the current implementation, the validator set will be updated immediately after the associated proposal is approved.
+
+After the implementation of this BEP, staking becomes easy with low cost. So staked BNB ranking might change frequently. To reduce the instability of the network, the validator set update will happen in the first block after UTC 00:00 (which is known as the breath block).
+
+Since the stake volume on the BNB Beacon Chain is smaller than that on the BNB Smart Chain, it might risk that some malicious users take control of the majority of Beacon Chain validators and fake BSC validator set or cross-chain packages, thus harming the whole ecosystem. We will rank the validator candidates by accumulated staked BNB across a period(e.g. 30 days) instead of the current staked BNB. This mechanism will make the attack harder since it needs more time or more BNB to invoke. It will only affect the validator set election, not the voting power in consensus or governance.
+
+### 5.2.3 Reward Distribution
+
+Currently, the reward for BC validators is mostly from transaction fees on Beacon Chain and goes directly to the validators' wallets.
+
+After the implementation of [BEP-151](https://github.com/bnb-chain/BEPs/blob/master/BEP151.md), the decentralized exchange will be decommissioned from Beacon Chain. There might not be enough incentives for BC validators.
+
+This BEP proposes that:
+
+- The staked BNB of validators will not only be from themselves but also the delegators.
+- A portion of fees collected on BSC will be paid to BC validators for the cost of maintaining the BC network to enhance BSC security. It will happen in the block reward distribution period.
+- The block proposer and its delegators receive between 1% and 5% of block fee rewards. It includes 2 parts:
+    - base: `fees * baseProposerReward`
+    - bonus: `fees * bonusProposerReward * P`, where `P = (total number of validators with included precommits / total bonded validator number)`. The more precommits the proposer includes, the larger P is. P can never be larger than 1.00 (since only bonded validators can supply valid precommits) and is always larger than 2/3.
+- Any remaining fees are distributed among all validators equally, including the proposer.
+- The fees will be distributed and accumulated in the system controlled addresses in every block. The `FeeForAll` part will go to a fixed address and the `FeeForProposer` part will go to a custody address which is derived from the proposer’s validator address. Nobody can spend money in the `FeeForAll` address and validators’ custody addresses. They can only be distributed to validators and delegators during the reward distribution period.
+- To reduce the cost of frequent block reward distribution, the reward distribution to delegators will happen every day around UTC 00:00(in the breath block).
+- A deliberate delay is introduced to make sure the distribution is fair, as [we do in BSC](https://github.com/bnb-chain/whitepaper/blob/master/WHITEPAPER.md#rewarding).
+- The [BEP-128](https://github.com/bnb-chain/BEPs/blob/master/BEP128.md) introduced an optimized mechanism that distributes staking rewards in many consecutive blocks, to minimize the burden on the specific block. It's expected to use the same mechanism in BC reward distribution. The BC reward distribution will happen right after the BSC reward distribution.
+
+### 5.2.4 Disable Previous Transaction Types for Updating Validators
+
+Since a new validator set update mechanism is introduced, the previous transaction types for updating validators can be disabled. Sending transactions with message type `MsgCreateValidatorProposal` will be rejected after implementing this BEP.
+
+### 5.2.5 Validator Number and Block Interval Change
+
+There is a parameter [MaxValidators](https://github.com/bnb-chain/bnc-cosmos-sdk/blob/v0.25.0-binance.28/x/stake/types/params.go#L51) that controls the max validator number.
+
+It's 21 right now, which is configured in the genesis block.
+
+However, there are only 11 validators on Beacon Chain Mainnet currently.
+
+After the implementation of this BEP:
+
+- The validator seats will change into 11 first to avoid network instability.
+- A governance mechanism on this parameter(as well as other parameters on Beacon Chain) will be added. This number can be expanded to more than 100 according to the network demands.
+- Usually, the block interval is less than 1 second to fulfill the performance requirement. After implementing BEP-151, there is no more block interval requirement of DEX. The block interval can be adjusted flexibly by the validators. E.g. It can be adjusted to around 6 seconds like most other cosmos SDK chains.
+
+### 5.2.6 Oracle Relayers
+
+The [oracle relayers](https://docs.bnbchain.org/docs/learn/oracle-relayer) are responsible for relaying cross-chain packages from BSC to BC. Currently they are separated services maintained by BC validators.
+
+After the introduction of open staking mechanism, oracle relayers might also change frequently along with validators. It might affect the stablility and security of the cross-chain process.
+
+To ensure the security of the network, this BEP proposes to keep the current preapproved validators as a whitelist to run the oracle relayers. When the stake volume of Beacon Chain becomes stable and big enough, the whitelist can be removed, and make the validators in charge of running oracle relayers again.
+
+### 5.3 Change Impacts
+
+### 5.3.1 Impact on BSC Validators
+
+They will have to pay extra fees to BC validators for security. They can also stake to be BC validators themselves.
+
+### 5.3.2 Impact on BC Validators
+
+The staked BNB of BC validators will not only be from themselves but also the delegators. They might have to improve their reputation and attract more delegators to compete for becoming validators.
+
+### 5.3.3 Impact on BC users
+
+They can delegate BNB to BC validators they trust to help secure the network and earn rewards.
+
+### 5.4 Outlook
+
+This BEP proposes a new staking mechanism, which moves a big step forward in decentralization and community involvement.
+
+However, there are more things that can be done to enhance the network and facilitate the community. Here below are some topics to dig into:
+
+- Slash mechanism to penalize dishonest validators and enhance the robustness of the network.
+- Slash mechanism to penalize inactive oracle relayers in Cross-Chain Transfer and Communication.
+
+We might create more BEPs on these in the future.
+
+## 6. License
+
+The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
