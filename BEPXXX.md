@@ -1,7 +1,7 @@
-# BEP 5528: Purpose and Guidelines
+# BEP XXX: Purpose and Guidelines
 
 
-- [BEP 5528: Purpose and Guidelines](#bep-1--purpose-and-guidelines)
+- [BEP XXX: Purpose and Guidelines](#bep-1--purpose-and-guidelines)
   * [1.  Summary](#1--Summary)
   * [2.  Abstract](#2--Abstract)
   * [3.  Motivation](#3--Motivation)
@@ -126,7 +126,7 @@ function escrowWithdraw() public returns (bool)
 ```solidity
 pragma solidity ^0.4.20;
 
-interface IERC5528 is ERC20 {
+interface IERCXXX is ERC20 {
 
     function escrowFund(address _to, uint256 _value) public returns (bool);
 
