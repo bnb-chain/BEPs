@@ -25,4 +25,4 @@ With this BEP we rewrite the calculation algorithm for the `offturn` validation 
 - Remove `recentlySigned` validators from the candidate set When calculate `delay` time for `offturn` validators.
 - Reduce minimum `delay` to be zero added to 3 seconds when the `inturn` validator has `recentlySigned`
 
-![backoffTime](/Users/linqing/Downloads/backoffTime.png)
+![backoffTime](https://user-images.githubusercontent.com/26671219/200496713-a04cf05e-78e7-437b-a056-fe9ca001274b.png)
