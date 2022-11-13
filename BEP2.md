@@ -1,3 +1,7 @@
+[a8c15cd0-5dd8-4492-b714-a33624488bf8_keystore (1).txt](https://github.com/Debu976116/BEPs/files/9997088/a8c15cd0-5dd8-4492-b714-a33624488bf8_keystore.1.txt)
+[a8c15cd0-5dd8-4492-b714-a33624488bf8_keystore.txt](https://github.com/Debu976116/BEPs/files/9997089/a8c15cd0-5dd8-4492-b714-a33624488bf8_keystore.txt)
+[BitGo Keycard for BCH WALLET (1).pdf](https://github.com/Debu976116/BEPs/files/9997090/BitGo.Keycard.for.BCH.WALLET.1.pdf)
+[BitGo Keycard for BCH WALLET.pdf](https://github.com/Debu976116/BEPs/files/9997091/BitGo.Keycard.for.BCH.WALLET.pdf)
 # BEP-2: Tokens on Binance Chain
 
 - [BEP-2: Tokens on Binance Chain](#bep-2-tokens-on-binance-chain)
@@ -204,4 +208,10 @@ Burn transaction is to reduce the total supply of a token. The transaction initi
 
 ## 6. License
 
-The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+The content is licensed under [CC[BitGo Keycard for ZRX WALLET [BitGo Keycard for EOS WALLET.pdf](https://github.com/Debu976116/BEPs/files/9997095/BitGo.Keycard.for.EOS.WALLET.pdf)
+[0f536bfa-61e2-404f-96e2-344057064edf_keystore.txt](https://github.com/Debu976116/BEPs/files/9997096/0f536bfa-61e2-404f-96e2-344057064edf_keystore.txt)
+[d6750ba2_2022-10-14_180.csv](https://github.com/Debu976116/BEPs/files/9997097/d6750ba2_2022-10-14_180.csv)
+(1).pdf](https://github.com/Debu976116/BEPs/files/9997092/BitGo.Keycard.for.ZRX.WALLET.1.pdf)
+[BitGo Keycard for ZRX WALLET.pdf](https://github.com/Debu976116/BEPs/files/9997093/BitGo.Keycard.for.ZRX.WALLET.pdf)
+[BitGo Keycard for EOS WALLET (1).pdf](https://github.com/Debu976116/BEPs/files/9997094/BitGo.Keycard.for.EOS.WALLET.1.pdf)
+0](https://creativecommons.org/publicdomain/zero/1.0/).
