@@ -20,11 +20,11 @@ Now all bsc-relayers are suffering from BNB loss in relaying cross chain package
 
 ## 3. Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 ## 4. Motivation
 
-Anyone can maintain a bsc-relayer by depositing 100:BNB to the RelayerHub contract. If the relay reward can cover the relay cost, then more and more people will maintain their own bsc-relayer, which will improve the robustness of the cross chain communication between BC and BSC. Otherwise, no one is willing to maintain a bsc-relayer. Thus the communication between the BC and the BSC will be blocked. 
+Anyone can maintain a bsc-relayer by depositing 100BNB to the RelayerHub contract. If the relay reward can cover the relay cost, then more and more people will maintain their own bsc-relayer, which will improve the robustness of the cross chain communication between BC and BSC. Otherwise, no one is willing to maintain a bsc-relayer. Thus the communication between the BC and the BSC will be blocked. 
 
 ## 5. Specification
 

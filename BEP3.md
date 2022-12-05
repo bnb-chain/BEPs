@@ -10,7 +10,7 @@ This BEP is about introducing Hash Timer Locked Contract functions and further m
 
 # Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 # Motivation
 

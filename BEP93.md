@@ -28,7 +28,7 @@ This BEP proposes a diff sync protocol without executing transactions, in exchan
 
 ## 3.  Status
 
-Draft.
+This BEP is already implemented.
 
 ## 4.  Motivation
 

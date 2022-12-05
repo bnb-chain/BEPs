@@ -34,7 +34,7 @@ The following standard defines the implementation of APIs for token smart contra
 A standard interface allows any tokens on Binance Smart Chain to be used by other applications: from wallets to decentralized exchanges in a consistent way. Besides, this standard interface also extends [ERC20](https://eips.ethereum.org/EIPS/eip-20) to facilitate cross chain transfer.
 
 ## 4.  Status
-This BEP is under draft.
+This BEP is already implemented.
 
 ## 5.  Specification
 
