@@ -22,7 +22,7 @@ To speed up the burning process of BNB and make BSC more decentralized, part of 
 
 ## 3. Status
 
-This BEP is a draft.
+This BEP is already implemented.
 
 ## 4. Motivation
 

@@ -25,7 +25,7 @@ The solution is to add it to the Transfer Websocket as a data field to stream.
 
 ## 3.  Status
 
-This BEP is under specification.
+This BEP is already implemented.
 
 ## 4.  Motivation
 
