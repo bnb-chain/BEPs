@@ -18,7 +18,7 @@ BEP-91 Proposal describes a change of BSC node configuration, and suggests Valid
 
 ## 3. Status
 
-This BEP is a draft. 
+This BEP is already implemented.
 
 ## 4. Motivation
 

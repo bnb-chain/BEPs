@@ -32,3 +32,4 @@ Here are the list of subjects of BEPs:
 * [BEP-151](BEP151.md): Decommission Decentralized Exchange on BNB Beacon Chain
 * [BEP-153](BEP153.md): Introduce native staking onto BNB Smart Chain
 * [BEP-159](BEP159.md): Introduce A New Staking Mechanism on BNB Beacon Chain
+* [BEP-173](BEP173.md): Introduce Text Governance Proposal for BNB Smart Chain  
