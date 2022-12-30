@@ -33,19 +33,19 @@ There are three types of BEP:
 
 *Figure 1: BEP workflow*
 
-Each status change is requested by the BEP author and reviewed by the BEP editors. Use a pull request to update the status.
+Once the idea is accepted, each status change is requested by the BEP author and reviewed by the BEP editors. Use a pull request to update the status.
 
-- Idea: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may visit [our discord channel](https://discord.gg/bnbchain).
-- Pre-Draft: If you idea is accepted, it still is not a BEP yet. A formal document will be needed to describe your idea, and it should follow the BEP format to present your motivation, Specification... And you need create a pull request and the BEP editors will review.
-- Draft: Once the Pre-Draft pull request is reviewed and accepted, a BEP number will be granted, which means it is a legal BEP now. It will be recorded and maintained by the community.
-- Final: This proposal is finalize, a reference implementation is required before entering Final state.
-- Enable: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
+- `Idea`: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may visit [our discord channel](https://discord.gg/bnbchain).
+- `Pre-Draft`: If you idea is accepted, it still is not a BEP yet. A formal document will be needed to describe your idea, the Pre-Draft document should follow the BEP format. And you need to create a pull request and the BEP editors will review it.
+- `Draft`: Once the Pre-Draft pull request is reviewed and accepted, a BEP number will be granted, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community.
+- `Final`: This proposal is finalized and a reference implementation is required before entering Final state.
+- `Enable`: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
 
 Other exceptional statuses include:
 
-- Living -- A BEP will be long-term maintained, like this BEP.
-- Stagnant -- A BEP has not been updated for more than 6 months, it will enter Stagnant state.
-- Withdrawn -- A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
+- `Living`: A BEP will be long-term maintained, like this BEP.
+- `Stagnant`: A BEP has not been updated for more than 6 months, it will enter Stagnant state.
+- `Withdrawn`: A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
 
 ## 5.  Reference
 
