@@ -24,9 +24,9 @@ For BNB Chain contributors, BEPs are a convenient way to track the progress of t
 
 There are three types of BEP:
 
-- Standards: A Standards BEP describes functional changes on BNB Chain, such as a change to the network protocol, proposer selection mechanism in consensus algorithm, change in block size or fee mechanism in application level. It will effect the implementation of BNB Chain node.
-- Information: An Information BEP will clarify some concepts of the BNB Chain, it may not effect the BNB Chain client implementation.
-- Process: This kind of proposal will change the workflow of BNB Chain working process, like this BEP itself.
+- **Standards**: A Standards BEP describes functional changes on BNB Chain, such as a change to the network protocol, proposer selection mechanism in consensus algorithm, change in block size or fee mechanism in application level. It will effect the implementation of BNB Chain.
+- **Information**: An Information BEP will clarify some concepts of the BNB Chain, it may not effect the BNB Chain client implementation.
+- **Process**: This kind of proposal will change the workflow of BNB Chain working process, like this BEP itself.
 
 ## 4.  BEP Workflow
 ![overall workflow](./assets/bep-1/workflow.png)
@@ -35,17 +35,17 @@ There are three types of BEP:
 
 Once the idea is accepted, each status change is requested by the BEP author and reviewed by the BEP editors. Use a pull request to update the status.
 
-- `Idea`: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may visit [our discord channel](https://discord.gg/bnbchain).
-- `Pre-Draft`: If you idea is accepted, it still is not a BEP yet. A formal document will be needed to describe your idea, the Pre-Draft document should follow the BEP format. And you need to create a pull request and the BEP editors will review it.
-- `Draft`: Once the Pre-Draft pull request is reviewed and accepted, a BEP number will be granted, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community.
-- `Final`: This proposal is finalized and a reference implementation is required before entering Final state.
-- `Enable`: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
+- **Idea**: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may post your idea in [bnb chain forum](https://forum.bnbchain.org/) and visit [our discord channel](https://discord.gg/bnbchain) to let the community know it.
+- **Pre-Draft**: If your idea is accepted, it is still not a BEP yet. A formal document will be needed to describe your idea, the Pre-Draft document should follow the BEP format. And you need to create a pull request and the BEP editors will review it.
+- **Draft**: Once the Pre-Draft pull request is reviewed and accepted, a BEP number will be granted, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community.
+- **Final**: This proposal is finalized and a reference implementation should be provided.
+- **Enabled**: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
 
 Other exceptional statuses include:
 
-- `Living`: A BEP will be long-term maintained, like this BEP.
-- `Stagnant`: A BEP has not been updated for more than 6 months, it will enter Stagnant state.
-- `Withdrawn`: A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
+- **Living**: A BEP will be long-term maintained, like this BEP.
+- **Stagnant**: A BEP has not been updated for more than 6 months, it will enter Stagnant state.
+- **Withdrawn**: A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
 
 ## 5.  Reference
 
