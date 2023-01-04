@@ -16,9 +16,9 @@ BEP stands for BNB Chain Evolution Proposal. Each BEP will be a proposal documen
 
 ## 2.  BEP Rationale
 
-BEP is the primary mechanism for proposing new features, for collecting community technical input on an issue, and for documenting the design decisions that go into BNB Chain. Because the BEP are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal.
+BEP is the primary mechanism for proposing new features, for collecting community technical input on issues, and for documenting the design decisions that go into BNB Chain. Because BEPs are maintained as text files in a versioned repository, their revisions are the historical records of feature proposals.
 
-For BNB Chain contributors, BEPs are a convenient way to track the progress of their implementation. This will give end users a convenient way to know the current status of a given feature, function or improvement.
+For BNB Chain contributors, it is a convenient way to track the progress of their implementation by BEPs. It will help end users to know the status of a given feature, function or improvement.
 
 ##  3.  BEP Types
 
@@ -37,7 +37,7 @@ Once the idea is accepted, each status change is requested by the BEP author and
 
 - **Idea**: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may post your idea in [bnb chain forum](https://forum.bnbchain.org/) and visit [our discord channel](https://discord.gg/bnbchain) to let the community know it.
 - **Pre-Draft**: If your idea is accepted, it is still not a BEP yet. A formal document will be needed to describe your idea, the Pre-Draft document should follow the BEP format. And you need to create a pull request and the BEP editors will review it.
-- **Draft**: Once the Pre-Draft pull request is reviewed and accepted, a BEP number will be granted, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community.
+- **Draft**: Once the Pre-Draft pull request is accepted by the community and reviewed by the BEP editors, it can be merged. Then a BEP number will be granted, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community. The BEP author should keep pushing it forward, the author can update the BEP by creating new pull requests.
 - **Final**: This proposal is finalized and a reference implementation should be provided.
 - **Enabled**: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
 
