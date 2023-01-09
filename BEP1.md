@@ -1,3 +1,11 @@
+<pre>
+  BEP: 1
+  Title: Purpose and Guidelines
+  Status: Living
+  Type: Process
+  Created: 2019-04-11
+</pre>
+
 # BEP 1: Purpose and Guidelines
 
 
