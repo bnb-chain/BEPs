@@ -14,8 +14,9 @@
   - [2.  BEP Rationale](#2--bep-rationale)
   - [3.  BEP Types](#3--bep-types)
   - [4.  BEP Workflow](#4--bep-workflow)
-  - [5.  Reference](#5--reference)
-  - [6.  License](#6--license)
+  - [5.  BEP Format](#5--bep-format)
+  - [6.  Reference](#6--reference)
+  - [7.  License](#7--license)
 
 
 ## 1.  What is BEP?
@@ -55,12 +56,34 @@ Other exceptional statuses include:
 - **Stagnant**: A BEP has not been updated for more than 6 months, it will enter Stagnant state.
 - **Withdrawn**: A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
 
-## 5.  Reference
+## 5.  BEP Format
+It is important to keep BEP clear and well organized, BEPs need to follow this format(BEP1 is excepted):
+- Preamble: a short metadata about the BEP, it should be put at the top of the BEP. Here is an example:
+<pre>
+  BEP: 127
+  Title: Temporary Maintenance Mode for Validators
+  Status: Enabled
+  Type: Standards
+  Created: 2022-01-10
+  Author(optional): it can be a name or en email.
+  Description(optional): enabled by BSC Euler upgrade, block height 18907621, Jun-22-2022
+  Discussions(optional): could be a link to the bnb forum, where it is discussed.
+</pre>
+- Summary: a very short summary with a single sentence, someone could understand the purpose of the BEP by reading it even without technical background.
+- Abstract(optional): a short paragraph to give more introduction about the BEP, could be multi-sentence. Someone could read the abstract to know the general workflow of the BEP.
+- Motivation: it is a critical part of the BEP, it should explain very clearly why this proposal is needed.
+- Specification: it is another critical part, the detail workflow and configuration need to be provided. Diagrams are needed to make it easy to be understood if it is hard to be described in text.
+- Rational(optional): it adds more information to support the specification, i.e. why the design in the specification is preferred.
+- Forward Compatibility(optional): if the BEP will introduce compatibility problems in the future, probably because of some scheduled changes in the future that would be broken by the BEP. In such case, this part is a must to describe the detail incompatibilities and how to deal with it.
+- Backward Compatibility(optional): similar to Forward Compatibility, if the BEP introduces compatibility problems to the previous or current system, then this part is a must to describe the detail incompatibilities and how to deal with it.
+- Reference Implementations(optional): before the BEP enters the Final state, a reference implementation will be needed. However, if the BEP does not need a implementation, it can be omitted.
+- License: to show the copyright of the BEP.
+## 6.  Reference
 
 Ethereum Improvement Proposals:  [https://github.com/ethereum/EIPs](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md)
 
 Bitcoin Improvement Proposals:  <https://github.com/bitcoin/bips>
 
-##  6.  License
+##  7.  License
 
 All the content are licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
