@@ -2,7 +2,7 @@
 
 ## 1.  Summary
 
-This BEP introduces a new sync mode named diff sync on the Binance Smart Chain.
+This BEP introduces a new sync mode named diff sync on the BNB Smart Chain.
 
 ## 2.  Abstract
 

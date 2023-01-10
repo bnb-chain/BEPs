@@ -1,6 +1,6 @@
-# BEP-89: Visual Fork of Binance Smart Chain
+# BEP-89: Visual Fork of BNB Smart Chain
 
-- BEP-89: Visual Fork of Binance Smart Chain
+- BEP-89: Visual Fork of BNB Smart Chain
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -26,7 +26,7 @@ This BEP is already implemented
 
 ## 4.  Motivation
 
-Binance Smart Chain will have some hard forks inevitably in the long run. Binance Smart Chain takes a risk of halt during hard fork once the validators can not reach a consensus. A validator could be slashed if it is not on the canonical fork which could be avoidable if the maintainer received alerts in time. A new protocol should be introduced to enable the chain to display the whole view of validators that on different upcoming forks. Any nodes/validators can decide to upgrade/fork or not accordingly.
+BNB Smart Chain will have some hard forks inevitably in the long run. BNB Smart Chain takes a risk of halt during hard fork once the validators can not reach a consensus. A validator could be slashed if it is not on the canonical fork which could be avoidable if the maintainer received alerts in time. A new protocol should be introduced to enable the chain to display the whole view of validators that on different upcoming forks. Any nodes/validators can decide to upgrade/fork or not accordingly.
 
 ## 5.  Specification
 

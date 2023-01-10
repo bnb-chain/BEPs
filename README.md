@@ -8,24 +8,24 @@ Here are the list of subjects of BEPs:
 | Number               | Title                                                      | Type      | Status  |
 | -------------------- | ---------------------------------------------------------- | --------- | ------- |
 | [BEP-1](BEP1.md)     | Purpose and Guidelines of BEP                              | Process   | Living  |
-| [BEP-2](BEP2.md)     | Tokens on Binance Chain                                    | Standards | Enabled |
+| [BEP-2](BEP2.md)     | Tokens on BNB Beacon Chain                                 | Standards | Enabled |
 | [BEP-3](BEP3.md)     | HTLC and Atomic Peg                                        | Standards | Enabled |
-| [BEP-6](BEP6.md)     | Delist Trading Pairs on Binance Chain                      | Standards | Enabled |
+| [BEP-6](BEP6.md)     | Delist Trading Pairs on BNB Beacon Chain                   | Standards | Enabled |
 | [BEP-8](BEP8.md)     | Mini-BEP2 Tokens                                           | Standards | Enabled |
-| [BEP-9](BEP9.md)     | Time Locking of Tokens on Binance Chain                    | Standards | Enabled |
+| [BEP-9](BEP9.md)     | Time Locking of Tokens on BNB Beacon Chain                 | Standards | Enabled |
 | [BEP-10](BEP10.md)   | Registered Types for Transaction Source                    | Standards | Enabled |
 | [BEP-12](BEP12.md)   | Introduce Customized Scripts and Transfer Memo Validation  | Standards | Enabled |
 | [BEP-18](BEP18.md)   | State sync enhancement                                     | Standards | Enabled |
 | [BEP-19](BEP19.md)   | Introduce Maker and Taker for Match Engine                 | Standards | Enabled |
-| [BEP-20](BEP20.md)   | Tokens on Binance Smart Chain                              | Standards | Enabled |
+| [BEP-20](BEP20.md)   | Tokens on BNB Smart Chain                                  | Standards | Enabled |
 | [BEP-67](BEP67.md)   | Price-based Order                                          | Standards | Enabled |
 | [BEP-70](BEP70.md)   | List and Trade BUSD Pairs                                  | Standards | Enabled |
 | [BEP-82](BEP82.md)   | Token Ownership Changes                                    | Standards | Enabled |
-| [BEP-84](BEP84.md)   | Mirror BEP20 to Binance Chain                              | Standards | Enabled |
+| [BEP-84](BEP84.md)   | Mirror BEP20 to BNB Beacon Chain                           | Standards | Enabled |
 | [BEP-86](BEP86.md)   | Dynamic Extra Incentive For BSC Relayers                   | Standards | Enabled |
 | [BEP-87](BEP87.md)   | Token Symbol Minimum Length Change                         | Standards | Enabled |
-| [BEP-89](BEP89.md)   | Visual Fork of Binance Smart Chain                         | Standards | Enabled |
-| [BEP-91](BEP91.md)   | Increase Block Gas Ceiling for Binance Smart Chain         | Standards | Enabled |
+| [BEP-89](BEP89.md)   | Visual Fork of BNB Smart Chain                             | Standards | Enabled |
+| [BEP-91](BEP91.md)   | Increase Block Gas Ceiling for BNB Smart Chain             | Standards | Enabled |
 | [BEP-93](BEP93.md)   | Diff Sync Protocol on BSC                                  | Standards | Enabled |
 | [BEP-95](BEP95.md)   | Introduce Real-Time Burning Mechanism                      | Standards | Enabled |
 | [BEP-127](BEP127.md) | Temporary Maintenance Mode for Validators                  | Standards | Enabled |

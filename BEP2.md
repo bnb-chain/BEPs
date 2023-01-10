@@ -1,12 +1,12 @@
-# BEP-2: Tokens on Binance Chain
+# BEP-2: Tokens on BNB Beacon Chain
 
-- [BEP-2: Tokens on Binance Chain](#bep-2-tokens-on-binance-chain)
+- [BEP-2: Tokens on BNB Beacon Chain](#bep-2-tokens-on-bnb-beacon-chain)
   - [1.  Summary](#1--summary)
   - [2.  Abstract](#2--abstract)
   - [3.  Status](#3--status)
   - [4.  Motivation](#4--motivation)
   - [5.  Specification](#5--specification)
-    - [5.1 Native Token on Binance Chain: BNB](#51-native-token-on-binance-chain-bnb)
+    - [5.1 Native Token on BNB Beacon Chain: BNB](#51-native-token-on-bnb-beacon-chain-bnb)
     - [5.2 Token Properties](#52-token-properties)
     - [5.3 Token Management Operation](#53-token-management-operation)
       - [5.3.1 Issue token](#531-issue-token)
@@ -19,14 +19,14 @@
 
 ## 1.  Summary
 
-This BEP describes a proposal for token management on the Binance Chain.
+This BEP describes a proposal for token management on the BNB Beacon Chain.
 
 ## 2.  Abstract
 
-BEP-2 Proposal describes a common set of rules for token management within the Binance Chain ecosystem. It introduces the following details of a token on Binance Chain:
+BEP-2 Proposal describes a common set of rules for token management within the BNB Beacon Chain ecosystem. It introduces the following details of a token on BNB Beacon Chain:
 
-- What information makes a token on Binance Chain
-- What actions can be performed on a token on Binance Chain
+- What information makes a token on BNB Beacon Chain
+- What actions can be performed on a token on BNB Beacon Chain
 
 ## 3.  Status
 
@@ -34,13 +34,13 @@ This BEP is already implemented, and it has been improved via [BEP87](./BEP87.md
 
 ## 4.  Motivation
 
-Design and issue asset on the Binance Chain, as the basic economic foundations of the blockchain.
+Design and issue asset on the BNB Beacon Chain, as the basic economic foundations of the blockchain.
 
 ## 5.  Specification
 
-### 5.1 Native Token on Binance Chain: BNB
+### 5.1 Native Token on BNB Beacon Chain: BNB
 
-The Binance Token, BNB, is the native asset on Binance Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on Binance Chain. BNB was an ERC20 token, but after Binance Chain is live, all BNB ERC20 tokens are swapped for BNB token on Binance Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new Binance Chain native tokens will be sent to their new addresses.
+The BNB Beacon Token, BNB, is the native asset on BNB Beacon Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on BNB Beacon Chain. BNB was an ERC20 token, but after Binance Chain is live, all BNB ERC20 tokens are swapped for BNB token on BNB Beacon Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new BNB Beacon Chain native tokens will be sent to their new addresses.
 
 ### 5.2 Token Properties
 
@@ -58,7 +58,7 @@ The Binance Token, BNB, is the native asset on Binance Chain and created within 
 
 #### 5.3.1 Issue token
 
-Issuing token is to create a new token on Binance Chain. The new token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
+Issuing token is to create a new token on BNB Beacon Chain. The new token represents ownership of something new, and can also peg to existing tokens from any other blockchains.
 
 **Data Structure for Issue Operation**: A data structure is needed to represent the new token:
 
@@ -80,11 +80,11 @@ Explanations: Suffix is the first 3 bytes of the issue transaction’s hash. It 
 
 **Issue Process:**
 
-- Issuer signed an issue transaction and make it broadcasted to one of Binance Chain nodes
-- This Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Issuer signed an issue transaction and make it broadcasted to one of BNB Beacon Chain nodes
+- This BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Issue transaction is committed on the blockchain by block proposer
 - Validators will verify the constraints on total supply and symbol and deduct the fee from issuer’s account
-- New token’s symbol is generated based on the transaction hash. It is added to the issuer’s address and token info is saved on the Binance Chain
+- New token’s symbol is generated based on the transaction hash. It is added to the issuer’s address and token info is saved on the BNB Beacon Chain
 
 #### 5.3.2 Transfer Tokens
 
@@ -120,15 +120,15 @@ Transfer transaction is to send tokens from input addresses to output addresses.
 
 **Transfer Process:**
 
-- Transferer initiators sign a transfer transaction and make it broadcasted to one of Binance Chain nodes
-- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Transferer initiators sign a transfer transaction and make it broadcasted to one of BNB Beacon Chain nodes
+- The BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Transfer transaction is committed on the blockchain by block proposer
 - Validators will verify the constraints on balance. The transfer tokens and fee will be deducted from the address of the transaction initiators.
 - Add the tokens to the destination addresses
 
 #### 5.3.3 Freeze Tokens
 
-A Binance Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.
+A BNB Beacon Chain user could freeze some amount of tokens in his own address. The freeze transaction will lock his fund, thus this portion of tokens could not be used for the transactions, such as: creating orders, transferring to another account, paying fees and etc.
 
 **Data Structure** **for Freeze Operation**: A data structure is needed to represent the freeze operation
 
@@ -139,8 +139,8 @@ A Binance Chain user could freeze some amount of tokens in his own address. The 
 
 **Freeze Process:**
 
-- Address-holder signed a freeze transaction and make it broadcasted to one of Binance Chain nodes
-- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Address-holder signed a freeze transaction and make it broadcasted to one of BNB Beacon Chain nodes
+- The BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Freeze transaction is committed on the blockchain by block proposer
 - Validators will verify the transaction initiator’s balance is no less than the frozen amount. The fee will be deducted from the transaction initiator’s address.
 - This amount of tokens in the address of the transaction initiator will be moved from balance to frozen.
@@ -158,8 +158,8 @@ Unfreezing is to unlock some of the frozen tokens in the user's account and make
 
 **Unfreeze Process:**
 
-- Address-holder signed an unfreeze transaction and make it broadcasted to one of Binance Chain nodes
-- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Address-holder signed an unfreeze transaction and make it broadcasted to one of BNB Beacon Chain nodes
+- The BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Unfreeze transaction is committed on the blockchain by block proposer
 - Validators will verify the transaction initiator’s frozen balance is no less than the required amount. The fee will be deducted from the address of the transaction source.
 - This amount of token will be moved from frozen to balance in the transaction initiator’s address.
@@ -177,11 +177,11 @@ Mint transaction is to increase the total supply of a mintable token. The transa
 
 **Mint Process:**
 
-- Token owner signs a mint transaction and makes it broadcasted to one of Binance Chain nodes
-- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Token owner signs a mint transaction and makes it broadcasted to one of BNB Beacon Chain nodes
+- The BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Mint transaction is committed on the blockchain by block proposer
 - Validators will verify the constraints on whether the token is mintable and whether the bumped total supply will pass the limit. Then increase its total supply and deduct the fee from the address of the token owner
-- Newly minted tokens are added to the address of the token owner and token info is updated on the Binance Chain
+- Newly minted tokens are added to the address of the token owner and token info is updated on the BNB Beacon Chain
 
 #### 5.3.6 Burn Tokens
 
@@ -196,11 +196,11 @@ Burn transaction is to reduce the total supply of a token. The transaction initi
 
 **Burn Process:**
 
-- Token owner signs a burn transaction and makes it broadcasted to one of Binance Chain nodes
-- The Binance Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other Binance Chain nodes
+- Token owner signs a burn transaction and makes it broadcasted to one of BNB Beacon Chain nodes
+- The BNB Beacon Chain node will check this transaction. If there is no error, then this transaction will be broadcasted to other BNB Beacon Chain nodes
 - Burn transaction is committed on the blockchain by block proposer
 - Validators will verify the constraints if the token’s supply is no less than the required amount, and then it decreases the total supply and deducts the fee from the address of the token owner
-- Burned tokens are deducted from the address of the token owner and token info is updated on the Binance Chain
+- Burned tokens are deducted from the address of the token owner and token info is updated on the BNB Beacon Chain
 
 ## 6. License
 

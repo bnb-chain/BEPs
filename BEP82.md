@@ -1,10 +1,10 @@
 # BEP-82: Token Ownership Changes
 
 ## 1. Summary
-This BEP describes the changes related to the token owner who issued a token on Binance Chain.
+This BEP describes the changes related to the token owner who issued a token on BNB Beacon Chain.
 
 ## 2. Abstract
-Currently, many token-related transactions, such as token listing, minting, burning, etc., can only be proposed by the token owner who can not be changed once the token is issued on Binance Chain.
+Currently, many token-related transactions, such as token listing, minting, burning, etc., can only be proposed by the token owner who can not be changed once the token is issued on BNB Beacon Chain.
 
 This BEP proposes the solutions to provide more convenience and flexibility for these transactions.
 

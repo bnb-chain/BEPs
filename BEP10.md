@@ -25,7 +25,7 @@ This BEP is already implemented.
 
 ## 4. Motivation
 
-Binance Chain is designed to connect with multiple service providers, such as different wallelt providers and trading platforms. By adding an optional field in each transaction message, the origin of any transaction could be tracked. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
+BNB Beacon Chain is designed to connect with multiple service providers, such as different wallelt providers and trading platforms. By adding an optional field in each transaction message, the origin of any transaction could be tracked. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
 
 ## 5. Specification
 
@@ -58,8 +58,8 @@ All of these constant values shall be considered hardcoded in client implementat
 
 | Identifier | Source Description           |
 | ---------- | ---------------------------- |
-| 0          | Default source value, e.g. for Binance Chain Command Line, or SDKs   |
-| 1          | Binance DEX Web Wallet       |
+| 0          | Default source value, e.g. for BNB Beacon Chain Command Line, or SDKs   |
+| 1          | BNB Beacon Chain DEX Web Wallet       |
 | 2          | Trust Wallet                 |
 | 3          | CanWork.io Decentralised [Serviceplace App](https://github.com/canyacoin/canwork-web-ui)|
 | 4          | CanYaDAO [Decentralised Autonomous Organisation](https://github.com/canyacoin/canyadao)|
@@ -71,7 +71,7 @@ All of these constant values shall be considered hardcoded in client implementat
 | 10         | [Equal Wallet](https://equal.tech/)|
 | 11         | [Infinito Wallet](https://www.infinitowallet.io/)|
 | 12         | Coinomi|
-| 18         | MEET.ONE [Blockchain Wallet Supports Binance DEX](https://meet.one)|
+| 18         | MEET.ONE [Blockchain Wallet Supports BNB Beacon Chain DEX](https://meet.one)|
 | 21         | Vision - [Portfolio & Multi-Chain Wallet](https://vision-crypto.com/)|
 | 68         | Trubi Wallet|
 | 82         | [Cosmostation Wallet](https://www.cosmostation.io)|

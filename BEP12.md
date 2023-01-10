@@ -8,9 +8,9 @@ Taking exchange for example, for Bitcoin and Ethereum, exchanges create unique a
 
 However, this user experience change causes a lot of problems for both exchange customer support and clients. Clients may be panic if they forget to input the correct memo and exchange cannot allocate the fund to their account. The exchange support have to verify the client deposit in other ways.
 
-For all transfer transactions which are depositing tokens to exchanges, it would be nice if Binance Chain can reject those that have no valid memo. Thus clients won’t be panic for losing tokens and exchanges supports won’t suffer from the heavy working load.
+For all transfer transactions which are depositing tokens to exchanges, it would be nice if BNB Beacon Chain can reject those that have no valid memo. Thus clients won’t be panic for losing tokens and exchanges supports won’t suffer from the heavy working load.
 
-Here a script model is introduced into Binance Chain. And each address can add new functions by associate itself with one or more predefined scripts. The memo validation is one first type of the scripts to introduce here.
+Here a script model is introduced into BNB Beacon Chain. And each address can add new functions by associate itself with one or more predefined scripts. The memo validation is one first type of the scripts to introduce here.
 
 ## Status
 This BEP is under implementation.
