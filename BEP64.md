@@ -97,7 +97,7 @@ They SHOULD choose a format that is foremost least confusing, and only after tha
 ## 4. Rationale
 
 ### 4.1 Payment identifiers, not person identifiers
-It's not feasible to have a unique address should be used for every transaction on BNB Beacon Chain.
+It is not feasible to use a unique address for every transaction on BNB Beacon Chain.
 Therefore, the best practices are that using different memos as distinguishers.
 
 ### 4.2 Accessibility (URI scheme name)

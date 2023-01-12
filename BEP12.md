@@ -10,8 +10,7 @@ However, this user experience change causes a lot of problems for both exchange 
 
 For all transfer transactions which are depositing tokens to exchanges, it would be nice if BNB Beacon Chain can reject those that have no valid memo. Thus clients won’t be panic for losing tokens and exchanges supports won’t suffer from the heavy working load.
 
-Here a script model is introduced into BNB Beacon Chain. And each address can add new functions by associate itself with one or more predefined scripts. The memo validation is one first type of the scripts to introduce here.
-
+Here is a script model introduced into BNB Beacon Chain. Each address can add new functions by associating itself with one or more predefined scripts. The memo validation is the first type of script to be introduced here.
 ## Status
 This BEP is under implementation.
 ## Motivation

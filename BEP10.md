@@ -25,8 +25,7 @@ This BEP is already implemented.
 
 ## 4. Motivation
 
-BNB Beacon Chain is designed to connect with multiple service providers, such as different wallelt providers and trading platforms. By adding an optional field in each transaction message, the origin of any transaction could be tracked. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
-
+BNB Beacon Chain is designed to connect with multiple service providers, such as different wallet providers and trading platforms. By adding an optional field in each transaction message, the origin of any transaction could be tracked. This proposal does not want to deal with assigning the values for various source types. The different sources will claim different value and such a proposition will be assigned afterwards.
 ## 5. Specification
 
 ### 5.1 Transaction Data Structure

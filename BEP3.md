@@ -14,8 +14,7 @@ This BEP is already implemented.
 
 # Motivation
 
-BNB Beacon Chain serves fast transferring transactions and also high capacity asset Exchange, which have benefits a lot assets issues on it. However, there are major cases BNB Beacon Chain itself cannot satisfy:
-
+BNB Beacon Chain serves fast transferring transactions and high-capacity asset exchange, which greatly benefit assets issued on it. However, there are major cases in which BNB Beacon Chain itself cannot satisfy:
 1. Assets have complicated token economies themselves, such as DeFi.
 2. Assets serve as native tokens on other blockchain.
 
@@ -69,7 +68,7 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 #### Client Swap Tokens from Ethereum to BNB Beacon Chain
 
 1. Client calls APS contract, with the hash of a secret, X tokens and a time span T parameters, to express his/her interest to swap X tokens. If the parameters are good (e.g. T>MinLockTime, enough tokens to swap), the call transaction is recorded on the blockchain.
-2. Deputy process monitors the events of the APS contract on Ethereum. If it detects the client’s call and verify good, it will sign and broadcast the HTLT transaction on BNB Beacon Chain. This will lock X (or more as bonus) number of pegged tokens on BNB Beacon Chain. Please note the time span used in this HTLT transaction should be smaller enough than T in Client’s APS call.
+2. The Deputy process monitors the events of the APS contract on Ethereum. If it detects a Client's call and verifies it is valid, it will sign and broadcast the HTLT transaction on BNB Beacon Chain. This will lock X (or more as a bonus) number of pegged tokens on BNB Beacon Chain. Please note that the time span used in this HTLT transaction should be shorter than T in the Client's APS call.
 3. Client or Client tooling monitors any transactions onto CB, if it is from OB and has the proper hash, Client or Client tooling should broadcast CHLT transaction to claim his/her requested Pegged tokens by disclosing the random number generating the hash. BNB Beacon Chain will verify the random number, if it matches the hash, it will release the locked Pegged tokens to Client address CB.
 4. Deputy process monitors the transactions onto OB. If there is a success CHLT, it will read the value of the random number Client disclosed, and call APS contract to claim the locked tokens by Client.
 
