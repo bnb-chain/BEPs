@@ -6,7 +6,7 @@ This BEP is about introducing Hash Timer Locked Contract functions and further m
 
 # Abstract
 
-[HTLC](https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts) has been used for Atomic Swap and cross payment channel for a few years on Bitcoin and its variant blockchains, and also Ethereum. This BEP defines native transactions to support HTLC on Binance Chain, and also proposes the standard infrastructure and procedure to use HTLC for inter-chain atomic swap to easily create and use pegged token, which is called `Atomic Peg`.
+[HTLC](https://en.bitcoin.it/wiki/Hash_Time_Locked_Contracts) has been used for Atomic Swap and cross payment channel for a few years on Bitcoin and its variant blockchains, and also Ethereum. This BEP defines native transactions to support HTLC on BNB Beacon Chain, and also proposes the standard infrastructure and procedure to use HTLC for inter-chain atomic swap to easily create and use pegged token, which is called `Atomic Peg`.
 
 # Status
 
@@ -14,38 +14,37 @@ This BEP is already implemented.
 
 # Motivation
 
-Binance Chain serves fast transferring transactions and also high capacity asset Exchange, which have benefits a lot assets issues on it. However, there are major cases Binance Chain itself cannot satisfy:
-
+BNB Beacon Chain serves fast transferring transactions and high-capacity asset exchange, which greatly benefit assets issued on it. However, there are major cases in which BNB Beacon Chain itself cannot satisfy:
 1. Assets have complicated token economies themselves, such as DeFi.
 2. Assets serve as native tokens on other blockchain.
 
-For these tokens, the best way to use Binance Chain is to spread the tokens on multiple chains. One can issue or peg part of total token supply on Binance Chain to enjoy the speed, fast finality and powerful exchange, meanwhile keep other benefit and necessity on other chains. Many new requirements are imposed for such model:
+For these tokens, the best way to use BNB Beacon Chain is to spread the tokens on multiple chains. One can issue or peg part of total token supply on BNB Beacon Chain to enjoy the speed, fast finality and powerful exchange, meanwhile keep other benefit and necessity on other chains. Many new requirements are imposed for such model:
 
-1. there should be an easy way for users to swap unidirectionally or bidirectionally between Binance Chain and the other chain, better in a trustless way;
+1. there should be an easy way for users to swap unidirectionally or bidirectionally between BNB Beacon Chain and the other chain, better in a trustless way;
 2. there should be restrictions and/or transparency to ensure the total supply of tokens remained the same, and no one, even the issuer cannot freely change the circulation at will;
 3. there should be an easy way to calculate how many tokens are in circulation on each chain of both sides.
 
-Here new transaction and logics are required on Binance Chain, as it doesn’t support Smart Contract. Also a standard infrastructure and procedure should be proposed and used as best practice for such inter-chain communications.
+Here new transaction and logics are required on BNB Beacon Chain, as it doesn’t support Smart Contract. Also a standard infrastructure and procedure should be proposed and used as best practice for such inter-chain communications.
 
-The BEP is to tackle the problem, and try to pave the broadway for a practical cross chain solution to empower the decentralized economy with Binance DEX.
+The BEP is to tackle the problem, and try to pave the broadway for a practical cross chain solution to empower the decentralized economy with BNB Beacon Chain DEX.
 
 # Specification
 
 ## Atomic Peg Swap
 
-The primary purpose of HTLC in Binance Chain is to support Atomic Peg Swap (APS). APS is proposed here as the standard way for asset/token issuers to peg or migrate part of the asset/token onto Binance Chain, so that users of the tokens can enjoy the fast transactions and pleasant trading experience.
+The primary purpose of HTLC in BNB Beacon Chain is to support Atomic Peg Swap (APS). APS is proposed here as the standard way for asset/token issuers to peg or migrate part of the asset/token onto BNB Beacon Chain, so that users of the tokens can enjoy the fast transactions and pleasant trading experience.
 
 APS is designed to support peg token from any EVM based blockchain or any one with full smart contract features. Here in order to simplify the description, Ethereum is used as the most typical example.
 
 ### Roles
 
-*   **Client**: users who want to swap tokens from Ethereum to Binance Chain, or the other way round. Client address on Binance chain is called **CB** in the following sections;
-*   **Owner**: the issuers or anyone who want to peg the tokens from Ethereum to Binance Chain. In most cases, the Owner should be the issuer of the token. There expects one or multiple Owners to provide some service for one blockchain/project, depending on the size of the blockchain/project. Pegged Token Owner address on Binance chain is called **OB** in the following sections
+*   **Client**: users who want to swap tokens from Ethereum to BNB Beacon Chain, or the other way round. Client address on BNB Beacon chain is called **CB** in the following sections;
+*   **Owner**: the issuers or anyone who want to peg the tokens from Ethereum to BNB Beacon Chain. In most cases, the Owner should be the issuer of the token. There expects one or multiple Owners to provide some service for one blockchain/project, depending on the size of the blockchain/project. Pegged Token Owner address on BNB Beacon chain is called **OB** in the following sections
 
 ### Infrastructure Components
 
-*   **New transaction types on Binance Chain**: HTLT and CHLT transactions are used to lock and claim the asset to swap. The details are covered in the following section.
-*   **Swap smart contracts on Ethereum**: the APS contract are used to lock and claim the asset to swap too. The function should be similar to the new transaction types on Binance Chain. The details of interface covered in the following section.
+*   **New transaction types on BNB Beacon Chain**: HTLT and CHLT transactions are used to lock and claim the asset to swap. The details are covered in the following section.
+*   **Swap smart contracts on Ethereum**: the APS contract are used to lock and claim the asset to swap too. The function should be similar to the new transaction types on BNB Beacon Chain. The details of interface covered in the following section.
 *   **Deputy process**: an application run and maintained by Owner to facilitate the automatic and continuous swap activity.
 *   **Client tooling**: wallets or other tools that help Clients to monitor the blockchains to complete the claim (and maybe the lock as well).
 
@@ -53,11 +52,11 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 
 #### Preparation Stage
 
-1. Owner should issue proper number of tokens on Binance Chain as the Pegged 
-2. Owner should create one address on Binance Chain, and transfer in enough number of tokens for swap
+1. Owner should issue proper number of tokens on BNB Beacon Chain as the Pegged 
+2. Owner should create one address on BNB Beacon Chain, and transfer in enough number of tokens for swap
 3. Owner should deploy the APS Ethereum smart contract on Ethereum, and deposit enough number of tokens for swap into a dedicated address (which both should be public announced).
-4. Client should have an address on both Binance Chain and Ethereum.
-5. For such swap, Owner should publish all their Binance Chain and APS contract address, and also the expected minimum time span, MinLockTime.
+4. Client should have an address on both BNB Beacon Chain and Ethereum.
+5. For such swap, Owner should publish all their BNB Beacon Chain and APS contract address, and also the expected minimum time span, MinLockTime.
 
 #### Usage Expectation and Benefits
 
@@ -66,16 +65,16 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 3. Client gets guarantee on their fund safety. They don’t need to worry too much about the availability of the Deputy process, or any cheat from issuers or swap service providers.
 4. It is possible for one set of infrastructure to handle swap for multiple tokens.
 
-#### Client Swap Tokens from Ethereum to Binance Chain
+#### Client Swap Tokens from Ethereum to BNB Beacon Chain
 
 1. Client calls APS contract, with the hash of a secret, X tokens and a time span T parameters, to express his/her interest to swap X tokens. If the parameters are good (e.g. T>MinLockTime, enough tokens to swap), the call transaction is recorded on the blockchain.
-2. Deputy process monitors the events of the APS contract on Ethereum. If it detects the client’s call and verify good, it will sign and broadcast the HTLT transaction on Binance Chain. This will lock X (or more as bonus) number of pegged tokens on Binance Chain. Please note the time span used in this HTLT transaction should be smaller enough than T in Client’s APS call.
-3. Client or Client tooling monitors any transactions onto CB, if it is from OB and has the proper hash, Client or Client tooling should broadcast CHLT transaction to claim his/her requested Pegged tokens by disclosing the random number generating the hash. Binance Chain will verify the random number, if it matches the hash, it will release the locked Pegged tokens to Client address CB.
+2. The Deputy process monitors the events of the APS contract on Ethereum. If it detects a Client's call and verifies it is valid, it will sign and broadcast the HTLT transaction on BNB Beacon Chain. This will lock X (or more as a bonus) number of pegged tokens on BNB Beacon Chain. Please note that the time span used in this HTLT transaction should be shorter than T in the Client's APS call.
+3. Client or Client tooling monitors any transactions onto CB, if it is from OB and has the proper hash, Client or Client tooling should broadcast CHLT transaction to claim his/her requested Pegged tokens by disclosing the random number generating the hash. BNB Beacon Chain will verify the random number, if it matches the hash, it will release the locked Pegged tokens to Client address CB.
 4. Deputy process monitors the transactions onto OB. If there is a success CHLT, it will read the value of the random number Client disclosed, and call APS contract to claim the locked tokens by Client.
 
-#### Client Swap Tokens from Binance to Ethereum
+#### Client Swap Tokens from BNB Beacon to Ethereum
 
-1. Client sends HTLT transaction to Owner address OB with the hash of a secret, X tokens and a time span T parameters, to express his/her interest to swap X tokens. If the parameter is good, the transaction will be recorded on Binance Chain.
+1. Client sends HTLT transaction to Owner address OB with the hash of a secret, X tokens and a time span T parameters, to express his/her interest to swap X tokens. If the parameter is good, the transaction will be recorded on BNB Beacon Chain.
 2. Deputy Process monitors the transactions onto OB. If there is a success HTLT, it will double verify the transaction parameters (e.g. T>MinLockTime, enough tokens to swap). If all are good, it will call the APS contract on Ethereum to lock X number of tokens on Ethereum with the hash with shorter time span, expecting to be unlocked by Client address CE.
 3. Client or Client tooling monitors events of the APS contract on Ethereum. If it detects Deputy process’s call, it will verify and call the APS contract to claim the tokens by disclosing the random number generating the hash.
 4. Deputy process monitors the events from APS contract. If there is a successful claim, it will read the value of the random number Client disclosed and broadcast a CHLT transaction to claim the locked tokens by the Client via the HTLT.
@@ -84,10 +83,10 @@ APS is designed to support peg token from any EVM based blockchain or any one wi
 
 In the following scenarios, client will need swap between several BEP2 tokens:
 
-1. Users want to swap assets that are not listed on Binance DEX.
+1. Users want to swap assets that are not listed on BNB Beacon Chain DEX.
 2. Users want to swap several assets with several others at the same time.
 
-For instance, suppose a client has some `BNB` token and want to swap some other BEP2 tokens which are not listed on Binance Dex, like `ABC` and `DEF`:
+For instance, suppose a client has some `BNB` token and want to swap some other BEP2 tokens which are not listed on BNB Beacon Chain Dex, like `ABC` and `DEF`:
 
 1. Client send a HTLT transaction to an deputy address who has `ABC` and `DEF`. In the HTLT transaction, the client locks some `BNB` and expresses his expected gained `ABC` and `DEF` amount, for example: `1000ABC,10000DEF`.
 2. Deputy process filter out the HTLT transactions in which the `to` equal to deputy address and the swap ratio is reasonalbe. Then the deputy send `Deposit HTLT` transaction to lock some `ABC` and `DEF` under the same hash timer lock. 
@@ -100,15 +99,15 @@ Client Tooling is the part to help user experience. While the most commonly used
 
 1. start the request of Atomic Peg on either chain of the two, which means sign and broadcast specific transactions, or trigger smart contract with parameters;
 2. monitor the blockchain and automatically claim the swapped token (or automatically trigger the refund after the timeout on Ethereum and other blockchains).
-3. if the wallet supports multiple blockchain, e.g. both Binance Chain and Ethereum, it will be super convenient for Client to complete the whole swap process within the wallet.
+3. if the wallet supports multiple blockchain, e.g. both BNB Beacon Chain and Ethereum, it will be super convenient for Client to complete the whole swap process within the wallet.
 
-## New Transaction Types on Binance Chain
+## New Transaction Types on BNB Beacon Chain
 
 The below are the details for HTLT, deposit HTLT, claim HTLT and refund HTLT.
 
 ### Hash Timer Locked Transfer
 
-Hash Timer Locked Transfer (HTLT) is a new transaction type on Binance Chain, to serve as HTLC in the first step of Atomic Swap, with parameters defined as below:
+Hash Timer Locked Transfer (HTLT) is a new transaction type on BNB Beacon Chain, to serve as HTLC in the first step of Atomic Swap, with parameters defined as below:
 
 | Name | Type | Description | Optional |
 | -----| ---- | ----------- | -------- |
@@ -167,10 +166,10 @@ Refund Hash Timer Locked Transfer is to refund the locked asset after timelock i
     2. `_randomNumberHash`: `sha256(_randomNumber, _timestamp)`
     3. `_heightSpan` is the number of blocks to wait before the asset can be refunded
     4. `_receiverAddr` is the Ethereum address of swap counter party
-    5. `_bep2Sender` the swap sender address on Binance Chain
-    6. `_bep2Recipient` is the recipient address on Binance Chain.
+    5. `_bep2Sender` the swap sender address on BNB Beacon Chain
+    6. `_bep2Recipient` is the recipient address on BNB Beacon Chain.
     7. `_outAmount` is the swapped out ERC20 token.
-    8. `_bep2Amount` is the expected received BEP2 token on Binance Chain.
+    8. `_bep2Amount` is the expected received BEP2 token on BNB Beacon Chain.
 2. function **refund**(bytes32 _swapID)
     1. `_swapID `: `sha256(swap.randomNumberHash, swap.From, swap.SenderOtherChain)`
 3. function **claim**(bytes32 _swapID, bytes32 _randomNumber)

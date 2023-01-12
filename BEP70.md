@@ -16,9 +16,9 @@
 This BEP describes a proposal for listing and trading BUSD pairs without explicit dependency on the native token BNB.
 
 ## 2. Abstract
-BUSD, as one of the most influential stable coins worldwide and the most dominant stable coin on Binance Chain, is playing an important role for trading and communicating with fiat currencies. Listing and trading BUSD pairs on Binance Chain will facilitate token owners and exchange traders, making the markets more liquid and healthier. 
+BUSD, as one of the most influential stable coins worldwide and the most dominant stable coin on BNB Beacon Chain, is playing an important role for trading and communicating with fiat currencies. Listing and trading BUSD pairs on BNB Beacon Chain will facilitate token owners and exchange traders, making the markets more liquid and healthier. 
 
-However, on Binance Chain now, if you want to trade between your token and BUSD , you must firstly list a trading pair between BNB and the token you have, which could be unnecessary sometimes. 
+However, on BNB Beacon Chain now, if you want to trade between your token and BUSD , you must firstly list a trading pair between BNB and the token you have, which could be unnecessary sometimes. 
 
 This BEP proposes the solutions for listing and trading BUSD pairs without explicit dependency on BNB.
 
@@ -38,7 +38,7 @@ Currently, for listing a trading pair between AAA and BUSD, there are following 
 + Existed trading pair between BUSD and BNB  
 
 For more information about governance proposal, please refer to the following page:   
-[https://docs.binance.org/governance.html](https://docs.binance.org/governance.html)
+[https://docs.bnbchain.org/docs/beaconchain/governance](https://docs.bnbchain.org/docs/beaconchain/governance)
 
 #### 5.1.2 Proposed Changes
 For proposing and listing BUSD trading pairs, BUSD must be the base asset or quote asset. It means the BaseAssetSymbol or QuoteAssetSymbol must be BUSD-BD1 on the mainnet, and QuoteAssetSymbol or BaseAssetSymbol does not have to be BNB. 
@@ -54,7 +54,7 @@ With the proposed changes, for listing a trading pair between AAA and BUSD, the 
 ### 5.2 Trading Fee Calculation
 To calculate the trading fees, the price of BNB denominated in BUSD will be used if needed.
 For more information about trading fees, please refer to the following page:  
-[https://docs.binance.org/trading-spec.html](https://docs.binance.org/trading-spec.html)
+[https://docs.bnbchain.org/docs/beaconchain/trading-spec/](https://docs.bnbchain.org/docs/beaconchain/trading-spec/)
 
 
 ## 6. License

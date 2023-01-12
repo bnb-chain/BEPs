@@ -12,11 +12,11 @@
 
 ## 1. Summary 
 
-This BEP describes an enhancement of the [Order Expiration](https://docs.binance.org/faq.html#what-is-order-expire).  
+This BEP describes an enhancement of the [Order Expiration](https://docs.bnbchain.org/docs/beaconchain/trading-spec/#order-expire).  
 
 ## 2. Abstract
 
-Currently orders on Binance Chain will be expired after 3 days. Order cannot live long on the market even their price stays competitive, which is not convenient and incurs cost to traders. The solution is to keep orders in the best 500 price levels for 30 days rather than 3 days.
+Currently orders on BNB Beacon Chain will be expired after 3 days. Order cannot live long on the market even their price stays competitive, which is not convenient and incurs cost to traders. The solution is to keep orders in the best 500 price levels for 30 days rather than 3 days.
 
 ## 3. Status
 This BEP is already implemented.
@@ -36,7 +36,7 @@ After the implementation of BEP-67, those orders in the best 500 price levels on
 ###  5.2 Change Impact
 ####  5.2.1 Impact on Trader
 For those traders who follow current strict 3-day expiration time, they may need change their order placement strategy.
-####  5.2.2 Impact on Binance Chain
+####  5.2.2 Impact on BNB Beacon Chain
 There could be more orders in node memory. So the compulsory expiration is introduced for the orders older than 30 days.
 ## 6. License
 

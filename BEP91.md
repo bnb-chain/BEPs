@@ -1,6 +1,6 @@
-# BEP-91: Increase Block Gas Ceiling for Binance Smart Chain
+# BEP-91: Increase Block Gas Ceiling for BNB Smart Chain
 
-- [BEP-91: Increase Block Gas Ceiling for Binance Smart Chain](#bep-91-increase-block-gas-ceiling-for-binance-smart-chain)
+- [BEP-91: Increase Block Gas Ceiling for BNB Smart Chain](#bep-91-increase-block-gas-ceiling-for-BNB-smart-chain)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)

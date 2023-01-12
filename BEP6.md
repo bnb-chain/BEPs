@@ -1,7 +1,7 @@
 # BEP-6: Delist Trading Pairs
 
 ## 1. Summary
-This BEP describes a proposal for delisting trading pairs from the Binance DEX.
+This BEP describes a proposal for delisting trading pairs from the BNB Beacon Chain DEX.
 ## 2. Abstract
 Listing new trading pairs is done via listing proposals. Suppose a token has a crediting issue or one of its trading pairs has little trading volume for a long time, the community might consider to drop related trading pairs to save network cost. This BEP proposes a method to delist trading pairs via governance. The below picture describes the overview of how delist logic works.
 
@@ -49,14 +49,14 @@ The DelistTradingPair proposal is similar to a governance proposal. It requires 
 |   InitialDeposit  |   coins    | Initial deposit paid by sender. Must be strictly positive |
 |    VotingPeriod   |   int      | Length of the voting period|
 
-For other document about governance proposal, please refer to this page: https://docs.binance.org/governance.html#proposal-parameters
+For other document about governance proposal, please refer to this page: https://docs.bnbchain.org/docs/beaconchain/governance/#proposal-parameters
 
 ### 5.2 Cooling-Off Period
 Once a `DelistTradingPair` proposal is passed, it will enter a cooling-off period. The cooling-off period lasts until the next UTC 00:00 after the 72-hour point of the proposal passing.  As the name suggests, users should re-evaluate the market and take action on the proposed asset to be delisted. In this period, users can still create new orders and cancel orders on the trading pair. Once this period has ended, all outstanding orders will expire.
 ### 5.3 Delist
 Delisting happens on the next UTC 00:00 after the 72-hour point of the proposal passing. There are 2 steps to delist trading pairs as below.
 #### 5.3.1 Trading Pairs Constraint Check
-For Binance Chain, all listed tokens requires `BNB` as an initial base pair. Suppose there are three tokens on binance chain: `A`, `B` and `BNB`, and there is only one trading pair: `A_BNB`. If someone wants to create a new `A_B` trading pair, he must create the `B_BNB` trading pair first.
+For BNB Beacon Chain, all listed tokens requires `BNB` as an initial base pair. Suppose there are three tokens on BNB Beacon Chain: `A`, `B` and `BNB`, and there is only one trading pair: `A_BNB`. If someone wants to create a new `A_B` trading pair, he must create the `B_BNB` trading pair first.
 
 In conclusion, a `non-BNB` trading pair `A_B` will depend on two other trading pairs: `A_BNB` and `B_BNB`, and any `BNB` related trading pair may be the dependency of other trading pairs.
 

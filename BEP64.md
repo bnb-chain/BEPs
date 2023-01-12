@@ -24,7 +24,7 @@
 This BEP is derived and extended from bip-0021
 
 ## 1. Abstract
-This BEP proposes a URI scheme for making Binance Chain payments.
+This BEP proposes a URI scheme for making BNB Beacon Chain payments.
 
 ## 2. Motivation
 The purpose of this URI scheme is to enable users to easily make payments by simply clicking links on webpages or scanning QR Codes.
@@ -33,7 +33,7 @@ The purpose of this URI scheme is to enable users to easily make payments by sim
 
 ### 3.1 General rules for handling
 
-Binance Chain clients MUST NOT act on URIs without getting the user's authorization.
+BNB Beacon Chain clients MUST NOT act on URIs without getting the user's authorization.
 
 They SHOULD require the user to manually approve each payment individually, though in some cases they MAY allow the user to automatically make this decision.
 
@@ -97,7 +97,7 @@ They SHOULD choose a format that is foremost least confusing, and only after tha
 ## 4. Rationale
 
 ### 4.1 Payment identifiers, not person identifiers
-It's not feasible to have a unique address should be used for every transaction on Binance Chain.
+It is not feasible to use a unique address for every transaction on BNB Beacon Chain.
 Therefore, the best practices are that using different memos as distinguishers.
 
 ### 4.2 Accessibility (URI scheme name)
