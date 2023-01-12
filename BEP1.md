@@ -65,7 +65,7 @@ It is important to keep BEP clear and well organized, BEPs need to follow this f
   Status: Enabled
   Type: Standards
   Created: 2022-01-10
-  Author(optional): it can be a name or en email.
+  Author(optional): it can be a name or an email.
   Description(optional): enabled by BSC Euler upgrade, block height 18907621, Jun-22-2022
   Discussions(optional): could be a link to the bnb forum, where it is discussed.
 </pre>
