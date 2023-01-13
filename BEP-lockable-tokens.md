@@ -19,10 +19,12 @@
         - [5.1.1.9 approveUnlock](#5119-approveUnlock)
         - [5.1.1.10 lockedAllowance](#51110-lockedAllowance)
         - [5.1.1.11 unlockedAllowance](#51111-unlockedAllowance)
+        - [5.1.1.12 collect](#51112-collect)
       - [5.1.2 Events](#512-events)
         - [5.1.2.1 Lock](#5121-lock)
         - [5.1.2.2 Unlock](#5121-unlock)
-        - [5.1.2.3 LockApproval](#5123-lockapproval)
+        - [5.1.2.3 LockApproval](#5123-lockApproval)
+        - [5.1.2.3 Collate](#5124-collate)
     - [5.2 Implementation](#52-implementation)
   - [6. License](#6-license)
 
@@ -115,6 +117,12 @@ function unlockedAllowance(address owner_, address locker_) public view returns 
 ```
 - Returns the amount which `locker_` is still allowed to lock from `owner_`.
 
+##### 5.1.1.12 collect
+```
+function collect(address owner_, address locker_, uint256 amount_) public view (bool success)
+```
+- Collect, i.e. transfer tokens from the `owner_` account to the `locker_` in case of decline of repay
+
 #### 5.1.2 Events
 
 ##### 5.1.2.1 Lock
@@ -134,6 +142,13 @@ event Unlock(address indexed from_, address indexed to_, uint256 _value)
 event LockApproval(address indexed owner_, address indexed locker_, uint256 _value)
 ```
 **MUST** trigger on any successful approving call.
+
+##### 5.1.2.4 Collate
+```
+event Collate(address indexed owner_, address indexed locker_, uint256 _value);
+```
+**MUST** trigger on any successful collate call.
+Trigger on any collate of funds
 
 ### 5.2 Implementation
 
