@@ -1,6 +1,6 @@
-# BEP180: Permisison-based lock for the BEP20 tokens
+# BEP unknown: Permisison-based lock for the BEP20 tokens
 
-- [BEP-180: Permisison-based locking extension for the BEP20 Tokens on Binance Smart Chain](#bep180-tokens-locking-extension)
+- [BEP-lockable-tokens: Permisison-based locking extension for the BEP20 Tokens on Binance Smart Chain](#bep-lockable-tokens)
   - [1. Summary](#1--summary)
   - [2. Abstract](#2--abstract)
   - [3. Motivation](#3--motivation)
