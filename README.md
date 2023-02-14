@@ -36,5 +36,37 @@ Here is the list of subjects of BEPs:
 | [BEP-159](BEP159.md) | Introduce A New Staking Mechanism on BNB Beacon Chain      | Standards | Draft   |
 | [BEP-173](BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 
+# BNB Chain Upgrades
+
+## Bohr(Upcoming)
+> Candidate List(Expect to be enabled at the end of Mar 2023)
+- [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171)
+- [BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)
+- [BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)
+
+## Gibbs(BSC mainnet enabled on Dec 12th 2022)
+- [BEP-153: Introduce Native Staking on BSC](BEP153.md)
+
+## Moran(BSC mainnet enabled on Oct 12th 2022)
+- Fix the exploiter attack (emergency, no BEP)
+
+## Nano(BSC mainnet enabled on Oct 6th 2022)
+- Suspend CrossChain between BC & BSC due to the exploiter attack (emergency, no BEP)
+
+
+## Euler(BSC mainnet enabled on Jun 22th 2022)
+- [BEP-127 Temporary Maintenance Mode for Validators](127.md)
+- [BEP-131 Introduce candidate validators onto BNB Smart Chain](131.md)
+
+## Bruno(BSC mainnet enabled on Nov 30th 2021)
+- [BEP-95: Real-Time Burning Mechanism ](95.md)
+- [BEP-93: Diff Sync Protocol: Speed up node sync](93.md)
+
+## MirrorSync(BSC mainnet enabled on Feb 25th 2021)
+- Upgrade 3 system contract (no BEP):
+  [TokenManagerContract](https://bscscan.com/address/0x0000000000000000000000000000000000001008), [TokenHubContract](https://bscscan.com/address/0x0000000000000000000000000000000000001004), [RelayerIncentivizeContract](https://bscscan.com/address/0x0000000000000000000000000000000000001005)
+
+## Genesis Block(BSC mainnet Aug 29th 2020)
+
 # How To Contribute A BEP
 If you have an idea and want to make it a BEP, you may refer [BEP-1](BEP1.md)
