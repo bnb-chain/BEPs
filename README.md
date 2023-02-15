@@ -37,49 +37,47 @@ Here is the list of subjects of BEPs:
 | [BEP-173](BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 
 # BNB Smart Chain Upgrades
-Note: the upcoming Bohr upgrade is expected to be enabled on mainnet at the end of Mar 2023
-| Upgrade    | Changes                                                                                                                                                                                                                                                                                                                                                    | Mainnet Height | Testnet Height |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :------------: |
-| Bohr       | [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171) <br />[BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)<br />[BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)                               |      TBD       |      TBD       |
-| Gibbs      | [BEP-153: Introduce Native Staking on BSC](BEP153.md)                                                                                                                                                                                                                                                                                                      |    23846001    |    22800220    |
-| Moran      | Fix the exploiter attack                                                                                                                                                                                                                                                                                                                                   |    22107423    |    23603940    |
-| Nano       | Suspend CrossChain between BC & BSC due to the exploiter attack                                                                                                                                                                                                                                                                                            |    21962149    |    23482428    |
-| Euler      | [BEP-127 Temporary Maintenance Mode for Validators](127.md)<br /> [BEP-131 Introduce candidate validators onto BNB Smart Chain](131.md)                                                                                                                                                                                                                    |    18907621    |    19203503    |
-| Bruno      | [BEP-95: Real-Time Burning Mechanism ](95.md)<br /> [BEP-93: Diff Sync Protocol: Speed up node sync](93.md)                                                                                                                                                                                                                                                |    13082000    |    13837000    |
-| MirrorSync | Upgrade 3 system contracts (no BEP):<br /> - [TokenManagerContract](https://bscscan.com/address/0x0000000000000000000000000000000000001008)<br /> - [TokenHubContract](https://bscscan.com/address/0x0000000000000000000000000000000000001004)<br /> -[RelayerIncentivizeContract](https://bscscan.com/address/0x0000000000000000000000000000000000001005) |    5184000     |    5582500     |
-
-
+Note: Chapel is the name of the current BSC testnet.
 
 ### Bohr(Upcoming)
-> Candidate List(Expect to be enabled at the end of Mar 2023)
+> Height(Chapel): TBD, Expect: middle of Mar 2023<br />
+> Height(Mainnet): TBD, Expect: end of Mar 2023
+
+Candidates List:
 - [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171)
 - [BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)
 - [BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)
 
 ### Gibbs
-> BSC mainnet enabled on Dec 12th 2022
+> Height(Chapel): 22800220, Sep-13-2022<br />
+> Height(Mainnet): 23846001, Dec-12-2022
 - [BEP-153: Introduce Native Staking on BSC](BEP153.md)
 
 ### Moran
-> BSC mainnet enabled on Oct 12th 2022
+> Height(Chapel): 23603940, Oct-11-2022<br />
+> Height(Mainnet): 22107423, Oct-12-2022
 - Fix the exploiter attack (emergency, no BEP)
 
 ### Nano
-> BSC mainnet enabled on Oct 6th 2022
+> Height(Chapel): 23482428, Oct-07-2022<br />
+> Height(Mainnet): 21962149, Oct-06-2022
 - Suspend CrossChain between BC & BSC due to the exploiter attack (emergency, no BEP)
 
 ### Euler
-> BSC mainnet enabled on Jun 22th 2022
+> Height(Chapel): 19203503, May-11-2022<br />
+> Height(Mainnet): 18907621, Jun-22-2022
 - [BEP-127 Temporary Maintenance Mode for Validators](127.md)
 - [BEP-131 Introduce candidate validators onto BNB Smart Chain](131.md)
 
 ### Bruno
-> BSC mainnet enabled on Nov 30th 2021
+> Height(Chapel): 13837000, Nov-05-2021<br />
+> Height(Mainnet): 13082000, Nov-30-2021
 - [BEP-95: Real-Time Burning Mechanism ](95.md)
 - [BEP-93: Diff Sync Protocol: Speed up node sync](93.md)
 
 ### MirrorSync
-> BSC mainnet enabled on Feb 25th 2021
+> Height(Chapel): 5582500, Jan-21-2021<br />
+> Height(Mainnet): 5184000, Feb-25-2021
 - Upgrade 3 system contract (no BEP):
   [TokenManagerContract](https://bscscan.com/address/0x0000000000000000000000000000000000001008), [TokenHubContract](https://bscscan.com/address/0x0000000000000000000000000000000000001004), [RelayerIncentivizeContract](https://bscscan.com/address/0x0000000000000000000000000000000000001005)
 
