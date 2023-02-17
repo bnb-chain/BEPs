@@ -46,6 +46,7 @@ Note: Chapel is the name of the current BSC testnet.
 Candidates List:
 - [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171)
 - [BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)
+- [BEP-174: Cross Chain Relayer Management](https://github.com/bnb-chain/BEPs/pull/174)
 - [BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)
 
 ### Gibbs
