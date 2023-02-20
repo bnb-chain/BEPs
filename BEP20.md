@@ -1,6 +1,6 @@
-# BEP20: Tokens on Binance Smart Chain
+# BEP20: Tokens on BNB Smart Chain
 
-- [BEP-20: Tokens on Binance Smart Chain](#bep20-tokens-on-binance-smart-chain)
+- [BEP-20: Tokens on BNB Smart Chain](#bep20-tokens-on-bnb-smart-chain)
   - [1. Summary](#1--summary)
   - [2. Abstract](#2--abstract)
   - [3. Motivation](#3--motivation)
@@ -25,16 +25,16 @@
   - [6. License](#6-license)
 
 ## 1.  Summary
-This BEP proposes an interface standard to create token contracts on Binance Smart Chain.
+This BEP proposes an interface standard to create token contracts on BNB Smart Chain.
 
 ## 2.  Abstract
-The following standard defines the implementation of APIs for token smart contracts. It is proposed by deriving the ERC20 protocol of Ethereum and provides the basic functionality to transfer tokens, allow tokens to be approved so they can be spent by another on-chain third party, and transfer between Binance Chain and Binance Smart Chain.
+The following standard defines the implementation of APIs for token smart contracts. It is proposed by deriving the ERC20 protocol of Ethereum and provides the basic functionality to transfer tokens, allow tokens to be approved so they can be spent by another on-chain third party, and transfer between BNB Beacon Chain and BNB Smart Chain.
 
 ## 3.  Motivation
-A standard interface allows any tokens on Binance Smart Chain to be used by other applications: from wallets to decentralized exchanges in a consistent way. Besides, this standard interface also extends [ERC20](https://eips.ethereum.org/EIPS/eip-20) to facilitate cross chain transfer.
+A standard interface allows any tokens on BNB Smart Chain to be used by other applications: from wallets to decentralized exchanges in a consistent way. Besides, this standard interface also extends [ERC20](https://eips.ethereum.org/EIPS/eip-20) to facilitate cross chain transfer.
 
 ## 4.  Status
-This BEP is under draft.
+This BEP is already implemented.
 
 ## 5.  Specification
 
@@ -59,7 +59,7 @@ function symbol() public view returns (string)
 ```
 - Returns the symbol of the token. E.g. “HIX”.
 - This method can be used to improve usability
-- **NOTE** - This method is optional in EIP20. In BEP20, this is a required method. Tokens which don’t implement this method will never flow across the Binance Chain and Binance Smart Chain.
+- **NOTE** - This method is optional in EIP20. In BEP20, this is a required method. Tokens which don’t implement this method will never flow across the BNB Beacon Chain and BNB Smart Chain.
 
 ##### 5.1.1.3 decimals
 ```
@@ -67,13 +67,13 @@ function decimals() public view returns (uint8)
 ```
 - Returns the number of decimals the token uses - e.g. 8, means to divide the token amount by 100000000 to get its user representation.
 - This method can be used to improve usability
-- **NOTE** - This method is optional in EIP20. In BEP20, this is a required method. Tokens which don’t implement this method will never flow across the Binance Chain and Binance Smart Chain.
+- **NOTE** - This method is optional in EIP20. In BEP20, this is a required method. Tokens which don’t implement this method will never flow across the BNB Beacon Chain and BNB Smart Chain.
 
 ##### 5.1.1.4 totalSupply
 ```
 function totalSupply() public view returns (uint256)
 ```
-- Returns the total token supply. If the token will flow across the Binance Chain and Binance Smart Chain, the number should be the total of circulation across 2 blockchains.
+- Returns the total token supply. If the token will flow across the BNB Beacon Chain and BNB Smart Chain, the number should be the total of circulation across 2 blockchains.
 
 ##### 5.1.1.5 balanceOf
 ```
@@ -86,7 +86,7 @@ function balanceOf(address _owner) public view returns (uint256 balance)
 function getOwner() external view returns (address);
 ```
 - Returns the bep20 token owner which is necessary for binding with bep2 token.
-- **NOTE** - This is an extended method of EIP20. Tokens which don’t implement this method will never flow across the Binance Chain and Binance Smart Chain.
+- **NOTE** - This is an extended method of EIP20. Tokens which don’t implement this method will never flow across the BNB Beacon Chain and BNB Smart Chain.
 
 ##### 5.1.1.7 transfer
 ```
@@ -133,8 +133,8 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 ### 5.2 Implementation
 
-There are already plenty of BEP20-compliant tokens deployed on the Binance Smart Chain network. Different implementations have been written by various teams that have different trade-offs: from gas saving to improved security.
-Example implementations are available at [Binance Implementation](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/bep20_template/BEP20Token.template)
+There are already plenty of BEP20-compliant tokens deployed on the BNB Smart Chain network. Different implementations have been written by various teams that have different trade-offs: from gas saving to improved security.
+Example implementations are available at [BNB Smart Chain Implementation](https://github.com/bnb-chain/bsc-genesis-contract/blob/master/contracts/bep20_template/BEP20Token.template)
 
 ## 6. License
    

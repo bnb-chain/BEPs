@@ -30,7 +30,7 @@ This BEP is already implemented.
 
 ## 4. Motivation
 
-On not-so-liquid or highly volatile markets, the classic periodic auction match methodology would result in much worse average trade price to aggressive orders (i.e. Taker orders in the continuous match context), because all the trades would be marked with one final price, instead of the average price of all the waiting orders from the market. This is not friendly to active traders and amateur clients that are more familiar with continuous match markets. This causes extra effort to split aggressive orders and much confusion as Binance DEX matches as fast as continuous matching exchange.
+On not-so-liquid or highly volatile markets, the classic periodic auction match methodology would result in much worse average trade price to aggressive orders (i.e. Taker orders in the continuous match context), because all the trades would be marked with one final price, instead of the average price of all the waiting orders from the market. This is not friendly to active traders and amateur clients that are more familiar with continuous match markets. This causes extra effort to split aggressive orders and much confusion as BNB Beacon Chain DEX matches as fast as continuous matching exchange.
 
 ## 5. Specification
 

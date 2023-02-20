@@ -22,7 +22,7 @@ To speed up the burning process of BNB and make BSC more decentralized, part of 
 
 ## 3. Status
 
-This BEP is a draft.
+This BEP is already implemented.
 
 ## 4. Motivation
 
@@ -39,7 +39,7 @@ Though the staking reward of the validators and delegators may decrease in BNB a
 As BNB is not an inflationary token, there will be no mining rewards as what Bitcoin and Ethereum networks generate, and the gas fee is the major reward for validators. As BNB is also utility tokens with other use cases, delegators and validators will still enjoy other benefits of holding BNB. The gas fee is collected each block and distributed to two system smart contracts:
 
 1. [System Reward Contract](https://bscscan.com/address/0x0000000000000000000000000000000000001002). The contract can possess at most 100 BNB. 1/16 of the gas fee will be transferred to the system reward contract if it possesses less than 100 BNB. The funding within the reward contract is used as cross-chain package subsidies.
-2. [ValidatorSet Contract](https://bscscan.com/address/0x0000000000000000000000000000000000001000). The rest of the gas fee is transferred to the ValidatorSet contract. It is the vault to keep gas fees for both validators and delegators. The funding within the contract will be transferred to Binance Chain and distributed to delegators and validators according to their shares every day.
+2. [ValidatorSet Contract](https://bscscan.com/address/0x0000000000000000000000000000000000001000). The rest of the gas fee is transferred to the ValidatorSet contract. It is the vault to keep gas fees for both validators and delegators. The funding within the contract will be transferred to BNB Beacon Chain and distributed to delegators and validators according to their shares every day.
 
 ### 5.2 Burning Mechanism
 
@@ -53,7 +53,7 @@ The initial setting:
 
 The change of `burnRatio` will be determined by BSC Validators together through a proposal-vote process based on their staking.
 
-This process will be carried on Binance Chain, every community member can propose a change of the params. The proposal needs to receive a minimum deposit of BNB (2000BNB on mainnet for now, refundable after the proposal has passed) so that the validator can vote for it. The validators of BSC can vote for it or against it based on their staking amount of BNB.
+This process will be carried on BNB Beacon Chain, every community member can propose a change of the params. The proposal needs to receive a minimum deposit of BNB (2000BNB on mainnet for now, refundable after the proposal has passed) so that the validator can vote for it. The validators of BSC can vote for it or against it based on their staking amount of BNB.
 
 If the total voting power of bounded validators that votes for it reaches the quorum(50% on mainnet), the proposal will pass and the corresponding change of the params will be passed onto BSC via cross-chain communication and take effect immediately. The vote of unbounded validators will not be considered into the tally.
 

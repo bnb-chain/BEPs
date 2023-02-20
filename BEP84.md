@@ -1,6 +1,6 @@
-# BEP-84: Mirror BEP20 to Binance Chain
+# BEP-84: Mirror BEP20 to BNB Beacon Chain
 
-- [BEP-84: Mirror BEP20 to Binance Chain](#bep-84-mirror-bep20-to-binance-chain)
+- [BEP-84: Mirror BEP20 to BNB Beacon Chain](#bep-84-mirror-bep20-to-bnb-beacon-chain)
   * [1. Summary](#1-summary)
   * [2. Abstract](#2-abstract)
   * [3. Motivation](#3-motivation)
@@ -27,11 +27,10 @@
 This BEP proposes a scheme to facilitate users to issue and bind BEP2 tokens with existing BEP20 tokens.
 
 ## 2. Abstract
-Currently, if a user wants to issue and bind a BEP2 token with an existing BEP20 token, it has to do a set of complex operations, including issue BEP2 tokens, sending a bind transaction and approving the binding request. The BEP will bring a mechanism to simplify the above process. In the new mechanism, what anyone can do this is just sending a transaction to Binance Smart Chain.
+Currently, if a user wants to issue and bind a BEP2 token with an existing BEP20 token, it has to do a set of complex operations, including issue BEP2 tokens, sending a bind transaction and approving the binding request. The BEP will bring a mechanism to simplify the above process. In the new mechanism, what anyone can do this is just sending a transaction to BNB Smart Chain.
 
 ## 3. Motivation
-Current bind mechanism is based on the context that our community members are on the Binance Chain and they want to extend their tokens to the Binance Smart Chain. However, with the evolution of our community, things changed. In most cases, users issue bep20 on the Binance Smart Chain first without considering whether they will issue BEP2 on the Binance Chain or not,  so a new mechanism to conveniently extend BEP20 assets to the Binance Chain is required. In addition, the new mechanism will encourage users to extend their assets to the Binance Chain which is very helpful to flourish the Binance Chain community.
-
+Current bind mechanism is based on the context that our community members are on the BNB Beacon Chain and they want to extend their tokens to the BNB Smart Chain. However, with the evolution of our community, things changed. In most cases, users issue BEP20 on the BNB Smart Chain first without considering whether they will issue BEP2 on the BNB Beacon Chain or not, so a new mechanism to conveniently extend BEP20 assets to the BNB Beacon Chain is required. In addition, the new mechanism will encourage users to extend their assets to the BNB Beacon Chain which is very helpful to flourish the BNB Chain community.
 ## 4. Status
 This BEP is already implemented
 
@@ -106,7 +105,7 @@ Sync: For a BEP20 token which has been mirrored to BC, anyone can call sync meth
     3. If ErrorCode is zero:
         1. Transfer SyncFee to TokenHub
         2. Write the bound pair to TokenHub
-        3. Mark the bep20 token as bound by mirror
+        3. Mark the BEP20 token as bound by mirror
         4. Emit bound success event
 
 #### 5.1.2 Sync
@@ -181,7 +180,7 @@ function updateParam(string calldata key, bytes calldata value)
 
 1. RLP decode mirror package. Generate a fail ack package if failed.
 2. Ensure expiredTime is not passed.
-3. Ensure the bep20 contract is not bound.
+3. Ensure the BEP20 contract is not bound.
 4. Convert BEP20 total supply to the total supply on BC and Ensure the total supply doesn’t exceed the maximum limit of BEP2.
 5. Issue a new BEP2 token, the suffix should be the hash of oracle payload and current channel sequence. Besides, the new BEP2 token owner will be the pure-code-controlled-escrow address.
 6. Transfer all tokens to the pure-code-controlled-escrow address and write BEP20 address and decimals to the BEP2 token attribution table.

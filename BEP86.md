@@ -16,20 +16,20 @@ This BEP proposes a reward mechanism to balance the gain and risk for BSC relaye
 
 ## 2. Abstract
 
-Now all bsc-relayers are suffering from BNB loss in relaying cross chain packages from BC to BSC. Besides, it would not be helpful to community development if common users have to pay more relay fees. To compensate relayers and avoid additional burden to common users, some dynamic extra reward will be granted to bsc-relayers from the [SystemReward Contract](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/SystemReward.sol).
+Now all bsc-relayers are suffering from BNB loss in relaying cross chain packages from BC to BSC. Besides, it would not be helpful to community development if common users have to pay more relay fees. To compensate relayers and avoid additional burden to common users, some dynamic extra reward will be granted to bsc-relayers from the [SystemReward Contract](https://github.com/bnb-chain/bsc-genesis-contract/blob/master/contracts/SystemReward.sol).
 
 ## 3. Status
 
-This BEP is under implementation.
+This BEP is already implemented.
 
 ## 4. Motivation
 
-Anyone can maintain a bsc-relayer by depositing 100:BNB to the RelayerHub contract. If the relay reward can cover the relay cost, then more and more people will maintain their own bsc-relayer, which will improve the robustness of the cross chain communication between BC and BSC. Otherwise, no one is willing to maintain a bsc-relayer. Thus the communication between the BC and the BSC will be blocked. 
+Anyone can maintain a bsc-relayer by depositing 100BNB to the RelayerHub contract. If the relay reward can cover the relay cost, then more and more people will maintain their own bsc-relayer, which will improve the robustness of the cross chain communication between BC and BSC. Otherwise, no one is willing to maintain a bsc-relayer. Thus the communication between the BC and the BSC will be blocked. 
 
 ## 5. Specification
 
 ### 5.1 Governable Parameter
-Import a governable parameter `dynamicExtraIncentiveAmount` to the [RelayerIncentivize Contract](https://github.com/binance-chain/bsc-genesis-contract/blob/master/contracts/RelayerIncentivize.sol):
+Import a governable parameter `dynamicExtraIncentiveAmount` to the [RelayerIncentivize Contract](https://github.com/bnb-chain/bsc-genesis-contract/blob/master/contracts/RelayerIncentivize.sol):
 1. The `dynamicExtraIncentiveAmount` represents the amount of BNB which will be transferred from the SystemReward to the bsc relayer reward pool.
 2. The `dynamicExtraIncentiveAmount` can be modified by sidechain governance on BC.
 

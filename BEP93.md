@@ -2,7 +2,7 @@
 
 ## 1.  Summary
 
-This BEP introduces a new sync mode named diff sync on the Binance Smart Chain.
+This BEP introduces a new sync mode named diff sync on the BNB Smart Chain.
 
 ## 2.  Abstract
 
@@ -28,7 +28,7 @@ This BEP proposes a diff sync protocol without executing transactions, in exchan
 
 ## 3.  Status
 
-Draft.
+This BEP is already implemented.
 
 ## 4.  Motivation
 
