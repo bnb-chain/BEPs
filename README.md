@@ -36,5 +36,52 @@ Here is the list of subjects of BEPs:
 | [BEP-159](BEP159.md) | Introduce A New Staking Mechanism on BNB Beacon Chain      | Standards | Draft   |
 | [BEP-173](BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 
+# BNB Smart Chain Upgrades
+Note: Chapel is the name of the current BSC testnet.
+
+### Bohr(Upcoming)
+> Height(Chapel): TBD, Expect: middle of Mar 2023<br />
+> Height(Mainnet): TBD, Expect: end of Mar 2023
+
+Candidates List:
+- [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171)
+- [BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)
+- [BEP-174: Cross Chain Relayer Management](https://github.com/bnb-chain/BEPs/pull/174)
+- [BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)
+
+### Gibbs
+> Height(Chapel): 22800220, Sep-13-2022<br />
+> Height(Mainnet): 23846001, Dec-12-2022
+- [BEP-153: Introduce Native Staking on BSC](BEP153.md)
+
+### Moran
+> Height(Chapel): 23603940, Oct-11-2022<br />
+> Height(Mainnet): 22107423, Oct-12-2022
+- Fix the exploiter attack (emergency, no BEP)
+
+### Nano
+> Height(Chapel): 23482428, Oct-07-2022<br />
+> Height(Mainnet): 21962149, Oct-06-2022
+- Suspend CrossChain between BC & BSC due to the exploiter attack (emergency, no BEP)
+
+### Euler
+> Height(Chapel): 19203503, May-11-2022<br />
+> Height(Mainnet): 18907621, Jun-22-2022
+- [BEP-127 Temporary Maintenance Mode for Validators](127.md)
+- [BEP-131 Introduce candidate validators onto BNB Smart Chain](131.md)
+
+### Bruno
+> Height(Chapel): 13837000, Nov-05-2021<br />
+> Height(Mainnet): 13082000, Nov-30-2021
+- [BEP-95: Real-Time Burning Mechanism ](95.md)
+- [BEP-93: Diff Sync Protocol: Speed up node sync](93.md)
+
+### MirrorSync
+> Height(Chapel): 5582500, Jan-21-2021<br />
+> Height(Mainnet): 5184000, Feb-25-2021
+- Upgrade 3 system contract (no BEP):
+  [TokenManagerContract](https://bscscan.com/address/0x0000000000000000000000000000000000001008), [TokenHubContract](https://bscscan.com/address/0x0000000000000000000000000000000000001004), [RelayerIncentivizeContract](https://bscscan.com/address/0x0000000000000000000000000000000000001005)
+
+
 # How To Contribute A BEP
 If you have an idea and want to make it a BEP, you may refer [BEP-1](BEP1.md)
