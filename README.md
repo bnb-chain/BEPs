@@ -6,7 +6,7 @@ BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document prov
 Here is the list of subjects of BEPs:
 
 | Number               | Title                                                      | Type      | Status  |
-| -------------------- | ---------------------------------------------------------- | --------- | ------- |
+|----------------------|------------------------------------------------------------| --------- |---------|
 | [BEP-1](BEP1.md)     | Purpose and Guidelines of BEP                              | Process   | Living  |
 | [BEP-2](BEP2.md)     | Tokens on BNB Beacon Chain                                 | Standards | Enabled |
 | [BEP-3](BEP3.md)     | HTLC and Atomic Peg                                        | Standards | Enabled |
@@ -34,6 +34,7 @@ Here is the list of subjects of BEPs:
 | [BEP-151](BEP151.md) | Decommission Decentralized Exchange on BNB Beacon Chain    | Standards | Enabled |
 | [BEP-153](BEP153.md) | Introduce native staking onto BNB Smart Chain              | Standards | Enabled |
 | [BEP-159](BEP159.md) | Introduce A New Staking Mechanism on BNB Beacon Chain      | Standards | Draft   |
+| [BEP-171](BEP171.md) | Security Enhancement for Cross-Chain Module                | Standards | Draft   |
 | [BEP-173](BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 
 # BNB Smart Chain Upgrades
