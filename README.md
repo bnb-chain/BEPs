@@ -6,7 +6,7 @@ BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document prov
 Here is the list of subjects of BEPs:
 
 | Number               | Title                                                      | Type      | Status  |
-|----------------------|------------------------------------------------------------| --------- |---------|
+| -------------------- | ---------------------------------------------------------- | --------- | ------- |
 | [BEP-1](BEP1.md)     | Purpose and Guidelines of BEP                              | Process   | Living  |
 | [BEP-2](BEP2.md)     | Tokens on BNB Beacon Chain                                 | Standards | Enabled |
 | [BEP-3](BEP3.md)     | HTLC and Atomic Peg                                        | Standards | Enabled |
@@ -28,6 +28,7 @@ Here is the list of subjects of BEPs:
 | [BEP-91](BEP91.md)   | Increase Block Gas Ceiling for BNB Smart Chain             | Standards | Enabled |
 | [BEP-93](BEP93.md)   | Diff Sync Protocol on BSC                                  | Standards | Enabled |
 | [BEP-95](BEP95.md)   | Introduce Real-Time Burning Mechanism                      | Standards | Enabled |
+| [BEP-126](BEP126.md) | Introduce Fast Finality Mechanism                          | Standards | Draft   |
 | [BEP-127](BEP127.md) | Temporary Maintenance Mode for Validators                  | Standards | Enabled |
 | [BEP-128](BEP128.md) | Improvement on BNB Smart Chain Staking Reward Distribution | Standards | Enabled |
 | [BEP-131](BEP131.md) | Introduce candidate validators onto BNB Smart Chain        | Standards | Enabled |
@@ -35,7 +36,10 @@ Here is the list of subjects of BEPs:
 | [BEP-153](BEP153.md) | Introduce native staking onto BNB Smart Chain              | Standards | Enabled |
 | [BEP-159](BEP159.md) | Introduce A New Staking Mechanism on BNB Beacon Chain      | Standards | Draft   |
 | [BEP-171](BEP171.md) | Security Enhancement for Cross-Chain Module                | Standards | Draft   |
+| [BEP-172](BEP172.md) | Network Stability Enhancement On Slash Occur               | Standards | Draft   |
 | [BEP-173](BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
+| [BEP-174](BEP174.md) | Cross Chain Relayer Management                             | Standards | Draft   |
+| [BEP-188](BEP188.md) | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
 
 # BNB Smart Chain Upgrades
 Note: Chapel is the name of the current BSC testnet.
@@ -45,10 +49,10 @@ Note: Chapel is the name of the current BSC testnet.
 > Height(Mainnet): TBD, Expect: end of Mar 2023
 
 Candidates List:
-- [BEP-171: Security Enhancement for Cross-Chain Module](https://github.com/bnb-chain/BEPs/pull/171)
-- [BEP-172: Network Stability Enhancement On Slash Occur](https://github.com/bnb-chain/BEPs/pull/172)
-- [BEP-174: Cross Chain Relayer Management](https://github.com/bnb-chain/BEPs/pull/174)
-- [BEP-188: Early Broadcast Mature Block For In-Turn Validators](https://github.com/bnb-chain/BEPs/pull/188)
+- [BEP-171: Security Enhancement for Cross-Chain Module](BEP171.md)
+- [BEP-172: Network Stability Enhancement On Slash Occur](BEP172.md)
+- [BEP-174: Cross Chain Relayer Management](BEP174.md)
+- [BEP-188: Early Broadcast Mature Block For In-Turn Validators](BEP188.md)
 
 ### Gibbs
 > Height(Chapel): 22800220, Sep-13-2022<br />
