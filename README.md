@@ -51,7 +51,7 @@ Note: Chapel is the name of the current BSC testnet.
 Candidates List:
 - [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 2nd part.
 
-### Boneh(Upcoming)
+### Bonel(Upcoming)
 > Height(Chapel): TBD, Expect: TBD<br />
 > Height(Mainnet): TBD, Expect: TBD
 
@@ -59,7 +59,7 @@ Candidates List:
 - EVM-Compatible Upgrades: New Opcode: Push0, CodeSize Limit, Gas(EIP-3529, Warm Coinbase)
 - [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 1st part.
 
-### Bohr(Upcoming)
+### Planck(Upcoming)
 > Height(Chapel): TBD, Expect: Mid of Mar 2023<br />
 > Height(Mainnet): TBD, Expect: Early of Apr 2023
 
