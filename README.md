@@ -47,23 +47,17 @@ Note: Chapel is the name of the current BSC testnet.
 ### Lynn(Upcoming)
 > Height(Chapel): TBD, Expect: TBD<br />
 > Height(Mainnet): TBD, Expect: TBD
+
 Candidates List:
 - [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 2nd part.
 
 ### Boneh(Upcoming)
 > Height(Chapel): TBD, Expect: TBD<br />
 > Height(Mainnet): TBD, Expect: TBD
+
 Candidates List:
 - EVM-Compatible Upgrades: New Opcode: Push0, CodeSize Limit, Gas(EIP-3529, Warm Coinbase)
 - [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 1st part.
-
-
-### Lynn(Upcoming)
-> Height(Chapel): TBD, Expect: Mid of May 2023<br />
-> Height(Mainnet): TBD, Expect: Late of Jun 2023
-Candidates List:
-- EVM-Compatible Upgrades: New Opcode: Push0, CodeSize Limit, Gas(EIP-3529, Warm Coinbase)
-- [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), this BEP will be enabled through 2 hard forks, Lynn is the 1st step.
 
 ### Bohr(Upcoming)
 > Height(Chapel): TBD, Expect: Mid of Mar 2023<br />
