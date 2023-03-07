@@ -51,7 +51,7 @@ Note: Chapel is the name of the current BSC testnet.
 Candidates List:
 - [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 2nd part.
 
-### Bonel(Upcoming)
+### Boneh(Upcoming)
 > Height(Chapel): TBD, Expect: TBD<br />
 > Height(Mainnet): TBD, Expect: TBD
 
