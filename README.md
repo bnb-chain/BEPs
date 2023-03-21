@@ -42,9 +42,9 @@ Here is the list of subjects of BEPs:
 | [BEP-188](BEP188.md) | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
 
 # BNB Chain Upgrades
-[BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/)
+[BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
 
-[BNB Chain Upgrades(Testnet): History & Forecast](https://forum.bnbchain.org/)
+[BNB Chain Upgrades(Testnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-testnet/934)
 
 
 # How To Contribute A BEP
