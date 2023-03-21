@@ -41,66 +41,10 @@ Here is the list of subjects of BEPs:
 | [BEP-174](BEP174.md) | Cross Chain Relayer Management                             | Standards | Draft   |
 | [BEP-188](BEP188.md) | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
 
-# BNB Smart Chain Upgrades
-Note: Chapel is the name of the current BSC testnet.
+# BNB Chain Upgrades
+[BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
 
-### Lynn(Upcoming)
-> Height(Chapel): TBD, Expect: TBD<br />
-> Height(Mainnet): TBD, Expect: TBD
-
-Candidates List:
-- [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 2nd part.
-
-### Boneh(Upcoming)
-> Height(Chapel): TBD, Expect: TBD<br />
-> Height(Mainnet): TBD, Expect: TBD
-
-Candidates List:
-- EVM-Compatible Upgrades: New Opcode: Push0, CodeSize Limit, Gas(EIP-3529, Warm Coinbase)
-- [BEP-126: Introduce Fast Finality Mechanism](BEP126.md), the 1st part.
-
-### Planck(Upcoming)
-> Height(Chapel): TBD, Expect: Mid of Mar 2023<br />
-> Height(Mainnet): TBD, Expect: Early of Apr 2023
-
-Candidates List:
-- [BEP-171: Security Enhancement for Cross-Chain Module](BEP171.md)
-- [BEP-172: Network Stability Enhancement On Slash Occur](BEP172.md)
-- [BEP-174: Cross Chain Relayer Management](BEP174.md)
-- [BEP-188: Early Broadcast Mature Block For In-Turn Validators](BEP188.md)
-
-### Gibbs
-> Height(Chapel): 22800220, Sep-13-2022<br />
-> Height(Mainnet): 23846001, Dec-12-2022
-- [BEP-153: Introduce Native Staking on BSC](BEP153.md)
-
-### Moran
-> Height(Chapel): 23603940, Oct-11-2022<br />
-> Height(Mainnet): 22107423, Oct-12-2022
-- Fix the exploiter attack (emergency, no BEP)
-
-### Nano
-> Height(Chapel): 23482428, Oct-07-2022<br />
-> Height(Mainnet): 21962149, Oct-06-2022
-- Suspend CrossChain between BC & BSC due to the exploiter attack (emergency, no BEP)
-
-### Euler
-> Height(Chapel): 19203503, May-11-2022<br />
-> Height(Mainnet): 18907621, Jun-22-2022
-- [BEP-127 Temporary Maintenance Mode for Validators](127.md)
-- [BEP-131 Introduce candidate validators onto BNB Smart Chain](131.md)
-
-### Bruno
-> Height(Chapel): 13837000, Nov-05-2021<br />
-> Height(Mainnet): 13082000, Nov-30-2021
-- [BEP-95: Real-Time Burning Mechanism ](95.md)
-- [BEP-93: Diff Sync Protocol: Speed up node sync](93.md)
-
-### MirrorSync
-> Height(Chapel): 5582500, Jan-21-2021<br />
-> Height(Mainnet): 5184000, Feb-25-2021
-- Upgrade 3 system contract (no BEP):
-  [TokenManagerContract](https://bscscan.com/address/0x0000000000000000000000000000000000001008), [TokenHubContract](https://bscscan.com/address/0x0000000000000000000000000000000000001004), [RelayerIncentivizeContract](https://bscscan.com/address/0x0000000000000000000000000000000000001005)
+[BNB Chain Upgrades(Testnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-testnet/934)
 
 
 # How To Contribute A BEP
