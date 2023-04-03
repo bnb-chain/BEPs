@@ -13,7 +13,7 @@
       - [5.4.1 App state chunk](#541-app-state-chunk)
       - [5.4.2 Tendermint state chunk](#542-tendermint-state-chunk)
       - [5.4.3 Block chunk](#543-block-chunk)
-    - [5.5 Operation suggestion](#55-operation-suggestion)
+    - [5.5 Operation Suggestion](#55-operation-suggestion)
   - [6. License](#6-license)
 
 ## 1.  Summary
