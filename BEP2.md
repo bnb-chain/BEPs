@@ -40,7 +40,7 @@ Design and issue asset on the BNB Beacon Chain, as the basic economic foundation
 
 ### 5.1 Native Token on BNB Beacon Chain: BNB
 
-The BNB Beacon Token, BNB, is the native asset on BNB Beacon Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on BNB Beacon Chain. BNB was an ERC20 token, but after Binance Chain is live, all BNB ERC20 tokens are swapped for BNB token on BNB Beacon Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new BNB Beacon Chain native tokens will be sent to their new addresses.
+The BNB Beacon Token, BNB, is the native asset on BNB Beacon Chain and created within Genesis Block. As the native asset, BNB would be used for fees (gas) and staking on BNB Beacon Chain. BNB was an ERC20 token, but after BNB Beacon Chain is live, all BNB ERC20 tokens are swapped for BNB token on BNB Beacon Chain. All users who hold BNB ERC20 tokens can deposit them to Binance.com, and upon withdrawal, the new BNB Beacon Chain native tokens will be sent to their new addresses.
 
 ### 5.2 Token Properties
 
