@@ -2,12 +2,12 @@
 
 BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document providing information to the BNB Chain ecosystem and community.
 
-
 Here is the list of subjects of BEPs:
 
 | Number               | Title                                                      | Type      | Status  |
 | -------------------- | ---------------------------------------------------------- | --------- | ------- |
 | [BEP-1](BEP1.md)     | Purpose and Guidelines of BEP                              | Process   | Living  |
+| [BEP-1.1](BEP1.1.md)     | Purpose and Guidelines of BEP for opBNB                              | Process   | Living  |
 | [BEP-2](BEP2.md)     | Tokens on BNB Beacon Chain                                 | Standards | Enabled |
 | [BEP-3](BEP3.md)     | HTLC and Atomic Peg                                        | Standards | Enabled |
 | [BEP-6](BEP6.md)     | Delist Trading Pairs on BNB Beacon Chain                   | Standards | Enabled |
