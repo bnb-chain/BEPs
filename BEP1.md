@@ -42,12 +42,10 @@ There are three types of BEP:
 
 *Figure 1: BEP workflow*
 
-Once the idea is accepted, each status change is requested by the BEP author and reviewed by the BEP editors. Use a pull request to update the status.
-
 - **Idea**: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may post your idea in [bnb chain forum](https://forum.bnbchain.org/) and visit the [bep-discussion channel in our discord](https://discord.gg/bnbchain) to let the community know it.
-- **Pre-Draft**: If your idea is accepted, it is still not a BEP yet. A formal document will be needed to describe your idea, the Pre-Draft document should follow the BEP format. And you need to create a pull request and the BEP editors will review it.
-- **Draft**: Once the Pre-Draft pull request is accepted by the community and reviewed by the BEP editors, it can be merged. The pull request number will be used as the BEP number, which means it is a legal BEP now. The BEP editors will add the status, then it will be recorded and maintained by the community. The BEP author should keep pushing it forward, the author can update the BEP by creating new pull requests.
-- **Final**: This proposal is finalized and a reference implementation should be provided.
+- **Draft**: If your idea is widely accepted or you have the confidence, you can draft a document following the BEP format and raise a PR in this repo. Once the PR is reviewed and merged by the BEP editors, it becomes a legal BEP. The pull request number will be used as the BEP number. And it will be recorded and maintained by the community. The BEP author should keep pushing it forward, the author can update the BEP by creating new pull requests.
+- **Review**: If the content of the BEP is ready, it will enter the Review state, then the community will review it.
+- **Candidate**: If review is passed and the BEP is accepted, it will enter Candidate state.
 - **Enabled**: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
 
 Other exceptional statuses include:
@@ -55,6 +53,8 @@ Other exceptional statuses include:
 - **Living**: A BEP will be long-term maintained, like this BEP.
 - **Stagnant**: A BEP has not been updated for more than 6 months, it will enter Stagnant state.
 - **Withdrawn**: A BEP that is dropped and will not be implemented. Usually, it is due to some prerequisite conditions that are not true anymore.
+
+To make it more flexible, BEP can be updated as long as it is not enabled yet.
 
 ## 5.  BEP Format
 It is important to keep BEP clear and well organized, BEPs need to follow this format(BEP1 is excepted):
