@@ -7,7 +7,6 @@ Here is the list of subjects of BEPs:
 | Number               | Title                                                      | Type      | Status  |
 | -------------------- | ---------------------------------------------------------- | --------- | ------- |
 | [BEP-1](./BEPs/BEP1.md)     | Purpose and Guidelines of BEP                              | Process   | Living  |
-| [BEP-1.1](./BEPs/BEP1.1.md)     | Purpose and Guidelines of BEP for opBNB                              | Process   | Living  |
 | [BEP-2](./BEPs/BEP2.md)     | Tokens on BNB Beacon Chain                                 | Standards | Enabled |
 | [BEP-3](./BEPs/BEP3.md)     | HTLC and Atomic Peg                                        | Standards | Enabled |
 | [BEP-6](./BEPs/BEP6.md)     | Delist Trading Pairs on BNB Beacon Chain                   | Standards | Enabled |
