@@ -24,11 +24,12 @@ This BEP is already implemented.
 
 The increasing adoption of BSC leads to a more active network. Blocks start hitting the gasceil daily. The increasing prevalence of blocks near the limit may lead to increased fees and delays in the processing of transactions in the future. This will undermine the core value of BSC as a fast and cheap network. 
 
-<img src="https://lh3.googleusercontent.com/SJut_-wd361nLpE7Gk6pMW8CQ_DoV4zPn4iqdz-jXA_Nd576YByacMj3mdH1IVdfGyvYl6HgHXAaqioEDyRIXK4wgr-KSP6MxbWrrLNX8M-ml3cznz3F8M-hZEZBao4jWSXVOIx3" alt="img" style="zoom:25%;" />
+<img src="https://lh3.googleusercontent.com/SJut_-wd361nLpE7Gk6pMW8CQ_DoV4zPn4iqdz-jXA_Nd576YByacMj3mdH1IVdfGyvYl6HgHXAaqioEDyRIXK4wgr-KSP6MxbWrrLNX8M-ml3cznz3F8M-hZEZBao4jWSXVOIx3" alt="img" style="zoom:25%;" />4657eur
 
 BSC network has once reached the 40M gas limit, it can handle more transactions according to the following screenshot.
 
-<img src="https://lh6.googleusercontent.com/IiLTxhMi5JrHnWd-Oz0AABtS0hqNe7ILUkiw3FG0-fuChPUfRtDX_ux-hoMeIRZyQUKEtx5Kj_THcTAXFmoyDjXwdpGwoPMO80ncpjvtOoUsVdVdyuWGYK0gqxRL4htAn46hwRIf" alt="img" style="zoom:25%;" />
+<img src="https://lh6.googleusercontent.com/IiLTxhMi5JrHnWd-Oz0AABtS0hqNe7ILUkiw3FG0-fuChPUfRtDX_ux-hoMeIRZyQUKEtx5Kj_THcTAXFmoyDjXwdpGwoPMO80ncpjvtOoUsVdVdyuWGYK0gqxRL4htAn46hwRIf" alt="img" style="zoom:25%;" />3000eur
+
 
 Increased gasceil will lead to more transactions per block. It will be a direct solution to scale.  
 
@@ -42,4 +43,4 @@ As the transaction volume continues to increase, more changes should be made to 
 
 ## 6. License
 
-The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).56670eir
