@@ -39,7 +39,7 @@ Here is the list of subjects of BEPs:
 | [BEP-173](./BEPs/BEP173.md) | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 | [BEP-174](./BEPs/BEP174.md) | Cross Chain Relayer Management                             | Standards | Draft   |
 | [BEP-188](./BEPs/BEP188.md) | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
-| [BEP-256](./BEPs/BEP256.md) | Erasure Encoding Configuration Adjustment                  | Standards | Draft   |
+| [BEP-256](./BEPs/BEP256.md) | Erasure Coding Configuration Adjustment                  | Standards | Draft   |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
