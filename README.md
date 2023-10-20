@@ -46,6 +46,7 @@ Here is the list of subjects of BEPs:
 | [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                           | Standards | Candidate |
 | [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                   | Standards | Review  |
 | [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Candidate  |
+| [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Candidate  |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
