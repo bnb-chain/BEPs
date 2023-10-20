@@ -65,6 +65,7 @@ Here is the list of subjects of BEPs:
 | [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                   | Standards | Draft     |
 | [BEP-335](./BEPs/BEP-335.md) | Greenfield Simplify Storage Provider Exit                   | Standards | Enabled   |
 | [BEP-336](./BEPs/BEP-336.md) | Implement EIP-4844: Shard Blob Transactions               | Standards | Candidate     |
+| [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Candidate  |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                 | Standards | Candidate |
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes             | Standards | Candidate |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-6780: SELFDESTRUCT only in same transaction | Standards | Candidate |
