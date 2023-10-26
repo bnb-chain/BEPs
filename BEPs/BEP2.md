@@ -1,4 +1,4 @@
-# BEP-2: Tokens on BNB Beacon Chain
+ # BEP-2: Tokens on BNB Beacon Chain
 
 - [BEP-2: Tokens on BNB Beacon Chain](#bep-2-tokens-on-bnb-beacon-chain)
   - [1.  Summary](#1--summary)
