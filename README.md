@@ -51,6 +51,7 @@ Here is the list of subjects of BEPs:
 | [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Candidate |
 | [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                                  | Standards | Enabled   |
 | [BEP-333](./BEPs/BEP333.md)  | BNB Chain Fusion                                              | Standards | Candidate |
+| [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                       | Standards | Draft     |
 | [BEP-336](./BEPs/BEP-336.md) | Implement EIP-4844: Shard Blob Transactions                   | Standards | Draft     |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                     | Standards | Candidate |
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
