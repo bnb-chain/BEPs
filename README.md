@@ -27,7 +27,7 @@ Here is the list of subjects of BEPs:
 | [BEP-91](./BEPs/BEP91.md)    | Increase Block Gas Ceiling for BNB Smart Chain             | Standards | Enabled |
 | [BEP-93](./BEPs/BEP93.md)    | Diff Sync Protocol on BSC                                  | Standards | Enabled |
 | [BEP-95](./BEPs/BEP95.md)    | Introduce Real-Time Burning Mechanism                      | Standards | Enabled |
-| [BEP-126](./BEPs/BEP126.md)  | Introduce Fast Finality Mechanism                          | Standards | Draft   |
+| [BEP-126](./BEPs/BEP126.md)  | Introduce Fast Finality Mechanism                          | Standards | Enabled   |
 | [BEP-127](./BEPs/BEP127.md)  | Temporary Maintenance Mode for Validators                  | Standards | Enabled |
 | [BEP-128](./BEPs/BEP128.md)  | Improvement on BNB Smart Chain Staking Reward Distribution | Standards | Enabled |
 | [BEP-131](./BEPs/BEP131.md)  | Introduce candidate validators onto BNB Smart Chain        | Standards | Enabled |
@@ -39,7 +39,12 @@ Here is the list of subjects of BEPs:
 | [BEP-173](./BEPs/BEP173.md)  | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
 | [BEP-174](./BEPs/BEP174.md)  | Cross Chain Relayer Management                             | Standards | Draft   |
 | [BEP-188](./BEPs/BEP188.md)  | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
+| [BEP-216](./BEPs/BEP216.md)  | Implement EIP 3855 PUSH0 instruction                         | Standards | Draft   |
+| [BEP-217](./BEPs/BEP217.md)  | Implement EIP3860 Limit and meter initcode                 | Standards | Draft   |
 | [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                   | Standards | Draft   |
+| [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                           | Standards | Draft   |
+| [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                   | Standards | Review  |
+| [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Draft  |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
