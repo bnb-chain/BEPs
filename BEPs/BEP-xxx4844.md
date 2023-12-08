@@ -34,6 +34,8 @@ The specification from execution layer will be same in case of BSC. The specific
 
 ## 6. Life of a Blob Transaction
 
+![Life of a blob transaction](./assets/BEP-4844/blobtxlife.png)
+
 ### Blob pool
 Once a blob transaction is sent, it ends up in the blob pool which is a separate pool only for blob transactions.
 
@@ -42,12 +44,15 @@ The blob transaction undergoes initial verification just like in case of a norma
 There's however an extra verification step in `validateBlobSidecar()`. This should verify proofs of the blobs using `VerifyBlobProof()`. 
 Once the verification is passed the transaction is stored in the blobpool storage.
 
-### Consensus process
+### Consensus process: Generation & Storage of Sidecars
+During consensus process, the sidecars consisting of blobs are made separately than a block. A block may have multiple sidecars. 
 
-### Generation of Sidecars
-### Storage of Sidecars
 ### Propagation of Sidecars among peers
+After sidecar passes all the consensus layer checks, it gets propagated across the peers of the node. 
+Each peer does its own sanity check on the sidecar it receives.
+
 ### Fetching of Sidecars when a node starts
+When a node starts it needs to do the sidecar backfilling by requesting them from peers.
 
 ## 7. Changes Specifc to BSC
 
