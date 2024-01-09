@@ -25,7 +25,7 @@ Here is the list of subjects of BEPs:
 | [BEP-87](./BEPs/BEP87.md)    | Token Symbol Minimum Length Change                         | Standards | Enabled |
 | [BEP-89](./BEPs/BEP89.md)    | Visual Fork of BNB Smart Chain                             | Standards | Enabled |
 | [BEP-91](./BEPs/BEP91.md)    | Increase Block Gas Ceiling for BNB Smart Chain             | Standards | Enabled |
-| [BEP-93](./BEPs/BEP93.md)    | Diff Sync Protocol on BSC                                  | Standards | Enabled |
+| [BEP-93](./BEPs/BEP93.md)    | Diff Sync Protocol on BSC                                  | Standards | Withdrawn |
 | [BEP-95](./BEPs/BEP95.md)    | Introduce Real-Time Burning Mechanism                      | Standards | Enabled |
 | [BEP-126](./BEPs/BEP126.md)  | Introduce Fast Finality Mechanism                          | Standards | Enabled   |
 | [BEP-127](./BEPs/BEP127.md)  | Temporary Maintenance Mode for Validators                  | Standards | Enabled |
@@ -34,17 +34,18 @@ Here is the list of subjects of BEPs:
 | [BEP-151](./BEPs/BEP151.md)  | Decommission Decentralized Exchange on BNB Beacon Chain    | Standards | Enabled |
 | [BEP-153](./BEPs/BEP153.md)  | Introduce native staking onto BNB Smart Chain              | Standards | Enabled |
 | [BEP-159](./BEPs/BEP159.md)  | Introduce A New Staking Mechanism on BNB Beacon Chain      | Standards | Draft   |
-| [BEP-171](./BEPs/BEP171.md)  | Security Enhancement for Cross-Chain Module                | Standards | Draft   |
-| [BEP-172](./BEPs/BEP172.md)  | Network Stability Enhancement On Slash Occur               | Standards | Draft   |
+| [BEP-171](./BEPs/BEP171.md)  | Security Enhancement for Cross-Chain Module                | Standards | Enabled |
+| [BEP-172](./BEPs/BEP172.md)  | Network Stability Enhancement On Slash Occur               | Standards | Enabled |
 | [BEP-173](./BEPs/BEP173.md)  | Introduce Text Governance Proposal for BNB Smart Chain     | Standards | Enabled |
-| [BEP-174](./BEPs/BEP174.md)  | Cross Chain Relayer Management                             | Standards | Draft   |
-| [BEP-188](./BEPs/BEP188.md)  | Early Broadcast Mature Block For In-Turn Validators        | Standards | Draft   |
-| [BEP-216](./BEPs/BEP216.md)  | Implement EIP 3855 PUSH0 instruction                         | Standards | Draft   |
-| [BEP-217](./BEPs/BEP217.md)  | Implement EIP3860 Limit and meter initcode                 | Standards | Draft   |
+| [BEP-174](./BEPs/BEP174.md)  | Cross Chain Relayer Management                             | Standards | Enabled |
+| [BEP-188](./BEPs/BEP188.md)  | Early Broadcast Mature Block For In-Turn Validators        | Standards | Withdrawn |
+| [BEP-206](./BEPs/BEP206.md)  | Hybrid Mode State Expiry                                   | Standards | Stagnant |
+| [BEP-216](./BEPs/BEP216.md)  | Implement EIP 3855 PUSH0 instruction                       | Standards | Candidate |
+| [BEP-217](./BEPs/BEP217.md)  | Implement EIP3860 Limit and meter initcode                 | Standards | Candidate |
 | [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                   | Standards | Draft   |
-| [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                           | Standards | Draft   |
+| [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                           | Standards | Candidate |
 | [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                   | Standards | Review  |
-| [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Draft  |
+| [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Candidate  |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
