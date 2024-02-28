@@ -43,14 +43,14 @@ Here is the list of subjects of BEPs:
 | [BEP-216](./BEPs/BEP216.md)  | Implement EIP 3855 PUSH0 instruction                          | Standards | Candidate |
 | [BEP-217](./BEPs/BEP217.md)  | Implement EIP3860 Limit and meter initcode                    | Standards | Candidate |
 | [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                      | Standards | Draft     |
-| [BEP-294](./BEPs/BEP-294.md) | BSC Native Staking after BC Fusion                            | Standards | Candidate |
-| [BEP-297](./BEPs/BEP-297.md) | BSC Native Governance Module                                  | Standards | Candidate |
+| [BEP-294](./BEPs/BEP294.md)  | BSC Native Staking after BC Fusion                            | Standards | Candidate |
+| [BEP-297](./BEPs/BEP297.md)  | BSC Native Governance Module                                  | Standards | Candidate |
 | [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                               | Standards | Candidate |
 | [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                              | Standards | Candidate |
 | [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                      | Standards | Review    |
 | [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Candidate |
-| [BEP-323](./BEPs/BEP-323.md) | Bundle Format for Greenfield                                  | Standards | Enabled   |
-| [BEP-333](./BEPs/BEP-333.md) | BNB Chain Fusion                                              | Standards | Candidate |
+| [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                                  | Standards | Enabled   |
+| [BEP-333](./BEPs/BEP333.md)  | BNB Chain Fusion                                              | Standards | Candidate |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                     | Standards | Candidate |
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
