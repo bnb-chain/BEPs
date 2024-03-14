@@ -56,6 +56,7 @@ Here is the list of subjects of BEPs:
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
 | [BEP-345](./BEPs/BEP-345.md) | Implement EIP-7516: BLOBBASEFEE opcode                        | Standards | Candidate |
+| [BEP-362](./BEPs/BEP-362.md) | Greenfield Storage Fee Paymaster                              | Standards | Candidate |
 
 
 # BNB Chain Upgrades
