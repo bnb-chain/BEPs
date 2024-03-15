@@ -5,7 +5,7 @@ BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document prov
 Here is the list of subjects of BEPs:
 
 | Number                       | Title                                                         | Type      | Status    |
-|------------------------------|---------------------------------------------------------------|-----------|-----------|
+| ---------------------------- | ------------------------------------------------------------- | --------- | --------- |
 | [BEP-1](./BEPs/BEP1.md)      | Purpose and Guidelines of BEP                                 | Process   | Living    |
 | [BEP-2](./BEPs/BEP2.md)      | Tokens on BNB Beacon Chain                                    | Standards | Enabled   |
 | [BEP-3](./BEPs/BEP3.md)      | HTLC and Atomic Peg                                           | Standards | Enabled   |
@@ -56,6 +56,7 @@ Here is the list of subjects of BEPs:
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-1153: Transient storage opcodes                 | Standards | Candidate |
 | [BEP-345](./BEPs/BEP-345.md) | Implement EIP-7516: BLOBBASEFEE opcode                        | Standards | Candidate |
+| [BEP-346](./BEPs/BEP-346.md) | Streamline off-chain authentication on Greenfield             | Standards | Draft     |
 
 
 # BNB Chain Upgrades
