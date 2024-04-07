@@ -19,7 +19,7 @@ BEP-39 requests that `MEMO` data field be added to the `/ws/userAddress` websock
 
 Currently the `MEMO` field is not being returned on the websocket, which means that services that rely on `MEMO` to set transaction specifications must then retrieve it from the [Transaction API endpoint](https://docs.bnbchain.org/docs/beaconchain/develop/api-reference/dex-api/paths/#transaction).
 
-This creates unneccessary burden on the API and slows down the transaction processing. 
+This creates unnecessary burden on the API and slows down the transaction processing. 
 
 The solution is to add it to the Transfer Websocket as a data field to stream. 
 
