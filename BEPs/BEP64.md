@@ -74,7 +74,7 @@ The scheme component ("bnb:") is case-insensitive, and implementations must acce
 
 * asset: entire asset name, including the "-XXX" random suffix. For BNB, it will be just "BNB", or just don't provide this parameter to take BNB as default value.
 
-* amount: how much of this asset will be transfered
+* amount: how much of this asset will be transferred
 
 * (others): optional, for future extensions
 
@@ -113,7 +113,7 @@ Also, very likely, what he will find are mostly technical specifications - not t
 Variables which are prefixed with a req- are considered required.  If a client does not implement any variables which are prefixed with req-, it MUST consider the entire URI invalid.  Any other variables which are not implemented, but which are not prefixed with a req-, can be safely ignored.
 
 ## 6. Backward compatibility
-Currently no URI like `bnb:` is adopted by any exising wallet, all clear here.
+Currently no URI like `bnb:` is adopted by any existing wallet, all clear here.
 
 ## 7. Appendix
 
