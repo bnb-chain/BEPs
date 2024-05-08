@@ -46,7 +46,7 @@ Here is the list of subjects of BEPs:
 | [BEP-221](./BEPs/BEP221.md)  | CometBFT Light Block Validation                            | Standards | Draft |
 | [BEP-225](./BEPs/BEP-225.md) | Implement EIP2565 ModExp Gas Cost                          | Standards | Enabled     |
 | [BEP-226](./BEPs/BEP226.md)  | Enable EIP-1559 with base fee of 0                         | Standards | Enabled |
-| [BEP-227](./BEPs/BEP227.md)  | Add BASEFEE opcode                                         | Standards | Candidate     |
+| [BEP-227](./BEPs/BEP227.md)  | Add BASEFEE opcode                                         | Standards | Enabled     |
 | [BEP-228](./BEPs/BEP228.md)  | Prevent deploying contracts starting with 0xEF             | Standards | Enabled     |
 | [BEP-229](./BEPs/BEP-229.md) | Implement EIP-2718 Typed Transaction Envelope              | Standards | Enabled     |
 | [BEP-230](./BEPs/BEP-230.md) | Implement EIP-2929 Gas cost increases for state access opcodes | Standards | Enabled     |
