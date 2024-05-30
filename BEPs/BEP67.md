@@ -1,6 +1,6 @@
 # BEP-67: Price-based Order Expiration
 
-- [BEP-67: Price-based Order Expiration](#bep-67-Price-based-order-expiration)
+- [BEP-67: Price-based Order Expiration](#bep-67-price-based-order-expiration)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -8,11 +8,13 @@
   - [5. Specification](#5-specification)
     - [5.1 Order Expiration](#51-order-expiration)
     - [5.2 Change Impact](#52-change-impact)
+      - [5.2.1 Impact on Trader](#521-impact-on-trader)
+      - [5.2.2 Impact on BNB Beacon Chain](#522-impact-on-bnb-beacon-chain)
   - [6. License](#6-license)
 
 ## 1. Summary 
 
-This BEP describes an enhancement of the [Order Expiration](https://docs.bnbchain.org/docs/beaconchain/trading-spec/#order-expire).  
+This BEP describes an enhancement of the Order Expiration.
 
 ## 2. Abstract
 
