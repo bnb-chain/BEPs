@@ -13,16 +13,16 @@
       - [5.4.1 App state chunk](#541-app-state-chunk)
       - [5.4.2 Tendermint state chunk](#542-tendermint-state-chunk)
       - [5.4.3 Block chunk](#543-block-chunk)
-    - [5.5 Operation suggestion](#55-operation-suggestion)
+    - [5.5 Operation Suggestion](#55-operation-suggestion)
   - [6. License](#6-license)
 
 ## 1.  Summary
 
-This BEP describes [state sync](https://docs.bnbchain.org/docs/beaconchain/develop/node/synctypes/#state-sync) enhancement on the BNB Beacon Chain.
+This BEP describes state sync enhancement on the BNB Beacon Chain.
 
 ## 2.  Abstract
 
-[State sync](https://docs.bnbchain.org/docs/beaconchain/develop/node/synctypes/#state-sync) is a way to help newly-joined users sync the latest status of the BNB Beacon Chain. It syncs the latest sync-able peer's status so that fullnode user (who wants to catch up with chain as soon as possible with a cost that discards all historical blocks locally) doesn't need sync from block height 0.
+State sync is a way to help newly-joined users sync the latest status of the BNB Beacon Chain. It syncs the latest sync-able peer's status so that fullnode user (who wants to catch up with chain as soon as possible with a cost that discards all historical blocks locally) doesn't need sync from block height 0.
 
 BEP-18 Proposal describes an enhancement of existing state sync implementation to improve user experience. The status of the blockchain that can be synced is represented in a **"snapshot"**, which consists of a manifest file and a bunch of snapshot chunk files. The manifest file summarizes version, height, and checksums of snapshot chunk files of this snapshot. The snapshot chunk files contain encoded essential state data to recover a full node.
 

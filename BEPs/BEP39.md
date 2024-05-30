@@ -11,13 +11,13 @@
 
 ## 1.  Summary 
 
-This BEP describes an improvement to the [Transfer Websocket](https://docs.bnbchain.org/docs/beaconchain/develop/api-reference/dex-api/ws-streams#2-transfer).  
+This BEP describes an improvement to the Transfer Websocket.  
 
 ## 2.  Abstract
 
 BEP-39 requests that `MEMO` data field be added to the `/ws/userAddress` websocket. 
 
-Currently the `MEMO` field is not being returned on the websocket, which means that services that rely on `MEMO` to set transaction specifications must then retrieve it from the [Transaction API endpoint](https://docs.bnbchain.org/docs/beaconchain/develop/api-reference/dex-api/paths/#transaction).
+Currently the `MEMO` field is not being returned on the websocket, which means that services that rely on `MEMO` to set transaction specifications must then retrieve it from the Transaction API endpoint.
 
 This creates unnecessary burden on the API and slows down the transaction processing. 
 

@@ -49,7 +49,6 @@ The DelistTradingPair proposal is similar to a governance proposal. It requires 
 |   InitialDeposit  |   coins    | Initial deposit paid by sender. Must be strictly positive |
 |    VotingPeriod   |   int      | Length of the voting period|
 
-For other document about governance proposal, please refer to this page: https://docs.bnbchain.org/docs/beaconchain/governance/#proposal-parameters
 
 ### 5.2 Cooling-Off Period
 Once a `DelistTradingPair` proposal is passed, it will enter a cooling-off period. The cooling-off period lasts until the next UTC 00:00 after the 72-hour point of the proposal passing.  As the name suggests, users should re-evaluate the market and take action on the proposed asset to be delisted. In this period, users can still create new orders and cancel orders on the trading pair. Once this period has ended, all outstanding orders will expire.

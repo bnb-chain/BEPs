@@ -1,6 +1,6 @@
 # BEP70: List and Trade BUSD Pairs
 
-- [BEP-70: List and Trade BUSD Pairs](#bep-70-list-and-trade-buse-pairs)
+- [BEP70: List and Trade BUSD Pairs](#bep70-list-and-trade-busd-pairs)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -37,9 +37,6 @@ Currently, for listing a trading pair between AAA and BUSD, there are following 
 + Existed trading pair between AAA and BNB
 + Existed trading pair between BUSD and BNB  
 
-For more information about governance proposal, please refer to the following page:   
-[https://docs.bnbchain.org/docs/beaconchain/governance](https://docs.bnbchain.org/docs/beaconchain/governance)
-
 #### 5.1.2 Proposed Changes
 For proposing and listing BUSD trading pairs, BUSD must be the base asset or quote asset. It means the BaseAssetSymbol or QuoteAssetSymbol must be BUSD-BD1 on the mainnet, and QuoteAssetSymbol or BaseAssetSymbol does not have to be BNB. 
 
@@ -53,9 +50,6 @@ With the proposed changes, for listing a trading pair between AAA and BUSD, the 
 
 ### 5.2 Trading Fee Calculation
 To calculate the trading fees, the price of BNB denominated in BUSD will be used if needed.
-For more information about trading fees, please refer to the following page:  
-[https://docs.bnbchain.org/docs/beaconchain/trading-spec/](https://docs.bnbchain.org/docs/beaconchain/trading-spec/)
-
 
 ## 6. License
 The content is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
