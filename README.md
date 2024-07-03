@@ -74,6 +74,7 @@ Here is the list of subjects of BEPs:
 | [BEP-364](./BEPs/BEP-364.md) | Primary Storage Provider acts as the upload agent for object creation and update on Greenfield | Standards | Candidate |
 | [BEP-366](./BEPs/BEP-366.md) | PGreenfield Atomic Object Update                           | Standards | Candidate |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
+| [BEP-405](./BEPs/BEP-405.md) | Vote immediately after Verifying Header of New Chain Head Block        | Standards | Candidate |
 
 
 
