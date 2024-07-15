@@ -75,6 +75,7 @@ Here is the list of subjects of BEPs:
 | [BEP-366](./BEPs/BEP-366.md) | PGreenfield Atomic Object Update                           | Standards | Candidate |
 | [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Candidate |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
+| [BEP-406](./BEPs/BEP-406.md) | Add Agent for Validators          | Standards | Candidate |
 
 
 
