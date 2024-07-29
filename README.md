@@ -33,17 +33,17 @@ Here is the list of subjects of BEPs:
 | [BEP-131](./BEPs/BEP131.md)  | Introduce candidate validators onto BNB Smart Chain       | Standards | Enabled   |
 | [BEP-151](./BEPs/BEP151.md)  | Decommission Decentralized Exchange on BNB Beacon Chain   | Standards | Enabled   |
 | [BEP-153](./BEPs/BEP153.md)  | Introduce native staking onto BNB Smart Chain             | Standards | Enabled   |
-| [BEP-159](./BEPs/BEP159.md)  | Introduce A New Staking Mechanism on BNB Beacon Chain     | Standards | Draft     |
+| [BEP-159](./BEPs/BEP159.md)  | Introduce A New Staking Mechanism on BNB Beacon Chain     | Standards | Enabled   |
 | [BEP-171](./BEPs/BEP171.md)  | Security Enhancement for Cross-Chain Module               | Standards | Enabled   |
 | [BEP-172](./BEPs/BEP172.md)  | Network Stability Enhancement On Slash Occur              | Standards | Enabled   |
 | [BEP-173](./BEPs/BEP173.md)  | Introduce Text Governance Proposal for BNB Smart Chain    | Standards | Enabled   |
 | [BEP-174](./BEPs/BEP174.md)  | Cross Chain Relayer Management                            | Standards | Enabled   |
 | [BEP-188](./BEPs/BEP188.md)  | Early Broadcast Mature Block For In-Turn Validators       | Standards | Withdrawn |
-| [BEP-194](./BEPs/BEP194.md)  | Node Discovery ENR filtering                               | Standards | Draft |
+| [BEP-194](./BEPs/BEP194.md)  | Node Discovery ENR filtering                               | Standards | Enabled |
 | [BEP-206](./BEPs/BEP206.md)  | Hybrid Mode State Expiry                                  | Standards | Stagnant  |
 | [BEP-216](./BEPs/BEP216.md)  | Implement EIP 3855 PUSH0 instruction                      | Standards | Enabled |
 | [BEP-217](./BEPs/BEP217.md)  | Implement EIP3860 Limit and meter initcode                | Standards | Enabled |
-| [BEP-221](./BEPs/BEP221.md)  | CometBFT Light Block Validation                            | Standards | Draft |
+| [BEP-221](./BEPs/BEP221.md)  | CometBFT Light Block Validation                            | Standards | Enabled |
 | [BEP-225](./BEPs/BEP-225.md) | Implement EIP2565 ModExp Gas Cost                          | Standards | Enabled     |
 | [BEP-226](./BEPs/BEP226.md)  | Enable EIP-1559 with base fee of 0                         | Standards | Enabled |
 | [BEP-227](./BEPs/BEP227.md)  | Add BASEFEE opcode                                         | Standards | Enabled     |
@@ -52,7 +52,7 @@ Here is the list of subjects of BEPs:
 | [BEP-230](./BEPs/BEP-230.md) | Implement EIP-2929 Gas cost increases for state access opcodes | Standards | Enabled     |
 | [BEP-231](./BEPs/BEP231.md)  | Implement EIP-2930: Optional access lists                  | Standards | Enabled     |
 | [BEP-255](./BEPs/BEP255.md)  | Beacon Chain Asset Reconciliation for Security Enhancement | Standards | Enabled   |
-| [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                  | Standards | Draft     |
+| [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                  | Standards | Enabled   |
 | [BEP-294](./BEPs/BEP294.md)  | BSC Native Staking after BC Fusion                        | Standards | Enabled |
 | [BEP-297](./BEPs/BEP297.md)  | BSC Native Governance Module                              | Standards | Enabled |
 | [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                           | Standards | Candidate |
