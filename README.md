@@ -62,9 +62,10 @@ Here is the list of subjects of BEPs:
 | [BEP-322](./BEPs/BEP322.md)  | Builder API Specification for BNB Smart Chain              | Standards | Enabled  |
 | [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                              | Standards | Enabled   |
 | [BEP-333](./BEPs/BEP333.md)  | BNB Chain Fusion                                          | Standards | Enabled |
-| [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                   | Standards | Draft     |
+| [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                   | Standards | Enabled     |
 | [BEP-335](./BEPs/BEP-335.md) | Greenfield Simplify Storage Provider Exit                   | Standards | Enabled   |
 | [BEP-336](./BEPs/BEP-336.md) | Implement EIP-4844: Shard Blob Transactions               | Standards | Enabled     |
+| [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Candidate  |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                 | Standards | Enabled |
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes             | Standards | Enabled |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-6780: SELFDESTRUCT only in same transaction | Standards | Enabled |
