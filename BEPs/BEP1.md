@@ -43,8 +43,8 @@ There are three types of BEP:
 *Figure 1: BEP workflow*
 
 - **Idea**: If you have an idea but not sure if it worths a BEP or not, you may discuss with the community first before you put too much effort. You may post your idea in [bnb chain forum](https://forum.bnbchain.org/) and visit the [bep-discussion channel in our discord](https://discord.gg/bnbchain) to let the community know it.
-- **Draft**: If your idea is widely accepted or you have the confidence, you can draft a document following the BEP format and raise a PR in this repo. Once the PR is reviewed and merged by the BEP editors, it becomes a legal BEP. The pull request number will be used as the BEP number. And it will be recorded and maintained by the community. The BEP author should keep pushing it forward, the author can update the BEP by creating new pull requests.
-- **Review**: If the content of the BEP is ready, it will enter the Review state, then the community will review it.
+- **Draft**: If your idea is widely accepted or you have the confidence, you can draft a document following the BEP format and raise a PR in this repo. Once the PR is reviewed and merged by the BEP editors, it becomes a legal BEP. The pull request number will be used as the BEP number. And it will be recorded and maintained by the community. The BEP author should keep pushing it forward, the author can update the BEP by creating new pull requests. <to add vote steps>
+- **Review(vote)**: If the content of the BEP is ready, it will enter the Review state, then the community will review it. If the BEP has updates to key components like consensus, economy or UX compatibility, a governance vote will be needed. If the BEP is for a fix or none fundamental change, the governance vote can be skipped. <>
 - **Candidate**: If review is passed and the BEP is accepted, it will enter Candidate state.
 - **Enabled**: This proposal is enabled in BNB Chain mainnet, if it is a hard fork, the fork number has reached.
 
@@ -77,6 +77,7 @@ It is important to keep BEP clear and well organized, BEPs need to follow this f
 - Forward Compatibility(optional): if the BEP will introduce compatibility problems in the future, probably because of some scheduled changes in the future that would be broken by the BEP. In such case, this part is a must to describe the detail incompatibilities and how to deal with it.
 - Backward Compatibility(optional): similar to Forward Compatibility, if the BEP introduces compatibility problems to the previous or current system, then this part is a must to describe the detail incompatibilities and how to deal with it.
 - Reference Implementations(optional): before the BEP enters the Final state, a reference implementation will be needed. However, if the BEP does not need a implementation, it can be omitted.
+- Vote Status(optional): a vote result link?
 - License: to show the copyright of the BEP.
 ## 6.  Reference
 
