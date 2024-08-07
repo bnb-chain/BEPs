@@ -4,6 +4,7 @@ BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document prov
 
 Here is the list of subjects of BEPs:
 
+
 | Number                       | Title                                                     | Type      | Status    |
 |------------------------------| --------------------------------------------------------- | --------- |-----------|
 | [BEP-1](./BEPs/BEP1.md)      | Purpose and Guidelines of BEP                             | Process   | Living    |
@@ -77,6 +78,7 @@ Here is the list of subjects of BEPs:
 | [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Candidate |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Draft     |
+| [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
 
 
 
