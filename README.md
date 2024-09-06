@@ -79,6 +79,7 @@ Here is the list of subjects of BEPs:
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Draft     |
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
+| [BEP-431](./BEPs/BEP-431.md) | ZK Fault Proof System for opBNB    | Standards | Draft     |
 
 
 
@@ -90,3 +91,4 @@ Here is the list of subjects of BEPs:
 
 # How To Contribute A BEP
 If you have an idea and want to make it a BEP, you may refer [BEP-1](BEP1.md)
+
