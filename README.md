@@ -89,4 +89,4 @@ Here is the list of subjects of BEPs:
 
 
 # How To Contribute A BEP
-If you have an idea and want to make it a BEP, you may refer [BEP-1](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md)
+If you have an idea and want to make it a BEP, you may refer [BEP-1](./BEPs/BEP1.md)
