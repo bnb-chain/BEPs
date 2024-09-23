@@ -79,6 +79,7 @@ Here is the list of subjects of BEPs:
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Draft     |
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
+| [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Review     |
 
 
 
