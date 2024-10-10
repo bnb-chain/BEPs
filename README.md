@@ -66,7 +66,7 @@ Here is the list of subjects of BEPs:
 | [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                   | Standards | Enabled     |
 | [BEP-335](./BEPs/BEP-335.md) | Greenfield Simplify Storage Provider Exit                   | Standards | Enabled   |
 | [BEP-336](./BEPs/BEP-336.md) | Implement EIP-4844: Shard Blob Transactions               | Standards | Enabled     |
-| [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Candidate  |
+| [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Enabled  |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                 | Standards | Enabled |
 | [BEP-343](./BEPs/BEP-343.md) | Implement EIP-1153: Transient storage opcodes             | Standards | Enabled |
 | [BEP-344](./BEPs/BEP-344.md) | Implement EIP-6780: SELFDESTRUCT only in same transaction | Standards | Enabled |
@@ -75,12 +75,13 @@ Here is the list of subjects of BEPs:
 | [BEP-362](./BEPs/BEP-362.md) | Greenfield Storage Fee Paymaster                          | Standards | Enabled |
 | [BEP-364](./BEPs/BEP-364.md) | Primary Storage Provider acts as the upload agent for object creation and update on Greenfield | Standards | Enabled |
 | [BEP-366](./BEPs/BEP-366.md) | PGreenfield Atomic Object Update                           | Standards | Candidate |
-| [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Candidate |
-| [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Candidate |
-| [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Draft     |
+| [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Enabled |
+| [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Enabled |
+| [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Enabled     |
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
 | [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Review     |
 | [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Review |
+| [BEP-441](./BEPs/BEP-441.md) | BEP-441: Implement EIP-7702: Set EOA account code | Standards | Review |
 
 
 
