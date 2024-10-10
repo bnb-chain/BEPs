@@ -81,7 +81,7 @@ Here is the list of subjects of BEPs:
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
 | [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Review     |
 | [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Review |
-| [BEP-441](./BEPs/BEP-441.md) | BEP-441: Implement EIP-7702: Set EOA account code | Standards | Review |
+| [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Review |
 
 
 
