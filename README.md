@@ -1,4 +1,4 @@
-# BEPs
+https://github.com/node-real/bnbchainlist/blob/main/utils%2Fchains.json
 
 BEP stands for BNB Evolution Proposal. Each BEP will be a proposal document providing information to the BNB Chain ecosystem and community.
 
