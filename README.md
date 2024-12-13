@@ -82,7 +82,7 @@ Here is the list of subjects of BEPs:
 | [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Review     |
 | [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Review |
 | [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Review |
-| [BEP-466](./BEPs/BEP-466.md) | Make the block format compatible with EIP-7685 | Standards | Review |
+| [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Review |
 
 
 
