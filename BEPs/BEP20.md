@@ -13,11 +13,10 @@
         - [5.1.1.3 decimals](#5113-decimals)
         - [5.1.1.4 totalSupply](#5114-totalsupply)
         - [5.1.1.5 balanceOf](#5115-balanceof)
-        - [5.1.1.6 getOwner](#5116-getowner)
-        - [5.1.1.7 transfer](#5117-transfer)
-        - [5.1.1.8 transferFrom](#5118-transferfrom)
-        - [5.1.1.9 approve](#5119-approve)
-        - [5.1.1.10 allowance](#51110-allowance)
+        - [5.1.1.6 transfer](#5117-transfer)
+        - [5.1.1.7 transferFrom](#5118-transferfrom)
+        - [5.1.1.8 approve](#5119-approve)
+        - [5.1.1.9 allowance](#51110-allowance)
       - [5.1.2 Events](#512-events)
         - [5.1.2.1 Transfer](#5121-transfer)
         - [5.1.2.2 Approval](#5122-approval)
@@ -81,21 +80,14 @@ function balanceOf(address _owner) public view returns (uint256 balance)
 ```
 - Returns the account balance of another account with address `_owner`.
 
-##### 5.1.1.6 getOwner
-```
-function getOwner() external view returns (address);
-```
-- Returns the bep20 token owner which is necessary for binding with bep2 token.
-- **NOTE** - This is an extended method of EIP20. Tokens which don’t implement this method will never flow across the BNB Beacon Chain and BNB Smart Chain.
-
-##### 5.1.1.7 transfer
+##### 5.1.1.6 transfer
 ```
 function transfer(address _to, uint256 _value) public returns (bool success)
 ```
 - Transfers `_value` amount of tokens to address `_to`, and MUST fire the Transfer event. The function SHOULD throw if the message caller’s account balance does not have enough tokens to spend.
 - **NOTE** - Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.
 
-##### 5.1.1.8 transferFrom
+##### 5.1.1.7 transferFrom
 ```
 function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
 ```
@@ -103,14 +95,14 @@ function transferFrom(address _from, address _to, uint256 _value) public returns
 - The transferFrom method is used for a withdraw workflow, allowing contracts to transfer tokens on your behalf. This can be used for example to allow a contract to transfer tokens on your behalf and/or to charge fees in sub-currencies. The function SHOULD throw unless the `_from` account has deliberately authorized the sender of the message via some mechanism.
 - **NOTE** - Transfers of 0 values MUST be treated as normal transfers and fire the Transfer event.
 
-##### 5.1.1.9 approve
+##### 5.1.1.8 approve
 ```
 function approve(address _spender, uint256 _value) public returns (bool success)
 ```
 - Allows `_spender` to withdraw from your account multiple times, up to the `_value` amount. If this function is called again it overwrites the current allowance with `_value`.
 - **NOTE** - To prevent attack vectors like the one described here and discussed here, clients SHOULD make sure to create user interfaces in such a way that they set the allowance first to 0 before setting it to another value for the same spender. THOUGH The contract itself shouldn’t enforce it, to allow backwards compatibility with contracts deployed before
 
-##### 5.1.1.10 allowance
+##### 5.1.1.9 allowance
 ```
 function allowance(address _owner, address _spender) public view returns (uint256 remaining)
 ```
