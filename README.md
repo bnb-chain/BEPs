@@ -85,7 +85,16 @@ Here is the list of subjects of BEPs:
 | [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Review |
 | [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Review |
 
+## BNB Beacon Chain Token Recovery
 
+The official dApp for token recovery can be accessed at: [BNB Token Recovery dApp](https://www.bnbchain.org/en/token-recovery). For detailed recovery steps, please refer to the documentation: [Token Recovery Steps](https://docs.bnbchain.org/bc-fusion/post-fusion/token-recovery/).
+
+If you need assistance, please contact the official help center for BNB Chain or Trust Wallet (if using Trust Wallet for recovery).
+
+**Important Notes**:
+- **Only use the official website for token recovery.** Do not trust any other sites.
+- **Never share your private key, or mnemonic phrase with anyone.**
+- **For issue resolution, please avoid GitHub.** Use the official help center to protect your information.
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
