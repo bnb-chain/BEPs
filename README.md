@@ -84,7 +84,8 @@ Here is the list of subjects of BEPs:
 | [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Review |
 | [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Review |
 | [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Review |
-
+| [BEP-520](./BEPs/BEP-520.md) | Short Block Interval Phase One: 1.5 seconds | Standards | Draft |
+| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Draft |
 
 
 # BNB Chain Upgrades
