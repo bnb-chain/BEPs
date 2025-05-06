@@ -86,6 +86,8 @@ Here is the list of subjects of BEPs:
 | [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Enabled |
 | [BEP-520](./BEPs/BEP-520.md) | Short Block Interval Phase One: 1.5 seconds | Standards | Enabled |
 | [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Draft |
+| [BEP-525](./BEPs/BEP-525.md) | Validator Dedicated Network | Standards | Withdrawn |
+| [BEP-536](./BEPs/BEP-536.md) | Directed TxPool | Standards | Withdrawn |
 
 
 # BNB Chain Upgrades
