@@ -56,9 +56,9 @@ Here is the list of subjects of BEPs:
 | [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                  | Standards | Draft     |
 | [BEP-294](./BEPs/BEP294.md)  | BSC Native Staking after BC Fusion                        | Standards | Enabled |
 | [BEP-297](./BEPs/BEP297.md)  | BSC Native Governance Module                              | Standards | Enabled |
-| [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                           | Standards | Candidate |
+| [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                           | Standards | Enabled |
 | [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                          | Standards | Enabled |
-| [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                  | Standards | Review    |
+| [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                  | Standards | Enabled    |
 | [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Enabled |
 | [BEP-322](./BEPs/BEP322.md)  | Builder API Specification for BNB Smart Chain              | Standards | Enabled  |
 | [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                              | Standards | Enabled   |
@@ -79,10 +79,17 @@ Here is the list of subjects of BEPs:
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Enabled |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Enabled     |
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
-| [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Review     |
-| [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Review |
-| [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Review |
-
+| [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Enabled     |
+| [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Enabled |
+| [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Enabled |
+| [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Enabled |
+| [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Enabled |
+| [BEP-520](./BEPs/BEP-520.md) | Short Block Interval Phase One: 1.5 seconds | Standards | Enabled |
+| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Candidate |
+| [BEP-525](./BEPs/BEP-525.md) | Validator Dedicated Network | Standards | Withdrawn |
+| [BEP-536](./BEPs/BEP-536.md) | Directed TxPool | Standards | Withdrawn |
+| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network | Candidate |
+| [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Candidate |
 
 
 # BNB Chain Upgrades
