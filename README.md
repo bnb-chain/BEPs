@@ -88,7 +88,7 @@ Here is the list of subjects of BEPs:
 | [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Candidate |
 | [BEP-525](./BEPs/BEP-525.md) | Validator Dedicated Network | Standards | Withdrawn |
 | [BEP-536](./BEPs/BEP-536.md) | Directed TxPool | Standards | Withdrawn |
-| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network | Candidate |
+| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Candidate |
 | [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Candidate |
 
 
