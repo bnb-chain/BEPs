@@ -91,6 +91,7 @@ Here is the list of subjects of BEPs:
 | [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Candidate |
 | [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Candidate |
 | [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
+| [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
