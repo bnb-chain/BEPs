@@ -33,7 +33,8 @@ For BNB Chain contributors, it is a convenient way to track the progress of thei
 
 There are three types of BEP:
 
-- **Standards**: A Standards BEP describes functional changes on BNB Chain, such as a change to the network protocol, proposer selection mechanism in consensus algorithm, change in block size or fee mechanism in application level. It will effect the implementation of BNB Chain.
+- **Standards**: A Standards BEP outlines functional changes on the BNB Chain, such as modifications to the network protocol, consensus algorithm, changes in block size, or adjustments to the fee mechanis. These changes will impact the implementation of the BNB Chain.
+- **Application**: An Application BEP outlines standards at the application level, distinguishing it from the Standards type as it does not affect the core protocol.
 - **Information**: An Information BEP will clarify some concepts of the BNB Chain, it may not effect the BNB Chain client implementation.
 - **Process**: This kind of proposal will change the workflow of BNB Chain working process, like this BEP itself.
 
