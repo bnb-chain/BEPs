@@ -1,6 +1,6 @@
 # BEP12: Introduce Customized Scripts and Transfer Memo Validation
 ## Summary
-This BEP describes a new feature that enables addresses to customize scripts, and introduces the a validation script for transfer transaction memo.
+This BEP describes a new feature that enables addresses to customize scripts, and introduces a validation script for transfer transaction memo.
 ## Abstract
 In some circumstances, users may want to specify some additional functions or/and validations on some transactions.
 
