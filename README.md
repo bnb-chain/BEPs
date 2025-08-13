@@ -93,11 +93,22 @@ Here is the list of subjects of BEPs:
 | [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 
+# BAPs
+BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
+
+The process for submitting and managing BAPs follows the same standardized workflow outlined in [BEP-1:Purpose and Guidelines](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md).
+
+Here is the list of subjects of BAPs:
+
+
+| Number                       | Title                                                     | Type      | Status    |
+|------------------------------| --------------------------------------------------------- | --------- |-----------|
+
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
 
 [BNB Chain Upgrades(Testnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-testnet/934)
 
 
-# How To Contribute A BEP
-If you have an idea and want to make it a BEP, you may refer [BEP-1](./BEPs/BEP1.md)
+# How To Contribute
+If you have an idea and want to make it a BEP/BAP, you may refer [BEP-1](./BEPs/BEP1.md)
