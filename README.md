@@ -96,7 +96,7 @@ Here is the list of subjects of BEPs:
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
 
-The process for submitting and managing BAPs follows the same standardized workflow outlined in [BEP-1:Purpose and Guidelines](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md).
+The process for submitting and managing BAPs follows the standardized workflow outlined in [BEP-1: Purpose and Guidelines](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md). BAP numbers are assigned based on the PR number, ensuring no overlap with BEP numbers.
 
 Here is the list of subjects of BAPs:
 
