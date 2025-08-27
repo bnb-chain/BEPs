@@ -56,9 +56,9 @@ Here is the list of subjects of BEPs:
 | [BEP-293](./BEPs/BEP-293.md) | Greenfield Link to opBNB                                  | Standards | Draft     |
 | [BEP-294](./BEPs/BEP294.md)  | BSC Native Staking after BC Fusion                        | Standards | Enabled |
 | [BEP-297](./BEPs/BEP297.md)  | BSC Native Governance Module                              | Standards | Enabled |
-| [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                           | Standards | Candidate |
+| [BEP-299](./BEPs/BEP-299.md) | Token Migration after BC Fusion                           | Standards | Enabled |
 | [BEP-311](./BEPs/BEP-311.md) | Implement EIP-3651 Warm COINBASE                          | Standards | Enabled |
-| [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                  | Standards | Review    |
+| [BEP-312](./BEPs/BEP-312.md) | Announce EIP-6049 Deprecate SELFDESTRUCT                  | Standards | Enabled    |
 | [BEP-319](./BEPs/BEP-319.md) | Optimize the incentive mechanism of the Fast Finality feature | Standards | Enabled |
 | [BEP-322](./BEPs/BEP322.md)  | Builder API Specification for BNB Smart Chain              | Standards | Enabled  |
 | [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                              | Standards | Enabled   |
@@ -85,10 +85,24 @@ Here is the list of subjects of BEPs:
 | [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Enabled |
 | [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Enabled |
 | [BEP-520](./BEPs/BEP-520.md) | Short Block Interval Phase One: 1.5 seconds | Standards | Enabled |
-| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Draft |
+| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Candidate |
 | [BEP-525](./BEPs/BEP-525.md) | Validator Dedicated Network | Standards | Withdrawn |
 | [BEP-536](./BEPs/BEP-536.md) | Directed TxPool | Standards | Withdrawn |
+| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Candidate |
+| [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Candidate |
+| [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
+| [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 
+# BAPs
+BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
+
+The process for submitting and managing BAPs follows the standardized workflow outlined in [BEP-1: Purpose and Guidelines](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md). BAP numbers are assigned based on the PR number, ensuring no overlap with BEP numbers.
+
+Here is the list of subjects of BAPs:
+
+
+| Number                       | Title                                                     | Type      | Status    |
+|------------------------------| --------------------------------------------------------- | --------- |-----------|
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
@@ -96,5 +110,5 @@ Here is the list of subjects of BEPs:
 [BNB Chain Upgrades(Testnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-testnet/934)
 
 
-# How To Contribute A BEP
-If you have an idea and want to make it a BEP, you may refer [BEP-1](./BEPs/BEP1.md)
+# How To Contribute
+If you have an idea and want to make it a BEP/BAP, you may refer [BEP-1](./BEPs/BEP1.md)
