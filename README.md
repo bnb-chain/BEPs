@@ -26,7 +26,6 @@ Here is the list of subjects of BEPs:
 | [BEP-87](./BEPs/BEP87.md)    | Token Symbol Minimum Length Change                        | Standards | Enabled   |
 | [BEP-89](./BEPs/BEP89.md)    | Visual Fork of BNB Smart Chain                            | Standards | Enabled   |
 | [BEP-91](./BEPs/BEP91.md)    | Increase Block Gas Ceiling for BNB Smart Chain            | Standards | Enabled   |
-| [BEP-93](./BEPs/BEP93.md)    | Diff Sync Protocol on BSC                                 | Standards | Withdrawn |
 | [BEP-95](./BEPs/BEP95.md)    | Introduce Real-Time Burning Mechanism                     | Standards | Enabled   |
 | [BEP-126](./BEPs/BEP126.md)  | Introduce Fast Finality Mechanism                         | Standards | Enabled   |
 | [BEP-127](./BEPs/BEP127.md)  | Temporary Maintenance Mode for Validators                 | Standards | Enabled   |
@@ -85,11 +84,9 @@ Here is the list of subjects of BEPs:
 | [BEP-466](./BEPs/BEP-466.md) | Make the block header format compatible with EIP-7685 | Standards | Enabled |
 | [BEP-496](./BEPs/BEP-496.md) | Implement EIP-7623: Increase calldata cost | Standards | Enabled |
 | [BEP-520](./BEPs/BEP-520.md) | Short Block Interval Phase One: 1.5 seconds | Standards | Enabled |
-| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Candidate |
-| [BEP-525](./BEPs/BEP-525.md) | Validator Dedicated Network | Standards | Withdrawn |
-| [BEP-536](./BEPs/BEP-536.md) | Directed TxPool | Standards | Withdrawn |
-| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Candidate |
-| [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Candidate |
+| [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Enabled |
+| [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Enabled |
+| [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Enabled |
 | [BEP-590](./BEPs/BEP-590.md) | Relaxing Aggregate Vote Rules for Fast Finality | Standards | Draft |
 | [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
