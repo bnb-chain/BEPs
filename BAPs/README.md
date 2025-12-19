@@ -10,7 +10,7 @@ BNB Application Proposals (BAPs) are community-authored design documents that sp
 ## BAP Workflow
 
 BAP workflow follows the process described in [BEP-1](https://github.com/bnb-chain/BEPs/blob/master/BEPs/BEP1.md#4--bep-workflow).
-![overall workflow](./assets/bep-1/workflow.png)
+![overall workflow](../BEPs/assets/bep-1/workflow.png)
 
 The **Review** stage is central to BAPs and requires feedback from the community, especially from relevant ecosystem partners. Feedback can be provided in this repository or on the [BNB Chain Forum](https://forum.bnbchain.org/). PR status is maintained by the BAP editors, primarily the maintainers of this GitHub repository.
 
