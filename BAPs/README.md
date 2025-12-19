@@ -1,5 +1,11 @@
 # BNB Application Proposals (BAPs)
 
+- [BNB Application Proposals (BAPs)](#bnb-application-proposals-baps)
+  - [What is a BAP?](#what-is-a-bap)
+  - [BAP Workflow](#bap-workflow)
+  - [BAP Format](#bap-format)
+    - [Numbering and File Naming](#numbering-and-file-naming)
+
 ## What is a BAP?
 
 BNB Application Proposals (BAPs) are community-authored design documents that specify application-level standards, conventions, and best practices for the BNB Chain ecosystem. BAPs aim to improve interoperability and user experience across dApps, wallets, services, and tooling.
