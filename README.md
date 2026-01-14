@@ -87,12 +87,12 @@ Here is the list of subjects of BEPs:
 | [BEP-524](./BEPs/BEP-524.md) | Short Block Interval Phase Two: 0.75 seconds | Standards | Enabled |
 | [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Enabled |
 | [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Enabled |
-| [BEP-590](./BEPs/BEP-590.md) | Relaxing Aggregate Vote Rules for Fast Finality | Standards | Draft |
+| [BEP-590](./BEPs/BEP-590.md) | Extended Voting Rules for Fast Finality Stability | Standards | Enabled |
 | [BEP-592](./BEPs/BEP-592.md) | Non-Consensus Based Block-Level Access List | Standards | Draft |
 | [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 | [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Draft |
-| [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Draft |
+| [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Enabled |
 | [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Draft |
 
 # BAPs
