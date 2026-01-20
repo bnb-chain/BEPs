@@ -77,7 +77,7 @@ Here is the list of subjects of BEPs:
 | [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Enabled |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Enabled |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Enabled     |
-| [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Draft     |
+| [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Enabled     |
 | [BEP-439](./BEPs/BEP-439.md) | Implement EIP-2537: Precompile for BLS12-381 curve operations | Standards | Enabled     |
 | [BEP-440](./BEPs/BEP-440.md) | Implement EIP-2935: Serve historical block hashes from state | Standards | Enabled |
 | [BEP-441](./BEPs/BEP-441.md) | Implement EIP-7702: Set EOA account code | Standards | Enabled |
@@ -88,12 +88,12 @@ Here is the list of subjects of BEPs:
 | [BEP-563](./BEPs/BEP-563.md) | Enhanced Validator Network  | Standards | Enabled |
 | [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Enabled |
 | [BEP-590](./BEPs/BEP-590.md) | Extended Voting Rules for Fast Finality Stability | Standards | Enabled |
-| [BEP-592](./BEPs/BEP-592.md) | Non-Consensus Based Block-Level Access List | Standards | Draft |
-| [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Draft |
+| [BEP-592](./BEPs/BEP-592.md) | Non-Consensus Based Block-Level Access List | Standards | Candidate |
+| [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Candidate |
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
-| [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Draft |
-| [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Enabled |
-| [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Draft |
+| [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Candidate |
+| [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
+| [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Standards | Candidate |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
