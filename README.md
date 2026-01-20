@@ -6,7 +6,7 @@ Here is the list of subjects of BEPs:
 
 
 | Number                       | Title                                                     | Type      | Status    |
-|------------------------------| --------------------------------------------------------- | --------- |-----------|
+|------------------------------| --------------------------------------------------------- |-----------|-----------|
 | [BEP-1](./BEPs/BEP1.md)      | Purpose and Guidelines of BEP                             | Process   | Living    |
 | [BEP-2](./BEPs/BEP2.md)      | Tokens on BNB Beacon Chain                                | Standards | Enabled   |
 | [BEP-3](./BEPs/BEP3.md)      | HTLC and Atomic Peg                                       | Standards | Enabled   |
@@ -63,7 +63,7 @@ Here is the list of subjects of BEPs:
 | [BEP-323](./BEPs/BEP323.md)  | Bundle Format for Greenfield                              | Standards | Enabled   |
 | [BEP-333](./BEPs/BEP333.md)  | BNB Chain Fusion                                          | Standards | Enabled |
 | [BEP-334](./BEPs/BEP-334.md) | Greenfield CrossChain Permission Module                   | Standards | Enabled     |
-| [BEP-335](./BEPs/BEP-335.md) | Greenfield Simplify Storage Provider Exit                   | Standards | Enabled   |
+| [BEP-335](./BEPs/BEP-335.md) | Greenfield Simplify Storage Provider Exit                  | Standards | Enabled   |
 | [BEP-336](./BEPs/BEP-336.md) | Implement EIP-4844: Shard Blob Transactions               | Standards | Enabled     |
 | [BEP-341](./BEPs/BEP-341.md) | Validators can produce consecutive blocks                  | Standards | Enabled  |
 | [BEP-342](./BEPs/BEP-342.md) | Implement EIP-5656: MCOPY                                 | Standards | Enabled |
@@ -74,7 +74,7 @@ Here is the list of subjects of BEPs:
 | [BEP-362](./BEPs/BEP-362.md) | Greenfield Storage Fee Paymaster                          | Standards | Enabled |
 | [BEP-364](./BEPs/BEP-364.md) | Primary Storage Provider acts as the upload agent for object creation and update on Greenfield | Standards | Enabled |
 | [BEP-366](./BEPs/BEP-366.md) | PGreenfield Atomic Object Update                           | Standards | Candidate |
-| [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Enabled |
+| [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature        | Standards | Enabled |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Enabled |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Enabled     |
 | [BEP-414](./BEPs/BEP-414.md) | EOA based Paymaster API Spec       | Standards | Enabled     |
@@ -94,6 +94,7 @@ Here is the list of subjects of BEPs:
 | [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Candidate |
 | [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
 | [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Standards | Candidate |
+| [BEP-648](./BEPs/BEP-648.md) | Enhanced Fast Finality via In-Memory Voting Pool | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
