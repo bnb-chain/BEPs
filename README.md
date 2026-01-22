@@ -94,7 +94,6 @@ Here is the list of subjects of BEPs:
 | [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Candidate |
 | [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
 | [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Standards | Candidate |
-| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
