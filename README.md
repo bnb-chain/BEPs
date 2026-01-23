@@ -99,8 +99,8 @@ Here is the list of subjects of BEPs:
 | [BEP-652](./BEPs/BEP-652.md) | Implement EIP-7825 Transaction Gas Limit Cap | Standards | Draft |
 | [BEP-653](./BEPs/BEP-653.md) | Implement EIP-7883 ModExp Gas Cost Increase | Standards | Draft |
 | [BEP-654](./BEPs/BEP-654.md) | Implement EIP-7939 Count Leading Zeros (CLZ) Opcode | Standards | Draft |
-| [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Draft |
-| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Draft |
+| [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Standards | Draft |
+| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Draft |
 | [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Draft |
 | [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Draft |
 
