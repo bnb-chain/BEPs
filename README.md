@@ -89,7 +89,7 @@ Here is the list of subjects of BEPs:
 | [BEP-564](./BEPs/BEP-564.md) | bsc/2 - New Block Fetching Messages | Standards | Enabled |
 | [BEP-590](./BEPs/BEP-590.md) | Extended Voting Rules for Fast Finality Stability | Standards | Enabled |
 | [BEP-592](./BEPs/BEP-592.md) | Non-Consensus Based Block-Level Access List | Standards | Candidate |
-| [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Candidate |
+| [BEP-593](./BEPs/BEP-593.md) | Incremental Snapshot | Standards | Enabled |
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 | [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Candidate |
 | [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
