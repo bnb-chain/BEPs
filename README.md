@@ -101,6 +101,7 @@ Here is the list of subjects of BEPs:
 | [BEP-654](./BEPs/BEP-654.md) | Implement EIP-7939 Count Leading Zeros (CLZ) Opcode | Standards | Draft |
 | [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Standards | Draft |
 | [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Draft |
+| [BEP-657](./BEPs/BEP-657.md) | Limit Blob Transaction Inclusion by Block Number | Standards | Draft |
 | [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Draft |
 | [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Draft |
 
