@@ -95,6 +95,15 @@ Here is the list of subjects of BEPs:
 | [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
 | [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Standards | Candidate |
 | [BEP-648](./BEPs/BEP-648.md) | Enhanced Fast Finality via In-Memory Voting Pool | Standards | Draft |
+| [BEP-651](./BEPs/BEP-651.md) | Implement EIP-7823 Set upper bounds for MODEXP | Standards | Draft |
+| [BEP-652](./BEPs/BEP-652.md) | Implement EIP-7825 Transaction Gas Limit Cap | Standards | Draft |
+| [BEP-653](./BEPs/BEP-653.md) | Implement EIP-7883 ModExp Gas Cost Increase | Standards | Draft |
+| [BEP-654](./BEPs/BEP-654.md) | Implement EIP-7939 Count Leading Zeros (CLZ) Opcode | Standards | Draft |
+| [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Standards | Draft |
+| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Draft |
+| [BEP-657](./BEPs/BEP-657.md) | Limit Blob Transaction Inclusion by Block Number | Standards | Draft |
+| [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Draft |
+| [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
