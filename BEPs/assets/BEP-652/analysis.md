@@ -33,14 +33,13 @@
 
 > Note: "Unnecessary high limits" = gasLimit > gasUsed * 1.5 (50% buffer)
 
-## Gas Limit Distribution (of LargeTX, gasUsed > 10M)
+## Gas Limit Distribution (gasLimit >= 16,777,216)
 
 | Gas Limit Range | Percentage | Transaction Count |
 |-----------------|------------|-------------------|
-| 10,000,000 - 16,777,216 | 65.01% | 77,305 |
-| 16,777,216 - 30,000,000 | 20.31% | 24,154 |
-| 30,000,000 - 40,000,000 | 8.27% | 9,829 |
-| >40,000,000 | 6.41% | 7,620 |
+| 16,777,216 - 30,000,000 | 58.08% | 24,154 |
+| 30,000,000 - 40,000,000 | 23.62% | 9,829 |
+| >40,000,000 | 18.32% | 7,620 |
 
 
 ## Gas Limit Distribution of Slow Transactions (>500ms)
