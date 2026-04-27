@@ -104,10 +104,9 @@ Here is the list of subjects of BEPs:
 | [BEP-657](./BEPs/BEP-657.md) | Limit Blob Transaction Inclusion by Block Number | Standards | Candidate |
 | [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Candidate |
 | [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Candidate |
-| [BEP-667](./BEPs/BEP-667.md) | Introduce Vote Interval to Relax Fast Finality Consensus Constraint | Standards | Draft |
-| [BEP-670](./BEPs/BEP-670.md) | Short Block Interval Phase Four: 250ms | Standards | Draft |
 | [BEP-673](./BEPs/BEP-673.md) | Hardfork Meta-Pasteur | Information | Draft |
 | [BEP-675](./BEPs/BEP-675.md) | Builder-Proposed Block with Validator Blind Signing | Standards | Draft |
+| [BEP-682](./BEPs/BEP-682.md) | Reject Duplicate Validators in CometBFT Light Block Validation | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
