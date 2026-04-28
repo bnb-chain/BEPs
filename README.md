@@ -93,17 +93,16 @@ Here is the list of subjects of BEPs:
 | [BEP-594](./BEPs/BEP-594.md) | L2 Fast Withdrawal by TEE | Standards | Draft |
 | [BEP-610](./BEPs/BEP-610.md) | Implement EVM Super Instruction | Standards | Candidate |
 | [BEP-619](./BEPs/BEP-619.md) | Short Block Interval Phase Three: 0.45 Seconds | Standards | Enabled |
-| [BEP-640](./BEPs/BEP-640.md) | Optional Transaction Gas Limit Cap | Standards | Candidate |
-| [BEP-648](./BEPs/BEP-648.md) | Enhanced Fast Finality via In-Memory Voting Pool | Standards | Candidate |
-| [BEP-651](./BEPs/BEP-651.md) | Implement EIP-7823 Set upper bounds for MODEXP | Standards | Candidate |
-| [BEP-652](./BEPs/BEP-652.md) | Implement EIP-7825 Transaction Gas Limit Cap | Standards | Candidate |
-| [BEP-653](./BEPs/BEP-653.md) | Implement EIP-7883 ModExp Gas Cost Increase | Standards | Candidate |
-| [BEP-654](./BEPs/BEP-654.md) | Implement EIP-7939 Count Leading Zeros (CLZ) Opcode | Standards | Candidate |
-| [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Standards | Candidate |
-| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Candidate |
-| [BEP-657](./BEPs/BEP-657.md) | Limit Blob Transaction Inclusion by Block Number | Standards | Candidate |
-| [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Candidate |
-| [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Candidate |
+| [BEP-648](./BEPs/BEP-648.md) | Enhanced Fast Finality via In-Memory Voting Pool | Standards | Enabled |
+| [BEP-651](./BEPs/BEP-651.md) | Implement EIP-7823 Set upper bounds for MODEXP | Standards | Enabled |
+| [BEP-652](./BEPs/BEP-652.md) | Implement EIP-7825 Transaction Gas Limit Cap | Standards | Enabled |
+| [BEP-653](./BEPs/BEP-653.md) | Implement EIP-7883 ModExp Gas Cost Increase | Standards | Enabled |
+| [BEP-654](./BEPs/BEP-654.md) | Implement EIP-7939 Count Leading Zeros (CLZ) Opcode | Standards | Enabled |
+| [BEP-655](./BEPs/BEP-655.md) | Implement EIP-7934 RLP Execution Block Size Limit | Standards | Enabled |
+| [BEP-656](./BEPs/BEP-656.md) | Implement EIP-7910: eth_config JSON-RPC Method | Standards | Enabled |
+| [BEP-657](./BEPs/BEP-657.md) | Limit Blob Transaction Inclusion by Block Number | Standards | Enabled |
+| [BEP-658](./BEPs/BEP-658.md) | Hardfork Meta-Osaka/Mendel | Information | Enabled |
+| [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Enabled |
 | [BEP-673](./BEPs/BEP-673.md) | Hardfork Meta-Pasteur | Information | Draft |
 | [BEP-675](./BEPs/BEP-675.md) | Builder-Proposed Block with Validator Blind Signing | Standards | Draft |
 | [BEP-682](./BEPs/BEP-682.md) | Reject Duplicate Validators in CometBFT Light Block Validation | Standards | Draft |
