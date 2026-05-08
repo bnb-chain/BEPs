@@ -105,6 +105,7 @@ Here is the list of subjects of BEPs:
 | [BEP-659](./BEPs/BEP-659.md) | Implement EIP-7951 Precompile for secp256r1 Curve Support | Standards | Enabled |
 | [BEP-673](./BEPs/BEP-673.md) | Hardfork Meta-Pasteur | Information | Draft |
 | [BEP-675](./BEPs/BEP-675.md) | Builder-Proposed Block with Validator Blind Signing | Standards | Draft |
+| [BEP-677](./BEPs/BEP-677.md) | Implement EIP-8056 Scaled UI Amount | Standards | Draft |
 | [BEP-682](./BEPs/BEP-682.md) | Reject Duplicate Validators in CometBFT Light Block Validation | Standards | Draft |
 
 # BAPs
