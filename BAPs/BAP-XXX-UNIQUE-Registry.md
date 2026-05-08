@@ -5,7 +5,7 @@
 **Status:** Draft
 **Type:** Application
 **Created:** May 5, 2026
-**Author:** Samir (@Spiggy1115)
+**Author:** Spigg (@Spigg1115)
 **Contract:** 0x1dDE1B992cdD5a11E77e02Eb6A16a0F64770d9cd
 **Website:** https://uniqueregistry.io
 **GitHub:** https://github.com/Spigg1115/uniqueregistry
