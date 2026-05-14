@@ -119,6 +119,7 @@ Here is the list of subjects of BAPs:
 | Number                       | Title                                                     | Type      | Status    |
 |------------------------------| --------------------------------------------------------- | --------- |-----------|
 | [BAP-578](./BAPs/BAP-578.md) | BAP-578: Non-Fungible Agent (NFA) Token Standard | Application | Draft |
+| [BAP-792](./BAPs/BAP-692.md) | BAP-692: BNBChain Agentic SDK — Identity, Commerce, Payment, Memory | Application | Draft |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
