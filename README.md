@@ -107,6 +107,7 @@ Here is the list of subjects of BEPs:
 | [BEP-675](./BEPs/BEP-675.md) | Builder-Proposed Block with Validator Blind Signing | Standards | Draft |
 | [BEP-677](./BEPs/BEP-677.md) | Implement EIP-8056 Scaled UI Amount | Standards | Draft |
 | [BEP-682](./BEPs/BEP-682.md) | Reject Duplicate Validators in CometBFT Light Block Validation | Standards | Draft |
+| [BEP-695](./BEPs/BEP-695.md) | Staking and Governance Security Hardening | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
