@@ -34,7 +34,7 @@ For BNB Chain contributors, it is a convenient way to track the progress of thei
 There are three types of BEP:
 
 - **Standards**: A Standards BEP outlines functional changes on the BNB Chain, such as modifications to the network protocol, consensus algorithm, changes in block size, or adjustments to the fee mechanis. These changes will impact the implementation of the BNB Chain.
-- **Application**: An Application BEP defines standards for application layer interactions on BNB Chain, distinguishing it from Standards BEPs which govern core protocol changes. Application proposals are designated as BAPs (BNB Application Proposals) and are stored in the "/BAPs/" folder. BAPs follow the same workflow as BEPs but use a distinct prefix to clearly identify their application-focused nature. BAP numbers are assigned based on PR numbers to avoid overlap with BEP numbering.
+- **Application**: It defines standards for application layer interactions on BNB Chain, distinguishing it from Standards BEPs which govern core protocol changes. Application proposals are designated as BAPs (BNB Chain Application Proposals) and are stored in the "/BAPs/" folder. For more information, please see the [BAP README](../BAPs/README.md).
 - **Information**: An Information BEP will clarify some concepts of the BNB Chain, it may not effect the BNB Chain client implementation.
 - **Process**: This kind of proposal will change the workflow of BNB Chain working process, like this BEP itself.
 

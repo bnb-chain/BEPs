@@ -22,7 +22,7 @@ This BEP describes a proposal for a time-locking feature of tokens on the BNB Be
 
 BEP-9 Proposal describes functionality to time-lock tokens on the BNB Beacon Chain. Such as:
 
-+ TimeLock: TimeLock will transfer locked tokens to a purely-code-controlled escrow account. A purely-code-controlled escrow account is a kind of account which is derived from a hard-coded string in BNB Beacon Chain protocol. This kind of account has no private key and it's only controled by code in protocol. Before the lock time expires, the specific user will not be able to claim them back, including restrictions where they cannot use, transfer or spend these tokens.
++ TimeLock: TimeLock will transfer locked tokens to a purely-code-controlled escrow account. A purely-code-controlled escrow account is a kind of account which is derived from a hard-coded string in BNB Beacon Chain protocol. This kind of account has no private key and it's only controlled by code in protocol. Before the lock time expires, the specific user will not be able to claim them back, including restrictions where they cannot use, transfer or spend these tokens.
 + TimeUnlock: TimeUnlock will claim the locked tokens back when the specified lock time has passed.
 + TimeRelock: TimeRelock can extend lock times, increase the amount of locked tokens or modify the description of an existing lock record.
 + QueryTimeLocks: QueryTimeLocks will query all lock records of a given address.
