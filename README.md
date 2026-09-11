@@ -108,6 +108,7 @@ Here is the list of subjects of BEPs:
 | [BEP-677](./BEPs/BEP-677.md) | Implement EIP-8056 Scaled UI Amount | Standards | Draft |
 | [BEP-682](./BEPs/BEP-682.md) | Reject Duplicate Validators in CometBFT Light Block Validation | Standards | Draft |
 | [BEP-695](./BEPs/BEP-695.md) | Staking and Governance Security Hardening | Standards | Draft |
+| [BEP-702](./BEPs/BEP-702.md) | Compliant Asset Standard on BNB Smart Chain | Standards | Draft |
 | [BEP-706](./BEPs/BEP-706.md) | Millisecond-Precision Block Timestamp Precompile | Standards | Draft |
 
 # BAPs
