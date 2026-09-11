@@ -1,0 +1,130 @@
+<pre>
+  BEP: xxxx
+  Title: Improve Network Availability with Earlier Validator Maintenance
+  Status: Draft
+  Type: Standards
+  Created: 2026-09-11
+  Description: Reduce backup waiting time and introduce earlier automatic maintenance while preserving validator recovery time.
+</pre>
+
+# BEP-xxxx: Improve Network Availability with Earlier Validator Maintenance
+
+## 1. Summary
+
+Reduce the impact of unavailable validators by shortening backup waiting time and introducing automatic maintenance before economic penalties apply.
+
+## 2. Motivation
+
+Previous block-interval upgrades, including [BEP-520](./BEP-520.md), [BEP-524](./BEP-524.md), and [BEP-619](./BEP-619.md), scaled slashing thresholds to preserve approximately the same operator response time. However, scaling by block interval alone does not account for backup waiting time or consecutive block production.
+
+For example, `3 * 50` approximately equals `0.45 * 333`, but the initial backup delay increased from 1 second to 2 seconds. With one unavailable validator and a healthy first backup, the sum of affected block intervals before the misdemeanor threshold increased from `(3 + 1) * 50 = 200 seconds` to `(0.45 + 2) * 333 = 815.85 seconds`. An eight-block affected turn takes approximately `(0.45 + 2) * 8 = 19.6 seconds`.
+
+This proposal shortens affected turns and removes failed validators from the rotation earlier, while preserving time for operators to recover before losing accrued rewards or being jailed.
+
+## 3. Specification
+
+### 3.1 Parameter Changes
+
+| Parameter | Current configuration | Proposed configuration | Mechanism |
+| --- | --- | --- | --- |
+| InitialBackOffTime | 2 seconds | 1 second | Hard fork |
+| turnLength | 8 | 4 | Separate governance proposal |
+| maintainSlashScale | 2 | 3 | Governance proposal |
+| maintenanceThreshold | Not defined | 40 | New contract parameter |
+| misdemeanorThreshold | 333 | 200 | Governance proposal |
+| felonyThreshold | 1,000 | 600 | Governance proposal |
+
+The block interval remains 0.45 seconds and the epoch length remains 1,000 blocks. The calculations below assume 21 mining validators.
+
+### 3.2 Backup Waiting Time
+
+Reduce `InitialBackOffTime` from 2,000 to 1,000 milliseconds in both block preparation and timestamp validation. Apply this change to both backoff paths: the normal backup sequence and the sequence used when the in-turn validator is excluded by the recent-signing rule. The latter retains zero delay for its first eligible backup. Backup ordering and spacing between subsequent ranks remain unchanged.
+
+As in the existing implementation, select the backoff rule using the parent block's timestamp at the hard-fork boundary.
+
+### 3.3 Earlier Automatic Maintenance
+
+Extend [BEP-127](./BEP127.md) with a governable `maintenanceThreshold`, initially 40. Parameter updates must preserve:
+
+```text
+0 < maintenanceThreshold < misdemeanorThreshold < felonyThreshold
+```
+
+At each epoch's final block, after ordinary slashing and any daily validator update, a system operation checks working validators in ascending consensus-address order. Validators with accumulated missed-block counts at or above `maintenanceThreshold` enter maintenance if eligible. Entry through this threshold does not apply a misdemeanor penalty.
+
+Existing maintenance capacity and once-per-day limits remain in effect. Ineligible validators are skipped, remain subject to ordinary slashing, and are checked again at the next epoch boundary. Manual maintenance remains available.
+
+The resulting contract state is used for the next epoch header's validator selection. Removal from the rotation follows the existing snapshot transition rules. Ordinary missed-block counting stops at contract entry, even if snapshot adoption is still pending.
+
+### 3.4 Maintenance Accounting
+
+Include the missed-block count recorded before maintenance in the exit calculation:
+
+```text
+maintenanceCount = floor((exitHeight - entryHeight) / miningValidatorCount / maintainSlashScale)
+totalCount       = entryMissedBlockCount + maintenanceCount
+```
+
+Apply this formula to both manual and automatic maintenance. On explicit exit or daily forced exit, compare `totalCount` with the economic thresholds. Apply felony when `totalCount >= felonyThreshold`; otherwise apply misdemeanor if an uncharged misdemeanor boundary has been crossed. Previously charged boundaries must not be charged again. If several misdemeanor boundaries were crossed during maintenance, redistribute accrued income once at settlement.
+
+After a non-felony exit, persist `totalCount` for subsequent missed-block accounting. Felony consumes/resets the indicator as in ordinary felony processing. Daily decay follows forced-exit settlement. Threshold checks must handle counts that jump across a boundary, including after governance lowers a threshold, rather than requiring an exact multiple for felony.
+
+The validator count, scale, and thresholds are read at settlement, following the existing maintenance mechanism. Penalties are settled on exit; reaching an equivalent threshold during maintenance does not immediately execute a penalty.
+
+## 4. Rationale
+
+### 4.1 Shorter Affected Turns
+
+With the proposed parameters:
+
+```text
+Current:  (0.45 + 2) * 8 = 19.6 seconds
+Proposed: (0.45 + 1) * 4 =  5.8 seconds
+Reduction: approximately 70%
+```
+
+This estimate assumes one unavailable in-turn validator and timely production by the first eligible backup. It describes the affected turn, not a worst-case transaction inclusion guarantee. Builder-only failures may be handled by local block production; private transaction delays also depend on routing and fallback behavior.
+
+[BEP-520](./BEP-520.md) increased backoff to reduce reorganizations caused by delayed propagation. Returning to 1 second therefore requires validating propagation and reorganization behavior under load. Reducing `turnLength` also makes producer handovers more frequent, so throughput should be evaluated alongside availability.
+
+### 4.2 Earlier Removal and Recovery Time
+
+With 21 validators and `turnLength = 4`, a fixed validator set assigns each validator 44–48 opportunities per 1,000 blocks. A threshold of 40 targets maintenance entry by the end of the second epoch after failure, counting the partial initial epoch, provided the validator remains scheduled, accumulation is uninterrupted, and maintenance capacity is available. Snapshot adoption adds a delay before removal takes effect.
+
+For recovery-window estimates, use a conservative entry-count allowance of:
+
+```text
+39 + 48 + 8 = 95
+```
+
+This allows for a count just below the threshold, another epoch of missed opportunities, and two four-block turns around transitions. It is a planning assumption to validate against epoch and snapshot boundaries, not an on-chain cap. Opportunities after contract entry affect availability but do not increase the ordinary missed-block count.
+
+With `maintainSlashScale = 3`, the combined-count model gives:
+
+| Interval | Calculation | Estimated duration |
+| --- | --- | --- |
+| Maintenance entry to misdemeanor threshold | `21 * 0.45 * (200 - 95) * 3` | 49.6 minutes |
+| Maintenance entry to felony threshold | `21 * 0.45 * (600 - 95) * 3` | 3.98 hours |
+| Between the two thresholds | `21 * 0.45 * (600 - 200) * 3` | 3.15 hours |
+
+These estimates assume an entry count no greater than 95 and stable parameters. The actual entry count, validator count, and daily settlement can change the available recovery time.
+
+If removal limits affected opportunities to 95, their total duration is approximately `95 * 1.45 = 137.75 seconds`, including `95 seconds` of additional backup waiting. Backup blocks can still include transactions, so this is not a period of complete network unavailability.
+
+## 5. Backward Compatibility
+
+The backoff, system-operation, and contract changes require a coordinated hard fork. Preserve existing missed-block indicators and settle maintenance sessions already active at the fork with the previous independent-count formula. New sessions use the combined formula.
+
+Governance changes affect parameters read at settlement. Lowering `felonyThreshold` also changes daily missed-block decay from `1,000 / 4 = 250` to `600 / 4 = 150`. Operators must account for these changes when planning maintenance.
+
+## 6. Implementation Plan
+
+1. Activate the backoff change, `maintenanceThreshold = 40`, epoch-end maintenance checks, and combined accounting through a hard fork.
+2. Execute a governance proposal setting `maintainSlashScale = 3`, `misdemeanorThreshold = 200`, and `felonyThreshold = 600`.
+3. Execute a separate governance proposal changing `turnLength` from 8 to 4, following its existing epoch/snapshot activation rules.
+
+The final estimates apply once all changes are effective. Validate intermediate configurations, epoch and daily boundaries, maintenance admission limits, combined settlement, and behavior under network delays before activation.
+
+## 7. License
+
+This document is licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
