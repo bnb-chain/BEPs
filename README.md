@@ -110,6 +110,7 @@ Here is the list of subjects of BEPs:
 | [BEP-695](./BEPs/BEP-695.md) | Staking and Governance Security Hardening | Standards | Draft |
 | [BEP-702](./BEPs/BEP-702.md) | Compliant Asset Standard on BNB Smart Chain | Standards | Draft |
 | [BEP-706](./BEPs/BEP-706.md) | Millisecond-Precision Block Timestamp Precompile | Standards | Draft |
+| [BEP-714](./BEPs/BEP-714.md) | Improve Network Availability with Earlier Validator Maintenance | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
