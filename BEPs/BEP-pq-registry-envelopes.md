@@ -70,6 +70,8 @@ An object kind is an 8 bit unsigned integer naming what the payload is.
 
 A decoder MUST reject an envelope whose object kind is not valid for the class of its identifier.
 
+Kind `0x05` is secret key material. An envelope of kind `0x05` MUST NOT appear in a block, a transaction, consensus data or any channel that is public or only authenticated, and MUST be serialized only inside a container that provides both confidentiality and integrity, such as an encrypted keystore.
+
 ### 3.3 Versioned envelope
 
 A versioned envelope is
@@ -129,7 +131,7 @@ This BEP adds an encoding and changes no existing format, so it has no effect un
 
 ## 6. Security Considerations
 
-The identifier is authoritative, which removes the class of confusion where an object of one scheme is accepted as another because their lengths coincide. A decoder rejects an unknown identifier rather than guessing, so a downgrade to a weaker reserved scheme fails closed. The envelope carries no secret and provides no integrity of its own, so it MUST be used inside a context that authenticates it, for example a signed transaction or an authenticated handshake, exactly as the bare fields are today. Length validation is a defence against truncation and padding, not a substitute for the scheme level checks in 3.5.
+The identifier is authoritative, which removes the class of confusion where an object of one scheme is accepted as another because their lengths coincide. A decoder rejects an unknown identifier rather than guessing, so a downgrade to a weaker reserved scheme fails closed. Envelopes of kinds `0x01` to `0x04` carry public data and provide no integrity of their own, so they MUST be used inside a context that authenticates them, for example a signed transaction or an authenticated handshake, exactly as the bare fields are today. An envelope of kind `0x05` carries a private key seed, and authentication alone does not protect it. It MUST be kept out of consensus data, transactions and every public or authentication only channel, and MUST be stored or transmitted only with both confidentiality and integrity, as Section 3.2 requires. Length validation is a defence against truncation and padding, not a substitute for the scheme level checks in 3.5.
 
 ## 7. Reference Implementation
 
