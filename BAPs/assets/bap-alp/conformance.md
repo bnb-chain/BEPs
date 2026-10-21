@@ -1,6 +1,6 @@
 # ALP v0.4-draft conformance matrix
 
-This is a normative acceptance matrix for implementations of [ALP](protocol.md) and [the BSC binding](../../BAP-xxxx.md). It is not a report of passing implementations. [examples.json](examples.json) contains illustrative records for every schema; its proofs and addresses have no deployment validity.
+This is a normative acceptance matrix for implementations of [ALP](protocol.md) and [the BSC binding](../../BAP-728.md). It is not a report of passing implementations. [examples.json](examples.json) contains illustrative records for every schema; its proofs and addresses have no deployment validity.
 
 Each implementation MUST publish a reproducible harness, exact module and dependency revisions, network and binding manifests, artifact digest, initial conditions, actions, expected outcomes, and observed evidence. Mocked results MUST be labeled and MUST NOT establish live payment, finality, migration, or chain-deployment conformance. Private credentials MUST be excluded from published evidence.
 

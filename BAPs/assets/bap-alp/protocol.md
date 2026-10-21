@@ -2,7 +2,7 @@
 
 Status: proposed application protocol. Date: 2026-10-21.
 
-This document defines eight normative modules and provider binding requirements. The BNB Smart Chain profile is specified in [the companion BAP](../../BAP-xxxx.md). The protocol is chain-neutral; a binding fixes deployment-specific addresses, dependency revisions, proof formats, finality, and trust assumptions. No external foundation endorsement or deployed reference implementation is implied.
+This document defines eight normative modules and provider binding requirements. The BNB Smart Chain profile is specified in [the companion BAP](../../BAP-728.md). The protocol is chain-neutral; a binding fixes deployment-specific addresses, dependency revisions, proof formats, finality, and trust assumptions. No external foundation endorsement or deployed reference implementation is implied.
 
 ## 1. Conventions and architecture
 
