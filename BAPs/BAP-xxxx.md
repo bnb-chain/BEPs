@@ -7,7 +7,27 @@ Created: 2026-10-21
 Description: Interoperable lifecycle, identity, wallet policy, runtime portability, and commerce conventions for economically autonomous agents.
 ```
 
-# Agent Lifecycle Protocol and BNB Smart Chain Binding
+# BAP-xxxx: Agent Lifecycle Protocol and BNB Smart Chain Binding
+
+- [1. Summary](#1-summary)
+- [2. Abstract](#2-abstract)
+- [3. Motivation](#3-motivation)
+- [4. Specification](#4-specification)
+  - [4.1 Scope and Dependency Selection](#41-scope-and-dependency-selection)
+  - [4.2 Chain and Deployment Manifest](#42-chain-and-deployment-manifest)
+  - [4.3 Identity and Wallet Binding](#43-identity-and-wallet-binding)
+  - [4.4 Lifecycle Registry](#44-lifecycle-registry)
+  - [4.5 Finality and Transaction Recovery](#45-finality-and-transaction-recovery)
+  - [4.6 Wallet and Payment Behavior](#46-wallet-and-payment-behavior)
+  - [4.7 Discovery and Optional Commerce](#47-discovery-and-optional-commerce)
+  - [4.8 BAP-578 Compatibility](#48-bap-578-compatibility)
+- [5. Rationale](#5-rationale)
+- [6. Backwards Compatibility](#6-backwards-compatibility)
+- [7. Test Cases](#7-test-cases)
+- [8. Reference Implementations](#8-reference-implementations)
+- [9. Security Considerations](#9-security-considerations)
+- [10. References](#10-references)
+- [11. License](#11-license)
 
 ## 1. Summary
 
@@ -17,7 +37,7 @@ This proposal defines the Agent Lifecycle Protocol (ALP) v0.4-draft and its BNB 
 
 ALP composes agent registration, cryptographic wallet binding, policy-controlled spending, HTTP payments, runtime migration, and optional escrow commerce into a verifiable lifecycle. An implementation moves through DRAFT, PROVISIONED, REGISTERED, ACTIVE, SUSPENDED, and RETIRED states, with evidence and recovery requirements for every transition.
 
-The [protocol specification](assets/bap-alp/protocol.md) is normative and contains eight modules: CORE, DISC, A2A, RT, VERIFY, COMM, CONF, and SCHEMA. This BAP supplies the BSC binding; together they are the proposed standard. It makes no changes to consensus, block validity, gas accounting, or existing ERC interfaces. No hard fork is required. `xxxx` is provisional and MUST be replaced with an editor-assigned number through the repository's application proposal process.
+The [protocol specification](assets/bap-alp/protocol.md) is normative and contains eight modules: CORE, DISC, A2A, RT, VERIFY, COMM, CONF, and SCHEMA. This BAP supplies the BSC binding; together they are the proposed standard. It makes no changes to consensus, block validity, gas accounting, or existing ERC interfaces. No hard fork is required. The proposal number is provisional pending assignment through the repository's application proposal process.
 
 ## 3. Motivation
 
@@ -29,7 +49,7 @@ ALP standardizes those boundaries. Owners retain control over permitted expendit
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY follow RFC 2119 and RFC 8174. Requirements in this section supplement [ALP v0.4-draft](assets/bap-alp/protocol.md); a BSC implementation MUST satisfy both.
 
-### 4.1 Scope and dependency selection
+### 4.1 Scope and Dependency Selection
 
 The baseline profile comprises ALP-CORE, ALP-DISC, ALP-SCHEMA, and ALP-CONF. An implementation MUST additionally implement ALP-RT to claim Portable Runtime conformance, ALP-A2A to advertise A2A interoperability, and ALP-COMM to advertise Commerce conformance. Certified Toolchain conformance requires ALP-VERIFY.
 
@@ -45,12 +65,12 @@ The baseline profile comprises ALP-CORE, ALP-DISC, ALP-SCHEMA, and ALP-CONF. An 
 
 A reference to a draft ERC does not imply finalization. Conformance is relative to the exact revisions in a published manifest, never to an unversioned latest release. The protocol does not require an agent to hold native gas when all selected operations have a working relay or sponsorship path; ERC-3009 alone does not sponsor registration, deployment, or arbitrary escrow transactions.
 
-### 4.2 Chain and deployment manifest
+### 4.2 Chain and Deployment Manifest
 
 A BSC binding MUST use `eip155:56` for mainnet or `eip155:97` for testnet. Other networks, including opBNB, require separately identified bindings. The manifest MUST identify:
 
 - Network identifier; identity registry address, source revision, ABI digest, and expected deployed code or proxy implementation identity.
-- Lifecycle registry address and deployment identity, implementing the semantics of section 4.4.
+- Lifecycle Registry address and deployment identity, implementing the semantics of section 4.4.
 - Each payment token by address, decimals, supported authorization scheme, and EIP-712 domain where applicable. A symbol such as USDC is insufficient evidence of support.
 - Payment facilitator endpoints, supported wire versions, fee model, finality rule, and retry/reconciliation behavior.
 - Optional commerce contracts, evaluator adapters, and their exact ABI and implementation identities.
@@ -58,7 +78,7 @@ A BSC binding MUST use `eip155:56` for mainnet or `eip155:97` for testnet. Other
 
 Mutable proxies MUST declare their upgrade authority. Implementation changes MUST invalidate cached compatibility verification until revalidated. This proposal assigns no canonical contract addresses and asserts no existing mainnet deployment.
 
-### 4.3 Identity and wallet binding
+### 4.3 Identity and Wallet Binding
 
 The canonical identifier is `(agentRegistry, agentId)` as defined by the selected ERC-8004 revision; for BSC, `agentRegistry` includes `eip155`, chain ID, and registry address. Identifiers MUST NOT be inferred from names or endpoint URLs.
 
@@ -66,7 +86,7 @@ The registrar MUST verify the current ERC-721 owner and use the registry's walle
 
 An identity transfer or wallet-binding change MUST invalidate all cached sessions and spending delegations. The agent MUST stop accepting work and suspend before re-establishing owner-approved policy and runtime authority. Identity transfer MUST NOT revive a retired identity or transfer old wallet secrets to the new owner.
 
-### 4.4 Lifecycle registry
+### 4.4 Lifecycle Registry
 
 A deployment MUST supply an application contract with a record keyed by the full identity tuple. It MUST store the current state, monotonically increasing sequence, controller address, owner and wallet snapshots, current authority epoch, evidence commitment, and permanent retirement flag. Authority epochs MUST never decrease and MUST match the fenced lease service before activation or resume. An authority change while ACTIVE MUST first close intake and signing and enter SUSPENDED. The record begins at REGISTERED; DRAFT and PROVISIONED are durable local provisioning states, not claims that a registry identity already exists.
 
@@ -76,25 +96,25 @@ The registry MUST reject invalid state edges, stale sequences, unauthorized upda
 
 A retirement flag MUST be immutable, including across upgrades. A mutable ERC-8004 metadata field alone cannot provide this guarantee. Implementations MUST document registry upgrade powers; an unrestricted upgrade that can erase retirement is nonconforming. Multiple registry deployments are different trust domains: verifiers MUST pin the owner-approved lifecycle registry and MUST NOT switch registries to ignore a retirement. Historical retirement in that trust domain remains authoritative after ownership transfer.
 
-### 4.5 Finality and transaction recovery
+### 4.5 Finality and Transaction Recovery
 
 Bindings MUST define how they obtain and independently check BSC finality, including trusted RPC assumptions, supported finality APIs or proofs, and behavior when providers disagree. A receipt or fixed elapsed time MUST NOT be described as verified finality without the declared rule. A finalized checkpoint records chain ID, block number, block hash, transaction hash, and receipt status.
 
 Pending or uncertain transactions MUST remain pending in the operation journal. A client MUST reconcile transaction receipt, authorization consumption, and resulting contract state before retrying. A reorg before finality invalidates dependent transition evidence. If a purported finalized result is contradicted, the runtime MUST fail closed, suspend signing and task intake, and require reconciliation. Registration, funding, activation, and retirement claims MUST NOT advance on unresolved evidence.
 
-### 4.6 Wallet and payment behavior
+### 4.6 Wallet and Payment Behavior
 
 Signing MUST be isolated from model-accessible tools and memory. The wallet binding MUST enforce owner-approved caps, allowed assets, counterparties, destination contracts, method selectors, and authorization expiry. BEP-441 permits delegation but supplies none of these controls by itself. BEP-414 sponsorship decisions are independent of ALP's spending policy.
 
 The signer MUST atomically reserve expenditure across every concurrent runtime and rail sharing the wallet. The x402 authorization MUST be checked against the requested resource, network, token, beneficiary, maximum amount, validity window, and operation identifier. Settled payment and delivered provider credit are separate facts; neither implies the other. See ALP-CORE for reservation, retry, and credit reconciliation requirements.
 
-### 4.7 Discovery and optional commerce
+### 4.7 Discovery and Optional Commerce
 
 Agents MUST expose ALP-DISC's authenticated descriptor and handshake. Their registry registration file MUST advertise the descriptor through its supported service mechanism. Advertising a new service name is an ALP convention, not an upstream ERC extension registration.
 
 Commerce implementations MUST preserve the selected ERC-8183 job states and caller permissions. Additional disputes are evaluator-adapter state, never a silent replacement of the underlying job state machine. At creation, an ALP-COMM adapter MUST commit settlement terms and implement permissionless timeout resolution. Retirement MUST NOT confiscate, redirect, or erase escrow obligations.
 
-### 4.8 BAP-578 compatibility
+### 4.8 BAP-578 Compatibility
 
 An adapter MAY link an NFA token to an ALP identity. It MUST publish both full contract coordinates, prove authorization by both current owners, and prevent conflicting links within its declared registry. BAP-578 `Active`, `Paused`, and `Terminated` map to ALP ACTIVE, SUSPENDED, and RETIRED only after the corresponding ALP transition requirements hold. DRAFT, PROVISIONED, and REGISTERED have no equivalent BAP-578 status. An NFA transfer MUST invalidate the adapter's cached ownership authority. ALP conformance MUST NOT require a second NFT or a learning module.
 
