@@ -1,0 +1,164 @@
+{
+  "notice": "Illustrative shape-valid records only. Addresses, hashes, approvals, signatures, checkpoints, and PASS verdicts are not deployment or conformance evidence.",
+  "records": {
+    "A1": {
+      "record": "descriptor",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "state": "REGISTERED",
+      "lifecycle_sequence": "1",
+      "authority_epoch": "0",
+      "policy_digest": "0xabababababababababababababababababababababababababababababababab",
+      "profiles": [
+        "Core Agent"
+      ],
+      "handshake_endpoint": "https://agent.example/alp/handshake",
+      "bindings": [
+        {
+          "name": "bsc-testnet-example",
+          "digest": "0xabababababababababababababababababababababababababababababababab"
+        }
+      ]
+    },
+    "A2": {
+      "record": "handshake",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "audience": "https://client.example",
+      "nonce": "0xabababababababababababababababababababababababababababababababab",
+      "descriptor_digest": "0xabababababababababababababababababababababababababababababababab",
+      "lifecycle_sequence": "1",
+      "authority_epoch": "0",
+      "issued_at": 1792540800,
+      "expires_at": 1792541100,
+      "proof": "illustrative-not-a-valid-signature"
+    },
+    "A3": {
+      "record": "policy",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "owner": "0x2222222222222222222222222222222222222222",
+      "policy_version": "1",
+      "assets": [
+        {
+          "network": "eip155:97",
+          "asset": "0x2222222222222222222222222222222222222222",
+          "decimals": 6,
+          "resource": "inference",
+          "resource_unit": "credits",
+          "balance_threshold": "100",
+          "refill_amount": "1000000",
+          "daily_spend_cap": "5000000",
+          "balance_floor": "100000",
+          "provider_allowlist": [
+            {
+              "origin": "https://provider.example",
+              "beneficiary": "0x2222222222222222222222222222222222222222",
+              "contract": "0x2222222222222222222222222222222222222222",
+              "selectors": [
+                "0x12345678"
+              ],
+              "max_charge": "1000000",
+              "quote_ttl_seconds": 60
+            }
+          ]
+        }
+      ],
+      "owner_approval": "illustrative-not-a-valid-approval"
+    },
+    "A4": {
+      "record": "transition",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "operation_id": "example-activation-1",
+      "from": "REGISTERED",
+      "to": "ACTIVE",
+      "expected_sequence": "1",
+      "authority_epoch": "1",
+      "policy_digest": "0xabababababababababababababababababababababababababababababababab",
+      "evidence_digest": "0xabababababababababababababababababababababababababababababababab"
+    },
+    "A5": {
+      "record": "payment_receipt",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "operation_id": "example-refill-1",
+      "authorization_id": "0xabababababababababababababababababababababababababababababababab",
+      "policy_digest": "0xabababababababababababababababababababababababababababababababab",
+      "network": "eip155:97",
+      "asset": "0x2222222222222222222222222222222222222222",
+      "beneficiary": "0x2222222222222222222222222222222222222222",
+      "amount": "1000000",
+      "fee": "0",
+      "transaction_hash": "0xabababababababababababababababababababababababababababababababab",
+      "block_number": "1",
+      "block_hash": "0xabababababababababababababababababababababababababababababababab",
+      "receipt_status": 1,
+      "provider_account": "example-account",
+      "credit_amount": "100",
+      "credit_unit": "credits",
+      "provider_receipt_digest": "0xabababababababababababababababababababababababababababababababab"
+    },
+    "A6": {
+      "record": "migration",
+      "version": "0.4-draft",
+      "identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "operation_id": "example-migration-1",
+      "source_runtime": "source",
+      "target_runtime": "target",
+      "phase": "PREPARE",
+      "authority_epoch": "1",
+      "checkpoint_digest": "0xabababababababababababababababababababababababababababababababab",
+      "liability_digest": "0xabababababababababababababababababababababababababababababababab"
+    },
+    "A7": {
+      "record": "verification",
+      "version": "0.4-draft",
+      "artifact_digest": "0xabababababababababababababababababababababababababababababababab",
+      "rule_pack_digest": "0xabababababababababababababababababababababababababababababababab",
+      "inputs_digest": "0xabababababababababababababababababababababababababababababababab",
+      "verdict": "PASS",
+      "findings": []
+    },
+    "A8": {
+      "record": "commerce_terms",
+      "version": "0.4-draft",
+      "provider_identity": {
+        "agentRegistry": "eip155:97:0x1111111111111111111111111111111111111111",
+        "agentId": "1"
+      },
+      "network": "eip155:97",
+      "commerce_contract": "0x2222222222222222222222222222222222222222",
+      "job_id": "1",
+      "asset": "0x2222222222222222222222222222222222222222",
+      "budget": "1000000",
+      "maximum_fee": "10000",
+      "evaluator": "0x2222222222222222222222222222222222222222",
+      "arbiter": "0x2222222222222222222222222222222222222222",
+      "criteria_digest": "0xabababababababababababababababababababababababababababababababab",
+      "funding_deadline": 1792540900,
+      "delivery_deadline": 1792541000,
+      "evaluation_deadline": 1792541100,
+      "expired_at": 1792541200,
+      "timeout_outcome": "REFUND_CLIENT"
+    }
+  }
+}
