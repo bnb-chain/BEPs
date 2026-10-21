@@ -1,0 +1,744 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ALP v0.4-draft records A.1-A.8",
+  "description": "Shape validation only; authorization, signatures, uint256 ranges, network consistency, temporal ordering, and state invariants require semantic checks.",
+  "$defs": {
+    "Identity": {
+      "type": "object",
+      "properties": {
+        "agentRegistry": {
+          "type": "string",
+          "pattern": "^eip155:[1-9][0-9]*:0x[0-9a-fA-F]{40}$"
+        },
+        "agentId": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        }
+      },
+      "required": [
+        "agentRegistry",
+        "agentId"
+      ],
+      "additionalProperties": false
+    },
+    "A1": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "descriptor"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "PROVISIONED",
+            "REGISTERED",
+            "ACTIVE",
+            "SUSPENDED",
+            "RETIRED"
+          ]
+        },
+        "lifecycle_sequence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "authority_epoch": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Core Agent",
+              "A2A Agent",
+              "Portable Runtime",
+              "Commerce Agent",
+              "Certified Toolchain"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "handshake_endpoint": {
+          "type": "string",
+          "pattern": "^https://[^/\\s?#]+(?:/[^\\s]*)?$"
+        },
+        "bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "name",
+              "digest"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "state",
+        "lifecycle_sequence",
+        "authority_epoch",
+        "policy_digest",
+        "profiles",
+        "handshake_endpoint",
+        "bindings"
+      ],
+      "additionalProperties": false
+    },
+    "A2": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "handshake"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "audience": {
+          "type": "string",
+          "pattern": "^https://[^/\\s?#]+(?:/[^\\s]*)?$"
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "descriptor_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "lifecycle_sequence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "authority_epoch": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "issued_at": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "expires_at": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "proof": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "audience",
+        "nonce",
+        "descriptor_digest",
+        "lifecycle_sequence",
+        "authority_epoch",
+        "issued_at",
+        "expires_at",
+        "proof"
+      ],
+      "additionalProperties": false
+    },
+    "A3": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "policy"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "policy_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "network": {
+                "type": "string",
+                "pattern": "^eip155:[1-9][0-9]*$"
+              },
+              "asset": {
+                "type": "string",
+                "pattern": "^0x[0-9a-fA-F]{40}$"
+              },
+              "decimals": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "resource": {
+                "type": "string",
+                "minLength": 1
+              },
+              "resource_unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "balance_threshold": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)$",
+                "maxLength": 78
+              },
+              "refill_amount": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)$",
+                "maxLength": 78
+              },
+              "daily_spend_cap": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)$",
+                "maxLength": 78
+              },
+              "balance_floor": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]*)$",
+                "maxLength": 78
+              },
+              "provider_allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "origin": {
+                      "type": "string",
+                      "pattern": "^https://[^/\\s?#]+(?:/[^\\s]*)?$"
+                    },
+                    "beneficiary": {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-fA-F]{40}$"
+                    },
+                    "contract": {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-fA-F]{40}$"
+                    },
+                    "selectors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{8}$"
+                      },
+                      "minItems": 1,
+                      "uniqueItems": true
+                    },
+                    "max_charge": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)$",
+                      "maxLength": 78
+                    },
+                    "quote_ttl_seconds": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 300
+                    }
+                  },
+                  "required": [
+                    "origin",
+                    "beneficiary",
+                    "contract",
+                    "selectors",
+                    "max_charge",
+                    "quote_ttl_seconds"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "network",
+              "asset",
+              "decimals",
+              "resource",
+              "resource_unit",
+              "balance_threshold",
+              "refill_amount",
+              "daily_spend_cap",
+              "balance_floor",
+              "provider_allowlist"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "owner_approval": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "owner",
+        "policy_version",
+        "assets",
+        "owner_approval"
+      ],
+      "additionalProperties": false
+    },
+    "A4": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "transition"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "PROVISIONED",
+            "REGISTERED",
+            "ACTIVE",
+            "SUSPENDED",
+            "RETIRED"
+          ]
+        },
+        "to": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "PROVISIONED",
+            "REGISTERED",
+            "ACTIVE",
+            "SUSPENDED",
+            "RETIRED"
+          ]
+        },
+        "expected_sequence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "authority_epoch": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "evidence_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "operation_id",
+        "from",
+        "to",
+        "expected_sequence",
+        "authority_epoch",
+        "policy_digest",
+        "evidence_digest"
+      ],
+      "additionalProperties": false
+    },
+    "A5": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "payment_receipt"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorization_id": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "network": {
+          "type": "string",
+          "pattern": "^eip155:[1-9][0-9]*$"
+        },
+        "asset": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "beneficiary": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "amount": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "fee": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "transaction_hash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "block_number": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "block_hash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "receipt_status": {
+          "const": 1
+        },
+        "provider_account": {
+          "type": "string",
+          "minLength": 1
+        },
+        "credit_amount": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "credit_unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_receipt_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "operation_id",
+        "authorization_id",
+        "policy_digest",
+        "network",
+        "asset",
+        "beneficiary",
+        "amount",
+        "fee",
+        "transaction_hash",
+        "block_number",
+        "block_hash",
+        "receipt_status",
+        "provider_account",
+        "credit_amount",
+        "credit_unit",
+        "provider_receipt_digest"
+      ],
+      "additionalProperties": false
+    },
+    "A6": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "migration"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_runtime": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_runtime": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase": {
+          "enum": [
+            "PREPARE",
+            "QUIESCE",
+            "FENCE",
+            "TRANSFER",
+            "ACTIVATE",
+            "FINALIZE"
+          ]
+        },
+        "authority_epoch": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "checkpoint_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "liability_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "identity",
+        "operation_id",
+        "source_runtime",
+        "target_runtime",
+        "phase",
+        "authority_epoch",
+        "checkpoint_digest",
+        "liability_digest"
+      ],
+      "additionalProperties": false
+    },
+    "A7": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "verification"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "artifact_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "rule_pack_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "inputs_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "verdict": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "INDETERMINATE"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "artifact_digest",
+        "rule_pack_digest",
+        "inputs_digest",
+        "verdict",
+        "findings"
+      ],
+      "additionalProperties": false
+    },
+    "A8": {
+      "type": "object",
+      "properties": {
+        "record": {
+          "const": "commerce_terms"
+        },
+        "version": {
+          "const": "0.4-draft"
+        },
+        "provider_identity": {
+          "$ref": "#/$defs/Identity"
+        },
+        "network": {
+          "type": "string",
+          "pattern": "^eip155:[1-9][0-9]*$"
+        },
+        "commerce_contract": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "job_id": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "asset": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "budget": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "maximum_fee": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)$",
+          "maxLength": 78
+        },
+        "evaluator": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "arbiter": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "criteria_digest": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "funding_deadline": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "delivery_deadline": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "evaluation_deadline": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "expired_at": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "timeout_outcome": {
+          "enum": [
+            "PAY_PROVIDER",
+            "REFUND_CLIENT"
+          ]
+        }
+      },
+      "required": [
+        "record",
+        "version",
+        "provider_identity",
+        "network",
+        "commerce_contract",
+        "job_id",
+        "asset",
+        "budget",
+        "maximum_fee",
+        "evaluator",
+        "arbiter",
+        "criteria_digest",
+        "funding_deadline",
+        "delivery_deadline",
+        "evaluation_deadline",
+        "expired_at",
+        "timeout_outcome"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/A1"
+    },
+    {
+      "$ref": "#/$defs/A2"
+    },
+    {
+      "$ref": "#/$defs/A3"
+    },
+    {
+      "$ref": "#/$defs/A4"
+    },
+    {
+      "$ref": "#/$defs/A5"
+    },
+    {
+      "$ref": "#/$defs/A6"
+    },
+    {
+      "$ref": "#/$defs/A7"
+    },
+    {
+      "$ref": "#/$defs/A8"
+    }
+  ]
+}

@@ -126,6 +126,7 @@ Here is the list of subjects of BAPs:
 |------------------------------| --------------------------------------------------------- | --------- |-----------|
 | [BAP-578](./BAPs/BAP-578.md) | BAP-578: Non-Fungible Agent (NFA) Token Standard | Application | Draft |
 | [BAP-710](./BAPs/BAP-710.md) | BAP-710: Unified PropAMM Relayer | Application | Draft |
+| [BAP-728](./BAPs/BAP-728.md) | BAP-728: Agent Lifecycle Protocol and BNB Smart Chain Binding | Application | Draft |
 
 # BNB Chain Upgrades
 [BNB Chain Upgrades(Mainnet): History & Forecast](https://forum.bnbchain.org/t/bnb-chain-upgrades-mainnet/936)
