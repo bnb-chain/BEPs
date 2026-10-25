@@ -1,5 +1,5 @@
 <pre>
-  BEP: XXX
+  BEP: 730
   Title: Recovery of Binance-Peg BEP20 Tokens Stranded at ZK Stack-Derived Smart-Account Addresses
   Status: Draft
   Type: Standards
@@ -7,9 +7,9 @@
   Description: Adds a signature-verified recovery function to the Binance-Peg BEP20 implementation so that tokens sent on BSC to an address that only exists as a ZKsync-CREATE2 smart account on a ZK Stack chain can be moved by the account's initial owner.
 </pre>
 
-# BEP-XXX: Recovery of Binance-Peg BEP20 Tokens Stranded at ZK Stack-Derived Smart-Account Addresses
+# BEP-730: Recovery of Binance-Peg BEP20 Tokens Stranded at ZK Stack-Derived Smart-Account Addresses
 
-- [BEP-XXX: Recovery of Binance-Peg BEP20 Tokens Stranded at ZK Stack-Derived Smart-Account Addresses](#bep-xxx-recovery-of-binance-peg-bep20-tokens-stranded-at-zk-stack-derived-smart-account-addresses)
+- [BEP-730: Recovery of Binance-Peg BEP20 Tokens Stranded at ZK Stack-Derived Smart-Account Addresses](#bep-730-recovery-of-binance-peg-bep20-tokens-stranded-at-zk-stack-derived-smart-account-addresses)
   - [1. Summary](#1-summary)
   - [2. Abstract](#2-abstract)
   - [3. Status](#3-status)
@@ -33,8 +33,6 @@
   - [9. Reference Implementation](#9-reference-implementation)
   - [10. Precedents](#10-precedents)
   - [11. License](#11-license)
-
-The BEP number is a placeholder. Per [BEP-1](./BEP1.md), the pull request number becomes the BEP number once the PR is merged; "XXX" in the file name and headings is to be replaced with that number.
 
 ## 1. Summary
 
