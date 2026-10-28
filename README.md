@@ -113,6 +113,7 @@ Here is the list of subjects of BEPs:
 | [BEP-706](./BEPs/BEP-706.md) | Millisecond-Precision Block Timestamp Precompile | Standards | Draft |
 | [BEP-714](./BEPs/BEP-714.md) | Reduce Initial Backoff Time to 1 Second | Standards | Draft |
 | [BEP-718](./BEPs/BEP-718.md) | Hardfork Meta-Jenner | Information | Draft |
+| [BEP-732](./BEPs/BEP-732.md) | Block Access Lists for MEV Block Production | Standards | Draft |
 
 # BAPs
 BAP (BNB Application Proposal) defines standards for application layer interactions on BNB Chain. Unlike BEPs which govern core protocol changes, BAPs focus on establishing conventions and interfaces for how applications communicate and interact with each other within the BNB Chain ecosystem.
