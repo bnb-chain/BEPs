@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="700" viewBox="0 40 1120 700" role="img" aria-labelledby="title desc">
+  <title id="title">Concurrent parent import and next-block construction</title>
+  <desc id="desc">After preliminary checks, import block N from verified N-1 state while applying its BAL to an isolated candidate parent state and building N+1. Seal only after import succeeds and the candidate parent state and parent eligibility are confirmed. Failure or a parent change cancels dependent work.</desc>
+  <rect width="1120" height="740" fill="#ffffff" />
+  <rect x="270" y="58" width="580" height="90" fill="#f7f7f7" stroke="#333333" stroke-width="2" rx="12" />
+  <text x="560" y="92" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="24" font-weight="700">Receive N + BAL; N-1 already imported</text>
+  <text x="560" y="124" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Check header, seal, BAL commitment and format</text>
+  <path d="M560 148 V177 H280 V205" fill="none" stroke="#333333" stroke-width="2.5" />
+  <path d="M560 148 V177 H840 V205" fill="none" stroke="#333333" stroke-width="2.5" />
+  <rect x="50" y="205" width="460" height="193" fill="#f7f7f7" stroke="#333333" stroke-width="2" rx="12" />
+  <text x="280" y="242" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="24" font-weight="700">Validate and import N</text>
+  <text x="280" y="278" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Execute from verified N-1 state</text>
+  <text x="280" y="310" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Rebuild BAL and verify execution results</text>
+  <text x="280" y="343" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">BAL prefetching / parallel execution</text>
+  <text x="280" y="376" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="17">Canonical state follows normal import rules</text>
+  <rect x="610" y="205" width="460" height="193" fill="#f7f7f7" stroke="#333333" stroke-width="2" rx="12" />
+  <text x="840" y="242" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="24" font-weight="700">Construct N+1 speculatively</text>
+  <text x="840" y="278" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Apply BAL final values to N-1 state</text>
+  <text x="840" y="310" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Preserve candidate parent state S_N</text>
+  <text x="840" y="343" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">Execute child in a separate mutable view</text>
+  <text x="840" y="376" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="17">Retain candidate; wait before sealing</text>
+  <text x="560" y="302" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="17">in parallel</text>
+  <path d="M280 398 V435 H450 V464" fill="none" stroke="#333333" stroke-width="2.5" />
+  <path d="M840 398 V435 H670 V464" fill="none" stroke="#333333" stroke-width="2.5" />
+  <rect x="200" y="464" width="720" height="115" fill="#f7f7f7" stroke="#333333" stroke-width="2" rx="12" />
+  <text x="560" y="499" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="24" font-weight="700">Validate sealing prerequisites</text>
+  <text x="560" y="533" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">N validated and imported; root(S_N) = N.Root</text>
+  <text x="560" y="561" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="19">N remains canonical head; N+1 passes Parlia checks</text>
+  <path d="M560 579 V617" fill="none" stroke="#333333" stroke-width="2.5" />
+  <rect x="340" y="617" width="440" height="63" fill="#f7f7f7" stroke="#333333" stroke-width="2" rx="12" />
+  <text x="560" y="656" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="24" font-weight="700">Seal and broadcast N+1</text>
+  <path d="M200 520 H24 V705 H270" fill="none" stroke="#333333" stroke-width="2" stroke-dasharray="7 5" />
+  <text x="650" y="711" font-family="Arial, Helvetica, sans-serif" fill="#333333" text-anchor="middle" font-size="17">Validation failure, state mismatch or reorg: discard candidate and state</text>
+  <path d="M280,205 l-6,-12 h12 Z" fill="#333333" />
+  <path d="M840,205 l-6,-12 h12 Z" fill="#333333" />
+  <path d="M450,464 l-6,-12 h12 Z" fill="#333333" />
+  <path d="M670,464 l-6,-12 h12 Z" fill="#333333" />
+  <path d="M560,617 l-6,-12 h12 Z" fill="#333333" />
+  <path d="M270,705 l-12,-6 v12 Z" fill="#333333" />
+</svg>
