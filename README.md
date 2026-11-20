@@ -73,7 +73,7 @@ Here is the list of subjects of BEPs:
 | [BEP-346](./BEPs/BEP-346.md) | Streamline off-chain authentication on Greenfield         | Standards | Enabled     |
 | [BEP-362](./BEPs/BEP-362.md) | Greenfield Storage Fee Paymaster                          | Standards | Enabled |
 | [BEP-364](./BEPs/BEP-364.md) | Primary Storage Provider acts as the upload agent for object creation and update on Greenfield | Standards | Enabled |
-| [BEP-366](./BEPs/BEP-366.md) | PGreenfield Atomic Object Update                           | Standards | Candidate |
+| [BEP-366](./BEPs/BEP-366.md) | Greenfield Atomic Object Update                           | Standards | Candidate |
 | [BEP-402](./BEPs/BEP-402.md) | Complete Missing Fields in Block Header to Generate Signature          | Standards | Enabled |
 | [BEP-404](./BEPs/BEP-404.md) | Clear Miner History when Switching Validator Set          | Standards | Enabled |
 | [BEP-410](./BEPs/BEP-410.md) | Add Agent for Validators          | Standards | Enabled     |
